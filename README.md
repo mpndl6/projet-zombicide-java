@@ -46,6 +46,7 @@
 - Nous avons commencé a réflechir comment nous allons representer le projet sous forme UML : Le diagramme de classe Cell a été commencée, ainsi que le diagamme de ses classes héritantes.
 - Nous avons réfléchis à comment modéliser les zombies et leurs type. 
 - Enfin, nous avons réfléchis à l'algorythme de création (comment répartir les rues, les immeubles etc. comment spliter unn plateau de jeu stc.)
+- Création d'un Trello afin de gérer la gestion du projet.
 
 ## Semaine 2
 
