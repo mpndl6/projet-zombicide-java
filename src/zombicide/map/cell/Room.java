@@ -55,4 +55,13 @@ public class Room extends Cell {
         return this.doors.get(l).isOpen();
     }
 
+    /**
+     * Returns the number of doors in the room.
+     *
+     * @return The number of doors.
+     */
+    public int getNbDoors() {
+        return this.doors.size();
+    }
+
 }
