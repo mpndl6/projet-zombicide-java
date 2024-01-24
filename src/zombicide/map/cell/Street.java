@@ -8,7 +8,7 @@ import zombicide.util.Position;
 public class Street {
 
 /** streets have or not a wastewater on where the zombies go out*/
-protected boolan wastewater;
+protected boolean wastewater;
 
 /** Construct a street
  * We can set a wastewater or not on the cell
