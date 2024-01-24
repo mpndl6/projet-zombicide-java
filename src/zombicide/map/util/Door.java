@@ -34,6 +34,14 @@ public void open() {
 	open = true;
 }
 
+/**
+* Retrieves the location of the door.
+*
+* @return The location of the door.
+*/
+public Location getLocation() {
+	return location;
+}
 }
 
 
