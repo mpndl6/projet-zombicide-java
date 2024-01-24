@@ -91,4 +91,15 @@ public class Room extends Cell {
         this.items.remove(i);
     }
 
+    /**
+     * Opens a specific door in the room.
+     *
+     * @param l The location of the door to be opened.
+     */
+    public void openDoor(Location l) {
+        if(this.doors.containsKey(l))
+            this.doors.get(l).open();
+    }
+
+
 }
