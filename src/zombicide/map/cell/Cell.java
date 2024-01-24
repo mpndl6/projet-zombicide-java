@@ -37,7 +37,9 @@ public abstract class Cell {
 	public List<Survivor> getSurvivors(){
 		return survivors;
 	}
-	
+	public List<Zombie> getZombies(){
+		return zombies;
+	}
 	
 	
 }
