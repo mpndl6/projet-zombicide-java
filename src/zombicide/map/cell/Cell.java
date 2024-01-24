@@ -29,19 +29,22 @@ public abstract class Cell {
 		this.survivors.remove(s);
 	}
 	public int howManySurvivors() {
-		this.survivors.size();
+		return this.survivors.size();
 	}
 	public int howManyZombies() {
-		this.zombies.size();
+		return this.zombies.size();
 	}
 	public List<Survivor> getSurvivors(){
-		this.survivors;
+		return this.survivors;
 	}
 	public List<Zombie> getZombies(){
-		this.zombies;
+		return this.zombies;
 	}
 	public int getNoiseLevel() {
-		this.noiseLevel;
+		return this.noiseLevel;
+	}
+	public boolean canFight() {
+		return !survivors.isEmpty();
 	}
 	
 	
