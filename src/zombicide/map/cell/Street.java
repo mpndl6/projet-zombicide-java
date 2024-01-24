@@ -8,7 +8,7 @@ import zombicide.util.Position;
 public class Street {
 
 /** streets have or not a wastewater on where the zombies go out*/
-private boolan wastewater;
+protected boolan wastewater;
 
 /** Construct a street
  * We can set a wastewater or not on the cell
@@ -27,10 +27,10 @@ public boolean hasWastewater(){
     return this.wastewater;
 }
 
-/**
- * 
+/** It returns the number of zombies we have to generate in a new phase of the game base to survivors XP
+ * @return the number of zombies we have to generate
  */
-private int howManyZombiesToGenerate(){
+public int howManyZombiesToGenerate(){
     Random random = new Random();
     int randomZombies;
     int zombiesToGenerate;
@@ -47,46 +47,19 @@ private int howManyZombiesToGenerate(){
 }
 
 
-/**
- * @return the zombie of the type in parameter
- * @param z the zombietype we want to return
- */
-private Zombie createZombie(ZombieType z){
-
-    switch (z){
-        case ZombieType.WALKERS:
-            return new Walker(); 
-        
-        case ZombieType.RUNNERS:
-            return new Runner();
-        
-        case ZombieType.POWERFUL:
-            return new PowerfulZombie();
-        
-        case ZombieType.RUNNERS:
-            return new Abomination();
-
-        default:
-            return new Zombie();
-    }
-
-
-}
-
 
 /**
  * add to the list of zombies 
  */
-public void generateZombies(){
-    if (this.hasWastewater()){
-     int i =0;
-     while(i<this.howManyZombiesToGenerate()){
-        super.survivors.add(new Zombie());
-     }
-
+public void generateZombies(int howmany){
+     int i=0;
+     int random = ZombieType.random();
+     Zombie zombie = ZombieType.createZombie(random);
+     while(i<howmany){
+        super.survivors.add(zombie);
     }
-}
 
+}
 
 
 }
