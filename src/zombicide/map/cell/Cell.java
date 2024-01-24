@@ -25,5 +25,9 @@ public abstract class Cell {
 	public void removeZombie(Zombies z) {
 		this.zombies.remove(z);
 	}
+	public void removeSurvivor(Survivors s) {
+		this.survivors.remove(s);
+	}
+	
 	
 }
