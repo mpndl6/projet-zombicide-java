@@ -31,6 +31,9 @@ public abstract class Cell {
 	public int howManySurvivors() {
 		return survivors.size();
 	}
+	public int howManyZombies() {
+		return zombies.size();
+	}
 	
 	
 }
