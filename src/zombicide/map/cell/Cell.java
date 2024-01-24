@@ -4,12 +4,12 @@ package zombicide.map.cell;
 public abstract class Cell {
 	protected List<Survivor> survivors;
 	protected List<Zombie> zombies;
-	protected int NoiseLevel;
+	protected int noiseLevel;
 	protected position Position;
 	
-	public Cell(int NoiseLevel,position Position) {
+	public Cell(int noiseLevel,position Position) {
 		
-		this.NoiseLevel=NoiseLevel;
+		this.noiseLevel=noiseLevel;
 		this.Position=Position;
 		this.survivors=new ArrayList<Survivor>();
 		this.zombies=new ArrayList<Zombie>();
@@ -29,16 +29,19 @@ public abstract class Cell {
 		this.survivors.remove(s);
 	}
 	public int howManySurvivors() {
-		return survivors.size();
+		this.survivors.size();
 	}
 	public int howManyZombies() {
-		return zombies.size();
+		this.zombies.size();
 	}
 	public List<Survivor> getSurvivors(){
-		return survivors;
+		this.survivors;
 	}
 	public List<Zombie> getZombies(){
-		return zombies;
+		this.zombies;
+	}
+	public int getNoiseLevel() {
+		this.noiseLevel;
 	}
 	
 	
