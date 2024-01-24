@@ -1,4 +1,7 @@
 package zombicide.map.cell;
+import java.util.Random;
+import zombicide.actors.*;
+
 import zombicide.util.Position;
 
 /** the street cell in the map */
@@ -22,6 +25,25 @@ public Street(Position p, boolean hasWastewater){
  */
 public boolean hasWastewater(){
     return this.wastewater;
+}
+
+/**
+ * 
+ */
+public int howManyZombiesToGenerate(){
+    Random random = new Random();
+    int randomZombies;
+    int zombiesToGenerate;
+    int averageExperience;
+    int totalExperience = 0;
+    for (survivor s : super.survivors){
+        totalExperience += s.getXP();
+    }
+    averageExperience = totalExperience/super.howManySurvivors();
+    zombiesToGenerate = averageExperience/3;
+    randomZombies =  random.nextInt(zombiesToGenerate)+1;    
+
+    return randomZombies;
 }
 
 
