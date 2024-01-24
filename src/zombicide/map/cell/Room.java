@@ -81,5 +81,14 @@ public class Room extends Cell {
     public void addItems(Item i) {
         this.items.add(i);
     }
-    
+
+    /**
+     * Removes an item from the room.
+     *
+     * @param i The item to be removed.
+     */
+    public void removeItems(Item i) {
+        this.items.remove(i);
+    }
+
 }
