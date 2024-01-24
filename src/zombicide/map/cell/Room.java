@@ -64,4 +64,13 @@ public class Room extends Cell {
         return this.doors.size();
     }
 
+    /**
+     * Returns the number of items in the room.
+     *
+     * @return The number of items.
+     */
+    public int getNbitems() {
+        return this.items.size();
+    }
+    
 }
