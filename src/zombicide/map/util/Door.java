@@ -13,10 +13,17 @@ public class Door {
 *
 * @param l The location of the door.
 */
-	public Door(Location l) {
-		this.location=l;
-		this.open=false;
-	}
+public Door(Location l) {
+	this.location=l;
+	this.open=false;
+}
 	
-	
+/**
+* Checks if the door is currently open.
+*
+* @return true if the door is open, false otherwise.
+*/
+public boolean isOpen() {
+        return open;
+    }
 }
