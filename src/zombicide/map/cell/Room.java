@@ -72,5 +72,14 @@ public class Room extends Cell {
     public int getNbitems() {
         return this.items.size();
     }
+
+    /**
+     * Adds an item to the room.
+     *
+     * @param i The item to be added.
+     */
+    public void addItems(Item i) {
+        this.items.add(i);
+    }
     
 }
