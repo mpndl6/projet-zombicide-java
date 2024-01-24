@@ -21,4 +21,26 @@ public class Room extends Cell {
         }
     }
 
+    /**
+     * Determines the possible locations for doors in the room.
+     *
+     * @return A list of possible door locations.
+     */
+    public List<Location> locationOfDoors() {
+        int a = this.getPosition().getX();
+        int b = this.getPosition().getY();
+        List<Location> locations =new ArrayList<Location>();
+
+
+        if(b > 0)
+            locations.add(Location.NORTH);
+        if(b < this.height-1)
+            locations.add(Location.SOUTH);
+        if(a > 0)
+            locations.add(Location.EAST);
+        if(a < this.width-1)
+            locations.add(Location.WEST);
+        return locations;
+    }
+
 }
