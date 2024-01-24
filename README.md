@@ -50,6 +50,12 @@
 
 ## Semaine 2
 
+- Nous avons completé l'uml 
+- Nous nous sommes questionné sur le fait d'utilisé une classe pour les egout ou faire herité la classe street d'une classe street avec un egout et nous avons choisit la deuxième option.
+- Nous nous sommes repartit le travail pour commencer le code
+- nous avons crée des dossiers et des sous dossiers pour organiser le rangement des classes
+- Nous avons une idée pour l'algorythme de division recursif que nous commencerons des cette semaine.
+
 ## Semaine 3
 
 ## Semaine 4
