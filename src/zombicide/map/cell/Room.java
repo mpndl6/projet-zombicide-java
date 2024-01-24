@@ -1,4 +1,7 @@
-package zombicide.cell;
+package zombicide.map.cell;
+import java.util.*;
+import zombicide.map.util.*;
+import zombicide.item.*;
 
 public class Room extends Cell {
 

@@ -1,4 +1,4 @@
-package zombicide;
+package zombicide.map;
 
 public class Map {
 
