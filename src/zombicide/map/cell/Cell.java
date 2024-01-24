@@ -5,12 +5,12 @@ public abstract class Cell {
 	protected List<Survivor> survivors;
 	protected List<Zombie> zombies;
 	protected int noiseLevel;
-	protected position Position;
+	protected Position position;
 	
-	public Cell(int noiseLevel,position Position) {
+	public Cell(int noiseLevel,Position position) {
 		
 		this.noiseLevel=noiseLevel;
-		this.Position=Position;
+		this.position=position;
 		this.survivors=new ArrayList<Survivor>();
 		this.zombies=new ArrayList<Zombie>();
 	}
@@ -45,6 +45,9 @@ public abstract class Cell {
 	}
 	public boolean canFight() {
 		return !survivors.isEmpty();
+	}
+	public Position getPosition() {
+		return this.position;
 	}
 	
 	
