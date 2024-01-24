@@ -4,13 +4,13 @@ public class Room extends Cell {
 
     protected List<Item> items;
     protected Map<Location,Door> doors;
-    protected int width;
-    protected int height;
+    protected int widthOfMap;
+    protected int heightOfMap;
 
     public Room(Position p , int w , int h) {
         super(p);
-        this.width = w;
-        this.height = h;
+        this.widthOfMap = w;
+        this.heightOfMap = h;
         this.items = new ArrayList<Item>();
         this.doors = new HashMap<Location,Door>();
 
@@ -34,11 +34,11 @@ public class Room extends Cell {
 
         if(b > 0)
             locations.add(Location.NORTH);
-        if(b < this.height-1)
+        if(b < this.heightOfMap-1)
             locations.add(Location.SOUTH);
         if(a > 0)
             locations.add(Location.EAST);
-        if(a < this.width-1)
+        if(a < this.widthOfMap-1)
             locations.add(Location.WEST);
         return locations;
     }
