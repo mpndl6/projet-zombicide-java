@@ -28,6 +28,9 @@ public abstract class Cell {
 	public void removeSurvivor(Survivors s) {
 		this.survivors.remove(s);
 	}
+	public int howManySurvivors() {
+		return survivors.size();
+	}
 	
 	
 }
