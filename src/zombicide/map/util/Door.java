@@ -24,6 +24,16 @@ public Door(Location l) {
 * @return true if the door is open, false otherwise.
 */
 public boolean isOpen() {
-        return open;
-    }
+	return open;
+   }
+
+/**
+* Opens the door, changing its state to open.
+*/
+public void open() {
+	open = true;
 }
+
+}
+
+
