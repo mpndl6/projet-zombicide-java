@@ -1,4 +1,4 @@
-package zombicide;
+package zombicide.cell;
 
 public abstract class Cell {
 
