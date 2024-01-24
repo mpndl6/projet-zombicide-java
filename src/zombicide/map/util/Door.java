@@ -1,0 +1,22 @@
+package zombicide.map.util;
+/**
+ * The Door class represents a door with a specific location and provides functionality
+ * to check if it's open, open the door, and retrieve its location.
+*/
+public class Door {
+	protected boolean open;
+	protected Location location;
+	
+/**
+* Constructs a new Door object with the specified location.
+* The door is initially closed.
+*
+* @param l The location of the door.
+*/
+	public Door(Location l) {
+		this.location=l;
+		this.open=false;
+	}
+	
+	
+}
