@@ -46,4 +46,11 @@ public boolean equals(Object o) {
       return false;
    }
 }
+
+/**
+ * @return a string with the position of x and y 
+ */
+public String toString() {
+   return this.x + " , " + this.y;
+}
 }
