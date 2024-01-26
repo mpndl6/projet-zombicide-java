@@ -59,7 +59,7 @@ public int randomIntBetween(int n, int m){
 protected int divideMapVRecursive (int start, int end, int lentgh){
     int w = end - start;
     int lowerBound = 2;
-    int higherBound = w - 2;
+    int higherBound = w - 2; // for the random index
     Random random = new Random();
     if (w < 4) {
         for (int i = start; i < end; i++) {
@@ -79,34 +79,32 @@ protected int divideMapVRecursive (int start, int end, int lentgh){
     return end;
 }
 
+
 /**
- * Initialise principal road
+ * 
+ * @param start
+ * @param end
  */
-protected void initPrincipalStreet(){
-    int randomW = this.randomIntBetween(0,this.width);
-    int randomH = this.randomIntBetween(0, this.heigth
-);
-
-    for (int i=0; i<this.width;i++){
-        this.cells[i][randomH] = new Street();
+public void divideMapVertically(int start, int end){
+    int maximum = this.width -4;
+    while (start<maximum){
+        int i = divideMapVRecursive(start, end, this.width);
+        start = i +1;
     }
-    for (int i=0; i<this.heigth
-;i++){
-        this.cells[i][randomW] = new Street();
-    }
-
-int XcrossRoad = (randomW + this.width-1)/2;
-int YcrossRoad = (randomH + this.heigth-1)/2;
-
-
-this.cells[XcrossRoad][YcrossRoad] = new CrossRoad();
-this.cells[randomW] = new StreetWithWastewater();
-this.cells[randomH] = new StreetWithWastewater();
-this.cells[this.width - randomW] = new StreetWithWastewater();
-this.cells[this.heigth - randomH] = new StreetWithWastewater();
-
 }
 
+/**
+ * 
+ * @param start
+ * @param end
+ */
+public void divideMapHorizontally(int start, int end){
+    int maximum = this.heigth -4;
+    while (start<maximum){
+        int i = divideMapVRecursive(start, end, this.heigth);
+        start = i +1;
+    }
+}
 
 /*
  * initialize the map at creation
@@ -114,14 +112,12 @@ this.cells[this.heigth - randomH] = new StreetWithWastewater();
  */
 protected void initmap(){
     int randomW = this.randomIntBetween(0,this.width);
-    int randomH = this.randomIntBetween(0, this.heigth
-);
+    int randomH = this.randomIntBetween(0, this.heigth);
 
     for (int i=0; i<this.width;i++){
         this.cells[i][randomH] = new Street();
     }
-    for (int i=0; i<this.heigth
-;i++){
+    for (int i=0; i<this.heigth;i++){
         this.cells[i][randomW] = new Street();
     }
 
@@ -136,35 +132,13 @@ this.cells[this.width - randomW] = new StreetWithWastewater();
 this.cells[this.heigth - randomH] = new StreetWithWastewater();
 
 
-while ()
-divideMapVRecursive(0, randomW, this.width); // 0 to Principal Street (witdh)
-divideMapVRecursive(randomW+1, this.width, this.width); // Principal Street to end of Map (width)
-divideMapVRecursive(randomH+1, this.heigth, this.heigth); // Principal Street to end of Map (heigh)
-divideMapVRecursive(0, randomH, this.heigth); // 0 to Principal Street (heigh)
+this.divideMapHorizontally(0, randomW); // 0 to Principal Street (witdh)
+this.divideMapHorizontally(randomW+1, this.width); // Principal Street to end of Map (width)
 
-}
+this.divideMapVertically(0,randomH); // 0 to Principal Street (heitgh)
+this.divideMapVertically(randomH+1,this.heigth); // Principal Street to end of Map (heitgh)
 
-/**
- * Divide map horrizontally and vertically in a recursive way 
- * @param start 
- * @param endW
- * @param endH
- * @param w
- * @param h
- */
-public void divideMap(int start, int endW, int endH, int w, int h){
-    int maximumW = w -4;
-    int maximumH = h-4;
-    endW = w;
-    while (start<maximumW){
-        int i = divideMapVRecursive(start, endW, this.width);
-        start = i +1;
-    }
 
-    while (start<maximumH){
-        int i = divideMapVRecursive(start, endH, this.heigth);
-        start = i +1;       
-    }
 }
 
 
