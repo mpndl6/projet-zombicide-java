@@ -33,4 +33,17 @@ public int getX() {
 public int getY() {
    return this.y;
 }
+
+/**
+ * two positions are equals if they have same coordinates
+ * 
+ */
+public boolean equals(Object o) {
+   if (o instanceof Position) {
+      Position other = (Position) o;
+      return this.x == other.x && this.y == other.y;
+   } else {
+      return false;
+   }
+}
 }
