@@ -21,4 +21,16 @@ public Position(int x, int y) {
 	this.x = x;
 	this.y = y;
 }
+/**
+ * @return the x coordinate
+ */
+public int getX() {
+   return this.x;
+}
+/**
+ * @return the y coordinate
+ */
+public int getY() {
+   return this.y;
+}
 }
