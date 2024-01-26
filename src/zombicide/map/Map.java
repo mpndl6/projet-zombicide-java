@@ -81,11 +81,11 @@ protected int divideMapVRecursive (int start, int end, int lentgh){
 
 
 /**
- * 
- * @param start
- * @param end
+ * Divide the Map in streets vertically
+ * @param start the start of the section we want to divide
+ * @param end the end of the section we want to divide
  */
-public void divideMapVertically(int start, int end){
+protected void divideMapVertically(int start, int end){
     int maximum = this.width -4;
     while (start<maximum){
         int i = divideMapVRecursive(start, end, this.width);
@@ -94,11 +94,11 @@ public void divideMapVertically(int start, int end){
 }
 
 /**
- * 
- * @param start
- * @param end
+ * Divide the Map in streets horizontally
+ * @param start the start of the section we want to divide
+ * @param end the end of the section we want to divide
  */
-public void divideMapHorizontally(int start, int end){
+protected void divideMapHorizontally(int start, int end){
     int maximum = this.heigth -4;
     while (start<maximum){
         int i = divideMapVRecursive(start, end, this.heigth);
@@ -115,10 +115,10 @@ protected void initmap(){
     int randomH = this.randomIntBetween(0, this.heigth);
 
     for (int i=0; i<this.width;i++){
-        this.cells[i][randomH] = new Street();
+        this.cells[randomW][i] = new Street();
     }
     for (int i=0; i<this.heigth;i++){
-        this.cells[i][randomW] = new Street();
+        this.cells[i][randomH] = new Street();
     }
 
 int XcrossRoad = (randomW + this.width-1)/2;
