@@ -1,8 +1,10 @@
 package zombicide.map;
 
-import java.util.Random;
+import java.util.*;
 
 import zombicide.map.cell.*;
+import zombicide.map.util.*;
+import zombicide.actor.*;
 
 public class Map {
 
@@ -32,22 +34,23 @@ public int getheigth(){
 }
 
 /**
- * @return heigth ofmap 
+ * @return width ofmap 
  */
 public int getWidth(){
     return this.heigth;
 }
 
 /**
- * This method returns a int between two numbers
+ * This method returns a random int between two numbers
  * @param n first int
- * @param end second int 
- * @return an int between n and m
+ * @param m second int 
+ * @return a random int between n and m
  */
 public int randomIntBetween(int n, int m){
     Random random = new Random();
-    return random.nextInt(n - m) + n;
+    return random.nextInt(m - n + 1) + n;
 }
+
 
 /**
  * Complementary method 
@@ -56,27 +59,30 @@ public int randomIntBetween(int n, int m){
  * @param end the end of the section we want to divide
  * @return value of the end of the smallest section of Map
  */
-protected int divideMapVRecursive (int start, int end, int lentgh){
-    int w = end - start;
-    int lowerBound = 2;
-    int higherBound = w - 2; // for the random index
-    Random random = new Random();
-    if (w < 4) {
+protected int divideMapVRecursive (int start, int end, int width, int heigth){
+    int w = end - start +1;
+    int lowerBound = start +2;
+    int higherBound = end - 2; // for the random index
+    if (w < 5) {
         for (int i = start; i < end; i++) {
-            for (int j = 0; j < w; j++) {
-                this.cells[i][j] = new Room();
+            for (int j = 0; j < heigth; j++) {
+                Position p = new Position (i,j);
+                if (!(this.cells[i][j] instanceof Street))
+                this.cells[i][j] = new Room(p, this.width,this.heigth);
             }
         } // fill cells of room
+        return end;
     } 
     else {
         int place = randomIntBetween(lowerBound, higherBound); // random between higherBound and lowerBound 
+        for (int j=0; j<heigth; j++){
+            Position p = new Position (place,j);
+            this.cells[place][j] = new Street(p);
+        }
         end = place;
-        for (int j=0; j<lentgh; j++){
-            this.cells[place][j] = new Street();
+        this.divideMapVRecursive (start,end,width,heigth);
         }
-        this.divideMapVRecursive (start,end,lentgh);
-        }
-    return end;
+    return 0;
 }
 
 
