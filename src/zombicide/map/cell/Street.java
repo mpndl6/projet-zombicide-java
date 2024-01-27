@@ -1,11 +1,11 @@
 package zombicide.map.cell;
 import java.util.Random;
-import zombicide.actors.*;
-
-import zombicide.util.Position;
+import zombicide.map.util.*;
+import zombicide.actor.survivors.*;
+import zombicide.actor.zombies.*;
 
 /** the street cell in the map */
-public class Street {
+public class Street extends Cell{
 
 /** streets have or not a wastewater on where the zombies go out*/
 protected boolean wastewater;
@@ -20,6 +20,9 @@ public Street(Position p, boolean hasWastewater){
     this.wastewater=hasWastewater;
 }
 
+public Street (Position p){
+    super(p);
+}
 /**
  * @return true if the cell street constains a wastewater
  */
@@ -36,7 +39,7 @@ public int howManyZombiesToGenerate(){
     int zombiesToGenerate;
     int averageExperience;
     int totalExperience = 0;
-    for (survivor s : super.survivors){
+    for (Survivor s : super.survivors){
         totalExperience += s.getXP();
     }
     averageExperience = totalExperience/super.howManySurvivors();
@@ -53,10 +56,10 @@ public int howManyZombiesToGenerate(){
  */
 public void generateZombies(int howmany){
      int i=0;
-     int random = ZombieType.random();
+     ZombieType random = ZombieType.random();
      Zombie zombie = ZombieType.createZombie(random);
      while(i<howmany){
-        super.survivors.add(zombie);
+        super.addZombies(zombie);
     }
 
 }

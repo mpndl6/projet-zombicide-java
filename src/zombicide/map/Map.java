@@ -4,7 +4,7 @@ import java.util.*;
 
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
-import zombicide.actor.*;
+
 
 public class Map {
 
@@ -23,7 +23,7 @@ protected Cell[][] cells;
 public Map (int w, int h){
     this.width = w;
     this.heigth= h;
-    initmap();
+    //initmap();
 }
 
 /**
@@ -80,9 +80,8 @@ protected int divideMapVRecursive (int start, int end, int width, int heigth){
             this.cells[place][j] = new Street(p);
         }
         end = place;
-        this.divideMapVRecursive (start,end,width,heigth);
+        return this.divideMapVRecursive (start,end,width,heigth);
         }
-    return 0;
 }
 
 
@@ -94,7 +93,7 @@ protected int divideMapVRecursive (int start, int end, int width, int heigth){
 protected void divideMapVertically(int start, int end){
     int maximum = this.width -4;
     while (start<maximum){
-        int i = divideMapVRecursive(start, end, this.width);
+        int i = divideMapVRecursive(start, end, this.width, this.heigth);
         start = i +1;
     }
 }
@@ -107,7 +106,7 @@ protected void divideMapVertically(int start, int end){
 protected void divideMapHorizontally(int start, int end){
     int maximum = this.heigth -4;
     while (start<maximum){
-        int i = divideMapVRecursive(start, end, this.heigth);
+        int i = divideMapVRecursive(start, end, this.heigth, this.width);
         start = i +1;
     }
 }
@@ -115,7 +114,7 @@ protected void divideMapHorizontally(int start, int end){
 /*
  * initialize the map at creation
  * 
- */
+ 
 protected void initmap(){
     int randomW = this.randomIntBetween(0,this.width);
     int randomH = this.randomIntBetween(0, this.heigth);
@@ -146,6 +145,6 @@ this.divideMapVertically(randomH+1,this.heigth); // Principal Street to end of M
 
 
 }
-
+*/
 
 }
