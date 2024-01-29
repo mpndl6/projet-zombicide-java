@@ -82,6 +82,7 @@ protected int divideMapVRecursive (int start, int end, int width, int heigth){
         end = place;
         return this.divideMapVRecursive (start,end,width,heigth);
         }
+
 }
 
 
