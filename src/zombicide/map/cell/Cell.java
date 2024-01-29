@@ -104,7 +104,7 @@ public abstract class Cell {
 	
 	/**
      *  
-     *  Checks if there are survivors in the cell who can fight    
+     *  Checks if actors can fitgh in area
      * @return true if there are survivors who can fight, false otherwise
      */ 
 	public abstract boolean canFight();
