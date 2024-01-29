@@ -33,6 +33,8 @@ public boolean hasWastewater(){
 /** It returns the number of zombies we have to generate in a new phase of the game base to survivors XP
  * @return the number of zombies we have to generate
  */
+
+/* à mettre dans dans  game ..
 public int howManyZombiesToGenerate(){
     Random random = new Random();
     int randomZombies;
@@ -44,16 +46,16 @@ public int howManyZombiesToGenerate(){
     }
     averageExperience = totalExperience/super.howManySurvivors();
     zombiesToGenerate = averageExperience/3;
-    randomZombies =  random.nextInt(zombiesToGenerate)+1;    
 
-    return randomZombies;
+    return  zombiesToGenerate;
 }
+*/
 
 
+/*
+ * a mettre dans game
+ * add to the list of zombies
 
-/**
- * add to the list of zombies 
- */
 public void generateZombies(int howmany){
      int i=0;
      ZombieType random = ZombieType.random();
@@ -61,7 +63,7 @@ public void generateZombies(int howmany){
      while(i<howmany){
         super.addZombies(zombie);
     }
-
+*/
 }
 
 
