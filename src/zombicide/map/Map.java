@@ -98,6 +98,7 @@ protected void divideMapVertically(int start, int end){
     }
 }
 
+
 /**
  * Divide the Map in streets horizontally
  * @param start the start of the section we want to divide
