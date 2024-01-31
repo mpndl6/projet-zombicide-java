@@ -3,7 +3,7 @@ package zombicide.map.cell.room;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
 
-public class Continental {
+public class Continental extends Room {
     public Continental(Position p, int w,int h){
         super(p,w,h);
     }
