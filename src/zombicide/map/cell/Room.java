@@ -104,6 +104,8 @@ public class Room extends Cell {
         if(this.doors.containsKey(l))
             this.doors.get(l).open();
     }
-
+    public boolean canFight() {
+    	return true;
+    }
 
 }
