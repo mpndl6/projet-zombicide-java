@@ -116,13 +116,13 @@ protected void divideMapHorizontally(int start, int end){
 }
 
 
-/*
+/**
  * initialize the map at creation
- * 
+ */
  
 protected void initmap(){
-    int randomW = this.randomIntBetween(0,this.width);
-    int randomH = this.randomIntBetween(0, this.heigth);
+    int randomW = this.randomIntBetween(2,this.width-2);
+    int randomH = this.randomIntBetween(2, this.heigth-2);
 
     for (int i=0; i<this.width;i++){
         this.cells[randomW][i] = new Street();
@@ -131,25 +131,25 @@ protected void initmap(){
         this.cells[i][randomH] = new Street();
     }
 
-int XcrossRoad = (randomW + this.width-1)/2;
-int YcrossRoad = (randomH + this.heigth-1)/2;
+int XcrossRoad = randomW;
+int YcrossRoad = randomH
 
 
 this.cells[XcrossRoad][YcrossRoad] = new CrossRoad();
-this.cells[randomW] = new StreetWithWastewater();
-this.cells[randomH] = new StreetWithWastewater();
-this.cells[this.width - randomW] = new StreetWithWastewater();
-this.cells[this.heigth - randomH] = new StreetWithWastewater();
+this.cells[randomW][0] = new StreetWW();
+this.cells[randomH][0] = new StreetWW();
+this.cells[randomW][this.width-1] = new StreetWW();
+this.cells[randomH][this.heitgh-1] = new StreetWW();
 
 
-this.divideMapHorizontally(0, randomW); // 0 to Principal Street (witdh)
+this.divideMapHorizontally(0, randomW-1); // 0 to Principal Street (witdh)
 this.divideMapHorizontally(randomW+1, this.width); // Principal Street to end of Map (width)
 
-this.divideMapVertically(0,randomH); // 0 to Principal Street (heitgh)
+this.divideMapVertically(0,randomH-1); // 0 to Principal Street (heitgh)
 this.divideMapVertically(randomH+1,this.heigth); // Principal Street to end of Map (heitgh)
 
 
 }
-*/
+
 
 }
