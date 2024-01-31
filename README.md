@@ -44,19 +44,24 @@
 
 - Fork du projet sur git/eclipse
 - Nous avons commencé a réflechir comment nous allons representer le projet sous forme UML : Le diagramme de classe Cell a été commencée, ainsi que le diagamme de ses classes héritantes.
-- Nous avons réfléchis à comment modéliser les zombies et leurs type. 
+- Nous avons réfléchis à comment modéliser les zombies et leurs type.
 - Enfin, nous avons réfléchis à l'algorythme de création (comment répartir les rues, les immeubles etc. comment spliter unn plateau de jeu stc.)
 - Création d'un Trello afin de gérer la gestion du projet.
 
 ## Semaine 2
 
-- Nous avons completé l'uml 
+- Nous avons completé l'uml
 - Nous nous sommes questionné sur le fait d'utilisé une classe pour les egout ou faire herité la classe street d'une classe street avec un egout et nous avons choisit la deuxième option.
 - Nous nous sommes repartit le travail pour commencer le code
 - nous avons crée des dossiers et des sous dossiers pour organiser le rangement des classes
 - Nous avons une idée pour l'algorythme de division recursif que nous commencerons des cette semaine.
 
 ## Semaine 3
+
+_ Nous avons réevalué notre algorythme de création et nous avons crée la méthode display pour afficher la map.
+Nous avons eu quelques problèmes du à la compilation, nous devons régler les imports.
+Nous avons de nouvelles classe à ajouter pour notre modélisation.
+Nous allons nous répartir nos tâches sur Trello et refaire l'uml.
 
 ## Semaine 4
 
