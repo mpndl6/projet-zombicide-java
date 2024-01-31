@@ -30,6 +30,10 @@ public boolean hasWastewater(){
     return this.wastewater;
 }
 
+public boolean canFight() {
+    	return true;
+    }
+
 /** It returns the number of zombies we have to generate in a new phase of the game base to survivors XP
  * @return the number of zombies we have to generate
  */
@@ -67,4 +71,4 @@ public void generateZombies(int howmany){
 }
 
 
-}
+

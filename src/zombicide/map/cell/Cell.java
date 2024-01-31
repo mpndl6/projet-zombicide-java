@@ -18,9 +18,9 @@ public abstract class Cell {
 	protected Position position;
 	
 	// Constructor to initialize the cell with noise level and position
-	public Cell(int noiseLevel,Position position) {
+	public Cell(Position position) {
 		
-		this.noiseLevel=noiseLevel;
+		this.noiseLevel=0;
 		this.position=position;
 		this.survivors=new ArrayList<Survivor>();
 		this.zombies=new ArrayList<Zombie>();
