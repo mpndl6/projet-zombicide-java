@@ -23,7 +23,7 @@ protected Cell[][] cells;
 public Map (int w, int h){
     this.width = w;
     this.heigth= h;
-    //initmap();
+    divideMapVertically(w,h);
 }
 
 /**
@@ -153,34 +153,35 @@ this.divideMapVertically(randomH+1,this.heigth); // Principal Street to end of M
 
 
 public void display() {
-    for(int i = 0 , i < this.cells.length , i++) {
-        for(int j = 0 , i < this.cells[0].length , j++) {
+    for(int i = 0; i < this.cells.length; i++) {
+        for(int j = 0; i < this.cells[0].length; j++) {
             if(this.cells[i][j] instanceof Room)
                 if(j < this.cells[0].length - 1)
-                    System.out.print(" R  ")
+                    System.out.print(" R  ");
                 else
-                    System.out.println(" R  ")
+                    System.out.println(" R  ");
             if(this.cells[i][j] instanceof Street)
                 if(j < this.cells[0].length - 1)
-                    System.out.print(" S  ")
+                    System.out.print(" S  ");
                 else
-                    System.out.println(" S  ")
+                    System.out.println(" S  ");
             if(this.cells[i][j] instanceof Continental)
-                if(j < this.cells[0].length - 1)
-                    System.out.print(" RC ")
+                if(j < this.cells[0].length - 1);
+                    System.out.print(" RC ");
                 else
-                    System.out.println(" RC ")
+                    System.out.println(" RC ");
             if(this.cells[i][j] instanceof StreetWW)
-                if(j < this.cells[0].length - 1)
-                    System.out.print(" SW ")
+                if(j < this.cells[0].length - 1);
+                    System.out.print(" SW ");
                 else
-                    System.out.println(" SW ")
+                    System.out.println(" SW ");
             if(this.cells[i][j] instanceof DrugStore)
-                if(j < this.cells[0].length - 1)
-                    System.out.print(" RD ")
+                if(j < this.cells[0].length - 1);
+                    System.out.print(" RD ");
                 else
-                    System.out.println(" RD ")
+                    System.out.println(" RD ");
         }
     }
 }
+
 }
