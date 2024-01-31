@@ -3,7 +3,7 @@ package zombicide.map.cell.room;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
 
-public class DrugStore {
+public class DrugStore extends Room {
     public DrugStore(Position p, int w,int h){
         super(p,w,h);
     }
