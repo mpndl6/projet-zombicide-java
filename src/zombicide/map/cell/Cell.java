@@ -2,7 +2,7 @@ package zombicide.map.cell;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import zombicide.map.util.*;
 
 import zombicide.actor.survivors.Survivor;
 import zombicide.actor.zombies.Zombie;
