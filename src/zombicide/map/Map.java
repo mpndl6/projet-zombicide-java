@@ -115,6 +115,7 @@ protected void divideMapHorizontally(int start, int end){
     this.divideMapVRecursive(start, end, this.heigth, this.width);
 }
 
+
 /*
  * initialize the map at creation
  * 
