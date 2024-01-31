@@ -97,6 +97,7 @@ protected void divideMapVertically(int start, int end){
         int i = divideMapVRecursive(start, end, this.width, this.heigth);
         start = i +1;
     }
+    this.divideMapVRecursive(start, end, this.width, this.heigth);
 }
 
 
@@ -108,9 +109,10 @@ protected void divideMapVertically(int start, int end){
 protected void divideMapHorizontally(int start, int end){
     int maximum = this.heigth -4;
     while (start<maximum){
-        int i = divideMapVRecursive(start, end, this.heigth, this.width)+1;
-        start = i;
+        int i = divideMapVRecursive(start, end, this.heigth, this.width);
+        start = i+1;
     }
+    this.divideMapVRecursive(start, end, this.heigth, this.width);
 }
 
 /*
