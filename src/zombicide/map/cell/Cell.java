@@ -30,7 +30,7 @@ public abstract class Cell {
      * Adds a zombie to the cell
      *@param Zombie to be added to the cell
      */
-	public void addZombies(Zombie z) {
+	public void welcomeZombies(Zombie z) {
 		this.zombies.add(z);
 	}
 	
@@ -38,7 +38,7 @@ public abstract class Cell {
      * Adds a survivor to the cell
      *@param Survivor to be added to the cell
      */
-	public void addSurvivors(Survivor s) {
+	public void welcomeSurvivors(Survivor s) {
 		this.survivors.add(s);
 	}
 	
