@@ -38,7 +38,7 @@ public abstract class Cell {
      * Adds a survivor to the cell
      *@param Survivor to be added to the cell
      */
-	public void welcomeSurvivors(Survivor s) {
+	public void welcomeSurvivor(Survivor s) {
 		this.survivors.add(s);
 	}
 	
