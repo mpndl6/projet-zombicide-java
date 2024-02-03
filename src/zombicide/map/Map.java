@@ -40,6 +40,21 @@ public int getWidth(){
     return this.heigth;
 }
 
+/**
+ * Generates a random number within a given range.
+ *
+ * @param max The maximum value.
+ * @param min The minimum value.
+ * @return A random number within the specified range.
+ */
+public int generatNumberForInitmap(int max1 , int min1) {
+    int max = max1 - 2;
+    int min = min1 + 2;
+    int range = max - min + 1;
+    int rand = (int)(Math.random() * range) + min;
+    return rand;
+}
+
 
 /**
  * Initializes the map with streets.
