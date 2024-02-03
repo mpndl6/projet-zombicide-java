@@ -119,7 +119,21 @@ public Position generatFirstRoad() {
     initmap(wl - 1 , 0 , this.heigth - 1 , hl + 1);
 
     return new Position(wl,hl);
-}  
+}
+
+/**
+ * Generates a random number for special room placement.
+ *
+ * @param m The maximum value.
+ * @return A random number for special room placement.
+ */
+public int generatNumberForSpecialRoom(int m) {
+    int max = m;
+    int min = 0 ;
+    int range = max - min + 1;
+    int rand = (int)(Math.random() * range) + min;
+    return rand;
+}
 
 
 
