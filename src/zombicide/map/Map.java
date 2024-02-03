@@ -135,6 +135,35 @@ public int generatNumberForSpecialRoom(int m) {
     return rand;
 }
 
+/**
+ * Places special rooms like Continentals and DrugStores on the map.
+ */
+public void putSpecialRoom() {
+    int x1 = this.generatNumberForSpecialRoom(this.width - 1);
+    int y1 = this.generatNumberForSpecialRoom(this.heigth - 1);
+    if(!(this.cells[x1][y1] instanceof Room)){
+        if(!(this.cells[x1 + 1][y1] instanceof Room))
+            this.cells[x1 + 1][y1+1] = new  Continental(new Position(x1+1,y1+1),this.width,this.heigth);
+        else
+            this.cells[x1 + 1][y1] = new  Continental(new Position(x1+1,y1),this.width,this.heigth);
+    }
+    else{
+        this.cells[x1][y1] = new  Continental(new Position(x1,y1),this.width,this.heigth);
+    } 
+
+    int x2 = this.generatNumberForSpecialRoom(this.width - 1);
+    int y2 = this.generatNumberForSpecialRoom(this.heigth - 1);
+    if(!(this.cells[x2][y2] instanceof Room)){
+        if(!(this.cells[x2 + 1][y2] instanceof Room))
+            this.cells[x2 + 1][y2+1] = new  DrugStore(new Position(x2+1,y2+1),this.width,this.heigth);
+        else
+            this.cells[x2 + 1][y2] = new  DrugStore(new Position(x2+1,y2),this.width,this.heigth);
+    }
+    else{
+        this.cells[x2][y2] = new  DrugStore(new Position(x2,y2),this.width,this.heigth);
+    } 
+}
+
 
 
 public void display() {
