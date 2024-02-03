@@ -99,6 +99,28 @@ public void initmap(int wmax , int wmin , int hmax , int hmin ) {
     }
 }
 
+/**
+ * Generates the first road on the map.
+ *
+ * @return The position of the main intersection.
+ */
+public Position generatFirstRoad() {
+    int wl = generatNumberForInitmap(this.width - 1,0);
+    int hl = generatNumberForInitmap(this.heigth - 1,0);
+    for(int j = 0 ; j <= this.heigth - 1 ; j++) {
+        this.cells[wl][j] = new Street(new Position(wl,j));
+    }
+    for(int i = 0 ; i <= this.width - 1 ; i++) {
+        this.cells[i][hl] = new Street(new Position(i,hl));
+    }
+    initmap(this.width - 1 , wl + 1 , hl -1 , 0);
+    initmap(this.width - 1 , wl + 1 , this.heigth - 1 , hl + 1);
+    initmap(wl - 1 , 0 , hl -1 , 0);
+    initmap(wl - 1 , 0 , this.heigth - 1 , hl + 1);
+
+    return new Position(wl,hl);
+}  
+
 
 
 public void display() {
