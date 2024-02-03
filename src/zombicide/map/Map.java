@@ -10,6 +10,7 @@ public class Map {
 
 protected int width; 
 protected int heigth;
+protected Position principalIntersection;
 protected Cell[][] cells;
 
 /**
@@ -22,8 +23,18 @@ protected Cell[][] cells;
  */
 public Map (int w, int h){
     this.width = w;
-    this.heigth= h;
-    divideMapVertically(w,h);
+    this.heigth = h;
+    this.cells = new Cell[w][h];
+
+    for(int i = 0 ; i < w ; i++) {
+        for(int j = 0 ; j < h ; j++) {
+            this.cells[i][j] = new Room(new Position(i,j) , w , h);
+        }
+    }
+
+
+    this.principalIntersection = this.generatFirstRoad();
+    this.putSpecialRoom(); 
 }
 
 /**
