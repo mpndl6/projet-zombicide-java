@@ -41,6 +41,49 @@ public int getWidth(){
 }
 
 
+/**
+ * Initializes the map with streets.
+ *
+ * @param wmax The maximum width.
+ * @param wmin The minimum width.
+ * @param hmax The maximum height.
+ * @param hmin The minimum height.
+ */
+public void initmap(int wmax , int wmin , int hmax , int hmin ) {
+    if(wmax - wmin >= 4 && hmax - hmin >= 4) {
+        int wl = generatNumberForInitmap(wmax , wmin);
+        int hl = generatNumberForInitmap(hmax , hmin);
+        for(int j = hmin ; j <= hmax ; j++) {
+            this.cells[wl][j] = new Street(new Position(wl,j));
+        }
+        for(int i = wmin ; i <= wmax ; i++) {
+            this.cells[i][hl] = new Street(new Position(i,hl));
+        }
+        initmap(wmax , wl + 1 , hl -1 , hmin);
+        initmap(wmax , wl + 1 , hmax , hl + 1);
+        initmap(wl - 1 , wmin , hl -1 , hmin);
+        initmap(wl - 1 , wmin , hmax , hl + 1);
+    }
+
+    if(wmax - wmin >= 4 && hmax - hmin < 4) {
+        int wl = generatNumberForInitmap(wmax , wmin); 
+        for(int j = hmin ; j <= hmax ; j++) {
+            this.cells[wl][j] = new Street(new Position(wl,j));
+        }
+        initmap(wmax , wl + 1 , hmax , hmin);
+        initmap(wl - 1 , wmin , hmax , hmin);
+    }
+
+    if(wmax - wmin < 4 && hmax - hmin >= 4) {
+        int hl = generatNumberForInitmap(hmax , hmin);
+        for(int i = wmin ; i <= wmax ; i++) {
+            this.cells[i][hl] = new Street(new Position(i,hl));
+        }
+        initmap(wmax , wmin , hl -1 , hmin);
+        initmap(wmax , wmin, hmax , hl + 1);
+    }
+}
+
 
 
 public void display() {
