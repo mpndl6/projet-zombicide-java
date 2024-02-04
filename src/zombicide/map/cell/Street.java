@@ -38,6 +38,7 @@ public boolean canFight() {
  * @return the number of zombies we have to generate
  */
 
+
 /* à mettre dans dans  game ..
 public int howManyZombiesToGenerate(){
     Random random = new Random();
