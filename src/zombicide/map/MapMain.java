@@ -9,7 +9,7 @@ import zombicide.map.util.*;
 
 public class MapMain {
     public static void main(String[] args) {
-        Map map = new Map(5 , 20);
+        Map map = new Map(10 , 2);
         map.display();
     } 
 } 
