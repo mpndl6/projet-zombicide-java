@@ -1,6 +1,8 @@
 package zombicide.map;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.Before;
 import org.junit.Test;
 import zombicide.map.cell.*;
