@@ -62,6 +62,7 @@ _ Nous avons réevalué notre algorythme de création et nous avons crée la mé
 Nous avons eu quelques problèmes du à la compilation, nous devons régler les imports.
 Nous avons de nouvelles classe à ajouter pour notre modélisation.
 Nous allons nous répartir nos tâches sur Trello et refaire l'uml.
+Nous avons ajouté les test pour les classes concerné pour le livrable 1
 
 ## Semaine 4
 
