@@ -1,5 +1,7 @@
 package zombicide.map.cell;
 import java.util.*;
+
+import zombicide.actor.survivors.Survivor;
 import zombicide.map.util.*;
 import zombicide.item.*;
 
@@ -21,15 +23,15 @@ public class Room extends Cell {
         List<Location> locations = this.locationOfDoors();
 
         for(Location l : locations) {
-            this.doors.put(l,new Door(l));
+            this.doors.put(l,new Door());
         }
     }
 
-    /**
+/**
      * Determines the possible locations for doors in the room.
      *
      * @return A list of possible door locations.
-     */
+*/
     public List<Location> locationOfDoors() {
         int a = this.getPosition().getX();
         int b = this.getPosition().getY();
@@ -45,6 +47,17 @@ public class Room extends Cell {
         if(a < this.widthOfMap-1)
             locations.add(Location.WEST);
         return locations;
+    }
+
+    /**
+     *
+     * @param l
+     * @return
+     */
+    public boolean hasDoor(Location l){
+        if (this.doors.containsKey(l))
+            return true;
+        return false;
     }
 
     /**
@@ -77,6 +90,17 @@ public class Room extends Cell {
         return this.items.size();
     }
 
+    public void setDoor(Door d, Location location){
+        this.doors.put(location,d);
+    }
+
+/**
+ *
+ */
+public Door getDoor(Location l){
+    return doors.get(l);
+}
+
     /**
      * Adds an item to the room.
      *
@@ -108,4 +132,18 @@ public class Room extends Cell {
     	return true;
     }
 
+    public String toString(){
+        String whatToDisplay = "";
+        whatToDisplay +="R";
+        if (!super.survivors.isEmpty()) {
+            for (Survivor s : super.survivors) {
+                whatToDisplay += " " + s.toString();
+            }
+        }
+        return whatToDisplay;
+
+    }
+
 }
+
+
