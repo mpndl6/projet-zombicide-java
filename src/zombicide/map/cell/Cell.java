@@ -2,12 +2,14 @@ package zombicide.map.cell;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import zombicide.map.grid.element.ElementGrid;
 import zombicide.map.util.*;
 
 import zombicide.actor.survivors.Survivor;
 import zombicide.actor.zombies.Zombie;
 
-public abstract class Cell {
+public abstract class Cell /*implements ElementGrid*/ {
 	
 	//List to store survivors and zombies in the cell
 	protected List<Survivor> survivors;
@@ -28,7 +30,7 @@ public abstract class Cell {
 	
 	  /**
      * Adds a zombie to the cell
-     *@param Zombie to be added to the cell
+     *@param z to be added to the cell
      */
 	public void welcomeZombies(Zombie z) {
 		this.zombies.add(z);
@@ -36,7 +38,7 @@ public abstract class Cell {
 	
 	  /**
      * Adds a survivor to the cell
-     *@param Survivor to be added to the cell
+     *@param s to be added to the cell
      */
 	public void welcomeSurvivor(Survivor s) {
 		this.survivors.add(s);
@@ -44,7 +46,7 @@ public abstract class Cell {
 	
 	  /**
      *  Removes a zombie from the cell
-     *@param Zombie to be removed from the cell
+     *@param z to be removed from the cell
      */
 	public void removeZombie(Zombie z) {
 		this.zombies.remove(z);
@@ -52,7 +54,7 @@ public abstract class Cell {
 	
 	  /**
      *  Removes a survivor from the cell
-     *@param Survivor to be removed from the cell
+     *@param s to be removed from the cell
      */
 	public void removeSurvivor(Survivor s) {
 		this.survivors.remove(s);
@@ -107,7 +109,13 @@ public abstract class Cell {
      * @return true if there are survivors who can fight, false otherwise
      */ 
 	public abstract boolean canFight();
-	
+
+	/**
+	 *
+	 */
+	public void display(){
+
+	}
 	/**
      *  
      *  Gets the position of the cell
