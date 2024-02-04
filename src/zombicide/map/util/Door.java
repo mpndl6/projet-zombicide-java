@@ -1,20 +1,23 @@
 package zombicide.map.util;
+
+//import zombicide.map.grid.element.ElementGrid;
+
 /**
  * The Door class represents a door with a specific location and provides functionality
  * to check if it's open, open the door, and retrieve its location.
 */
 public class Door {
 	protected boolean open;
-	protected Location location;
+	//protected Location location;
 	
 /**
 * Constructs a new Door object with the specified location.
 * The door is initially closed.
 *
-* @param l The location of the door.
+* //@param l The location of the door.
 */
-public Door(Location l) {
-	this.location=l;
+public Door() {
+	//this.location=l;
 	this.open=false;
 }
 	
@@ -34,14 +37,19 @@ public void open() {
 	open = true;
 }
 
-/**
+/*
 * Retrieves the location of the door.
 *
 * @return The location of the door.
-*/
+
 public Location getLocation() {
 	return location;
 }
+*/
+
+/*public String display(){
+return "";
+}*/
 }
 
 
