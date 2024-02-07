@@ -37,7 +37,19 @@ public class Map {
         this.principalIntersection = this.generatFirstRoad();
         this.putSpecialRoom();
     }
-
+    /**
+     * Places waste water objects at specified positions on the map.
+     * Wastewater objects are placed at the edges of
+     * the plan in relation to the main crossroads.
+     */
+    public void putWasteWater(){
+        int x = principalIntersection.getX();
+        int y = principalIntersection.getY();
+        this.cells[x][0] = new StreetWW(new Position(x,0));
+        this.cells[0][y] = new StreetWW(new Position(0,y));
+        this.cells[x][this.heigth] = new StreetWW(new Position(x,this.heigth));
+        this.cells[this.width][y] = new StreetWW(new Position(this.width,y));
+    }
     public void sharedDoors() {
         for (int w = 0; w < this.width; w++) {
             for (int h = 0; h < this.heigth; h++) {
