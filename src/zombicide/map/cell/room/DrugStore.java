@@ -3,7 +3,7 @@ import zombicide.map.cell.*;
 import zombicide.map.util.*;
 import zombicide.actor.survivors.Survivor;
 
-public class DrugStore extends Room {
+public class DrugStore extends SpecialRoom {
 
     /**
      * It creates the DrugStore of the Map
