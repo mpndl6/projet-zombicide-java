@@ -66,6 +66,11 @@ Nous avons ajouté les test pour les classes concerné pour le livrable 1
 
 ## Semaine 4
 
+Nous avons etabli le plan pour gérer les doors et leur affichage. Nous avions réussi à faire un affichage approximatif et nous avons une idée pour l'affichage finale.
+Nous avons crée une nouvelle classe Special dont tous les objets specials room (continental, drugstore etc.) et nous avons changé le constructeur de Map afin de pouvoir ajouter une liste de room special. Ainsi, nous respecterons le principe OCP et il sera possible de créer de nouvel room speaicl et de les ajouter aléatoirement à la map.
+Nous avons également crée un enum pour gerer les différent type de room. 
+On se repartit les dernieères tâches afin de finir le premier livrables. (Il y a également des test qui ont été effectués au cours de la semaine).
+
 ## Semaine 5
 
 ## Semaine 6
