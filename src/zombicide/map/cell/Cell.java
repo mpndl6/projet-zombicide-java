@@ -113,9 +113,7 @@ public abstract class Cell /*implements ElementGrid*/ {
 	/**
 	 *
 	 */
-	public void display(){
-
-	}
+	public abstract String display();
 	/**
      *  
      *  Gets the position of the cell
