@@ -47,8 +47,8 @@ public class Map {
         int y = principalIntersection.getY();
         this.cells[x][0] = new StreetWW(new Position(x,0));
         this.cells[0][y] = new StreetWW(new Position(0,y));
-        this.cells[x][this.heigth] = new StreetWW(new Position(x,this.heigth));
-        this.cells[this.width][y] = new StreetWW(new Position(this.width,y));
+        this.cells[x][this.heigth-1] = new StreetWW(new Position(x,this.heigth-1));
+        this.cells[this.width-1][y] = new StreetWW(new Position(this.width-1,y));
     }
     public void sharedDoors() {
         for (int w = 0; w < this.width; w++) {
