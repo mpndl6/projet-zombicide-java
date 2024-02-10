@@ -3,32 +3,26 @@ import java.util.Random;
 import zombicide.map.util.*;
 import zombicide.actor.survivors.*;
 import zombicide.actor.zombies.*;
+import zombicide.map.cell.util.*;
 
 /** the street cell in the map */
 public class Street extends Cell{
 
-/** streets have or not a wastewater on where the zombies go out*/
-protected boolean wastewater;
+protected CellType cellType;
+
 
 /** Construct a street
- * We can set a wastewater or not on the cell
  * @param p the position of the cell street
- * @param hasWastewater is true when the street constains a wastewater
  */
-public Street(Position p, boolean hasWastewater){
+public Street(Position p){
     super(p);
-    this.wastewater=hasWastewater;
+    this.cellType = CellType.STREET;
 }
 
 public Street (Position p){
     super(p);
 }
-/**
- * @return true if the cell street constains a wastewater
- */
-public boolean hasWastewater(){
-    return this.wastewater;
-}
+
 
 public boolean canFight() {
     	return true;
