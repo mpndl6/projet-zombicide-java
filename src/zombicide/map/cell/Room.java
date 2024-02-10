@@ -131,6 +131,16 @@ public Door getDoor(Location l){
     }
 
     /**
+     * Tell is the door at location l is open or not
+     * @param l the location of the door
+     * @return true isf the door is open
+     */
+    public boolean isOpen(Location l){
+        return false;
+        //TODO
+    }
+
+    /**
      * Opens a specific door in the room.
      *
      * @param l The location of the door to be opened.
