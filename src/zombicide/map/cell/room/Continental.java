@@ -14,5 +14,10 @@ public class Continental extends SpecialRoom {
         return false;
     }
 
+    @Override
+    public String display() {
+        return null;
+    }
+
 
 }

@@ -104,6 +104,7 @@ public abstract class Cell /*implements ElementGrid*/ {
 		return this.noiseLevel;
 	}
 
+
 	
 	/**
      *  

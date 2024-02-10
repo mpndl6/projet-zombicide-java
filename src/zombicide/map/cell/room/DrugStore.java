@@ -26,5 +26,10 @@ public class DrugStore extends SpecialRoom {
         //super.items.add(new Vial());
     }
 
+    @Override
+    public String display() {
+        return null;
+    }
+
 
 }
