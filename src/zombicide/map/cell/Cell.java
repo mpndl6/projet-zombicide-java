@@ -15,9 +15,10 @@ public abstract class Cell /*implements ElementGrid*/ {
 	protected List<Survivor> survivors;
 	protected List<Zombie> zombies;
 	
-	// The noise level and position of the cell
+	// The noise level and position and the type of the cell
 	protected int noiseLevel;
 	protected Position position;
+
 	
 	// Constructor to initialize the cell with noise level and position
 	public Cell(Position position) {
@@ -102,6 +103,7 @@ public abstract class Cell /*implements ElementGrid*/ {
 	public int getNoiseLevel() {
 		return this.noiseLevel;
 	}
+
 	
 	/**
      *  
