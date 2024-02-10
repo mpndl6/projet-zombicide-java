@@ -114,10 +114,6 @@ public abstract class Cell /*implements ElementGrid*/ {
 	public abstract boolean canFight();
 
 	/**
-	 *
-	 */
-	public abstract String display();
-	/**
      *  
      *  Gets the position of the cell
      * @return The position of the cell
