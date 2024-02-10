@@ -4,7 +4,7 @@ import java.util.*;
 import zombicide.actor.survivors.Survivor;
 import zombicide.map.util.*;
 import zombicide.item.*;
-
+import zombicide.map.cell.util.*;
 
 public class Room extends Cell {
 
@@ -12,9 +12,11 @@ public class Room extends Cell {
     protected Map<Location,Door> doors;
     protected int widthOfMap;
     protected int heightOfMap;
+    protected CellType cellType;
 
     public Room(Position p , int w , int h) {
         super(p);
+        this.cellType = CellType.ROOM;
         this.widthOfMap = w;
         this.heightOfMap = h;
         this.items = new ArrayList<Item>();
@@ -27,11 +29,20 @@ public class Room extends Cell {
         }
     }
 
-/**
+    /**
+     * get type of cell
+     * 
+     *@return type of cell 
+     */
+    public CellType getTypeOfCell() {
+        return this.cellType;
+    } 
+
+    /**
      * Determines the possible locations for doors in the room.
      *
      * @return A list of possible door locations.
-*/
+    */
     public List<Location> locationOfDoors() {
         int a = this.getPosition().getX();
         int b = this.getPosition().getY();
