@@ -143,10 +143,6 @@ public Door getDoor(Location l){
     	return true;
     }
 
-    @Override
-    public String display() {
-        return null;
-    }
 
     public String toString(){
         String whatToDisplay = "";
