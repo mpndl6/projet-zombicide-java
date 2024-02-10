@@ -153,16 +153,12 @@ public Door getDoor(Location l){
     	return true;
     }
 
-
+    /**
+     * Returns the description of the cell
+     * @return the description of the cell
+     */
     public String toString(){
-        String whatToDisplay = "";
-        whatToDisplay +="R";
-        if (!super.survivors.isEmpty()) {
-            for (Survivor s : super.survivors) {
-                whatToDisplay += " " + s.toString();
-            }
-        }
-        return whatToDisplay;
+        return "R";
 
     }
 
