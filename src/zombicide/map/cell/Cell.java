@@ -122,6 +122,8 @@ public abstract class Cell /*implements ElementGrid*/ {
 	public Position getPosition() {
 		return this.position;
 	}
+
+	public abstract Object getTypeOfCell();
 	
 	
 }

@@ -5,6 +5,7 @@ import java.util.*;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
 import zombicide.map.cell.room.*;
+import zombicide.map.cell.util.CellType;
 
 
 public class Map {
@@ -35,7 +36,13 @@ public class Map {
         }
 
         this.principalIntersection = this.generatFirstRoad();
-        this.putSpecialRoom();
+        this.putWasteWater();
+        
+        Position p = this.getPostionOfRoom(getListOfRooms());
+        this.putSpecialRoom(new Continental(p,w,h),p);
+
+        Position p2 = this.getPostionOfRoom(getListOfRooms());
+        this.putSpecialRoom(new DrugStore(p2,w,h),p2);
     }
     /**
      * Places waste water objects at specified positions on the map.
@@ -213,31 +220,25 @@ public class Map {
         return rand;
     }
 
-    /**
-     * Places special rooms like Continentals and DrugStores on the map.
-     */
-    public void putSpecialRoom() {
-        int x1 = this.generatNumberForSpecialRoom(this.width - 1);
-        int y1 = this.generatNumberForSpecialRoom(this.heigth - 1);
-        if (!(this.cells[x1][y1] instanceof Room)) {
-            if (!(this.cells[x1 + 1][y1] instanceof Room))
-                this.cells[x1 + 1][y1 + 1] = new Continental(new Position(x1 + 1, y1 + 1), this.width, this.heigth);
-            else
-                this.cells[x1 + 1][y1] = new Continental(new Position(x1 + 1, y1), this.width, this.heigth);
-        } else {
-            this.cells[x1][y1] = new Continental(new Position(x1, y1), this.width, this.heigth);
-        }
+    public List<Room> getListOfRooms() {
+        List<Room> list = new ArrayList<Room>();
+        for(int i = 0 ; i < this.width ; i++) {
+            for(int j = 0 ; j < this.heigth ; j++){
+                if(this.cells[i][j].getTypeOfCell() == CellType.ROOM)
+                    list.add((Room) this.cells[i][j]);
+            }
 
-        int x2 = this.generatNumberForSpecialRoom(this.width - 1);
-        int y2 = this.generatNumberForSpecialRoom(this.heigth - 1);
-        if (!(this.cells[x2][y2] instanceof Room)) {
-            if (!(this.cells[x2 + 1][y2] instanceof Room))
-                this.cells[x2 + 1][y2 + 1] = new DrugStore(new Position(x2 + 1, y2 + 1), this.width, this.heigth);
-            else
-                this.cells[x2 + 1][y2] = new DrugStore(new Position(x2 + 1, y2), this.width, this.heigth);
-        } else {
-            this.cells[x2][y2] = new DrugStore(new Position(x2, y2), this.width, this.heigth);
         }
+        return list;
+    }
+
+    public Position getPostionOfRoom(List<Room> l) {
+        int n = generatNumberForSpecialRoom(l.size()-1);
+        return l.get(n).getPosition();
+    }
+
+    public void putSpecialRoom(Room r,Position p) {
+        this.cells[p.getX()][p.getY()] = r;
     }
 
 
