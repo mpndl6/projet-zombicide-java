@@ -26,12 +26,22 @@ public Street(Position p){
   */
 public CellType getTypeOfCell() {
     return this.cellType;
-} 
+}
 
-
-public boolean canFight() {
+    /**
+     * 
+     * @return true if it's possible to fith in this area
+     */
+    public boolean canFight() {
     	return true;
     }
+    /**
+     * @return a description of the cell
+     */
+    public String toString(){
+        return "S";
+    }
+    
 
 /** It returns the number of zombies we have to generate in a new phase of the game base to survivors XP
  * @return the number of zombies we have to generate
