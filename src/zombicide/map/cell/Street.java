@@ -19,9 +19,14 @@ public Street(Position p){
     this.cellType = CellType.STREET;
 }
 
-public Street (Position p){
-    super(p);
-}
+ /**
+  * get type of cell
+  * 
+  *@return type of cell 
+  */
+public CellType getTypeOfCell() {
+    return this.cellType;
+} 
 
 
 public boolean canFight() {
