@@ -9,7 +9,7 @@ import zombicide.map.cell.util.*;
 public class Room extends Cell {
 
     protected List<Item> items;
-    protected Map<Location,Door> doors;
+    protected Map<Location,Boolean> doors;
     protected int widthOfMap;
     protected int heightOfMap;
     protected CellType cellType;
@@ -20,12 +20,12 @@ public class Room extends Cell {
         this.widthOfMap = w;
         this.heightOfMap = h;
         this.items = new ArrayList<Item>();
-        this.doors = new HashMap<Location,Door>();
+        this.doors = new HashMap<Location,Boolean>();
 
         List<Location> locations = this.locationOfDoors();
 
         for(Location l : locations) {
-            this.doors.put(l,new Door());
+            this.doors.put(l,false);
         }
     }
 
