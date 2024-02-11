@@ -2,13 +2,12 @@ package grid;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
-import zombicide.map.cell.Street;
-import zombicide.map.util.Door;
 import zombicide.map.util.Location;
 
-import javax.management.remote.rmi.RMIConnectionImpl;
-import java.util.Scanner;
 
+/**
+ * This class will permit to display the grid of the map
+ */
 public class Grid {
     protected Map map;
 
@@ -20,8 +19,8 @@ public class Grid {
     public static final String separatorOpen = " ";
 
     /**
-     * Its construct the grid of the map in param
-     * @param m the map od the grid
+     * Its displays the grid of the map in param
+     * @param m the map to display
      */
     //System.out.print(d.display1()+Grid.requireSpace(((Room)cell).toString()));
     public Grid(Map m,int weightOfCell ){
@@ -103,7 +102,10 @@ public class Grid {
     }
 
     /**
-     *
+     * Tell is the wall at location c is a wall or not (a door)
+     * @param c the cell we look at
+     * @param l location where it's verified
+     * @return true if the wall is a wall or false if it's a door
      */
     public boolean isWall(Cell c, Location l){
         Cell[][] cellsOfMap = this.map.getCells();
@@ -124,8 +126,8 @@ public class Grid {
     }
 
     /**
-     * Display the first line on the board
-     * @param cell the current cell on board
+     * Display the separators between this cell and its environment
+     * @param cell the current cell
      */
     public void displayFisrtLine(Cell cell){
         Cell[][] cellsOfMap = this.map.getCells();
@@ -159,8 +161,8 @@ public class Grid {
     }
 
     /**
-     *
-     * @param cell
+     * Display the separators between this cell and its environment
+     * @param cell the current cell
      */
     public void displaySecondLine(Cell cell){
 
@@ -200,8 +202,8 @@ public class Grid {
         }
 
     /**
-     *
-     * @param cell
+     * Display the separators between this cell and its environment
+     * @param cell the current cell
      */
     public void displayThirdLine(Cell cell){
 
