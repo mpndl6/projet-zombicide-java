@@ -58,48 +58,7 @@ public class Map {
         this.cells[this.width-1][y] = new StreetWW(new Position(this.width-1,y));
     }
     public void sharedDoors() {
-        for (int w = 0; w < this.width; w++) {
-            for (int h = 0; h < this.heigth; h++) {
-                this.cells[w][h] = new Room(new Position(w, h), this.width, this.heigth);
-            }
-        }
-        for (int w = 1; w < this.width - 1; w++) {
-            for (int h = 1; h < this.heigth - 1; h++) {
-                Room room = (Room) this.cells[w][h];
-                Cell upCell = (Room) cells[w - 1][h];
-                Cell rightCell = (Room) cells[w][h + 1];
-                Cell leftCell = (Room) cells[w][h - 1];
-                Cell downCell = (Room) cells[w + 1][h];
-
-                ((Room) upCell).setDoor(((Room) room).getDoor(Location.NORTH), Location.SOUTH);
-                ((Room) rightCell).setDoor(((Room) room).getDoor(Location.EAST), Location.WEST);
-                ((Room) leftCell).setDoor(((Room) room).getDoor(Location.WEST), Location.EAST);
-                ((Room) downCell).setDoor(((Room) room).getDoor(Location.WEST), Location.EAST);
-
-            }
-        }
-        for (int h = 1; h < this.heigth - 1; h++) {
-            Room room = (Room) this.cells[0][h];
-            Cell rightCell = (Room) cells[0][h + 1];
-            Cell leftCell = (Room) cells[0][h - 1];
-            Cell downCell = (Room) cells[1][h];
-
-            ((Room) rightCell).setDoor(((Room) room).getDoor(Location.EAST), Location.WEST);
-            ((Room) leftCell).setDoor(((Room) room).getDoor(Location.WEST), Location.EAST);
-            ((Room) downCell).setDoor(((Room) room).getDoor(Location.WEST), Location.EAST);
-        }
-        for (int w = 1; w < this.width - 1; w++) {
-            Room room = (Room) this.cells[0][0];
-            Cell rightCell = (Room) cells[0][0 + 1];
-            Cell upCell = (Room) cells[w - 1][0];
-            Cell downCell = (Room) cells[1][0];
-
-            ((Room) rightCell).setDoor(((Room) room).getDoor(Location.EAST), Location.WEST);
-            ((Room) upCell).setDoor(((Room) room).getDoor(Location.NORTH), Location.SOUTH);
-            ((Room) downCell).setDoor(((Room) room).getDoor(Location.WEST), Location.EAST);
-        }
-
-
+        // TODO
     }
 
     /**
