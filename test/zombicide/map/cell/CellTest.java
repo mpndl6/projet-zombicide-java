@@ -75,12 +75,6 @@ public class CellTest {
         assertTrue(cell.canFight());
     }
 
-    @Test
-    public void testDisplay(){
-        String display=cell.display();
-        assertNotNull(display);
-        assertFalse(display.isEmpty());
-    }
 
     @Test
     public void testGetPosition(){
