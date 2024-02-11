@@ -11,33 +11,35 @@ import javax.management.remote.rmi.RMIConnectionImpl;
 public class Grid {
     protected Map map;
 
-    public static final int REQUIRE_LENGTH=10; // for the cell to always have the same weigh
+    private int weightOfCell; // the weight of cells
     public static final String separatorHWall = "█";
     public static final String separatorVWall = "-";
     public static final String separatorCloseVDoor = "|";
     public static final String separatorCloseHDoor = "-";
     public static final String separatorOpen = " ";
 
-
     /**
      * Its construct the grid of the map in param
      * @param m the map od the grid
      */
     //System.out.print(d.display1()+Grid.requireSpace(((Room)cell).toString()));
-    public Grid(Map m){
+    public Grid(Map m,int weightOfCell ){
         this.map =m;
+        this.weightOfCell = weightOfCell;
+
+
     }
 
     /**
      * display s + padding
      * @param s the string we want to add the padding
      */
-    public static void padding(String s){
+    public void padding(String s){
         int givenLength = s.length();
-        if (givenLength >=REQUIRE_LENGTH )
+        if (givenLength >= this.weightOfCell )
             System.out.print(s);
         else{
-            int missingSpace = REQUIRE_LENGTH - givenLength;
+            int missingSpace = this.weightOfCell - givenLength;
             System.out.print(s+" ".repeat(missingSpace));
         }
     }
@@ -193,7 +195,7 @@ public class Grid {
 
         public void displayLastWall(){
         Cell[][] cellsOfMap = this.map.getCells();
-        System.out.print(separatorVWall.repeat(REQUIRE_LENGTH*cellsOfMap.length));
+        System.out.print(separatorVWall.repeat(REQUIRE_LENGTH*REQUIRE_LENGTH));
         }
 
     /**
@@ -264,6 +266,5 @@ public class Grid {
 
     }
 }
-
 
 
