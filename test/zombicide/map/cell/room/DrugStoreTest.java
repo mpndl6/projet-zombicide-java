@@ -19,6 +19,6 @@ public class DrugStoreTest {
 
     @Test
     public void testCanFight() {
-        assertTrue(drugStore.canFight());
+        assertTrue(drugstore.canFight());
     }
 }
