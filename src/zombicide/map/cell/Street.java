@@ -39,7 +39,7 @@ public CellType getTypeOfCell() {
      * @return a description of the cell
      */
     public String toString(){
-        return "S";
+        return " ";
     }
     
 
