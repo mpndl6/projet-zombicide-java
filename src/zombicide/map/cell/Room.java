@@ -71,18 +71,18 @@ public class Room extends Cell {
         return false;
     }
 
-    /**
+    /** <-- methode à mettre dans Map ou dans Game
      * Checks if it is possible to leave the room through a specific door.
      *
      * @param l The location of the door.
      * @return True if the door is open, false otherwise.
-     */
+
     public boolean canLeaveByDoor(Location l) {
         if(!this.doors.containsKey(l))
             return false;
         return this.doors.get(l).isOpen();
     }
-
+*/
 
 
     /**
