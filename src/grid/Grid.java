@@ -1,4 +1,4 @@
-package zombicide.map.grid;
+package grid;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
