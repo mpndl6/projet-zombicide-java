@@ -135,9 +135,8 @@ public Door getDoor(Location l){
      * @param l the location of the door
      * @return true isf the door is open
      */
-    public boolean isOpen(Location l){
-        return false;
-        //TODO
+    public Boolean isOpen(Location l){
+    return doors.get(l);
     }
 
     /**
