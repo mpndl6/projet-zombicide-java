@@ -83,14 +83,7 @@ public class Room extends Cell {
         return this.doors.get(l).isOpen();
     }
 
-    /**
-     * Returns the number of doors in the room.
-     *
-     * @return The number of doors.
-     */
-    public int getNbDoors() {
-        return this.doors.size();
-    }
+
 
     /**
      * Returns the number of items in the room.
@@ -101,16 +94,9 @@ public class Room extends Cell {
         return this.items.size();
     }
 
-    public void setDoor(Door d, Location location){
-        this.doors.put(location,d);
-    }
 
-/**
- *
- */
-public Door getDoor(Location l){
-    return doors.get(l);
-}
+
+
 
     /**
      * Adds an item to the room.
@@ -145,9 +131,8 @@ public Door getDoor(Location l){
      * @param l The location of the door to be opened.
      */
     public void openDoor(Location l) {
-        if (this.doors.containsKey(l)) {
             doors.put(l,true);
-        }
+
     }
     public boolean canFight() {
     	return true;
