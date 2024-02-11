@@ -2,17 +2,14 @@ package zombicide.map;
 
 import java.util.*;
 
-import zombicide.map.cell.*;
-import zombicide.map.cell.room.*;
-import zombicide.map.grid.Grid;
-import zombicide.map.util.*;
+import grid.Grid;
 
 
 public class MapMain {
     public static void main(String [] args){
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Bonjpur, vous êtes sur le point de construire votre grille de jeu.");
+        System.out.println("Bonjour, vous êtes sur le point de construire votre grille de jeu.");
         System.out.println("De quel taille souhaitez vous que votre plateau de jeu soit?");
         System.out.print("Choisissez la largeur : ");
         int weightOfMap = scanner.nextInt();
