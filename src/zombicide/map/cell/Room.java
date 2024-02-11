@@ -145,8 +145,9 @@ public Door getDoor(Location l){
      * @param l The location of the door to be opened.
      */
     public void openDoor(Location l) {
-        if(this.doors.containsKey(l))
-            this.doors.get(l).open();
+        if (this.doors.containsKey(l)) {
+            doors.put(l,true);
+        }
     }
     public boolean canFight() {
     	return true;
