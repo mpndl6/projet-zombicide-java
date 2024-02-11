@@ -7,6 +7,7 @@ import zombicide.map.util.Door;
 import zombicide.map.util.Location;
 
 import javax.management.remote.rmi.RMIConnectionImpl;
+import java.util.Scanner;
 
 public class Grid {
     protected Map map;
@@ -130,27 +131,27 @@ public class Grid {
         Cell[][] cellsOfMap = this.map.getCells();
 
         if (isWall(cell, Location.NORTH))
-            System.out.print(separatorVWall.repeat(REQUIRE_LENGTH));
+            System.out.print(separatorVWall.repeat(this.weightOfCell));
 
         else{
             if (isRoom(cell)){
                 if (((Room)cell).isOpen(Location.NORTH))
-                    System.out.print(separatorOpen.repeat(REQUIRE_LENGTH));
+                    System.out.print(separatorOpen.repeat(this.weightOfCell));
 
                 else
-                    System.out.print(separatorCloseHDoor.repeat(REQUIRE_LENGTH));
+                    System.out.print(separatorCloseHDoor.repeat(this.weightOfCell));
             }
 
             else{
                 Cell upCell = cellAbove(cell);
                 if (isRoom(upCell)){
                     if (((Room)upCell).isOpen(Location.SOUTH))
-                        System.out.print(separatorOpen.repeat(REQUIRE_LENGTH));
+                        System.out.print(separatorOpen.repeat(this.weightOfCell));
                     else
-                        System.out.print(separatorCloseHDoor.repeat(REQUIRE_LENGTH));
+                        System.out.print(separatorCloseHDoor.repeat(this.weightOfCell));
                 }
                 else
-                    System.out.print(separatorOpen.repeat(REQUIRE_LENGTH));
+                    System.out.print(separatorOpen.repeat(this.weightOfCell));
 
             }
         }
@@ -195,7 +196,7 @@ public class Grid {
 
         public void displayLastWall(){
         Cell[][] cellsOfMap = this.map.getCells();
-        System.out.print(separatorVWall.repeat(REQUIRE_LENGTH*REQUIRE_LENGTH));
+        System.out.print(separatorVWall.repeat(this.weightOfCell*cellsOfMap[0].length));
         }
 
     /**
@@ -258,13 +259,6 @@ public class Grid {
     }
 
 
-
-    public static void main(String [] args){
-        Map map = new Map(10,14);
-        Grid grid= new Grid(map);
-        grid.displayGrid();
-
-    }
 }
 
 
