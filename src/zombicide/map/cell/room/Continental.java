@@ -14,9 +14,12 @@ public class Continental extends SpecialRoom {
         return false;
     }
 
-    @Override
-    public String display() {
-        return null;
+    /**
+     *
+     * @return a description od the cell
+     */
+    public String toString(){
+        return "C";
     }
 
 

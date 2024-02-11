@@ -131,6 +131,16 @@ public Door getDoor(Location l){
     }
 
     /**
+     * Tell is the door at location l is open or not
+     * @param l the location of the door
+     * @return true isf the door is open
+     */
+    public boolean isOpen(Location l){
+        return false;
+        //TODO
+    }
+
+    /**
      * Opens a specific door in the room.
      *
      * @param l The location of the door to be opened.
@@ -143,20 +153,12 @@ public Door getDoor(Location l){
     	return true;
     }
 
-    @Override
-    public String display() {
-        return null;
-    }
-
+    /**
+     * Returns the description of the cell
+     * @return the description of the cell
+     */
     public String toString(){
-        String whatToDisplay = "";
-        whatToDisplay +="R";
-        if (!super.survivors.isEmpty()) {
-            for (Survivor s : super.survivors) {
-                whatToDisplay += " " + s.toString();
-            }
-        }
-        return whatToDisplay;
+        return "R";
 
     }
 
