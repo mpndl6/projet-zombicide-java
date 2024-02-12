@@ -179,6 +179,11 @@ public class Map {
         return rand;
     }
 
+    /**
+     * Retrieves a list of all rooms present in the grid.
+     *
+     * @return A list containing all the rooms found in the grid.
+     */
     public List<Room> getListOfRooms() {
         List<Room> list = new ArrayList<Room>();
         for(int i = 0 ; i < this.width ; i++) {
@@ -191,11 +196,23 @@ public class Map {
         return list;
     }
 
+    /**
+     * Retrieves the position of a randomly selected room from the given list.
+     *
+     * @param l The list of rooms from which to select.
+     * @return The position of a randomly chosen room.
+     */
     public Position getPostionOfRoom(List<Room> l) {
         int n = generatNumberForSpecialRoom(l.size()-1);
         return l.get(n).getPosition();
     }
 
+    /**
+     * Places a special room at the specified position on the grid.
+     *
+     * @param r The special room to place.
+     * @param p The position at which to place the special room.
+     */
     public void putSpecialRoom(Room r,Position p) {
         this.cells[p.getX()][p.getY()] = r;
     }

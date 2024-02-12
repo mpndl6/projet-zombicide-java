@@ -44,19 +44,11 @@ public class Room extends Cell {
      * @return A list of possible door locations.
     */
     public List<Location> locationOfDoors() {
-        int a = this.getPosition().getX();
-        int b = this.getPosition().getY();
         List<Location> locations =new ArrayList<Location>();
-
-
-        if(b > 0)
-            locations.add(Location.NORTH);
-        if(b < this.heightOfMap-1)
-            locations.add(Location.SOUTH);
-        if(a > 0)
-            locations.add(Location.EAST);
-        if(a < this.widthOfMap-1)
-            locations.add(Location.WEST);
+        locations.add(Location.NORTH);
+        locations.add(Location.SOUTH);
+        locations.add(Location.EAST);
+        locations.add(Location.WEST);
         return locations;
     }
 
