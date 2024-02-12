@@ -28,12 +28,12 @@ public class RoomTest {
     }
    * */  
 
-    @Test
+   /* @Test
     public void testCanLeaveByDoor() {
         assertFalse(room.canLeaveByDoor(Location.NORTH));
         room.openDoor(Location.NORTH);
         assertTrue(room.canLeaveByDoor(Location.NORTH));
-    }
+    }*/
 
     @Test
     public void testGetNbDoors() {
@@ -53,16 +53,23 @@ public class RoomTest {
 */
    
 
-  /*  @Test
+    @Test
     public void testOpenDoor() {
-        assertFalse(door.isOpen());
+        assertFalse(room.isOpen(Location.NORTH));
         room.openDoor(Location.NORTH);
-        assertTrue(door.isOpen());
-    }*/
+        assertTrue(room.isOpen(Location.NORTH));
+    }
 
     @Test
     public void testCanFight() {
         assertTrue(room.canFight());
+    }
+
+    @Test
+    public void isOpen(){
+        assertFalse(room.isOpen(Location.NORTH));
+        room.openDoor(Location.NORTH);
+        assertTrue(room.isOpen(location.NORTH));
     }
 
 }

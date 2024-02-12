@@ -31,12 +31,12 @@ public class Room extends Cell {
 
     /**
      * get type of cell
-     * 
-     *@return type of cell 
+     *
+     *@return type of cell
      */
     public CellType getTypeOfCell() {
         return this.cellType;
-    } 
+    }
 
     /**
      * Determines the possible locations for doors in the room.
@@ -70,19 +70,18 @@ public class Room extends Cell {
             return true;
         return false;
     }
-
+/*
     /**
      * Checks if it is possible to leave the room through a specific door.
      *
      * @param l The location of the door.
      * @return True if the door is open, false otherwise.
-     */
+
     public boolean canLeaveByDoor(Location l) {
         if(!this.doors.containsKey(l))
             return false;
         return this.doors.get(l).isOpen();
-    }
-
+    }*/
 
 
     /**
