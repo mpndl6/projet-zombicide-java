@@ -58,6 +58,28 @@ public class Map {
         this.cells[this.width-1][y] = new StreetWW(new Position(this.width-1,y));
     }
 
+    /**
+     * Tell is the wall at location c is a wall or not (a door)
+     * @param c the cell we look at
+     * @param l location where it's verified
+     * @return true if the wall is a wall or false if it's a door
+     */
+    public boolean isWall(Cell c, Location l){
+        int xCell = c.getPosition().getX();
+        int yCell = c.getPosition().getY();
+
+        switch (l){
+            case NORTH:
+                return xCell==0;
+            case SOUTH:
+                return xCell==this.width-1;
+            case WEST:
+                return yCell == 0;
+            case EAST:
+                return yCell == this.heigth-1;
+        }
+        return false;
+    }
 
     /**
      * Open the neighbor door of the current Cell
