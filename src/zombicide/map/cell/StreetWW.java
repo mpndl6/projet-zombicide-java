@@ -7,4 +7,9 @@ public class StreetWW extends Street{
     public StreetWW(Position p) {
         super(p);
     }
+
+    public String toString(){
+        return "W";
+    }
+
 }
