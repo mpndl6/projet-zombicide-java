@@ -220,6 +220,11 @@ public class Map {
         return rand;
     }
 
+    /**
+     * Retrieves a list of all rooms present in the grid.
+     *
+     * @return A list containing all the rooms found in the grid.
+     */
     public List<Room> getListOfRooms() {
         List<Room> list = new ArrayList<Room>();
         for(int i = 0 ; i < this.width ; i++) {
