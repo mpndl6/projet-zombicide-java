@@ -17,8 +17,12 @@
 ## Livrable 1
 
 ### Atteinte des objectifs
+-On a réussi à faire un algo de création aléatoire du plateau de jeu (on met des rooms et on coupe récursivement en street)
+-Modélisation/affichage:Avec la classe MainFirstDeliverable on peut faire l'affichage. Quand on effectue l'affichage on arrive à distinguer les différentes types de cell (R=room,W=WasteWater,S=street,...), de plus nous affichons les doors de chaque rooms, on a reussi à associer les portes des différentes rooms.
+
 
 ### Difficultés restant à résoudre
+-Nous avions comme idée de mieux respecter le principe d'OCP pour les spéciales rooms.
 
 ## Livrable 2
 
@@ -69,7 +73,13 @@ Nous avons ajouté les test pour les classes concerné pour le livrable 1
 Nous avons etabli le plan pour gérer les doors et leur affichage. Nous avions réussi à faire un affichage approximatif et nous avons une idée pour l'affichage finale.
 Nous avons crée une nouvelle classe Special dont tous les objets specials room (continental, drugstore etc.) et nous avons changé le constructeur de Map afin de pouvoir ajouter une liste de room special. Ainsi, nous respecterons le principe OCP et il sera possible de créer de nouvel room speaicl et de les ajouter aléatoirement à la map.
 Nous avons également crée un enum pour gerer les différent type de room. 
-On se repartit les dernieères tâches afin de finir le premier livrables. (Il y a également des test qui ont été effectués au cours de la semaine).
+On se repartit les dernières tâches afin de finir le premier livrables. (Il y a également des test qui ont été effectués au cours de la semaine).
+On a complété le diagramme uml.
+On a changé comment on utilise les portes.
+On a fait tout les tests.
+On a supprimé des classes obslètes.
+On a ajouté les WasteWater à l'affichage.
+On a ajouté le main pour l'affichage du plateau(fonctionnel).
 
 ## Semaine 5
 
