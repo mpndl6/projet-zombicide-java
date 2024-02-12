@@ -227,7 +227,7 @@ public class Grid {
                         padding(separatorCloseVDoor);
                 }
                 else
-                    padding(separatorOpen+cell);
+                    padding(separatorOpen);
 
             }
         }
