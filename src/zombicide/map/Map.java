@@ -237,6 +237,12 @@ public class Map {
         return list;
     }
 
+    /**
+     * Retrieves the position of a randomly selected room from the given list.
+     *
+     * @param l The list of rooms from which to select.
+     * @return The position of a randomly chosen room.
+     */
     public Position getPostionOfRoom(List<Room> l) {
         int n = generatNumberForSpecialRoom(l.size()-1);
         return l.get(n).getPosition();
