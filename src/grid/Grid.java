@@ -101,29 +101,6 @@ public class Grid {
         return cellsOfMap[xCell-1][yCell];
     }
 
-    /**
-     * Tell is the wall at location c is a wall or not (a door)
-     * @param c the cell we look at
-     * @param l location where it's verified
-     * @return true if the wall is a wall or false if it's a door
-     */
-    public boolean isWall(Cell c, Location l){
-        Cell[][] cellsOfMap = this.map.getCells();
-        int xCell = c.getPosition().getX();
-        int yCell = c.getPosition().getY();
-
-        switch (l){
-            case NORTH:
-                return xCell==0;
-            case SOUTH:
-                return xCell==cellsOfMap.length-1;
-            case WEST:
-                return yCell == 0;
-            case EAST:
-                return yCell == cellsOfMap[0].length-1;
-        }
-        return false;
-    }
 
     /**
      * Display the separators between this cell and its environment
@@ -132,7 +109,7 @@ public class Grid {
     public void displayFisrtLine(Cell cell){
         Cell[][] cellsOfMap = this.map.getCells();
 
-        if (isWall(cell, Location.NORTH))
+        if (map.isWall(cell, Location.NORTH))
             System.out.print(separatorVWall.repeat(this.weightOfCell));
 
         else{
@@ -166,7 +143,7 @@ public class Grid {
      */
     public void displaySecondLine(Cell cell){
 
-        if (isWall(cell, Location.WEST))
+        if (map.isWall(cell, Location.WEST))
             padding(separatorHWall+cell);
 
         else {
@@ -190,7 +167,7 @@ public class Grid {
 
                 }
             }
-        if (isWall(cell, Location.EAST))
+        if (map.isWall(cell, Location.EAST))
             System.out.print(separatorHWall);
 
 
@@ -207,7 +184,7 @@ public class Grid {
      */
     public void displayThirdLine(Cell cell){
 
-        if (isWall(cell, Location.WEST))
+        if (map.isWall(cell, Location.WEST))
             padding(separatorHWall);
 
         else {
@@ -231,7 +208,7 @@ public class Grid {
 
             }
         }
-        if (isWall(cell, Location.EAST))
+        if (map.isWall(cell, Location.EAST))
             System.out.print(separatorHWall);
 
     }
