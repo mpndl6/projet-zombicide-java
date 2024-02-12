@@ -248,6 +248,12 @@ public class Map {
         return l.get(n).getPosition();
     }
 
+    /**
+     * Places a special room at the specified position on the grid.
+     *
+     * @param r The special room to place.
+     * @param p The position at which to place the special room.
+     */
     public void putSpecialRoom(Room r,Position p) {
         this.cells[p.getX()][p.getY()] = r;
     }
