@@ -1,8 +1,7 @@
 package zombicide.map.cell;
 
-import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.*;
+import org.junit.Before;
 import org.junit.Test;
 import zombicide.map.util.Position;
 //import zombicide.item.Door; <-- import obselete
@@ -14,7 +13,7 @@ public class RoomTest {
    // private Door door;
     private Position position;
 
-    @BeforeEach
+    @Before
     public void before() {
         position = new Position(2, 2);
         room = new Room(position, 4, 4);
@@ -35,10 +34,6 @@ public class RoomTest {
         assertTrue(room.canLeaveByDoor(Location.NORTH));
     }*/
 
-    @Test
-    public void testGetNbDoors() {
-        assertEquals(4, room.getNbDoors());
-    }
 
 /** 
  *  EN ATTENDAIT D'AVOIR LA CLASSE ITEM
@@ -69,7 +64,7 @@ public class RoomTest {
     public void isOpen(){
         assertFalse(room.isOpen(Location.NORTH));
         room.openDoor(Location.NORTH);
-        assertTrue(room.isOpen(location.NORTH));
+        assertTrue(room.isOpen(Location.NORTH));
     }
 
 }

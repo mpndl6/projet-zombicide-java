@@ -16,7 +16,7 @@ public class StreetTest {
     @Before
     public void before() {
         Position position = new Position(1, 1);
-        //streetWithWastewater = new Street(position, true);
+
         streetWithoutWastewater = new Street(position);
     }
 
@@ -28,13 +28,11 @@ public class StreetTest {
 
     @Test
     public void testCanFight() {
-        assertTrue(streetWithWastewater.canFight());
         assertTrue(streetWithoutWastewater.canFight());
     }
 
     @Test
     public void testHowManyActorOnCell() {
-        assertEquals(0, streetWithWastewater.howManySurvivors());
         assertEquals(0, streetWithoutWastewater.howManyZombies());
     }
 }

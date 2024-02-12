@@ -1,5 +1,7 @@
+package zombicide.map.cell;
+
 import zombicide.map.util.Position;
-import static org.junit.jupiter.ap.Assertion.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class StreetWWTest {
