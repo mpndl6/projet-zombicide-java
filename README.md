@@ -16,6 +16,16 @@
 
 ## Livrable 1
 
+Après avoir compiler à l'aide d'un ide tel que eclipse, intelliJ etc. ou avec les commandes du shell Il sera possible de créer l'archive exécutable.
+Pour créer l'archive exécutable du premier livrable, il faudra se placer dans le repectoire ../map et effectuer la commande suivante :
+```
+% jar cvfm deliverable1.jar pack1.MainFirstDeliverable -C classes zombicide
+```
+Et pour l'exécuter :
+
+```
+% java -jar deliverable1.jar
+```
 ### Atteinte des objectifs
 - On a réussi à faire un algo de création aléatoire du plateau de jeu (on met des rooms et on coupe récursivement en street)
 
