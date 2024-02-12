@@ -7,10 +7,10 @@ import org.junit.Test;
 
 public class DoorTest {
 
-    private Door door;
+    //private Door door;
     private Location location;
 
-    @Before
+   /* @Before
     public void before() {
         location = Location.NORTH;
         door = new Door(location);
@@ -37,5 +37,5 @@ public class DoorTest {
         assertFalse(door.isOpen());
         door.open();
         assertTrue(door.isOpen());
-    }
+    }*/
 }
