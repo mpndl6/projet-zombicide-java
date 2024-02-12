@@ -9,7 +9,6 @@ public class StreetWW extends Street{
     }
 
     public String toString(){
-        return "W";
-    }
+        return " W ";
 
 }
