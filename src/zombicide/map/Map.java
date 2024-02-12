@@ -57,8 +57,32 @@ public class Map {
         this.cells[x][this.heigth-1] = new StreetWW(new Position(x,this.heigth-1));
         this.cells[this.width-1][y] = new StreetWW(new Position(this.width-1,y));
     }
-    public void sharedDoors() {
-        // TODO
+
+
+    /**
+     * Open the neighbor door of the current Cell
+     * @param current the cell we want to open the door
+     * @param l Location of the door
+     */
+    public void openDoorOfRoom(Cell current ,Location l){
+        int xCell = current.getPosition().getX();
+        int yCell = current.getPosition().getY();
+
+        Cell up = this.cells[xCell-1][yCell];
+        Cell right = this.cells[xCell][yCell+1];
+        Cell left = this.cells[xCell][yCell-1];
+        Cell down = this.cells[xCell+1][yCell];
+        ((Room)current).openDoor(l);
+        switch (l){
+            case NORTH:
+                ((Room)up).openDoor(Location.SOUTH);
+            case SOUTH:
+                ((Room)down).openDoor(Location.NORTH);
+            case WEST:
+                ((Room)left).openDoor(Location.EAST);
+            case EAST:
+                ((Room)right).openDoor(Location.WEST);
+        }
     }
 
     /**
