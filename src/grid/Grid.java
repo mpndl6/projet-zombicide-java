@@ -13,9 +13,9 @@ public class Grid {
 
     private int weightOfCell; // the weight of cells
     public static final String separatorHWall = "█";
-    public static final String separatorVWall = "-";
-    public static final String separatorCloseVDoor = "|";
-    public static final String separatorCloseHDoor = "-";
+    public static final String separatorVWall = "\u2015";
+    public static final String separatorCloseVDoor = "\u2758";
+    public static final String separatorCloseHDoor = "\u2015";
     public static final String separatorOpen = " ";
 
     /**
