@@ -1,6 +1,8 @@
 package zombicide.actor.survivors;
 
-public class Survivor {
+import zombicide.actor.Actor;
+
+public class Survivor extends Actor {
 
     public Survivor(){
 
