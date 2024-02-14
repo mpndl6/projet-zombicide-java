@@ -94,6 +94,13 @@ Et pour l'exécuter :
 
 ## Semaine 5
 
+- Nous avons réflechi à la conception de l'uml pour la livrable 2(Modélisation actors et equipment).
+
+- On a décidé de mettre les classes : survivors/weapons/item en classe abstraite
+
+- On a rélechi aux méthodes pour les classes survivors et weapons
+
+- On a essayé de voir comment attribuer plusieurs rôles aux survivors avec l'héritage.
 ## Semaine 6
 
 ## Semaine 7
