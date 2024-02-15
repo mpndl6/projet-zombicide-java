@@ -17,9 +17,9 @@
 ## Livrable 1
 
 Après avoir compiler à l'aide d'un ide tel que eclipse, intelliJ etc. ou avec les commandes du shell Il sera possible de créer l'archive exécutable.
-Pour créer l'archive exécutable du premier livrable, il faudra se placer dans le repectoire ../map et effectuer la commande suivante :
+Pour créer l'archive exécutable du premier livrable, il faudra se placer dans le repectoire racine (l2s4 ../) et effectuer la commande suivante :
 ```
-% jar cvfm deliverable1.jar pack1.MainFirstDeliverable -C classes zombicide
+% jar cvfe deliverable1.jar zombicide.map.MainFirstDeliverable -C classes zombicide
 ```
 Et pour l'exécuter :
 
