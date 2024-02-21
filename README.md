@@ -103,6 +103,18 @@ Et pour l'exécuter :
 - On a essayé de voir comment attribuer plusieurs rôles aux survivors avec l'héritage.
 ## Semaine 6
 
+- On a refait le diagramme UML. Nous décidons de créer un objet backpack pour gérer les sac à dos des survivors.
+
+- Nous ne savons pas comment gérer la méthode use de weapon.
+
+- Nous hésitons à mettre un attributs survivors dans les items pour pouvoir récupérer les différents méthodes.
+
+- On s'est dispersé les différentes tâches à faire(Sur l'application Trello,application gestion des tâches).
+
+- On ne sait pas encore comment utiliser la façon de gérer les attaques des zombies et des survivors
+
+- On va commit le diagramme UML sur le gitlab
+
 ## Semaine 7
 
 ## Semaine 8
