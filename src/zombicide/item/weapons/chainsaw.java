@@ -8,11 +8,10 @@ import zombicide.item.Weapon;
 public class chainsaw extends Weapon {
 
     public chainsaw(){
-        this.name="chainsaw";
-        this.damage=3;
-        this.rangeMin=0;
-        this.rangeMax=0;
-        this.threshold=5;
+        super.damage=3;
+        super.rangeMin=0;
+        super.rangeMax=0;
+        super.threshold=5;
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
