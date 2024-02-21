@@ -8,11 +8,10 @@ import zombicide.item.Weapon;
 public class carabine extends Weapon {
 
     public carabine(){
-        this.name="crowbar";
-        this.damage=1;
-        this.rangeMin=1;
-        this.rangeMax=3;
-        this.threshold=4;
+        super.damage=1;
+        super.rangeMin=1;
+        super.rangeMax=3;
+        super.threshold=4;
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
