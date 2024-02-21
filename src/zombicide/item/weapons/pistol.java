@@ -8,11 +8,10 @@ import zombicide.item.Weapon;
 public class pistol extends Weapon {
 
     public pistol(){
-        this.name="pistol";
-        this.damage=1;
-        this.rangeMin=0;
-        this.rangeMax=1;
-        this.threshold=4;
+        super.damage=1;
+        super.rangeMin=0;
+        super.rangeMax=1;
+        super.threshold=4;
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
