@@ -1,5 +1,7 @@
 package zombicide.actor.zombies;
 
-public class Zombie {
+import zombicide.actor.Actor;
+
+public class Zombie extends Actor {
     
 }

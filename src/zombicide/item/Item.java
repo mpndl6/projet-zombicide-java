@@ -1,8 +1,11 @@
 package zombicide.item;
 
-public interface Item {
+import zombicide.actor.survivors.Survivor;
 
-    
-	
-	
+public abstract class Item {
+    protected Survivor s;
+
+    public Item(){
+
+    }
 }

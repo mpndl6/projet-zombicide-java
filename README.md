@@ -17,9 +17,9 @@
 ## Livrable 1
 
 Après avoir compiler à l'aide d'un ide tel que eclipse, intelliJ etc. ou avec les commandes du shell Il sera possible de créer l'archive exécutable.
-Pour créer l'archive exécutable du premier livrable, il faudra se placer dans le repectoire ../map et effectuer la commande suivante :
+Pour créer l'archive exécutable du premier livrable, il faudra se placer dans le repectoire racine (l2s4 ../) et effectuer la commande suivante :
 ```
-% jar cvfm deliverable1.jar pack1.MainFirstDeliverable -C classes zombicide
+% jar cvfe deliverable1.jar zombicide.map.MainFirstDeliverable -C classes zombicide
 ```
 Et pour l'exécuter :
 
@@ -94,7 +94,26 @@ Et pour l'exécuter :
 
 ## Semaine 5
 
+- Nous avons réflechi à la conception de l'uml pour la livrable 2(Modélisation actors et equipment).
+
+- On a décidé de mettre les classes : survivors/weapons/item en classe abstraite
+
+- On a rélechi aux méthodes pour les classes survivors et weapons
+
+- On a essayé de voir comment attribuer plusieurs rôles aux survivors avec l'héritage.
 ## Semaine 6
+
+- On a refait le diagramme UML. Nous décidons de créer un objet backpack pour gérer les sac à dos des survivors.
+
+- Nous ne savons pas comment gérer la méthode use de weapon.
+
+- Nous hésitons à mettre un attributs survivors dans les items pour pouvoir récupérer les différents méthodes.
+
+- On s'est dispersé les différentes tâches à faire(Sur l'application Trello,application gestion des tâches).
+
+- On ne sait pas encore comment utiliser la façon de gérer les attaques des zombies et des survivors
+
+- On va commit le diagramme UML sur le gitlab
 
 ## Semaine 7
 
