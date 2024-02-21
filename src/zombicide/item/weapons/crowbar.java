@@ -12,11 +12,10 @@ public class crowbar extends Weapon{
      * Initializes the attributes specific to a crowbar weapon.
      */
     public crowbar(){
-        this.name="crowbar";
-        this.damage=1;
-        this.rangeMin=0;
-        this.rangeMax=0;
-        this.threshold=4;
+        super.damage=1;
+        super.rangeMin=0;
+        super.rangeMax=0;
+        super.threshold=4;
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
