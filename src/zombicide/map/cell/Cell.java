@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //import zombicide.map.grid.element.ElementGrid;
+import zombicide.item.Item;
 import zombicide.map.util.*;
 
 import zombicide.actor.survivors.Survivor;
@@ -14,7 +15,7 @@ public abstract class Cell /*implements ElementGrid*/ {
 	//List to store survivors and zombies in the cell
 	protected List<Survivor> survivors;
 	protected List<Zombie> zombies;
-	
+	protected List<Item> items;
 	// The noise level and position and the type of the cell
 	protected int noiseLevel;
 	protected Position position;
@@ -104,7 +105,19 @@ public abstract class Cell /*implements ElementGrid*/ {
 		return this.noiseLevel;
 	}
 
+	/**
+	 * Adds an item to the room.
+	 *
+	 * @param i The item to be added.
+	 */
+	public abstract void addItem(Item i);
 
+	/**
+	 * Removes an item from the room.
+	 *
+	 * @param i The item to be removed.
+	 */
+	public abstract void removeitem(Item i);
 	
 	/**
      *  
