@@ -62,7 +62,7 @@ public int getCurrentLevel(){
 /**
  * @return the nickname of the survivor
  */
-public String getNickeName(){
+public String getNickName(){
     return this.nickName;
 }
 
