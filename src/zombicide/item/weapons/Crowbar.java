@@ -3,15 +3,15 @@ package zombicide.item.weapons;
 import zombicide.item.Weapon;
 
 /**
- * The class crowbar represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
- * It implements the characteristics and behavior of a crowbar weapon.
+ * The class Crowbar represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
+ * It implements the characteristics and behavior of a Crowbar weapon.
  */
-public class crowbar extends Weapon{
+public class Crowbar extends Weapon{
     /**
-     * Default constructor for the crowbar class.
-     * Initializes the attributes specific to a crowbar weapon.
+     * Default constructor for the Crowbar class.
+     * Initializes the attributes specific to a Crowbar weapon.
      */
-    public crowbar(){
+    public Crowbar(){
         super.damage=1;
         super.rangeMin=0;
         super.rangeMax=0;

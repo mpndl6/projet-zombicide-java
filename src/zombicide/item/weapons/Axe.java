@@ -2,16 +2,16 @@ package zombicide.item.weapons;
 
 import zombicide.item.Weapon;
 /**
- * The class crowbar represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
- * It implements the characteristics and behavior of a chainsaw weapon.
+ * The class Crowbar represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
+ * It implements the characteristics and behavior of a Axe weapon.
  */
-public class chainsaw extends Weapon {
+public class Axe extends Weapon {
 
-    public chainsaw(){
-        super.damage=3;
+    public Axe(){
+        super.damage=2;
         super.rangeMin=0;
         super.rangeMax=0;
-        super.threshold=5;
+        super.threshold=4;
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
@@ -19,6 +19,6 @@ public class chainsaw extends Weapon {
      */
     @Override
     public int howManyThrows() {
-        return 2;
+        return 1;
     }
 }
