@@ -16,6 +16,7 @@ protected static final int THIRD_LEVEL = 3;
 protected static final int ELEVENTH_LEVEL = 11;
 protected static final int SEVENTH_LEVEL = 7;
 protected static final int STARTING_LEVEL =0;
+protected static final int MAX_NB_ITEM = 5;
 protected int currentLevel;
 protected String nickName; // nick
 protected int lifePoint; // life points of the survivor
@@ -133,6 +134,24 @@ public void putInHand(Item i){
 this.inHand = i;
 }
 
+/**
+ * Put the item i in Backpack. If the number of item in backpack has reach 5, the last item of the list will be
+ * remove and replace by the wanted item
+ * @param i the item wanted in backpack
+ */
+public void putItemInBackpack(Item i){
+    if (this.backPack.size()==MAX_NB_ITEM){
+        Item lastItem = this.backPack.get(4);
+        this.backPack.remove(lastItem);
+    }
+    this.backPack.add(i);
+}
 
+/**
+ *
+ */
+public void exchangeItem (Item wanted, Item inBackpack){
+
+}
 
 }
