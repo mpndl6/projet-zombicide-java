@@ -140,6 +140,10 @@ public abstract class Cell /*implements ElementGrid*/ {
 		return this.position;
 	}
 
+	/**
+	 * TODO
+	 * @return
+	 */
 	public abstract Object getTypeOfCell();
 	
 	
