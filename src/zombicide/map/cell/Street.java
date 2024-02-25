@@ -53,6 +53,7 @@ public CellType getTypeOfCell() {
  * Adds an item to the Cell. In the street, the item is not added
  * @param i The item to be added.
  */
+@Override
 public void addItem(Item i){
 
 }
@@ -62,6 +63,7 @@ public void addItem(Item i){
  * There's no item in the street.
  * @param i The item to be removed.
  */
+@Override
 public void removeitem(Item i){
 
 }
