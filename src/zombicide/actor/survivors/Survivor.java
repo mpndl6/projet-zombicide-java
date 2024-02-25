@@ -15,10 +15,10 @@ public class Survivor extends Actor {
 protected static final int THIRD_LEVEL = 3;
 protected static final int ELEVENTH_LEVEL = 11;
 protected static final int SEVENTH_LEVEL = 7;
-protected static final int STARTING_LEVEL =0;
-protected static final int MAX_NB_ITEM = 5;
-protected int currentLevel;
-protected String nickName; // nick
+protected static final int STARTING_LEVEL =0; // at begenning a survivor is at level 0
+protected static final int MAX_NB_ITEM = 5; // in backpack
+protected int currentLevel; // the level the survivor is currently in
+protected String nickName; // nickname of survivor
 protected int lifePoint; // life points of the survivor
 protected int XP; // level of expertise of a survivor
 protected Item inHand; // the item the survivor has in hand
@@ -126,6 +126,7 @@ public void increaseXP(){
     this.XP++;
 }
 
+
 /**
  * Tells if the survivor has an item on their hand
  * @return true if survivor has an item on hand
@@ -149,22 +150,32 @@ public void putInHand(Item i){
  * @param i the item we throw on cell
  */
 public void putItemOnCell(Item i){
-super.cell.addItem(i);
+    if (backPack.contains(i))
+        backPack.remove(i);
+    super.cell.addItem(i);
 }
 
 /**
  * Put the item i in Backpack. If the number of item in backpack has reach 5, the oldest item added of the list will be
- * remove and replace by the wanted item.
+ * removed and replace by the wanted item.
  * If it's a street it will disapear and if it's a room it will be added to the list of item of the room
  * @param i the item wanted in backpack
  */
 public void putItemInBackpack(Item i){
     if (this.backPack.size()==MAX_NB_ITEM){
         Item oldestItem = this.backPack.get(0); // the oldest item added
-        this.backPack.remove(oldestItem);
         this.putItemOnCell(oldestItem);
     }
     this.backPack.add(i);
+}
+
+/**
+ * When the survivor dies (or in other circumstances) all items of their backpack go on cell or disapear.
+ * That method take all the items in backpack and drop it on cell.
+ */
+public void dropItALL(){
+    for(Item i : backPack)
+        putItemOnCell(i);
 }
 
 
