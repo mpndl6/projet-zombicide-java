@@ -126,23 +126,39 @@ public void increaseXP(){
     this.XP++;
 }
 
+public boolean nothingInHand(){
+
+}
+
 /**
  * Put  the item i in the hand of the survivor
  * @param i the wanted item to put in hand
  */
 public void putInHand(Item i){
-this.inHand = i;
+    if(this.inHand!=null)
+        putItemInBackpack(this.inHand);
+    this.inHand = i;
 }
 
 /**
- * Put the item i in Backpack. If the number of item in backpack has reach 5, the last item of the list will be
- * remove and replace by the wanted item
+ * It puts an item on cell
+ * @param i the item we throw on cell
+ */
+public void putItemOnCell(Item i){
+super.cell.addItem(i);
+}
+
+/**
+ * Put the item i in Backpack. If the number of item in backpack has reach 5, the oldest item added of the list will be
+ * remove and replace by the wanted item.
+ * If it's a street it will disapear and if it's a room it will be added to the list of item of the room
  * @param i the item wanted in backpack
  */
 public void putItemInBackpack(Item i){
     if (this.backPack.size()==MAX_NB_ITEM){
-        Item lastItem = this.backPack.get(4);
-        this.backPack.remove(lastItem);
+        Item oldestItem = this.backPack.get(0); // the oldest item added
+        this.backPack.remove(oldestItem);
+        this.putItemOnCell(oldestItem);
     }
     this.backPack.add(i);
 }
