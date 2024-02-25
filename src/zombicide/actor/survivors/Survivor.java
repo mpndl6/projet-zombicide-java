@@ -126,8 +126,12 @@ public void increaseXP(){
     this.XP++;
 }
 
-public boolean nothingInHand(){
-
+/**
+ * Tells if the survivor has an item on their hand
+ * @return true if survivor has an item on hand
+ */
+public boolean hasItemOnHand(){
+return this.inHand!=null;
 }
 
 /**
@@ -135,7 +139,7 @@ public boolean nothingInHand(){
  * @param i the wanted item to put in hand
  */
 public void putInHand(Item i){
-    if(this.inHand!=null)
+    if(hasItemOnHand())
         putItemInBackpack(this.inHand);
     this.inHand = i;
 }
