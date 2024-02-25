@@ -25,6 +25,7 @@ protected Item inHand; // the item the survivor has in hand
 protected List<Item> backPack;
 // protected List<Role> roles;
 protected int actionPoint;
+private static Random randomNB = new Random( ) ;
 
 /**
  *  Contruct a survivor with their name in parameter.
@@ -126,8 +127,14 @@ public void increaseXP(){
     this.XP++;
 }
 
-
 /**
+ * decrease action points of survivor
+ */
+public void decreaseActionPoints(){
+    this.actionPoint--;
+}
+
+    /**
  * Tells if the survivor has an item on their hand
  * @return true if survivor has an item on hand
  */
@@ -176,6 +183,23 @@ public void putItemInBackpack(Item i){
 public void dropItALL(){
     for(Item i : backPack)
         putItemOnCell(i);
+}
+
+/** @return random result of a 1d6 throw*/
+private int oneDieThrow() {
+    return Survivor.randomNB.nextInt(6)+ 1;
+}
+
+/**
+ * Throw several dice.
+ * @param howMany the number of dice to throw
+ * @return the result of diceThrow
+ */
+public int diceThrows(int howMany){
+    int result=0;
+    for (int i; i<howMany+1; i++)
+        result+= this.oneDieThrow();
+    return result;
 }
 
 
