@@ -167,11 +167,5 @@ public void putItemInBackpack(Item i){
     this.backPack.add(i);
 }
 
-/**
- *
- */
-public void exchangeItem (Item wanted, Item inBackpack){
-
-}
 
 }
