@@ -82,8 +82,8 @@ public Item getWhatINHand(){
 }
 
 /**
- * Return all of the item present in the backpack
- * @return all of the item in backpack
+ * Return all of  item present in the backpack
+ * @return all item in backpack
  */
 public List<Item> getAllInBackpack(){
     return this.backPack;
@@ -134,7 +134,7 @@ public void decreaseActionPoints(){
     this.actionPoint--;
 }
 
-    /**
+/**
  * Tells if the survivor has an item on their hand
  * @return true if survivor has an item on hand
  */
@@ -193,11 +193,11 @@ private int oneDieThrow() {
 /**
  * Throw several dice.
  * @param howMany the number of dice to throw
- * @return the result of diceThrow
+ * @return the result of dice throws
  */
 public int diceThrows(int howMany){
     int result=0;
-    for (int i; i<howMany+1; i++)
+    for (int i=0; i<howMany+1; i++)
         result+= this.oneDieThrow();
     return result;
 }
