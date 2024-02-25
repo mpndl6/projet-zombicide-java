@@ -23,8 +23,8 @@ public static ZombieType random() {
 public static Zombie createZombie(ZombieType z){
 
     switch (z){
-        case WALKER:
-            return new Walker();
+        case ABOMINATION:
+            return new Abomination();
         
         case RUNNER:
             return new Runner();
@@ -32,11 +32,9 @@ public static Zombie createZombie(ZombieType z){
         case POWERFUL:
             return new Powerful();
         
-        case ABOMINATION:
-            return new Abomination();
-
         default:
-            return new Zombie();
+            return new Walker();
+
     }
 }
 
