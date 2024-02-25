@@ -97,6 +97,33 @@ public List<Item> getAllInBackpack(){
 //TODO si c'est pertinent
 }*/
 
+/**
+ * Increase the current level of the survivor
+ */
+public void increaseLevel(){
+    this.currentLevel ++;
+}
+
+/**
+ * increase life points of survivor
+ */
+public void increaseLifePoint(){
+    this.lifePoint++;
+}
+
+/**
+ * increase action points of survivor
+ */
+public void increaseActionPoint(){
+    this.actionPoint++;
+}
+
+/**
+ * Increase XP of survivor
+ */
+public void increaseXP(){
+    this.XP++;
+}
 
 
 
