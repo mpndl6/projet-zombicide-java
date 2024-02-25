@@ -7,7 +7,6 @@ import zombicide.map.cell.util.*;
 
 public class Room extends Cell {
 
-    protected List<Item> items;
     protected Map<Location,Boolean> doors;
     protected int widthOfMap;
     protected int heightOfMap;
@@ -18,7 +17,7 @@ public class Room extends Cell {
         this.cellType = CellType.ROOM;
         this.widthOfMap = w;
         this.heightOfMap = h;
-        this.items = new ArrayList<Item>();
+        super.items = new ArrayList<Item>();
         this.doors = new HashMap<Location,Boolean>();
 
         List<Location> locations = this.locationOfDoors();
@@ -85,16 +84,13 @@ public class Room extends Cell {
     }
 
 
-
-
-
     /**
      * Adds an item to the room.
      *
      * @param i The item to be added.
      */
     public void addItem(Item i) {
-        this.items.add(i);
+        super.items.add(i);
     }
 
     /**
@@ -103,7 +99,7 @@ public class Room extends Cell {
      * @param i The item to be removed.
      */
     public void removeitem(Item i) {
-        this.items.remove(i);
+        super.items.remove(i);
     }
 
     /**

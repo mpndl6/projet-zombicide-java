@@ -1,5 +1,7 @@
 package zombicide.map.cell;
 import java.util.Random;
+
+import zombicide.item.Item;
 import zombicide.map.util.*;
 import zombicide.actor.survivors.*;
 import zombicide.actor.zombies.*;
@@ -47,6 +49,22 @@ public CellType getTypeOfCell() {
  * @return the number of zombies we have to generate
  */
 
+/**
+ * Adds an item to the Cell. In the street, the item is not added
+ * @param i The item to be added.
+ */
+public void addItem(Item i){
+
+}
+
+/**
+ * Removes an item from the room.
+ * There's no item in the street.
+ * @param i The item to be removed.
+ */
+public void removeitem(Item i){
+
+}
 
 /* à mettre dans dans  game ..
 public int howManyZombiesToGenerate(){
