@@ -125,6 +125,14 @@ public void increaseXP(){
     this.XP++;
 }
 
+/**
+ * Put  the item i in the hand of the survivor
+ * @param i the wanted item to put in hand
+ */
+public void putInHand(Item i){
+this.inHand = i;
+}
+
 
 
 }
