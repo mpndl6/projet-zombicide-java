@@ -1,7 +1,6 @@
 package zombicide.map.cell;
 import java.util.*;
 
-import zombicide.actor.survivors.Survivor;
 import zombicide.map.util.*;
 import zombicide.item.*;
 import zombicide.map.cell.util.*;
@@ -94,7 +93,7 @@ public class Room extends Cell {
      *
      * @param i The item to be added.
      */
-    public void addItems(Item i) {
+    public void addItem(Item i) {
         this.items.add(i);
     }
 
@@ -103,7 +102,7 @@ public class Room extends Cell {
      *
      * @param i The item to be removed.
      */
-    public void removeItems(Item i) {
+    public void removeitem(Item i) {
         this.items.remove(i);
     }
 
