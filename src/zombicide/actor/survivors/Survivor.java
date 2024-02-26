@@ -19,7 +19,6 @@ protected static final int STARTING_LEVEL =0; // at begenning a survivor is at l
 protected static final int MAX_NB_ITEM = 5; // in backpack
 protected int currentLevel; // the level the survivor is currently in
 protected String nickName; // nickname of survivor
-protected int lifePoint; // life points of the survivor
 protected int XP; // level of expertise of a survivor
 protected Item inHand; // the item the survivor has in hand
 protected List<Item> backPack;
@@ -34,8 +33,8 @@ private static Random randomNB = new Random( ) ;
  * @param name the nickname of the survivor
  *
  */
-public Survivor( String name){
-    this.nickName = name;
+public Survivor(String name){
+    super(name);
     this.currentLevel = STARTING_LEVEL;
     this.XP = 0;
     this.actionPoint = 0;
@@ -104,13 +103,6 @@ public List<Item> getAllInBackpack(){
  */
 public void increaseLevel(){
     this.currentLevel ++;
-}
-
-/**
- * increase life points of survivor
- */
-public void increaseLifePoint(){
-    this.lifePoint++;
 }
 
 /**
