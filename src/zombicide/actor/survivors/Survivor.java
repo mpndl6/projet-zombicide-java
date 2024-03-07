@@ -24,6 +24,8 @@ protected Item inHand; // the item the survivor has in hand
 protected List<Item> backPack;
 // protected List<Role> roles;
 protected int actionPoint;
+
+protected int hp;
 private static Random randomNB = new Random( ) ;
 
 /**
@@ -40,6 +42,7 @@ public Survivor(String name){
     this.actionPoint = 0;
     this.backPack = new ArrayList<>();
     this.inHand = new Pistol();
+    this.hp=5;
 }
 
 /**
@@ -57,6 +60,7 @@ return this.XP;
 public int getCurrentLevel(){
     return this.currentLevel;
 }
+
 
 /**
  * @return the nickname of the survivor
@@ -80,6 +84,13 @@ public Item getWhatINHand(){
     return this.inHand;
 }
 
+    /**
+     * Returns  level of expertise of a survivor
+     * @return XP of survivor
+     */
+public int getHP(){
+    return this.hp;
+}
 /**
  * Return all of  item present in the backpack
  * @return all item in backpack
@@ -119,6 +130,12 @@ public void increaseXP(){
     this.XP++;
 }
 
+/**
+ * * Increase HP of survivor
+ */
+public void increaseHP(){
+    this.hp++;
+}
 /**
  * decrease action points of survivor
  */
