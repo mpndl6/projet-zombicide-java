@@ -25,6 +25,7 @@ protected List<Item> backPack;
 // protected List<Role> roles;
 protected int actionPoint;
 
+
 private static Random randomNB = new Random( ) ;
 
 /**
