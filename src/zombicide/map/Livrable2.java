@@ -27,6 +27,7 @@ public class Livrable2 {
         Survivor survivor3= new Fighter("Meek");
         Survivor survivor4 = new Lucky("zz");
 
+
         // En attendant la création des utilitaires (Ajout de la carte dans le backpack + de la fiole dans la main:
         /** Item carte= new Carte();
         Item fiole = new Fiole();
