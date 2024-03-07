@@ -27,4 +27,4 @@ public class Lucky extends Survivor {
             return super.diceThrows(howMany);
         }
     }
-}
+
