@@ -13,10 +13,13 @@ public Actor(String name){
     this.lifePoint = 5;
 }
 
+
     /**
      * increase life points of survivor
      */
     public void increaseLifePoint(){
         this.lifePoint++;
     }
+
+    public abstract void takeDamage();
 }
