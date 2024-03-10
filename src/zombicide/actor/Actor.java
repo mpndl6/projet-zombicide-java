@@ -1,7 +1,6 @@
 package zombicide.actor;
 import zombicide.map.cell.*;
 public abstract class Actor {
-
 protected Cell cell;
 protected int lifePoint; // life points of the survivor
 protected String nickName;
@@ -21,5 +20,7 @@ public Actor(String name){
         this.lifePoint++;
     }
 
-    public abstract void takeDamage();
+    public void takeDamage(){
+        this.lifePoint--;
+    };
 }
