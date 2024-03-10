@@ -1,4 +1,10 @@
 package zombicide.item.utility;
 
-public class Vial {
+import zombicide.item.Item;
+
+public class Vial extends Item {
+
+    public Vial(){
+
+    }
 }
