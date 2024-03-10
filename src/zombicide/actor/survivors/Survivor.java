@@ -36,7 +36,7 @@ private static Random randomNB = new Random( ) ;
  *
  */
 public Survivor(String name){
-    super(name);
+    super(name, 5);
     this.level = STARTING_LEVEL;
     this.XP = 0;
     this.actionPoint = 0;

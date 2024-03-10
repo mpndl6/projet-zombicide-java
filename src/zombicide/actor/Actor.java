@@ -7,11 +7,10 @@ protected String nickName;
 /**
  *
  */
-public Actor(String name){
+public Actor(String name, int lp){
     this.nickName=name;
-    this.lifePoint = 5;
+    this.lifePoint = lp;
 }
-
 
     /**
      * increase life points of survivor

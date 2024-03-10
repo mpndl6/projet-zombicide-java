@@ -4,17 +4,9 @@ import zombicide.actor.zombies.Zombie;
 
 public class Runner extends Zombie{
     public static final int RUNNER_DAMAGES=1;
+    public static final String RUNNER_NN = "Ruuner";
     public Runner(){
-        super(RUNNER_DAMAGES);
+        super(RUNNER_NN,RUNNER_DAMAGES,2);
     }
 
-    public void takeDamage(){
-        lifePoint-=RUNNER_DAMAGES;
-        if(lifePoint<=0){
-            System.out.println("Le Runner a été vaincu!");
-        }else{
-            System.out.println("Le Runner a subi des dégâts. Points de vie restants:"+lifePoint);
-
-        }
-    }
 }
