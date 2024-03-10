@@ -9,4 +9,6 @@ public class Runner extends Zombie{
         super(RUNNER_NN,RUNNER_DAMAGES,2);
     }
 
+    //methodes action
+
 }

@@ -28,4 +28,6 @@ public Actor(String name, int lp){
         return this.lifePoint==0;
     };
 
+    //methode action
+
 }
