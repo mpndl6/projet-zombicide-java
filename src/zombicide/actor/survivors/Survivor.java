@@ -177,9 +177,10 @@ public void putItemOnCell(Item i){
 }
 
 /**
- * Put the item i in Backpack. If the number of item in backpack has reach 5, the oldest item added of the list will be
+ * Take the item and put it in Backpack. If the number of item in backpack has reach 5, the oldest item added of the list will be
  * removed and replace by the wanted item.
- * If it's a street it will disapear and if it's a room it will be added to the list of item of the room
+ * If the item is taken from the cell of the survivor, then it will be remove of the cell when taken.
+ * If the cell is a street, it will disapear and if it's a room it will be added to the list of item of the cell
  * @param i the item wanted in backpack
  */
 public void putItemInBackpack(Item i){
@@ -187,6 +188,8 @@ public void putItemInBackpack(Item i){
         Item oldestItem = this.backPack.get(0); // the oldest item added
         this.putItemOnCell(oldestItem);
     }
+    if (this.cell.containsItem(i))
+        this.cell.removeitem(i);
     this.backPack.add(i);
 }
 
