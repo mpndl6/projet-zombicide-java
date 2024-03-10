@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import zombicide.map.cell.*;
-import zombicide.map.util.Position;
 
 public class MapTest {
 
@@ -24,12 +22,12 @@ public class MapTest {
 
     @Test
     public void testGetHeight() {
-        assertEquals(10, testMap.getheigth());
+        assertEquals(10, testMap.getHeight());
     }
 
     @Test
     public void testGeneratNumberForInitmap() {
-        int rand = testMap.generatNumberForInitmap(9, 2);
+        int rand = testMap.generateNumberForInitmap(9, 2);
         assertTrue(rand >= 2 && rand <= 9);
     }
 }
