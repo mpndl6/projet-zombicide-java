@@ -3,17 +3,16 @@ package zombicide.actor.zombies;
 import zombicide.actor.Actor;
 
 public abstract class Zombie extends Actor {
-    protected static final int DAMAGES=0;
-     public int lifePoint;
+    protected final int DAMAGES;
+    protected int lp;
 
-     public Zombie (int lp){
-         super();
+     public Zombie (String name, int damage){
+         super(name);
          this.lifePoint=lp;
+         this.DAMAGES = damage;
      }
-
      public int howManyDamages(){
          return DAMAGES;
      }
 
-     public abstract void takeDamage();
 }
