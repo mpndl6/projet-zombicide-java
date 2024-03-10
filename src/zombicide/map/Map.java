@@ -36,13 +36,13 @@ public class Map {
             }
         }
 
-        this.principalIntersection = this.generatFirstRoad();
+        this.principalIntersection = this.generateFirstRoad();
         this.putWasteWater();
         
-        Position p = this.getPostionOfRoom(getListOfRooms());
+        Position p = this.getPositionOfRoom(getListOfRooms());
         this.putSpecialRoom(new Continental(p,w,h),p);
 
-        Position p2 = this.getPostionOfRoom(getListOfRooms());
+        Position p2 = this.getPositionOfRoom(getListOfRooms());
         this.putSpecialRoom(new DrugStore(p2,w,h),p2);
     }
     /**
@@ -111,7 +111,7 @@ public class Map {
     /**
      * @return heigth ofmap
      */
-    public int getheigth() {
+    public int getHeight() {
         return this.heigth;
     }
 
@@ -123,12 +123,18 @@ public class Map {
     }
 
     /**
-     *
+     * @return the cells of the map
      */
     public Cell[][] getCells() {
         return this.cells;
     }
 
+    /**
+     * @return the position of the principal intersection
+     */
+    public Position getPrincipalIntersection() {
+        return principalIntersection;
+    }
 
     /**
      * Generates a random number within a given range.
@@ -137,7 +143,7 @@ public class Map {
      * @param min1 The minimum value.
      * @return A random number within the specified range.
      */
-    public int generatNumberForInitmap(int max1, int min1) {
+    public int generateNumberForInitmap(int max1, int min1) {
         int max = max1 - 2;
         int min = min1 + 2;
         int range = max - min + 1;
@@ -156,8 +162,8 @@ public class Map {
      */
     public void initmap(int wmax, int wmin, int hmax, int hmin) {
         if (wmax - wmin >= 4 && hmax - hmin >= 4) {
-            int wl = generatNumberForInitmap(wmax, wmin);
-            int hl = generatNumberForInitmap(hmax, hmin);
+            int wl = generateNumberForInitmap(wmax, wmin);
+            int hl = generateNumberForInitmap(hmax, hmin);
             for (int j = hmin; j <= hmax; j++) {
                 this.cells[wl][j] = new Street(new Position(wl, j));
             }
@@ -171,7 +177,7 @@ public class Map {
         }
 
         if (wmax - wmin >= 4 && hmax - hmin < 4) {
-            int wl = generatNumberForInitmap(wmax, wmin);
+            int wl = generateNumberForInitmap(wmax, wmin);
             for (int j = hmin; j <= hmax; j++) {
                 this.cells[wl][j] = new Street(new Position(wl, j));
             }
@@ -180,7 +186,7 @@ public class Map {
         }
 
         if (wmax - wmin < 4 && hmax - hmin >= 4) {
-            int hl = generatNumberForInitmap(hmax, hmin);
+            int hl = generateNumberForInitmap(hmax, hmin);
             for (int i = wmin; i <= wmax; i++) {
                 this.cells[i][hl] = new Street(new Position(i, hl));
             }
@@ -194,9 +200,9 @@ public class Map {
      *
      * @return The position of the main intersection.
      */
-    public Position generatFirstRoad() {
-        int wl = generatNumberForInitmap(this.width - 1, 0);
-        int hl = generatNumberForInitmap(this.heigth - 1, 0);
+    public Position generateFirstRoad() {
+        int wl = generateNumberForInitmap(this.width - 1, 0);
+        int hl = generateNumberForInitmap(this.heigth - 1, 0);
         for (int j = 0; j <= this.heigth - 1; j++) {
             this.cells[wl][j] = new Street(new Position(wl, j));
         }
@@ -218,7 +224,7 @@ public class Map {
      * @param m The maximum value.
      * @return A random number for special room placement.
      */
-    public int generatNumberForSpecialRoom(int m) {
+    public int generateNumberForSpecialRoom(int m) {
         int max = m;
         int min = 0;
         int range = max - min + 1;
@@ -249,8 +255,8 @@ public class Map {
      * @param l The list of rooms from which to select.
      * @return The position of a randomly chosen room.
      */
-    public Position getPostionOfRoom(List<Room> l) {
-        int n = generatNumberForSpecialRoom(l.size()-1);
+    public Position getPositionOfRoom(List<Room> l) {
+        int n = generateNumberForSpecialRoom(l.size()-1);
         return l.get(n).getPosition();
     }
 
