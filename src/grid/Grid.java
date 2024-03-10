@@ -1,4 +1,5 @@
 package grid;
+import zombicide.actor.Actor;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
@@ -179,32 +180,42 @@ public class Grid {
         }
 
     /**
+     *
+     */
+    public String displayActor(Cell c){
+        int nbActors=c.howManyActors();
+        if(nbActors!=0)
+        return "a"+nbActors;
+        return "";
+    }
+
+    /**
      * Display the separators between this cell and its environment
      * @param cell the current cell
      */
     public void displayThirdLine(Cell cell){
 
         if (map.isWall(cell, Location.WEST))
-            padding(separatorHWall);
+            padding(separatorHWall+displayActor(cell));
 
         else {
             if (isRoom(cell)) {
                 if (((Room) cell).isOpen(Location.WEST))
-                    padding(separatorOpen);
+                    padding(separatorOpen+displayActor(cell));
 
                 else
-                    padding(separatorCloseVDoor);
+                    padding(separatorCloseVDoor+displayActor(cell));
             }
             else {
                 Cell leftCell = cellToLeft(cell);
                 if (isRoom(leftCell)) {
                     if (((Room) leftCell).isOpen(Location.EAST))
-                        padding(separatorOpen);
+                        padding(separatorOpen+displayActor(cell));
                     else
-                        padding(separatorCloseVDoor);
+                        padding(separatorCloseVDoor+displayActor(cell));
                 }
                 else
-                    padding(separatorOpen);
+                    padding(separatorOpen+displayActor(cell));
 
             }
         }
