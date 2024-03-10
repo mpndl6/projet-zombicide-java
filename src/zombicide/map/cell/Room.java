@@ -50,16 +50,6 @@ public class Room extends Cell {
         return locations;
     }
 
-    /**
-     *
-     * @param l
-     * @return
-     */
-    public boolean hasDoor(Location l){
-        if (this.doors.containsKey(l))
-            return true;
-        return false;
-    }
 /*
     /**
      * Checks if it is possible to leave the room through a specific door.
