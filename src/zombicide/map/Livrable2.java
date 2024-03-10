@@ -8,6 +8,7 @@ import zombicide.actor.survivors.type.Nosy;
 import zombicide.item.utility.Plan;
 import zombicide.item.utility.Vial;
 import zombicide.map.util.Position;
+import zombicide.map.cell.*;
 
 import java.util.*;
 
@@ -17,8 +18,8 @@ public class Livrable2 {
 
         Scanner scanner = new Scanner(System.in);
         //Ville d'entraienement :
-        int weightOfMap= 10;
-        int heightOfMap=10;
+        int weightOfMap= 5;
+        int heightOfMap=5;
         int weightOfCells=7;
 
         Map map = new Map(weightOfMap,heightOfMap);
@@ -28,13 +29,20 @@ public class Livrable2 {
         Survivor survivor3= new Fighter("Meek");
         Survivor survivor4 = new Lucky("zz");
 
-        Position crossRoad = map.getPrincipalIntersection();
-
+        Position crossRoadPos = map.getPrincipalIntersection();
+        Cell crossRoad = map.getCell(crossRoadPos);
         //ajout des joueurs sur la cellules
-        map.putActorONCell(survivor1,crossRoad);
-        map.putActorONCell(survivor2, crossRoad);
-        map.putActorONCell(survivor3, crossRoad);
-        map.putActorONCell(survivor4, crossRoad);
+        map.putActorONCell(survivor1,crossRoadPos);
+        map.putActorONCell(survivor2, crossRoadPos);
+        map.putActorONCell(survivor3, crossRoadPos);
+        map.putActorONCell(survivor4, crossRoadPos);
+
+        //attribution cellule
+        survivor1.setCell(crossRoad);
+        survivor2.setCell(crossRoad);
+        survivor3.setCell(crossRoad);
+        survivor4.setCell(crossRoad);
+
 
         //ajout des fioles en main
         survivor1.putInHand(new Vial());
