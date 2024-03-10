@@ -2,6 +2,7 @@ package zombicide.map;
 
 import java.util.*;
 
+import zombicide.actor.Actor;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
 import zombicide.map.cell.room.*;
@@ -263,6 +264,15 @@ public class Map {
         this.cells[p.getX()][p.getY()] = r;
     }
 
-
+    /**
+     * put an actor on a specific cell
+     * @param a the actor wanted
+     * @param p the position wanted
+     */
+    public void putActorONCell(Actor a, Position p){
+        int XCell = p.getX();
+        int YCell = p.getY();
+        this.cells[XCell][YCell].welcomeActor(a);
+    }
 
 }
