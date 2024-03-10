@@ -130,6 +130,14 @@ public class Map {
     }
 
     /**
+     * @return a specific cell
+     * @param p the position of the wanted cell
+     */
+    public Cell getCell(Position p){
+        return this.cells[p.getX()][p.getY()];
+    }
+
+    /**
      * @return the position of the principal intersection
      */
     public Position getPrincipalIntersection() {
