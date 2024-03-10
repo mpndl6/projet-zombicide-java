@@ -24,7 +24,7 @@ public class Lucky extends Survivor {
         /**if (super.isAttackingZombie()) {
             return super.diceThrows(howMany + 1);
         } else {*/
-            return super.diceThrows(howMany);
+            return super.diceThrows(howMany) + super.diceThrows(1);
         }
     }
 

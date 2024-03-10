@@ -15,11 +15,12 @@ public class Healer extends Survivor {
     }
 
     /**
-     * Method allowing the healer to heal a target survivor.
+     * Method allowing the healer to heal a target survivor and themselves.
      * This action restores 1 hp to the target survivor (including the healer itself).
      * @param survivor The survivor to be healed.
      */
     public void heal(Survivor survivor){
+        this.increaseLifePoints();
         survivor.increaseLifePoints();
     }
 
