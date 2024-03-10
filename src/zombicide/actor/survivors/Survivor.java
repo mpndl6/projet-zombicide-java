@@ -56,14 +56,14 @@ return this.XP;
  * Returns the current level of the survivor
  * @return the current level of Survivor
  */
-public int getCurrentLevel(){
+public SurvivorsLevel getCurrentLevel(){
     if (this.level <ELEVENTH_LEVEL){
         if (this.level <=THIRD_LEVEL)
-            return Survivor.THIRD_LEVEL;
+            return SurvivorsLevel.THIRD_LEVEL;
         //else
-        return Survivor.SEVENTH_LEVEL;
+        return SurvivorsLevel.SEVENTH_LEVEL;
     }
-    return Survivor.ELEVENTH_LEVEL;
+    return SurvivorsLevel.ELEVENTH_LEVEL;
 }
 
 
