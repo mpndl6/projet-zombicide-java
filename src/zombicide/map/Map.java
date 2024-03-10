@@ -213,7 +213,6 @@ public class Map {
         initmap(this.width - 1, wl + 1, this.heigth - 1, hl + 1);
         initmap(wl - 1, 0, hl - 1, 0);
         initmap(wl - 1, 0, this.heigth - 1, hl + 1);
-
         return new Position(wl, hl);
     }
 
