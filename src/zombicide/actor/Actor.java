@@ -19,7 +19,13 @@ public Actor(String name, int lp){
         this.lifePoint++;
     }
 
-    public void takeDamage(){
+    /**
+     * This method inflicts one damage to the current actor.
+     * @return true if this one damage is fatal to the actor (if they die basically)
+     */
+    public boolean takeDamage(){
         this.lifePoint--;
+        return this.lifePoint==0;
     };
+
 }
