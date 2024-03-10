@@ -57,7 +57,13 @@ return this.XP;
  * @return the current level of Survivor
  */
 public int getCurrentLevel(){
-    return this.currentLevel;
+    if (this.currentLevel<ELEVENTH_LEVEL){
+        if (this.currentLevel<=THIRD_LEVEL)
+            return Survivor.THIRD_LEVEL;
+        //else
+        return Survivor.SEVENTH_LEVEL;
+    }
+    return Survivor.ELEVENTH_LEVEL;
 }
 
 
@@ -161,7 +167,7 @@ public void putInHand(Item i){
 }
 
 /**
- * It puts an item on cell
+ * It puts an item on cell. It can be an item that is on hand or in the backpack.
  * @param i the item we throw on cell
  */
 public void putItemOnCell(Item i){
