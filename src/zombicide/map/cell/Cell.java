@@ -118,6 +118,15 @@ public abstract class Cell /*implements ElementGrid*/ {
 	 * @param i The item to be removed.
 	 */
 	public abstract void removeitem(Item i);
+
+	/**
+	 * Returns the number of items in the room.
+	 *
+	 * @return The number of items.
+	 */
+	public int getNbItem() {
+		return this.items.size();
+	}
 	
 	/**
      *  
