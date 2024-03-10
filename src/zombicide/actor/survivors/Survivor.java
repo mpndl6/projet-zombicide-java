@@ -3,6 +3,7 @@ import zombicide.actor.Actor;
 import zombicide.item.*;
 import java.util.*;
 import zombicide.item.weapon.*;
+import zombicide.map.cell.Cell;
 
 /**
  * class of survivors
@@ -115,6 +116,14 @@ public List<Item> getAllInBackpack(){
 }*/
 
 /**
+ * Set a cell to the survivor
+ * @param c the wanted cell
+ */
+public void setCell(Cell c){
+    this.cell=c;
+}
+
+    /**
  * Increase the current level of the survivor
  */
 public void increaseLevel(){
