@@ -13,9 +13,20 @@ public abstract class Weapon extends Item {
     protected int damage;
     protected int threshold;
 
-    public Weapon(){
-
+    /**
+     * Construct a new weapon
+     * @param rMin minimum range of the weapon
+     * @param rMax maximum range of the weapon
+     * @param damage damage inflicted by the weapon
+     * @param threshold threshold
+     */
+    public Weapon(int rMin, int rMax, int damage, int threshold){
+        this.damage=damage;
+        this.threshold=threshold;
+        this.rangeMax=rMax;
+        this.rangeMin=rMin;
     }
+
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
      * @return The number of dice rolls needed for this weapon.

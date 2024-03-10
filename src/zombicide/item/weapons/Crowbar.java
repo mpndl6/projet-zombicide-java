@@ -7,15 +7,16 @@ import zombicide.item.Weapon;
  * It implements the characteristics and behavior of a Crowbar weapon.
  */
 public class Crowbar extends Weapon{
+
     /**
-     * Default constructor for the Crowbar class.
-     * Initializes the attributes specific to a Crowbar weapon.
+     * Construct a new Crowbar
+     * minimum range : 0
+     * maximum range : 0
+     * damage : 1
+     * threshold : 4
      */
     public Crowbar(){
-        super.damage=1;
-        super.rangeMin=0;
-        super.rangeMax=0;
-        super.threshold=4;
+        super(0,0,1,4);
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.

@@ -7,11 +7,15 @@ import zombicide.item.Weapon;
  */
 public class Carabine extends Weapon {
 
+    /**
+     * Construct a new Carabine
+     * minimum range : 1
+     * maximum range : 3
+     * damage : 1
+     * threshold : 4
+     */
     public Carabine(){
-        super.damage=1;
-        super.rangeMin=1;
-        super.rangeMax=3;
-        super.threshold=4;
+        super(1,3,1,4);
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.

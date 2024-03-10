@@ -7,11 +7,15 @@ import zombicide.item.Weapon;
  */
 public class Axe extends Weapon {
 
+    /**
+     * Construct a new Axe
+     * minimum range : 0
+     * maximum range : 0
+     * damage : 2
+     * threshold : 4
+     */
     public Axe(){
-        super.damage=2;
-        super.rangeMin=0;
-        super.rangeMax=0;
-        super.threshold=4;
+        super(0,0,2, 4);
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.

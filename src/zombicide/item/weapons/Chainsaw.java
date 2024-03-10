@@ -7,11 +7,15 @@ import zombicide.item.Weapon;
  */
 public class Chainsaw extends Weapon {
 
+    /**
+     * Construct a new Chainsaw
+     * minimum range : 0
+     * maximum range : 0
+     * damage : 3
+     * threshold : 5
+     */
     public Chainsaw(){
-        super.damage=3;
-        super.rangeMin=0;
-        super.rangeMax=0;
-        super.threshold=5;
+        super(0,0,3,5);
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
