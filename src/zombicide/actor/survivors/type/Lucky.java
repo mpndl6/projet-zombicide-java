@@ -1,5 +1,4 @@
 package zombicide.actor.survivors.type;
-
 import zombicide.actor.survivors.Survivor;
 
 public class Lucky extends Survivor {
