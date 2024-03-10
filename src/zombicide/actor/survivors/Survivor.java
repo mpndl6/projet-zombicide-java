@@ -2,7 +2,7 @@ package zombicide.actor.survivors;
 import zombicide.actor.Actor;
 import zombicide.item.*;
 import java.util.*;
-import zombicide.item.weapons.*;
+import zombicide.item.weapon.*;
 
 /**
  * class of survivors
