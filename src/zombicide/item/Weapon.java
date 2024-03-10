@@ -33,6 +33,32 @@ public abstract class Weapon extends Item {
      */
     public abstract int howManyThrows();
 
+    /**
+     * @return the damage the weapon can inflict
+     */
+    public int getHowManyDamage(){
+        return this.damage;
+    }
 
+    /**
+     * @return the minimum range of the weapon
+     */
+    public int getRangeMin(){
+        return rangeMin;
+    }
+
+    /**
+     * @return the maximum range of the weapon
+     */
+    public int getRangeMax() {
+        return rangeMax;
+    }
+
+    /**
+     * @return the threshold of the weapon
+     */
+    public int getThreshold(){
+        return threshold;
+    }
 
 }
