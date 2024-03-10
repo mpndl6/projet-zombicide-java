@@ -45,23 +45,22 @@ public abstract class Cell /*implements ElementGrid*/ {
 		this.actors.remove(a);
 	}
 
-	/*
-	 /**
-     *  Gets the count of survivors in the cell
-     *@return The number of survivors in the cell
 
-	public int howManySurvivors() {
-		return this.survivors.size();
+	/**
+	 *
+	 * @return
+	 */
+	public int howManyActors() {
+		return this.actors.size();
 	}
-	
-	 /**
+
+	/*
      *  Gets the count of zombies in the cell
      *@return The number of zombies in the cell
 
 	public int howManyZombies() {
 		return this.zombies.size();
-	}
-	*/
+	}*/
 	 /**
      *Gets the list of actors in the cell
      *@return List of actors in the cell
