@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //import zombicide.map.grid.element.ElementGrid;
+import zombicide.actor.Actor;
 import zombicide.item.Item;
 import zombicide.map.util.*;
 
@@ -13,8 +14,7 @@ import zombicide.actor.zombies.Zombie;
 public abstract class Cell /*implements ElementGrid*/ {
 	
 	//List to store survivors and zombies in the cell
-	protected List<Survivor> survivors;
-	protected List<Zombie> zombies;
+	protected List<Actor> actors;
 	protected List<Item> items;
 	// The noise level and position and the type of the cell
 	protected int noiseLevel;
@@ -26,46 +26,30 @@ public abstract class Cell /*implements ElementGrid*/ {
 		
 		this.noiseLevel=0;
 		this.position=position;
-		this.survivors=new ArrayList<Survivor>();
-		this.zombies=new ArrayList<Zombie>();
+		this.actors=new ArrayList<Actor>();
 	}
 	
 	  /**
-     * Adds a zombie to the cell
-     *@param z to be added to the cell
+     * Adds an actor to the cell
+     *@param a to be added to the cell
      */
-	public void welcomeZombies(Zombie z) {
-		this.zombies.add(z);
+	public void welcomeActor(Actor a){
+		this.actors.add(a);
 	}
-	
-	  /**
-     * Adds a survivor to the cell
-     *@param s to be added to the cell
+
+	/**
+     *  Removes an actor from the cell
+     *@param a to be removed from the cell
      */
-	public void welcomeSurvivor(Survivor s) {
-		this.survivors.add(s);
+	public void removeActor(Actor a) {
+		this.actors.remove(a);
 	}
-	
-	  /**
-     *  Removes a zombie from the cell
-     *@param z to be removed from the cell
-     */
-	public void removeZombie(Zombie z) {
-		this.zombies.remove(z);
-	}
-	
-	  /**
-     *  Removes a survivor from the cell
-     *@param s to be removed from the cell
-     */
-	public void removeSurvivor(Survivor s) {
-		this.survivors.remove(s);
-	}
-	
+
+	/*
 	 /**
      *  Gets the count of survivors in the cell
      *@return The number of survivors in the cell
-     */
+
 	public int howManySurvivors() {
 		return this.survivors.size();
 	}
@@ -73,27 +57,17 @@ public abstract class Cell /*implements ElementGrid*/ {
 	 /**
      *  Gets the count of zombies in the cell
      *@return The number of zombies in the cell
-     */
+
 	public int howManyZombies() {
 		return this.zombies.size();
 	}
-	
+	*/
 	 /**
-     *  
-     *  Gets the list of survivors in the cell
-     *@return List of survivors in the cell
+     *Gets the list of actors in the cell
+     *@return List of actors in the cell
      */
-	public List<Survivor> getSurvivors(){
-		return this.survivors;
-	}
-	
-	/**
-     *  
-     *  Gets the list of zombies in the cell     
-     * @return List of zombies in the cell
-     */
-	public List<Zombie> getZombies(){
-		return this.zombies;
+	public List<Actor> getActors(){
+		return this.actors;
 	}
 	
 	/**
