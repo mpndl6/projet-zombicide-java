@@ -28,6 +28,22 @@ public Actor(String name, int lp){
         return this.lifePoint==0;
     };
 
+    /**
+     * Gets the cell where the actor is located.
+     * @return The cell where the actor is located.
+     */
+    public Cell getCell(){
+        return this.cell;
+    }
+
+    /**
+     * Sets the cell where the actor is located.
+     * @param c The cell to set.
+     */
+    public void setCell(Cell c){
+        this.cell = c;
+    }
+
     //methode action
 
 }
