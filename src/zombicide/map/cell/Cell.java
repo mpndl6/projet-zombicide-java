@@ -120,6 +120,15 @@ public abstract class Cell /*implements ElementGrid*/ {
 	public abstract void removeitem(Item i);
 
 	/**
+	 * Tells if the item in parameter is on cell
+	 * @param i the item wanted
+	 * @return true if the item i is on cell
+	 */
+	public boolean containsItem(Item i){
+		return items.contains(i);
+	}
+
+	/**
 	 * Returns the number of items in the room.
 	 *
 	 * @return The number of items.
