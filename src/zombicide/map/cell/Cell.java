@@ -27,6 +27,7 @@ public abstract class Cell /*implements ElementGrid*/ {
 		this.noiseLevel=0;
 		this.position=position;
 		this.actors=new ArrayList<Actor>();
+		this.items = new ArrayList<>();
 	}
 	
 	  /**
