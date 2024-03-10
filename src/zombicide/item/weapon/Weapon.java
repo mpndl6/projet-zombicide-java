@@ -1,4 +1,6 @@
-package zombicide.item;
+package zombicide.item.weapon;
+
+import zombicide.item.Item;
 
 /**
  * The abstract class Weapon represents a type of item usable as a weapon in the game Zombicide.
