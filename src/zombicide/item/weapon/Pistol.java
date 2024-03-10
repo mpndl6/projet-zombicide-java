@@ -1,21 +1,20 @@
-package zombicide.item.weapons;
+package zombicide.item.weapon;
 
-import zombicide.item.Weapon;
 /**
  * The class Crowbar represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
- * It implements the characteristics and behavior of a Chainsaw weapon.
+ * It implements the characteristics and behavior of a Pistol weapon.
  */
-public class Chainsaw extends Weapon {
+public class Pistol extends Weapon {
 
     /**
-     * Construct a new Chainsaw
+     * Construct a new Pistol
      * minimum range : 0
-     * maximum range : 0
-     * damage : 3
-     * threshold : 5
+     * maximum range : 1
+     * damage : 1
+     * threshold : 4
      */
-    public Chainsaw(){
-        super(0,0,3,5);
+    public Pistol(){
+        super(0,1,1,4);
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
@@ -23,6 +22,6 @@ public class Chainsaw extends Weapon {
      */
     @Override
     public int howManyThrows() {
-        return 2;
+        return 1;
     }
 }

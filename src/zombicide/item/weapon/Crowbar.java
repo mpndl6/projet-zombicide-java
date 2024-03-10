@@ -1,21 +1,20 @@
-package zombicide.item.weapons;
+package zombicide.item.weapon;
 
-import zombicide.item.Weapon;
 /**
  * The class Crowbar represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
- * It implements the characteristics and behavior of a Pistol weapon.
+ * It implements the characteristics and behavior of a Crowbar weapon.
  */
-public class Pistol extends Weapon {
+public class Crowbar extends Weapon{
 
     /**
-     * Construct a new Pistol
+     * Construct a new Crowbar
      * minimum range : 0
-     * maximum range : 1
+     * maximum range : 0
      * damage : 1
      * threshold : 4
      */
-    public Pistol(){
-        super(0,1,1,4);
+    public Crowbar(){
+        super(0,0,1,4);
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
