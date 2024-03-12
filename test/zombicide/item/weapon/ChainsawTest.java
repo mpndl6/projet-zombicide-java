@@ -15,5 +15,9 @@ public class ChainsawTest {
         assertEquals(5, chainsaw.getThreshold(), "Threshold should be 4 for Pistol");
     }
 
-
+    @Test
+    public void testHowManyThrows() {
+        Chainsaw chainsaw = new Chainsaw();
+        assertEquals(2, chainsaw.howManyThrows(), "Number of dice rolls should be 1 for Pistol");
+    }
 }
