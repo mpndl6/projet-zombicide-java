@@ -6,8 +6,8 @@ import zombicide.map.util.*;
 
 public abstract class SpecialRoom extends Room {
 
-    public SpecialRoom(Position p , int w , int h){
-        super(p , w , h);
+    public SpecialRoom(){
+        super();
         this.cellType = CellType.SPECIALROOM;
     }  
     
