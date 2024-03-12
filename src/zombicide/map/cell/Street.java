@@ -14,10 +14,9 @@ protected CellType cellType;
 
 
 /** Construct a street
- * @param p the position of the cell street
  */
-public Street(Position p){
-    super(p);
+public Street(){
+    super();
     this.cellType = CellType.STREET;
 }
 
