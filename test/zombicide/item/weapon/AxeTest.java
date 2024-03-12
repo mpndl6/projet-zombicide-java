@@ -14,5 +14,9 @@ public class AxeTest {
         assertEquals(4, axe.getThreshold(), "Threshold should be 4 for Pistol");
     }
 
-
+    @Test
+    public void testHowManyThrows() {
+        Axe axe = new Axe();
+        assertEquals(1, axe.howManyThrows(), "Number of dice rolls should be 1 for Pistol");
+    }
 }
