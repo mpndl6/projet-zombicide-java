@@ -36,4 +36,14 @@ public class SurvivorTest {
 
 
 
+    @Test
+    public void testPutItemInBackpack() {
+        Survivor survivor = new Survivor("TestSurvivor");
+        Item item = new Pistol();
+        survivor.putItemInBackpack(item);
+        assertEquals(1, survivor.getAllInBackpack().size());
+        assertTrue(survivor.getAllInBackpack().contains(item));
+    }
+
+
 }
