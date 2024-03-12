@@ -1,8 +1,11 @@
 package zombicide.map;
 
 import java.util.*;
+import zombicide.map.cell.*;
 
 import grid.Grid;
+import zombicide.map.cell.room.Continental;
+import zombicide.map.cell.room.DrugStore;
 
 
 public class MainFirstDeliverable {
@@ -20,7 +23,24 @@ public class MainFirstDeliverable {
             System.out.println("Choissisez la largeur de vos cellules");
             System.out.print("Un conseil prenez un nombre grand pour une meilleure visibilité) :");
             int weightOfCells = scanner.nextInt();
-            Map map = new Map(weightOfMap,heitghOfMap);
+
+            List<Cell> listrooms = new ArrayList<Cell>();
+            List<Cell> liststreets = new ArrayList<Cell>();
+
+            liststreets.add(new StreetWW());
+
+            System.out.println("nb continantal?");
+            int nbC = scanner.nextInt();
+            for(int i = nbC ; i > 0 ; i--) {
+                listrooms.add(new Continental());
+            }
+            System.out.println("nb D?");
+            int nbD = scanner.nextInt();
+            for(int i = nbD ; i > 0 ; i--) {
+                listrooms.add(new DrugStore());
+            }
+
+            Map map = new Map(weightOfMap,heitghOfMap,listrooms,liststreets);
             Grid grid= new Grid(map, weightOfCells);
 
             System.out.println("Voici à qoi ressemble votre plateau:");

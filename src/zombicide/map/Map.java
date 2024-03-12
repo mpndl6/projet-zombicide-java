@@ -23,27 +23,32 @@ public class Map {
      *
      * @param w width of Map
      * @param h heigth of Map
-     *          of Map
+     * @param listRooms list of specialrooms
+     * @param listStreets list of specialstreets
      */
-    public Map(int w, int h) {
+    public Map(int w, int h, List<Cell> listRooms, List<Cell> listStreets) {
         this.width = w;
         this.heigth = h;
         this.cells = new Cell[w][h];
 
         for (w = 0; w < this.width; w++) {
             for (h = 0; h < this.heigth; h++) {
-                this.cells[w][h] = new Room(new Position(w, h), this.width, this.heigth);
+                this.cells[w][h] = new Room();
             }
         }
 
-        this.principalIntersection = this.generateFirstRoad();
+        this.principalIntersection = this.generatFirstRoad();
         this.putWasteWater();
-        
-        Position p = this.getPositionOfRoom(getListOfRooms());
-        this.putSpecialRoom(new Continental(p,w,h),p);
+        this.putPositionOfCells();
 
-        Position p2 = this.getPositionOfRoom(getListOfRooms());
-        this.putSpecialRoom(new DrugStore(p2,w,h),p2);
+        List<Cell> listCell = this.getListOfCells(CellType.ROOM);
+        List<Position> listPos = this.getPostionsForSpecialCells(listRooms.size(),listCell);
+        this.putSpecialCells(listRooms,listPos);
+
+        List<Cell> listCell2 = this.getListOfCells(CellType.STREET);
+        List<Position> listPos2 = this.getPostionsForSpecialCells(listStreets.size(),listCell2);
+        this.putSpecialCells(listRooms,listPos2);
+
     }
     /**
      * Places waste water objects at specified positions on the map.
@@ -53,10 +58,10 @@ public class Map {
     public void putWasteWater(){
         int x = principalIntersection.getX();
         int y = principalIntersection.getY();
-        this.cells[x][0] = new StreetWW(new Position(x,0));
-        this.cells[0][y] = new StreetWW(new Position(0,y));
-        this.cells[x][this.heigth-1] = new StreetWW(new Position(x,this.heigth-1));
-        this.cells[this.width-1][y] = new StreetWW(new Position(this.width-1,y));
+        this.cells[x][0] = new StreetWW();
+        this.cells[0][y] = new StreetWW();
+        this.cells[x][this.heigth-1] = new StreetWW();
+        this.cells[this.width-1][y] = new StreetWW();
     }
 
     /**
@@ -173,10 +178,10 @@ public class Map {
             int wl = generateNumberForInitmap(wmax, wmin);
             int hl = generateNumberForInitmap(hmax, hmin);
             for (int j = hmin; j <= hmax; j++) {
-                this.cells[wl][j] = new Street(new Position(wl, j));
+                this.cells[wl][j] = new Street();
             }
             for (int i = wmin; i <= wmax; i++) {
-                this.cells[i][hl] = new Street(new Position(i, hl));
+                this.cells[i][hl] = new Street();
             }
             initmap(wmax, wl + 1, hl - 1, hmin);
             initmap(wmax, wl + 1, hmax, hl + 1);
@@ -187,7 +192,7 @@ public class Map {
         if (wmax - wmin >= 4 && hmax - hmin < 4) {
             int wl = generateNumberForInitmap(wmax, wmin);
             for (int j = hmin; j <= hmax; j++) {
-                this.cells[wl][j] = new Street(new Position(wl, j));
+                this.cells[wl][j] = new Street();
             }
             initmap(wmax, wl + 1, hmax, hmin);
             initmap(wl - 1, wmin, hmax, hmin);
@@ -196,7 +201,7 @@ public class Map {
         if (wmax - wmin < 4 && hmax - hmin >= 4) {
             int hl = generateNumberForInitmap(hmax, hmin);
             for (int i = wmin; i <= wmax; i++) {
-                this.cells[i][hl] = new Street(new Position(i, hl));
+                this.cells[i][hl] = new Street();
             }
             initmap(wmax, wmin, hl - 1, hmin);
             initmap(wmax, wmin, hmax, hl + 1);
@@ -208,14 +213,14 @@ public class Map {
      *
      * @return The position of the main intersection.
      */
-    public Position generateFirstRoad() {
+    public Position generatFirstRoad() {
         int wl = generateNumberForInitmap(this.width - 1, 0);
         int hl = generateNumberForInitmap(this.heigth - 1, 0);
         for (int j = 0; j <= this.heigth - 1; j++) {
-            this.cells[wl][j] = new Street(new Position(wl, j));
+            this.cells[wl][j] = new Street();
         }
         for (int i = 0; i <= this.width - 1; i++) {
-            this.cells[i][hl] = new Street(new Position(i, hl));
+            this.cells[i][hl] = new Street();
         }
         initmap(this.width - 1, wl + 1, hl - 1, 0);
         initmap(this.width - 1, wl + 1, this.heigth - 1, hl + 1);
@@ -231,7 +236,7 @@ public class Map {
      * @param m The maximum value.
      * @return A random number for special room placement.
      */
-    public int generateNumberForSpecialRoom(int m) {
+    public int generatNumberForSpecialRoom(int m) {
         int max = m;
         int min = 0;
         int range = max - min + 1;
@@ -240,16 +245,17 @@ public class Map {
     }
 
     /**
-     * Retrieves a list of all rooms present in the grid.
+     * Retrieves a list of all cells of a given type present in the map.
      *
-     * @return A list containing all the rooms found in the grid.
+     * @param t The type of cells to retrieve.
+     * @return A list containing all the cells of the specified type found in the map.
      */
-    public List<Room> getListOfRooms() {
-        List<Room> list = new ArrayList<Room>();
+    public List<Cell> getListOfCells(CellType t) {
+        List<Cell> list = new ArrayList<Cell>();
         for(int i = 0 ; i < this.width ; i++) {
             for(int j = 0 ; j < this.heigth ; j++){
-                if(this.cells[i][j].getTypeOfCell() == CellType.ROOM)
-                    list.add((Room) this.cells[i][j]);
+                if(this.cells[i][j].getTypeOfCell() == t)
+                    list.add(this.cells[i][j]);
             }
 
         }
@@ -257,24 +263,45 @@ public class Map {
     }
 
     /**
-     * Retrieves the position of a randomly selected room from the given list.
+     * Retrieves the positions of randomly selected cells from the given list.
      *
-     * @param l The list of rooms from which to select.
-     * @return The position of a randomly chosen room.
+     * @param n The number of positions to retrieve.
+     * @param l The list of cells from which to select.
+     * @return The positions of randomly chosen cells.
      */
-    public Position getPositionOfRoom(List<Room> l) {
-        int n = generateNumberForSpecialRoom(l.size()-1);
-        return l.get(n).getPosition();
+    public List<Position> getPostionsForSpecialCells(int n , List<Cell> l) {
+        List<Position> list = new ArrayList<Position>();
+        for(int  i = n ; i > 0 ; i--) {
+            int j = generatNumberForSpecialRoom(l.size() - 1);
+            list.add(l.get(j).getPosition());
+            l.remove(j);
+        }
+        return list;
     }
 
     /**
-     * Places a special room at the specified position on the grid.
+     * Places special cells at specified positions on the map.
      *
-     * @param r The special room to place.
-     * @param p The position at which to place the special room.
+     * @param listCell The list of special cells to place.
+     * @param listPos  The positions where the special cells will be placed.
      */
-    public void putSpecialRoom(Room r,Position p) {
-        this.cells[p.getX()][p.getY()] = r;
+    public void putSpecialCells(List<Cell> listCell ,List<Position> listPos) {
+        for(Position p: listPos) {
+            listCell.get(0).putPosition(p);
+            this.cells[p.getX()][p.getY()] = listCell.get(0);
+            listCell.remove(0);
+        }
+    }
+
+    /**
+     * Places positions on all cells of the map.
+     */
+    public void putPositionOfCells() {
+        for(int  i = 0 ; i < this.width ; i++) {
+            for(int j = 0 ; j < this.heigth ; j++) {
+                this.cells[i][j].putPosition(new Position(i,j));
+            }
+        }
     }
 
     /**
