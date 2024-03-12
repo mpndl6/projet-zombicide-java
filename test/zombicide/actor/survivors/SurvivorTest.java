@@ -53,5 +53,14 @@ public class SurvivorTest {
         assertEquals(item, survivor.getWhatINHand());
     }
 
-
+    @Test
+    public  void testDropItALL() {
+        Survivor survivor = new Survivor("TestSurvivor");
+        Item item1 = new Pistol();
+        Item item2 = new Carabine();
+        survivor.putItemInBackpack(item1);
+        survivor.putItemInBackpack(item2);
+        survivor.dropItALL();
+        assertEquals(0, survivor.getAllInBackpack().size(), "Backpack should be empty after dropping all items");
+    }
 }
