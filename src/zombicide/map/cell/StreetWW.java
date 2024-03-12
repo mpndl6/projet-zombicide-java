@@ -6,7 +6,7 @@ import zombicide.map.util.Position;
 public class StreetWW extends Street {
 
     public StreetWW() {
-        super(p);
+        super();
         this.cellType = CellType.SPECIALSTREET;
     }
 
