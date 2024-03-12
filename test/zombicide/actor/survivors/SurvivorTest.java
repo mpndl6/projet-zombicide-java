@@ -14,7 +14,7 @@ public class SurvivorTest {
 
         assertEquals("test", survivor.getNickName());
         assertEquals(0, survivor.getXP());
-        assertEquals(0, survivor.getActionPoint());
+        assertEquals(3, survivor.getActionPoint());
         assertEquals(5, survivor.getLifePoints());
         assertNotNull(survivor.getWhatINHand());
         assertEquals(0, survivor.getAllInBackpack().size());
@@ -27,6 +27,12 @@ public class SurvivorTest {
         assertEquals(1, survivor.getXP());
     }
 
+    @Test
+    public void testIncreaseActionPoint() {
+        Survivor survivor = new Survivor("TestSurvivor");
+        survivor.increaseActionPoint();
+        assertEquals(4, survivor.getActionPoint());
+    }
 
 
 
