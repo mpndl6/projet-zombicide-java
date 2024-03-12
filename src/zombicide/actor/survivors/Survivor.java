@@ -40,7 +40,7 @@ public Survivor(String name){
     super(name, 5);
     this.level = STARTING_LEVEL;
     this.XP = 0;
-    this.actionPoint = 0;
+    this.actionPoint = 3;
     this.backPack = new ArrayList<>();
     this.inHand = new Pistol();
 }
