@@ -7,15 +7,15 @@ public class PistolTest {
     @Test
     public void testInitialization() {
         Pistol pistol = new Pistol();
-        assertEquals(0, pistol.getRangeMin(), "Minimum range should be 0 for Pistol");
-        assertEquals(1, pistol.getRangeMax(), "Maximum range should be 1 for Pistol");
-        assertEquals(1, pistol.getHowManyDamage(), "Damage should be 1 for Pistol");
-        assertEquals(4, pistol.getThreshold(), "Threshold should be 4 for Pistol");
+        assertEquals(0, pistol.getRangeMin());
+        assertEquals(1, pistol.getRangeMax());
+        assertEquals(1, pistol.getHowManyDamage());
+        assertEquals(4, pistol.getThreshold());
     }
 
     @Test
     public void testHowManyThrows() {
         Pistol pistol = new Pistol();
-        assertEquals(1, pistol.howManyThrows(), "Number of dice rolls should be 1 for Pistol");
+        assertEquals(1, pistol.howManyThrows());
     }
 }

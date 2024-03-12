@@ -7,16 +7,16 @@ public class CrowbarTest {
     @Test
     public void testInitialization() {
         Crowbar crowbar = new Crowbar();
-        assertEquals(0, crowbar.getRangeMin(), "Minimum range should be 0 for Pistol");
-        assertEquals(0, crowbar.getRangeMax(), "Maximum range should be 1 for Pistol");
-        assertEquals(1, crowbar.getHowManyDamage(), "Damage should be 1 for Pistol");
-        assertEquals(4, crowbar.getThreshold(), "Threshold should be 4 for Pistol");
+        assertEquals(0, crowbar.getRangeMin());
+        assertEquals(0, crowbar.getRangeMax());
+        assertEquals(1, crowbar.getHowManyDamage());
+        assertEquals(4, crowbar.getThreshold());
     }
 
     @Test
     public void testHowManyThrows() {
         Crowbar crowbar = new Crowbar();
-        assertEquals(1, crowbar.howManyThrows(), "Number of dice rolls should be 1 for Pistol");
+        assertEquals(1, crowbar.howManyThrows());
     }
 }
 
