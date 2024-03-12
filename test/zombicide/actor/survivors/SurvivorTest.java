@@ -45,5 +45,13 @@ public class SurvivorTest {
         assertTrue(survivor.getAllInBackpack().contains(item));
     }
 
+    @Test
+    public void testPutInHand() {
+        Survivor survivor = new Survivor("TestSurvivor");
+        Item item = new Axe();
+        survivor.putInHand(item);
+        assertEquals(item, survivor.getWhatINHand());
+    }
+
 
 }
