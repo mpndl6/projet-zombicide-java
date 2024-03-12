@@ -8,15 +8,11 @@ import zombicide.map.cell.util.*;
 public class Room extends Cell {
 
     protected Map<Location,Boolean> doors;
-    protected int widthOfMap;
-    protected int heightOfMap;
     protected CellType cellType;
 
-    public Room(Position p , int w , int h) {
-        super(p);
+    public Room() {
+        super();
         this.cellType = CellType.ROOM;
-        this.widthOfMap = w;
-        this.heightOfMap = h;
         super.items = new ArrayList<Item>();
         this.doors = new HashMap<Location,Boolean>();
 
