@@ -10,12 +10,9 @@ public class DrugStore extends SpecialRoom {
 
     /**
      * It creates the DrugStore of the Map
-     * @param p position of the drugStore
-     * @param w width of Map
-     * @param h heigth of Map
      */
-    public DrugStore(Position p, int w,int h){
-        super(p,w,h);
+    public DrugStore(){
+        super();
     }
 
     /**
@@ -23,7 +20,7 @@ public class DrugStore extends SpecialRoom {
      * @param a to be added to the cell
      * When a wurvivor enters into the Drugstore, its icrease the number of vials
      */
-    public void welcomeActor(Actor a){
+    public void welcomeActor(Actor a) {
         super.welcomeActor(a);
         if (a instanceof Survivor)
             super.items.add(new Vial());
