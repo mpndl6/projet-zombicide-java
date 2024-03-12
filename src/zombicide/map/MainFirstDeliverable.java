@@ -29,6 +29,7 @@ public class MainFirstDeliverable {
 
             liststreets.add(new StreetWW());
 
+
             System.out.println("nb continantal?");
             int nbC = scanner.nextInt();
             for(int i = nbC ; i > 0 ; i--) {

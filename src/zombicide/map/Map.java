@@ -47,7 +47,7 @@ public class Map {
 
         List<Cell> listCell2 = this.getListOfCells(CellType.STREET);
         List<Position> listPos2 = this.getPostionsForSpecialCells(listStreets.size(),listCell2);
-        this.putSpecialCells(listRooms,listPos2);
+        this.putSpecialCells(listStreets,listPos2);
 
     }
     /**
@@ -286,10 +286,15 @@ public class Map {
      * @param listPos  The positions where the special cells will be placed.
      */
     public void putSpecialCells(List<Cell> listCell ,List<Position> listPos) {
+        Iterator<Cell> cellIterator = listCell.iterator();
         for(Position p: listPos) {
-            listCell.get(0).putPosition(p);
-            this.cells[p.getX()][p.getY()] = listCell.get(0);
-            listCell.remove(0);
+            if (cellIterator.hasNext()) {
+                listCell.get(0).putPosition(p);
+                this.cells[p.getX()][p.getY()] = listCell.get(0);
+                listCell.remove(0);
+            } else {
+                break;
+            }
         }
     }
 
