@@ -13,6 +13,10 @@ public class CrowbarTest {
         assertEquals(4, crowbar.getThreshold(), "Threshold should be 4 for Pistol");
     }
 
-
+    @Test
+    public void testHowManyThrows() {
+        Crowbar crowbar = new Crowbar();
+        assertEquals(1, crowbar.howManyThrows(), "Number of dice rolls should be 1 for Pistol");
+    }
 }
 
