@@ -20,6 +20,13 @@ public class SurvivorTest {
         assertEquals(0, survivor.getAllInBackpack().size());
     }
 
+    @Test
+    public void testIncreaseXP() {
+        Survivor survivor = new Survivor("TestSurvivor");
+        survivor.increaseXP();
+        assertEquals(1, survivor.getXP());
+    }
+
 
 
 
