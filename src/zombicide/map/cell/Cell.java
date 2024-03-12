@@ -22,10 +22,10 @@ public abstract class Cell /*implements ElementGrid*/ {
 
 	
 	// Constructor to initialize the cell with noise level and position
-	public Cell(Position position) {
+	public Cell() {
 		
 		this.noiseLevel=0;
-		this.position=position;
+		this.position=null;
 		this.actors=new ArrayList<Actor>();
 		this.items = new ArrayList<>();
 	}
@@ -137,6 +137,13 @@ public abstract class Cell /*implements ElementGrid*/ {
 	 * @return
 	 */
 	public abstract Object getTypeOfCell();
-	
-	
+
+	/**
+	 * put the position of the cell
+	 * @param p position of cell
+	 */
+	public void putPosition(Position p) {
+		this.position = p;
+	}
+
 }
