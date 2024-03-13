@@ -176,7 +176,7 @@ public class Grid {
 
         public void displayLastWall(){
         Cell[][] cellsOfMap = this.map.getCells();
-        System.out.print(separatorVWall.repeat(this.weightOfCell*cellsOfMap[0].length));
+        System.out.println(separatorVWall.repeat(this.weightOfCell*cellsOfMap[0].length));
         }
 
     /**

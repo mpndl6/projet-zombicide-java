@@ -83,7 +83,8 @@ public class Livrable2 {
            map.putActorONCell(s,pCell);
 
         }
-
+        System.out.println();
+        grid.displayGrid();
 
 
 

@@ -322,8 +322,11 @@ public class Map {
     public void putActorONCell(Actor a, Position p){
         int XCell = p.getX();
         int YCell = p.getY();
+        if (a.getCell()!=null)
+            a.getCell().removeActor(a);
         this.cells[XCell][YCell].welcomeActor(a);
         a.setCell(this.cells[XCell][YCell]);
+
     }
 
 }
