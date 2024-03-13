@@ -104,5 +104,6 @@ public class MainSecondDeliverable {
         map.putActorONCell(walker, map.getPositionOFWaster(Location.SOUTH));
 
         grid.displayGrid();
+        System.out.println(survivor1);
     }
 }

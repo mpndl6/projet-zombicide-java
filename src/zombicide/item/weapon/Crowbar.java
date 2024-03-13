@@ -24,4 +24,11 @@ public class Crowbar extends Weapon{
     public int howManyThrows() {
         return 1;
     }
+
+    /**
+     * @return a description of the item
+     */
+    public String toString(){
+        return "Crowbar";
+    }
 }

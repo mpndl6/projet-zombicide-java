@@ -24,4 +24,11 @@ public class Chainsaw extends Weapon {
     public int howManyThrows() {
         return 2;
     }
+
+    /**
+     * @return a description of the item
+     */
+    public String toString(){
+        return "Chainsaw";
+    }
 }

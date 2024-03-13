@@ -42,6 +42,7 @@ protected int actionPoint;
         super(name, 5);
         this.typeOfActor = ActorType.SURVIVOR;
         this.XP = 0;
+        this.currentLevel = SurvivorsLevel.STARTING_LEVEL;
         this.actionPoint = 3;
         this.backPack = new ArrayList<>();
         this.inHand = new Pistol();
@@ -236,7 +237,17 @@ public int diceThrows(int howMany){
 }
 
 public String toString(){
-    return "the survivor "+ this.nickName+ "has a"+this.inHand+ "in hand and their backpack contains  ";
+    String description=  "Survivor name : "+ super.nickName+
+            "\nin Hand : "+this.inHand+
+            "\nXP : "+this.XP +
+            "\nAction Point :"+this.actionPoint+
+            "\nCurrent level : "+this.currentLevel+
+            "\nin backpack : ";
+    for (Item i: backPack){
+        description+=";"+i+" ";
+    }
+    return description+".";
+
 }
 
 

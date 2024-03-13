@@ -63,4 +63,8 @@ public abstract class Weapon extends Item {
         return threshold;
     }
 
+    /**
+     * @return a description of the item
+     */
+    public abstract String toString();
 }
