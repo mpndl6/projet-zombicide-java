@@ -270,11 +270,16 @@ public class Map {
      * @return The positions of randomly chosen cells.
      */
     public List<Position> getPostionsForSpecialCells(int n , List<Cell> l) {
+        Iterator<Cell> cellIterator = l.iterator();
         List<Position> list = new ArrayList<Position>();
         for(int  i = n ; i > 0 ; i--) {
-            int j = generatNumberForSpecialRoom(l.size() - 1);
-            list.add(l.get(j).getPosition());
-            l.remove(j);
+            if(cellIterator.hasNext()) {
+                int j = generatNumberForSpecialRoom(l.size() - 1);
+                list.add(l.get(j).getPosition());
+                l.remove(j);
+            } else {
+                break;
+            }
         }
         return list;
     }
