@@ -121,6 +121,7 @@ public List<Item> getAllInBackpack(){
  */
 public void setCell(Cell c){
     this.cell=c;
+    c.welcomeActor(this);
 }
 
 
@@ -231,6 +232,10 @@ public int diceThrows(int howMany){
     for (int i=0; i<howMany+1; i++)
         result+= this.oneDieThrow();
     return result;
+}
+
+public String toString(){
+    return "the survivor "+ this.nickName+ "has a"+this.inHand+ "in hand "
 }
 
 
