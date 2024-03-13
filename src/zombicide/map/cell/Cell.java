@@ -5,6 +5,7 @@ import java.util.List;
 
 //import zombicide.map.grid.element.ElementGrid;
 import zombicide.actor.Actor;
+import zombicide.actor.ActorType;
 import zombicide.item.Item;
 import zombicide.map.util.*;
 
@@ -53,6 +54,30 @@ public abstract class Cell /*implements ElementGrid*/ {
 	 */
 	public int howManyActors() {
 		return this.actors.size();
+	}
+
+	/**
+	 * @return nb of survivors in cell
+	 */
+	public int howManySurvivors() {
+		int i = 0;
+		for(Actor a : this.actors) {
+			if(a.getTypeOfActor() == ActorType.SURVIVOR)
+				i++;
+		}
+		return i;
+	}
+
+	/**
+	 * @return nb of zombies in cell
+	 */
+	public int howManyZombies() {
+		int i = 0;
+		for(Actor a : this.actors) {
+			if(a.getTypeOfActor() == ActorType.ZOMBIE)
+				i++;
+		}
+		return i;
 	}
 
 	/*
@@ -145,5 +170,10 @@ public abstract class Cell /*implements ElementGrid*/ {
 	public void putPosition(Position p) {
 		this.position = p;
 	}
+
+	/**
+	 * @return description of cell
+	 */
+	public abstract String description();
 
 }
