@@ -238,15 +238,15 @@ public int diceThrows(int howMany){
 
 public String toString(){
     String description=  "Survivor name : "+ super.nickName+
-            "\nin Hand : "+this.inHand+
+            "\nIn Hand : "+this.inHand+
             "\nXP : "+this.XP +
             "\nAction Point :"+this.actionPoint+
             "\nCurrent level : "+this.currentLevel+
-            "\nin backpack : ";
+            "\nIn backpack : ";
     for (Item i: backPack){
-        description+=";"+i+" ";
+        description+=i+" ";
     }
-    return description+".";
+    return description+"";
 
 }
 
