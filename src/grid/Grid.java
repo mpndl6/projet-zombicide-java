@@ -1,5 +1,6 @@
 package grid;
 import zombicide.actor.Actor;
+import zombicide.actor.zombies.Zombie;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
@@ -184,8 +185,16 @@ public class Grid {
      */
     public String displayActor(Cell c){
         int nbActors=c.howManyActors();
-        if(nbActors!=0)
-        return "a"+nbActors;
+        if(nbActors!=0){
+            int nbSurvivors= c.howManySurvivors();
+            int nbZombies = c.howManyZombies();
+            if (nbSurvivors!=0 & nbZombies!=0)
+                return "S-"+nbSurvivors+"Z-"+nbZombies;
+            else if (nbSurvivors!=0)
+                return "S-"+nbSurvivors;
+            else
+                return "Z-"+nbSurvivors;
+        }
         return "";
     }
 
