@@ -44,6 +44,8 @@ public Actor(String name, int lp){
         this.cell = c;
     }
 
+    public abstract ActorType getTypeOfActor();
+
     //methode action
 
 }
