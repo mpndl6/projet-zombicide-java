@@ -18,7 +18,7 @@ protected static final int ELEVENTH_LEVEL = 11;
 protected static final int SEVENTH_LEVEL = 7;
 protected static final int STARTING_LEVEL =0; // at begenning a survivor is at level 0
 protected static final int MAX_NB_ITEM = 5; // in backpack
-protected int level; // the level the survivor is currently in
+protected SurvivorsLevel currentLevel; // the level the survivor is currently in
 protected String nickName; // nickname of survivor
 protected int XP; // level of expertise of a survivor
 protected Item inHand; // the item the survivor has in hand
@@ -38,7 +38,7 @@ private static Random randomNB = new Random( ) ;
  */
 public Survivor(String name){
     super(name, 5);
-    this.level = STARTING_LEVEL;
+    //this.level = STARTING_LEVEL;
     this.XP = 0;
     this.actionPoint = 3;
     this.backPack = new ArrayList<>();
@@ -58,8 +58,8 @@ return this.XP;
  * @return the current level of Survivor
  */
 public SurvivorsLevel getCurrentLevel(){
-    if (this.level <ELEVENTH_LEVEL){
-        if (this.level <=THIRD_LEVEL)
+    if (this.XP <ELEVENTH_LEVEL){
+        if (this.XP <=THIRD_LEVEL)
             return SurvivorsLevel.THIRD_LEVEL;
         //else
         return SurvivorsLevel.SEVENTH_LEVEL;
@@ -123,12 +123,6 @@ public void setCell(Cell c){
     this.cell=c;
 }
 
-    /**
- * Increase the current level of the survivor
- */
-public void increaseLevel(){
-    this.level++;
-}
 
 /**
  * increase action points of survivor
@@ -142,6 +136,17 @@ public void increaseActionPoint(){
  */
 public void increaseXP(){
     this.XP++;
+    switch(this.XP){
+        case 3:
+            this.currentLevel = SurvivorsLevel.THIRD_LEVEL;
+            increaseActionPoint();
+        case 7:
+            this.currentLevel = SurvivorsLevel.SEVENTH_LEVEL;
+            increaseActionPoint();
+        case 11:
+            this.currentLevel = SurvivorsLevel.ELEVENTH_LEVEL;
+            increaseActionPoint();
+    }
 }
 
 /**
