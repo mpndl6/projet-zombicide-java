@@ -116,6 +116,11 @@ Et pour l'exécuter :
 - On va commit le diagramme UML sur le gitlab
 
 ## Semaine 7
+- création du livrable 2: on a fait la map entrainement sur laquelle nous avons placés les survivants avec une fiole dans la main et une carte dans le backpack. De plus, nous déplaçons les survivants vers le nord .
+- changement de la méthode increaseXP(nous augmentons les points d'actions directement dedans)
+- Nous avons effectués les tests des nouvelles classes 
+- ajout de la description des cellules 
+- ajout d'un tostring pour les survivors pour savoirs ce qu'ils ont sur eux 
 
 ## Semaine 8
 
