@@ -15,4 +15,11 @@ public class Vial extends Utility {
     public void use() {
         this.survivor.increaseLifePoints();
     }
+
+    /**
+     * @return a description of the item
+     */
+    public String toString(){
+        return "Vial";
+    }
 }

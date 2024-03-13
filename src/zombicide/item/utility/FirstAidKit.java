@@ -14,4 +14,11 @@ public class FirstAidKit extends Utility {
         s.increaseLifePoints();
     }
 
+    /**
+     * @return a description of the item
+     */
+    public String toString(){
+        return "FirstAidKit";
+    }
+
 }

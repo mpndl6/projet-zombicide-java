@@ -25,4 +25,11 @@ public class IRGoogles extends Utility {
         if(p.getY() - 1 >= 0)
             System.out.printf(this.map.getCells()[p.getX()][p.getY() - 1].description());
     }
+
+    /**
+     * @return a description of the item
+     */
+    public String toString(){
+        return "IRGoogles";
+    }
 }

@@ -38,4 +38,11 @@ public class MasterKey extends Utility{
             }
         }
     }
+
+    /**
+     * @return a description of the item
+     */
+    public String toString(){
+        return "MasterKey";
+    }
 }

@@ -18,4 +18,11 @@ public class Plan extends Utility {
         Grid grid= new Grid(this.map, 5);
         grid.displayGrid();
     }
+
+    /**
+     * @return a description of the item
+     */
+    public String toString(){
+        return "Plan";
+    }
 }

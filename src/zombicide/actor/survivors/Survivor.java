@@ -236,7 +236,7 @@ public int diceThrows(int howMany){
 }
 
 public String toString(){
-    return "the survivor "+ this.nickName+ "has a"+this.inHand+ "in hand ";
+    return "the survivor "+ this.nickName+ "has a"+this.inHand+ "in hand and their backpack contains  ";
 }
 
 
