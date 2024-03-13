@@ -1,5 +1,6 @@
 package zombicide.actor.survivors;
 import zombicide.actor.Actor;
+import zombicide.actor.ActorType;
 import zombicide.item.*;
 import java.util.*;
 import zombicide.item.weapon.*;
@@ -25,25 +26,34 @@ protected Item inHand; // the item the survivor has in hand
 protected List<Item> backPack;
 // protected List<Role> roles;
 protected int actionPoint;
+    protected ActorType typeOfActor;
 
 
-private static Random randomNB = new Random( ) ;
+    private static Random randomNB = new Random( ) ;
 
-/**
- *  Contruct a survivor with their name in parameter.
- *  At creation, a survivor has a Pistol in hand
- * 5 life points, 0 XP, 0 action points et nothing in backpack
- * @param name the nickname of the survivor
- *
- */
-public Survivor(String name){
-    super(name, 5);
-    //this.level = STARTING_LEVEL;
-    this.XP = 0;
-    this.actionPoint = 3;
-    this.backPack = new ArrayList<>();
-    this.inHand = new Pistol();
-}
+    /**
+     *  Contruct a survivor with their name in parameter.
+     *  At creation, a survivor has a Pistol in hand
+     * 5 life points, 0 XP, 0 action points et nothing in backpack
+     * @param name the nickname of the survivor
+     *
+     */
+    public Survivor(String name){
+        super(name, 5);
+        this.typeOfActor = ActorType.SURVIVOR;
+        this.XP = 0;
+        this.actionPoint = 3;
+        this.backPack = new ArrayList<>();
+        this.inHand = new Pistol();
+    }
+
+    /**
+     *@return type of Actor
+     */
+    public ActorType getTypeOfActor() {
+        return this.typeOfActor;
+    }
+
 
 /**
  * Returns  level of expertise of a survivor
@@ -235,7 +245,7 @@ public int diceThrows(int howMany){
 }
 
 public String toString(){
-    return "the survivor "+ this.nickName+ "has a"+this.inHand+ "in hand "
+    return "the survivor "+ this.nickName+ "has a"+this.inHand+ "in hand ";
 }
 
 
