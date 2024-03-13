@@ -81,7 +81,8 @@ public class Map {
                 return this.cells[x][this.heigth-1].getPosition();
             case SOUTH:
                 return  this.cells[this.width-1][y].getPosition();
-
+            default:
+                return null;
         }
     }
 
