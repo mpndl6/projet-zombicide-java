@@ -29,6 +29,11 @@ public CellType getTypeOfCell() {
     return this.cellType;
 }
 
+    @Override
+    public String description() {
+        return "Cell de type:" + this +"\n" + "nombre de survivants:" + this.howManySurvivors() +"\n" + "nombre de zombies:" + this.howManyZombies() + "\n";
+    }
+
     /**
      * 
      * @return true if it's possible to fith in this area

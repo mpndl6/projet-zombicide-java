@@ -32,6 +32,11 @@ public class Room extends Cell {
         return this.cellType;
     }
 
+    @Override
+    public String description() {
+        return "Cell de type:" + this +"\n" + "nombre de survivants:" + this.howManySurvivors() +"\n" + "nombre de zombies:" + this.howManyZombies() + "\n"+"nombre d'objets:" + this.getNbItem() +"\n";
+    }
+
     /**
      * Determines the possible locations for doors in the room.
      *
