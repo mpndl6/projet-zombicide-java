@@ -115,15 +115,6 @@ public List<Item> getAllInBackpack(){
 //TODO si c'est pertinent
 }*/
 
-/**
- * Set a cell to the survivor
- * @param c the wanted cell
- */
-public void setCell(Cell c){
-    this.cell=c;
-    c.welcomeActor(this);
-}
-
 
 /**
  * increase action points of survivor
@@ -235,7 +226,7 @@ public int diceThrows(int howMany){
 }
 
 public String toString(){
-    return "the survivor "+ this.nickName+ "has a"+this.inHand+ "in hand "
+    return "the survivor "+ this.nickName+ "has a"+this.inHand+ "in hand ";
 }
 
 

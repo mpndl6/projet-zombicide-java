@@ -323,6 +323,7 @@ public class Map {
         int XCell = p.getX();
         int YCell = p.getY();
         this.cells[XCell][YCell].welcomeActor(a);
+        a.setCell(this.cells[XCell][YCell]);
     }
 
 }
