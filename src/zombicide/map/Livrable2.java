@@ -13,7 +13,6 @@ import zombicide.actor.zombies.type.Walker;
 import zombicide.item.utility.Plan;
 import zombicide.item.utility.Vial;
 import zombicide.map.cell.room.Continental;
-import zombicide.map.cell.room.DrugStore;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 import zombicide.map.cell.*;
@@ -26,7 +25,7 @@ import java.util.*;
  * conception.
  * It's for the purpose of expansion and avoid to change the code when deliverable it's over.
  */
-public class MainSecondDeliverable {
+public class Livrable2 {
 
     public static void main(String [] args){
 
