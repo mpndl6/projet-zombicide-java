@@ -65,6 +65,27 @@ public class Map {
     }
 
     /**
+     * Permits to get the position of the wastewater in west, east, north or south
+     * @param l the specific location
+     * @return the position of the wastewater at location l
+     */
+    public Position getPositionOFWaster(Location l){
+        int x = principalIntersection.getX();
+        int y = principalIntersection.getY();
+        switch (l){
+            case WEST:
+                return this.cells[x][0].getPosition();
+            case EAST:
+                return this.cells[0][y].getPosition();
+            case NORTH:
+                return this.cells[x][this.heigth-1].getPosition();
+            case SOUTH:
+                return  this.cells[this.width-1][y].getPosition();
+
+        }
+    }
+
+    /**
      * Tell is the wall at location c is a wall or not (a door)
      * @param c the cell we look at
      * @param l location where it's verified
@@ -100,17 +121,24 @@ public class Map {
         Cell right = this.cells[xCell][yCell+1];
         Cell left = this.cells[xCell][yCell-1];
         Cell down = this.cells[xCell+1][yCell];
-        ((Room)current).openDoor(l);
-        switch (l){
-            case NORTH:
-                ((Room)up).openDoor(Location.SOUTH);
-            case SOUTH:
-                ((Room)down).openDoor(Location.NORTH);
-            case WEST:
-                ((Room)left).openDoor(Location.EAST);
-            case EAST:
-                ((Room)right).openDoor(Location.WEST);
-        }
+
+        if (current instanceof Room)
+            ((Room) current).openDoor(l);
+
+            switch (l) {
+                case NORTH:
+                    if (up instanceof Room)
+                    ((Room) up).openDoor(Location.SOUTH);
+                case SOUTH:
+                    if(down instanceof Room)
+                    ((Room) down).openDoor(Location.NORTH);
+                case WEST:
+                    if (left instanceof Room)
+                    ((Room) left).openDoor(Location.EAST);
+                case EAST:
+                    if (right instanceof Room)
+                    ((Room) right).openDoor(Location.WEST);
+            }
     }
 
     /**
