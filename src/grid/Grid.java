@@ -193,10 +193,12 @@ public class Grid {
             else if (nbSurvivors!=0)
                 return "S-"+nbSurvivors;
             else
-                return "Z-"+nbSurvivors;
+                return "Z-"+nbZombies;
         }
         return "";
     }
+
+
 
     /**
      * Display the separators between this cell and its environment
