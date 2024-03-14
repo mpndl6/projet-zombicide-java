@@ -17,7 +17,7 @@ public class StreetTest {
     public void before() {
         Position position = new Position(1, 1);
 
-        streetWithoutWastewater = new Street(position);
+       // streetWithoutWastewater = new Street(position);
     }
 
   /*  @Test

@@ -12,7 +12,7 @@ public class MapTest {
 
     @Before
     public void before() {
-        testMap = new Map(10, 10);
+     testMap = new Map(10, 10);
     }
 
     @Test

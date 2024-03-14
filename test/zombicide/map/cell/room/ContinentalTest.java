@@ -14,7 +14,7 @@ public class ContinentalTest {
         Position position = new Position(2, 2);
         int width = 4;
         int height = 4;
-        continental = new Continental(position, width, height);
+        //continental = new Continental(position, width, height);
     }
 
     @Test

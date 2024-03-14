@@ -16,7 +16,7 @@ public class RoomTest {
     @Before
     public void before() {
         position = new Position(2, 2);
-        room = new Room(position, 4, 4);
+       // room = new Room(position, 4, 4);
        // door = new Door(Location.NORTH);
     }
 
