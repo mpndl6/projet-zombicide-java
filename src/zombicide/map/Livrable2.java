@@ -45,30 +45,30 @@ public class Livrable2 {
         TrainingMap2 map = new TrainingMap2(listrooms,liststreets);
 
         //new survivors constrcuted
-        Survivor survivor1 = new Healer("Dr.Dre");
-        Survivor survivor2 = new Nosy("snoop");
-        Survivor survivor3= new Fighter("Meek");
-        Survivor survivor4 = new Lucky("zz");
+        Survivor healer = new Healer("Dr.Dre");
+        Survivor nosy = new Nosy("snoop");
+        Survivor fighter= new Fighter("Meek");
+        Survivor lucky = new Lucky("zz");
 
         Position crossRoadPos = map.getPrincipalIntersection();
 
         //add of players on principal street
-        map.putActorONCell(survivor1,crossRoadPos);
-        map.putActorONCell(survivor2, crossRoadPos);
-        map.putActorONCell(survivor3, crossRoadPos);
-        map.putActorONCell(survivor4, crossRoadPos);
+        map.putActorONCell(healer,crossRoadPos);
+        map.putActorONCell(nosy, crossRoadPos);
+        map.putActorONCell(fighter, crossRoadPos);
+        map.putActorONCell(lucky, crossRoadPos);
 
         //add of vials in hand
-        survivor1.putInHand(new Vial());
-        survivor2.putInHand(new Vial());
-        survivor3.putInHand(new Vial());
-        survivor4.putInHand(new Vial());
+        healer.putInHand(new Vial());
+        nosy.putInHand(new Vial());
+        fighter.putInHand(new Vial());
+        lucky.putInHand(new Vial());
 
         //add of the plan on backpack
-        survivor1.putItemInBackpack(new Plan(map));
-        survivor2.putItemInBackpack(new Plan(map));
-        survivor3.putItemInBackpack(new Plan(map));
-        survivor4.putItemInBackpack(new Plan(map));
+        healer.putItemInBackpack(new Plan(map));
+        nosy.putItemInBackpack(new Plan(map));
+        fighter.putItemInBackpack(new Plan(map));
+        lucky.putItemInBackpack(new Plan(map));
 
         System.out.println("first display of the map:");
         Grid grid = new Grid(map, weightOfCells);
@@ -81,15 +81,15 @@ public class Livrable2 {
         // En attendant la création des utilitaires (Ajout de la carte dans le backpack + de la fiole dans la main:
 
         //survivors deplacement upside
-       map.moveActor(survivor1,Location.NORTH);
-        map.moveActor(survivor2,Location.NORTH);
-        map.moveActor(survivor3,Location.NORTH);
-        map.moveActor(survivor4,Location.NORTH);
+       map.moveActor(healer,Location.NORTH);
+        map.moveActor(nosy,Location.NORTH);
+        map.moveActor(fighter,Location.NORTH);
+        map.moveActor(lucky,Location.NORTH);
         grid.displayGrid();
 
-        //test survivor1 deplacement to the right
-        map.openDoorOfRoom(survivor1.getCell(), Location.EAST); // open the door
-        map.moveActor(survivor1, Location.EAST);
+        //test healer deplacement to the right
+        map.openDoorOfRoom(healer.getCell(), Location.EAST); // open the door
+        map.moveActor(healer, Location.EAST);
 
         //construction zombie
         Zombie abomination = new Abomination();
@@ -103,6 +103,6 @@ public class Livrable2 {
         map.putActorONCell(walker, map.getPositionOFWaster(Location.SOUTH));
 
         grid.displayGrid();
-        System.out.println(survivor1);
+        System.out.println(healer);
     }
 }
