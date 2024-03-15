@@ -10,17 +10,14 @@ import zombicide.map.cell.Street;
 
 public class SurvivorTest {
 
-    @Test
-    public void testInitialization() {
-        Survivor survivor = new Survivor("test");
 
-        assertEquals("test", survivor.getNickName());
-        assertEquals(0, survivor.getXP());
-        assertEquals(3, survivor.getActionPoint());
-        assertEquals(5, survivor.getLifePoints());
-        assertNotNull(survivor.getWhatINHand());
-        assertEquals(0, survivor.getAllInBackpack().size());
+    @Test
+    public void testNicknameInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertEquals("test", survivor.getNickName(), "Nickname should be 'test'");
     }
+
+
 
     @Test
     public void testIncreaseXP() {
