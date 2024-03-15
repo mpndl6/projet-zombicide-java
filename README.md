@@ -37,9 +37,40 @@ Et pour l'exécuter :
 
 ## Livrable 2
 
+### Choix de la modélisation 
+Pour les actor nous avons décidé de faire le choix d'une modélisation d'héritage de la sorte :
+ 
+Actor en classe Abstract
+Survivant héritante de Actor et Zombie héritante de Actor
+
+Puis nous avons tous les types de survivant qui hérite de celle-ci
+Healer,Risky,Fighter,Nosy
+
+Et aussi tous les types de zombies héritant de Zombie :
+Abomination,Powerful,Runner,Walker
+
+
+Pour les équipements nous avons décidé de faire le choix d'une modélisation d'héritage de la sorte : 
+ 
+Item en classe abstract
+
+Puis une classe Weapon héritante de Item, de même pour Utility
+
+Pour les types d'armes elles héritents tous de Weapon :
+Axe,Carabine,Chainsaw,Crowbar,Pistol
+
+Pour les types d'utilitaires elles héritents tous de Utility : 
+FirstAidKit, IRGoogles,MasterKey,Plan,Vial
+
+
 ### Atteinte des objectifs
 
+Pour tout ce qui est modélisation/développement nous avons codé(et tester) et implémenté dans le livrable2 les actors et des items
+
 ### Difficultés restant à résoudre
+Ce qui nous restent à faire c'est comment utiliser la méthode use des item afin de gérer leur action.
+De plus on réfléchi encore comment pouvoir affecter plusieurs rôles aux survivants.
+
 
 ## Livrable 3
 
