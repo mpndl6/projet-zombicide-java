@@ -3,6 +3,7 @@ package zombicide.map;
 import java.util.*;
 
 import zombicide.actor.Actor;
+import zombicide.item.IsWallException;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
 import zombicide.map.cell.room.*;
@@ -50,6 +51,7 @@ public class Map {
         this.putSpecialCells(listStreets,listPos2);
 
     }
+
     /**
      * Places waste water objects at specified positions on the map.
      * Wastewater objects are placed at the edges of
@@ -114,31 +116,36 @@ public class Map {
      * @param current the cell we want to open the door
      * @param l Location of the door
      */
-    public void openDoorOfRoom(Cell current ,Location l){
+    public void openDoorOfRoom(Cell current ,Location l) throws IsWallException {
         int xCell = current.getPosition().getX();
         int yCell = current.getPosition().getY();
 
-        Cell up = this.cells[xCell-1][yCell];
-        Cell right = this.cells[xCell][yCell+1];
-        Cell left = this.cells[xCell][yCell-1];
-        Cell down = this.cells[xCell+1][yCell];
-
+        if (!isWall(current, l)){
+            throw new IsWallException("It's a wall. Walls can't be open");
+        }
         if (current instanceof Room)
             ((Room) current).openDoor(l);
-
             switch (l) {
                 case NORTH:
+                    Cell up = this.cells[xCell-1][yCell];
                     if (up instanceof Room)
-                    ((Room) up).openDoor(Location.SOUTH);
+                        ((Room) up).openDoor(Location.SOUTH);
+                    break;
                 case SOUTH:
+                    Cell down = this.cells[xCell+1][yCell];
                     if(down instanceof Room)
                     ((Room) down).openDoor(Location.NORTH);
+                    break;
                 case WEST:
+                    Cell left = this.cells[xCell][yCell-1];
                     if (left instanceof Room)
                     ((Room) left).openDoor(Location.EAST);
+                    break;
                 case EAST:
+                    Cell right = this.cells[xCell][yCell+1];
                     if (right instanceof Room)
                     ((Room) right).openDoor(Location.WEST);
+                    break;
             }
     }
 
