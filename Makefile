@@ -59,6 +59,5 @@ deliverable1: deliverable1.jar
 clean:
 	rm -Rf ./classes
 	rm -Rf ./docs
-	rm *.jar
 
 .PHONY : all clean
