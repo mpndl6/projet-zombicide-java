@@ -42,7 +42,7 @@ public class Room extends Cell {
      *
      * @return A list of possible door locations.
     */
-    public List<Location> locationOfDoors() {
+    private List<Location> locationOfDoors() {
         List<Location> locations =new ArrayList<Location>();
         locations.add(Location.NORTH);
         locations.add(Location.SOUTH);
