@@ -1,6 +1,7 @@
 package zombicide.map;
 
 import zombicide.actor.Actor;
+import zombicide.item.IsWallException;
 import zombicide.map.cell.Cell;
 import zombicide.map.util.Location;
 
@@ -27,27 +28,29 @@ public class TrainingMap2 extends Map {
      * @param a the actor to move
      * @param l location of the cell the player is going to move
      */
-    public void moveActor(Actor a, Location l){
+    public void moveActor(Actor a, Location l) throws IsWallException {
         Cell current = a.getCell();
         int xCell = current.getPosition().getX();
         int yCell = current.getPosition().getY();
-
-        Cell up = super.cells[xCell-1][yCell];
-        Cell right = super.cells[xCell][yCell+1];
-        Cell left = super.cells[xCell][yCell-1];
-        Cell down = super.cells[xCell+1][yCell];
+        if(isWall(a.getCell(),l)){
+            throw new IsWallException();
+        }
 
         switch (l){
             case NORTH:
+                Cell up = super.cells[xCell-1][yCell];
                 super.putActorONCell(a,up.getPosition());
                 break;
             case SOUTH:
+                Cell down = super.cells[xCell+1][yCell];
                 super.putActorONCell(a,down.getPosition());
                 break;
             case WEST:
+                Cell left = super.cells[xCell][yCell-1];
                 super.putActorONCell(a,left.getPosition());
                 break;
             case EAST:
+                Cell right = super.cells[xCell][yCell+1];
                 super.putActorONCell(a,right.getPosition());
                 break;
         }
