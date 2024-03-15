@@ -116,6 +116,13 @@ public abstract class Cell /*implements ElementGrid*/ {
 	public abstract void removeItem(Item i);
 
 	/**
+	 * @return the nb items present in cell
+	 */
+	public int getNbItems(){
+		return items.size();
+	}
+
+	/**
 	 * Tells if the item in parameter is on cell
 	 * @param i the item wanted
 	 * @return true if the item i is on cell
