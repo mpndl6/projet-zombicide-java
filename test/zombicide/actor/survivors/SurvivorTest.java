@@ -10,16 +10,41 @@ import zombicide.map.cell.Street;
 
 public class SurvivorTest {
 
-    @Test
-    public void testInitialization() {
-        Survivor survivor = new Survivor("test");
 
-        assertEquals("test", survivor.getNickName());
-        assertEquals(0, survivor.getXP());
-        assertEquals(3, survivor.getActionPoint());
-        assertEquals(5, survivor.getLifePoints());
-        assertNotNull(survivor.getWhatINHand());
-        assertEquals(0, survivor.getAllInBackpack().size());
+    @Test
+    public void testNicknameInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertEquals("test", survivor.getNickName(), "Nickname should be 'test'");
+    }
+
+    @Test
+    public void testXPInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertEquals(0, survivor.getXP(), "XP should be 0");
+    }
+
+    @Test
+    public void testActionPointInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertEquals(3, survivor.getActionPoint(), "Action points should be 3");
+    }
+
+    @Test
+    public void testLifePointsInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertEquals(5, survivor.getLifePoints(), "Life points should be 5");
+    }
+
+    @Test
+    public void testInHandItemInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertNotNull(survivor.getWhatINHand(), "In hand item should not be null");
+    }
+
+    @Test
+    public void testBackpackInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertEquals(0, survivor.getAllInBackpack().size(), "Backpack should be empty");
     }
 
     @Test
