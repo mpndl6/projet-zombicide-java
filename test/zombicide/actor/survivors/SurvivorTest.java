@@ -17,6 +17,12 @@ public class SurvivorTest {
         assertEquals("test", survivor.getNickName(), "Nickname should be 'test'");
     }
 
+    @Test
+    public void testXPInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertEquals(0, survivor.getXP(), "XP should be 0");
+    }
+
 
 
     @Test
