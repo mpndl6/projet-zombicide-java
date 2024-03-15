@@ -45,10 +45,10 @@ public class Livrable2 {
         TrainingMap2 map = new TrainingMap2(listrooms,liststreets);
 
         //new survivors constrcuted
-        Survivor healer = new Healer("Dr.Dre");
-        Survivor nosy = new Nosy("snoop");
-        Survivor fighter= new Fighter("Meek");
-        Survivor lucky = new Lucky("zz");
+        Survivor healer = new Healer("Jul");
+        Survivor nosy = new Nosy("Youss");
+        Survivor fighter= new Fighter("Annie");
+        Survivor lucky = new Lucky("Gab");
 
         Position crossRoadPos = map.getPrincipalIntersection();
 
