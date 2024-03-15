@@ -4,7 +4,6 @@ import zombicide.actor.ActorType;
 import zombicide.item.*;
 import java.util.*;
 import zombicide.item.weapon.*;
-import zombicide.map.cell.Cell;
 
 /**
  * class of survivors
@@ -207,7 +206,7 @@ public void putItemInBackpack(Item i){
         this.putItemOnCell(oldestItem);
     }
     if (this.cell.containsItem(i))
-        this.cell.removeitem(i);
+        this.cell.removeItem(i);
     this.backPack.add(i);
 }
 

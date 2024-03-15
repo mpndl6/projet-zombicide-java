@@ -80,7 +80,7 @@ public class Room extends Cell {
      *
      * @param i The item to be removed.
      */
-    public void removeitem(Item i) {
+    public void removeItem(Item i) {
         super.items.remove(i);
     }
 

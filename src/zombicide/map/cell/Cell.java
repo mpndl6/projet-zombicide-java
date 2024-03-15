@@ -9,9 +9,6 @@ import zombicide.actor.ActorType;
 import zombicide.item.Item;
 import zombicide.map.util.*;
 
-import zombicide.actor.survivors.Survivor;
-import zombicide.actor.zombies.Zombie;
-
 public abstract class Cell /*implements ElementGrid*/ {
 	
 	//List to store survivors and zombies in the cell
@@ -116,7 +113,7 @@ public abstract class Cell /*implements ElementGrid*/ {
 	 *
 	 * @param i The item to be removed.
 	 */
-	public abstract void removeitem(Item i);
+	public abstract void removeItem(Item i);
 
 	/**
 	 * Tells if the item in parameter is on cell

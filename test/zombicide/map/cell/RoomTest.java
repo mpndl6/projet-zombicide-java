@@ -3,6 +3,7 @@ package zombicide.map.cell;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Before;
 import org.junit.Test;
+import zombicide.item.Item;
 import zombicide.map.util.Position;
 //import zombicide.item.Door; <-- import obselete
 import zombicide.map.util.Location;
@@ -34,18 +35,15 @@ public class RoomTest {
         assertTrue(room.canLeaveByDoor(Location.NORTH));
     }*/
 
-
-/** 
- *  EN ATTENDAIT D'AVOIR LA CLASSE ITEM
- *  @Test
+ @Test
     public void testGetNbitems() {
         assertEquals(0, room.getNbitems());
-        room.addItems(new Item()); 
+        room.addItem(new Item());
         assertEquals(1, room.getNbitems());
-        room.removeItems(new Item());
+        room.removeItem(new Item());
         assertEquals(0, room.getNbitems());
     }
-*/
+
    
 
     @Test

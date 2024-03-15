@@ -68,7 +68,7 @@ public void addItem(Item i){
  * @param i The item to be removed.
  */
 @Override
-public void removeitem(Item i){
+public void removeItem(Item i){
 
 }
 
