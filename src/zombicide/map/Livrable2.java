@@ -1,4 +1,4 @@
-/**package zombicide.map;
+package zombicide.map;
 import grid.Grid;
 import zombicide.actor.survivors.Survivor;
 import zombicide.actor.survivors.type.Fighter;
@@ -24,7 +24,7 @@ import java.util.*;
  * Based on subclass Training map where there's method used for this deliverable but won't be used for the final
  * conception.
  * It's for the purpose of expansion and avoid to change the code when deliverable it's over.
- *
+ * */
 public class Livrable2 {
 
     public static void main(String [] args){
@@ -87,10 +87,11 @@ public class Livrable2 {
         map.moveActor(lucky,Location.NORTH);
         grid.displayGrid();
 
+        /**
         //test healer deplacement to the right
         map.openDoorOfRoom(healer.getCell(), Location.EAST); // open the door
         map.moveActor(healer, Location.EAST);
-
+*/
         //construction zombie
         Zombie abomination = new Abomination();
         Zombie runner = new Runner();
@@ -106,4 +107,3 @@ public class Livrable2 {
         System.out.println(healer);
     }
 }
-*/
