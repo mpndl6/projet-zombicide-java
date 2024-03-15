@@ -16,4 +16,10 @@ public abstract class Item {
         this.survivor = s;
     }
 
+    /**
+     * @return the survivor of the item
+     */
+    public Survivor getSurvivor() {
+        return survivor;
+    }
 }
