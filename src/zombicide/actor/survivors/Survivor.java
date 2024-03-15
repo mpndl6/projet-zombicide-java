@@ -216,8 +216,11 @@ public void putItemInBackpack(Item i){
  * That method take all the items in backpack and drop it on cell.
  */
 public void dropItALL(){
-    for(Item i : backPack)
-        putItemOnCell(i);
+    List<Item> itemsToRemove = new ArrayList<>(backPack); // Créez une copie de la liste
+    for (Item item : itemsToRemove) {
+        putItemOnCell(item); // Mettez chaque élément dans la cellule
+    }
+    backPack.clear();
 }
 
 /** @return random result of a 1d6 throw*/
