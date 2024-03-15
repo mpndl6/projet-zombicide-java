@@ -5,16 +5,37 @@ SRC = src
 CLASSES = classes
 DOCS = doc
 
-all:deliverable2
+all = classes MainSecondDeliverable
 
 classes: classSrc classSrc classesTest
 
 classSrc:
-	$(JAVAC) src/**/*.java -d $(CLASSES)
+	$(JAVAC) src/grid/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/map/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/map/cell/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/map/util/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/map/cell/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/map/cell/room/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/item/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/item/utility/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/item/weapon/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/actor/survivor/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/actor/survivor/type/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/actor/zombie/*.java -d $(CLASSES)
+	$(JAVAC) src/zombicide/actor/zombie/type/*.java -d $(CLASSES)
 
 classesTest:
 	#Test
-	$(JAVAC) -classpath junit-console.jar:classes test/**/*.java -d $(CLASSES)
+	export CLASSPATH="$(SRC):$(CLASSPATH)"
+	$(JAVAC) -classpath junit-console.jar:classes test/zombicide/map/cell/*.java -d $(CLASSES)
+	$(JAVAC) -classpath junit-console.jar:classes test/zombicide/map/util/*.java -d $(CLASSES)
+	$(JAVAC) -classpath junit-console.jar:classes test/zombicide/map/cell/*.java -d $(CLASSES)
+	$(JAVAC) -classpath junit-console.jar:classes test/zombicide/map/cell/room/*.java -d $(CLASSES)
+	$(JAVAC) -classpath junit-console.jar:classes test/zombicide/item/utility/*.java -d $(CLASSES)
+	$(JAVAC) -classpath junit-console.jar:classes test/zombicide/item/weapon/*.java -d $(CLASSES)
+	$(JAVAC) -classpath junit-console.jar:classes test/zombicide/actor/survivor/*.java -d $(CLASSES)
+	$(JAVAC) -classpath junit-console.jar:classes test/zombicide/actor/survivor/type/*.java -d $(CLASSES)
+	$(JAVAC) -classpath junit-console.jar:classes test/zombicide/actor/zombie/type/*.java -d $(CLASSES)
 
 doc: classes
 	$(JAVADOC) -sourcepath $(SRC) -subpackages zombicide -d $(DOCS)
