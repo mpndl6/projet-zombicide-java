@@ -29,6 +29,12 @@ public class SurvivorTest {
         assertEquals(3, survivor.getActionPoint(), "Action points should be 3");
     }
 
+    @Test
+    public void testLifePointsInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertEquals(5, survivor.getLifePoints(), "Life points should be 5");
+    }
+
 
 
     @Test
