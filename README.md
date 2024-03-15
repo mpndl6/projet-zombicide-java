@@ -169,6 +169,8 @@ De plus on réfléchi encore comment pouvoir affecter plusieurs rôles aux survi
 - Nous avons effectués les tests des nouvelles classes 
 - ajout de la description des cellules 
 - ajout d'un tostring pour les survivors pour savoirs ce qu'ils ont sur eux 
+- On a changé la méthode openDoorofRoom() de map pour gérer les murs
+- Creation classe exception
 
 ## Semaine 8
 
