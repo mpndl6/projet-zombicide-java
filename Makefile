@@ -10,7 +10,7 @@ all:classes deliverable2
 classes: classSrc classesTest
 
 classSrc:
-	export CLASSPATH="$(SRC):$(CLASSPATH)"
+	export CLASSPATH="src:classes"
 	$(JAVAC) src/grid/*.java -d $(CLASSES)
 	$(JAVAC) src/zombicide/map/*.java -d $(CLASSES)
 	$(JAVAC) src/zombicide/map/cell/*.java -d $(CLASSES)
@@ -58,6 +58,6 @@ deliverable1: deliverable1.jar
 
 clean:
 	rm -Rf ./classes
-	rm -Rf ./docs
+	rm -Rf ./doc
 
 .PHONY : all clean
