@@ -46,6 +46,7 @@ protected int actionPoint;
         this.actionPoint = 3;
         this.backPack = new ArrayList<>();
         this.inHand = new Pistol();
+        this.nickName=name;
     }
 
     /**
