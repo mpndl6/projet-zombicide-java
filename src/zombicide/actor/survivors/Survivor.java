@@ -32,7 +32,7 @@ protected int actionPoint;
     private static Random randomNB = new Random( ) ;
 
     /**
-     *  Contruct a survivor with their name in parameter.
+     *  Construct a survivor with their name in parameter.
      *  At creation, a survivor has a Pistol in hand
      * 5 life points, 0 XP, 0 action points et nothing in backpack
      * @param name the nickname of the survivor
@@ -234,9 +234,10 @@ private int oneDieThrow() {
  * @return the result of dice throws
  */
 public int diceThrows(int howMany){
-    int result=0;
-    for (int i=0; i<howMany+1; i++)
-        result+= this.oneDieThrow();
+    int result = 0;
+    for (int i = 0; i < howMany; i++) {
+        result += this.oneDieThrow();
+    }
     return result;
 }
 
