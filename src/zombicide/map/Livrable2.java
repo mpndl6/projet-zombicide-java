@@ -1,4 +1,4 @@
-/**package zombicide.map;
+package zombicide.map;
 import grid.Grid;
 import zombicide.actor.survivors.Survivor;
 import zombicide.actor.survivors.type.Fighter;
@@ -10,6 +10,7 @@ import zombicide.actor.zombies.type.Abomination;
 import zombicide.actor.zombies.type.Powerful;
 import zombicide.actor.zombies.type.Runner;
 import zombicide.actor.zombies.type.Walker;
+import zombicide.item.IsWallException;
 import zombicide.item.utility.Plan;
 import zombicide.item.utility.Vial;
 import zombicide.map.cell.room.Continental;
@@ -24,7 +25,7 @@ import java.util.*;
  * Based on subclass Training map where there's method used for this deliverable but won't be used for the final
  * conception.
  * It's for the purpose of expansion and avoid to change the code when deliverable it's over.
- *
+ */
 public class Livrable2 {
 
     public static void main(String [] args){
@@ -81,15 +82,29 @@ public class Livrable2 {
         // En attendant la création des utilitaires (Ajout de la carte dans le backpack + de la fiole dans la main:
 
         //survivors deplacement upside
-       map.moveActor(healer,Location.NORTH);
-        map.moveActor(nosy,Location.NORTH);
-        map.moveActor(fighter,Location.NORTH);
-        map.moveActor(lucky,Location.NORTH);
-        grid.displayGrid();
+        try {
+            System.out.println("Survivors go upside :");
+            map.moveActor(healer,Location.NORTH);
+            map.moveActor(nosy,Location.NORTH);
+            map.moveActor(fighter,Location.NORTH);
+            map.moveActor(lucky,Location.NORTH);
+            grid.displayGrid();
 
-        //test healer deplacement to the right
-        map.openDoorOfRoom(healer.getCell(), Location.EAST); // open the door
-        map.moveActor(healer, Location.EAST);
+            //test healer deplacement to the right
+            map.openDoorOfRoom(healer.getCell(), Location.EAST); // open the door
+            map.moveActor(healer, Location.EAST);
+            System.out.println("healer moves to the right :");
+            grid.displayGrid();
+
+            //test fighter deplacement downside
+            map.moveActor(fighter, Location.SOUTH);
+            System.out.println("fighter moves downside :");
+            grid.displayGrid();
+        }
+        catch (IsWallException e){
+            System.out.println("It's wall around here.");
+            System.out.println(healer.getCell().getPosition());
+        }
 
         //construction zombie
         Zombie abomination = new Abomination();
@@ -101,9 +116,12 @@ public class Livrable2 {
         map.putActorONCell(runner, map.getPositionOFWaster(Location.EAST));
         map.putActorONCell(powerful, map.getPositionOFWaster(Location.WEST));
         map.putActorONCell(walker, map.getPositionOFWaster(Location.SOUTH));
-
+        System.out.println("zombies appear");
         grid.displayGrid();
-        System.out.println(healer);
+        System.out.println("Survivors on map : \n");
+        System.out.println(fighter+"\n");
+        System.out.println(lucky+"\n");
+        System.out.println(nosy+"\n");
+        System.out.println(healer+"\n");
     }
 }
-*/
