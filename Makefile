@@ -5,11 +5,12 @@ SRC = src
 CLASSES = classes
 DOCS = doc
 
-all = classes MainSecondDeliverable
+all:classes deliverable2
 
-classes: classSrc classSrc classesTest
+classes: classSrc classesTest
 
 classSrc:
+	export CLASSPATH="$(SRC):$(CLASSPATH)"
 	$(JAVAC) src/grid/*.java -d $(CLASSES)
 	$(JAVAC) src/zombicide/map/*.java -d $(CLASSES)
 	$(JAVAC) src/zombicide/map/cell/*.java -d $(CLASSES)
