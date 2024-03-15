@@ -55,7 +55,7 @@ public class Map {
      * Wastewater objects are placed at the edges of
      * the plan in relation to the main crossroads.
      */
-    public void putWasteWater(){
+    protected void putWasteWater(){
         int x = principalIntersection.getX();
         int y = principalIntersection.getY();
         this.cells[x][0] = new StreetWW();
@@ -190,7 +190,7 @@ public class Map {
      * @param min1 The minimum value.
      * @return A random number within the specified range.
      */
-    public int generateNumberForInitmap(int max1, int min1) {
+    protected int generateNumberForInitmap(int max1, int min1) {
         int max = max1 - 2;
         int min = min1 + 2;
         int range = max - min + 1;
@@ -207,7 +207,7 @@ public class Map {
      * @param hmax The maximum height.
      * @param hmin The minimum height.
      */
-    public void initmap(int wmax, int wmin, int hmax, int hmin) {
+    protected void initmap(int wmax, int wmin, int hmax, int hmin) {
         if (wmax - wmin >= 4 && hmax - hmin >= 4) {
             int wl = generateNumberForInitmap(wmax, wmin);
             int hl = generateNumberForInitmap(hmax, hmin);
@@ -247,7 +247,7 @@ public class Map {
      *
      * @return The position of the main intersection.
      */
-    public Position generatFirstRoad() {
+    protected Position generatFirstRoad() {
         int wl = generateNumberForInitmap(this.width - 1, 0);
         int hl = generateNumberForInitmap(this.heigth - 1, 0);
         for (int j = 0; j <= this.heigth - 1; j++) {
@@ -270,7 +270,7 @@ public class Map {
      * @param m The maximum value.
      * @return A random number for special room placement.
      */
-    public int generatNumberForSpecialRoom(int m) {
+    protected int generatNumberForSpecialRoom(int m) {
         int max = m;
         int min = 0;
         int range = max - min + 1;
@@ -284,7 +284,7 @@ public class Map {
      * @param t The type of cells to retrieve.
      * @return A list containing all the cells of the specified type found in the map.
      */
-    public List<Cell> getListOfCells(CellType t) {
+    protected List<Cell> getListOfCells(CellType t) {
         List<Cell> list = new ArrayList<Cell>();
         for(int i = 0 ; i < this.width ; i++) {
             for(int j = 0 ; j < this.heigth ; j++){
@@ -303,7 +303,7 @@ public class Map {
      * @param l The list of cells from which to select.
      * @return The positions of randomly chosen cells.
      */
-    public List<Position> getPostionsForSpecialCells(int n , List<Cell> l) {
+    protected List<Position> getPostionsForSpecialCells(int n , List<Cell> l) {
         Iterator<Cell> cellIterator = l.iterator();
         List<Position> list = new ArrayList<Position>();
         for(int  i = n ; i > 0 ; i--) {
@@ -324,7 +324,7 @@ public class Map {
      * @param listCell The list of special cells to place.
      * @param listPos  The positions where the special cells will be placed.
      */
-    public void putSpecialCells(List<Cell> listCell ,List<Position> listPos) {
+    protected void putSpecialCells(List<Cell> listCell ,List<Position> listPos) {
         Iterator<Cell> cellIterator = listCell.iterator();
         for(Position p: listPos) {
             if (cellIterator.hasNext()) {
@@ -340,7 +340,7 @@ public class Map {
     /**
      * Places positions on all cells of the map.
      */
-    public void putPositionOfCells() {
+    protected void putPositionOfCells() {
         for(int  i = 0 ; i < this.width ; i++) {
             for(int j = 0 ; j < this.heigth ; j++) {
                 this.cells[i][j].putPosition(new Position(i,j));
