@@ -4,21 +4,33 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Before;
 import org.junit.Test;
 import zombicide.item.Item;
+import zombicide.item.utility.Plan;
+import zombicide.item.utility.Vial;
+import zombicide.item.weapon.Pistol;
+import zombicide.map.Map;
+import zombicide.map.TrainingMap2;
+import zombicide.map.cell.util.CellType;
 import zombicide.map.util.Position;
 //import zombicide.item.Door; <-- import obselete
 import zombicide.map.util.Location;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RoomTest {
 
     private Room room;
-   // private Door door;
     private Position position;
+    private Item vial;
+    private Item pistol;
+
 
     @Before
     public void before() {
         position = new Position(2, 2);
         room = new Room();
-       // door = new Door(Location.NORTH);
+        vial = new Vial();
+        pistol = new Pistol();
     }
 
   /** 
@@ -37,24 +49,30 @@ public class RoomTest {
 
  @Test
     public void testGetNbitems() {
-        assertEquals(0, room.getNbitems());
-        room.addItem(new Item());
-        assertEquals(1, room.getNbitems());
-        room.removeItem(new Item());
-        assertEquals(0, room.getNbitems());
+        assertEquals(0, room.getNbItems());
+        room.addItem(pistol);
+        room.addItem(pistol);
+        assertEquals(room.getNbItems(), 2);
     }
 
+    @Test
+    public void testRemoveItem(){
+        room.addItem(pistol);
+        room.addItem(vial); //ajout des items
+        room.removeItem(vial); // on enlève la fiole
+        assertEquals(room.getNbItems(),1); //one left
+    }
    
 
     @Test
-    public void testOpenDoor() {
+     public void testOpenDoor() {
         assertFalse(room.isOpen(Location.NORTH));
         room.openDoor(Location.NORTH);
         assertTrue(room.isOpen(Location.NORTH));
     }
 
     @Test
-    public void testCanFight() {
+   public void testCanFight() {
         assertTrue(room.canFight());
     }
 
@@ -64,5 +82,10 @@ public class RoomTest {
         room.openDoor(Location.NORTH);
         assertTrue(room.isOpen(Location.NORTH));
     }
+    @Test
+    public void testTypeOfCell(){
+     assertEquals(room.getTypeOfCell(), CellType.ROOM);
+    }
+
 
 }

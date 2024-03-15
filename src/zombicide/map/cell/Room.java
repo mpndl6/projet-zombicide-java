@@ -51,20 +51,6 @@ public class Room extends Cell {
         return locations;
     }
 
-/*
-    /**
-     * Checks if it is possible to leave the room through a specific door.
-     *
-     * @param l The location of the door.
-     * @return True if the door is open, false otherwise.
-
-    public boolean canLeaveByDoor(Location l) {
-        if(!this.doors.containsKey(l))
-            return false;
-        return this.doors.get(l).isOpen();
-    }*/
-
-
 
     /**
      * Adds an item to the room.
