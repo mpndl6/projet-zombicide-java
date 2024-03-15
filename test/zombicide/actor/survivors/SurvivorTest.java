@@ -66,7 +66,8 @@ public class SurvivorTest {
         survivor.setCell(cell);
         Item item1 = new Pistol();
         survivor.putItemInBackpack(item1);
-
+        Item item2 = new Carabine();
+        survivor.putItemInBackpack(item2);
         survivor.dropItALL();
         assertEquals(0, survivor.getAllInBackpack().size(), "Backpack should be empty after dropping all items");
     }
