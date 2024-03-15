@@ -42,7 +42,7 @@ public class StreetTest {
     public void testAddItem(){
         streetWithoutWastewater.addItem(pistol);
         streetWithoutWastewater.addItem(vial);
-        assertEquals(streetWithWastewater.getNbItems(),0); //bc item can be added on street
+        assertEquals(streetWithoutWastewater.getNbItems(),0); //bc item can be added on street
     }
 
     @Test

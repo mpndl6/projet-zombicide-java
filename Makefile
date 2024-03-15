@@ -43,7 +43,7 @@ MainFirstDeliverable.jar:
 MainSecondDeliverable.jar:
 	jar cvfe $@ zombicide.map.MainSecondDeliverable.jar -C classes zombicide
 
-test:
+test: classes
 	java -jar junit-console.jar -classpath test:classes -scan-classpath
 
 MainSecondDeliverable: MainSecondDeliverable.jar
