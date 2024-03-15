@@ -47,14 +47,14 @@ deliverable1.jar: classSrc
 deliverable2.jar: classSrc
 	jar cvfe deliverable2.jar zombicide.map.Livrable2 -C classes zombicide -C classes grid
 
-test: classes
+test: classesTest
 	java -jar junit-console.jar -classpath test:classes -scan-classpath
 
 deliverable2: deliverable2.jar
 	java -jar $<
 
 deliverable1: deliverable1.jar
-	java -jar deliverable1.jar
+	java -jar $<
 
 clean:
 	rm -Rf ./classes
