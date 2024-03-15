@@ -120,7 +120,7 @@ public class Map {
         int xCell = current.getPosition().getX();
         int yCell = current.getPosition().getY();
 
-        if (!isWall(current, l)){
+        if (isWall(current, l)){
             throw new IsWallException("It's a wall. Walls can't be open");
         }
         if (current instanceof Room)
