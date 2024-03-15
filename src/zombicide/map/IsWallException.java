@@ -1,4 +1,4 @@
-package zombicide.item;
+package zombicide.map;
 
 /**
  * Class IsWallException necessary when an item doest exist
