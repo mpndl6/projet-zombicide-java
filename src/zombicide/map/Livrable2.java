@@ -89,6 +89,7 @@ public class Livrable2 {
             map.moveActor(lucky,Location.NORTH);
             grid.displayGrid();
 
+            /**
             //test healer deplacement to the right
             map.openDoorOfRoom(healer.getCell(), Location.EAST); // open the door
             map.moveActor(healer, Location.EAST);
@@ -98,7 +99,7 @@ public class Livrable2 {
             //test fighter deplacement downside
             map.moveActor(fighter, Location.SOUTH);
             System.out.println("fighter moves downside :");
-            grid.displayGrid();
+            grid.displayGrid();*/
         }
         catch (IsWallException e){
             System.out.println("It's wall around here.");
@@ -111,6 +112,7 @@ public class Livrable2 {
         Zombie powerful = new Powerful();
         Zombie walker = new Walker();
 
+        fighter.increaseXP();
         map.putActorONCell(abomination, map.getPositionOFWaster(Location.NORTH));
         map.putActorONCell(runner, map.getPositionOFWaster(Location.EAST));
         map.putActorONCell(powerful, map.getPositionOFWaster(Location.WEST));
