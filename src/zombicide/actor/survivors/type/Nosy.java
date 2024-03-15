@@ -4,6 +4,7 @@ import zombicide.actor.survivors.Survivor;
 
 public class Nosy extends Survivor {
 
+    private boolean firstSearchFree;
     /**
      * Contruct a survivor with their name in parameter.
      * At creation, a survivor has a Pistol in hand
@@ -13,7 +14,16 @@ public class Nosy extends Survivor {
      */
     public Nosy(String name) {
         super(name);
+        this.firstSearchFree = true;
     }
 
-    //La premiere fouille est gratuite(ne coute pas de point d'action)
+    //Quand on sera au rendu pour les actions il faudra ajouter l'action fouiller ici
+    public void search() {
+        if (firstSearchFree) {
+            firstSearchFree = false;
+        } else {
+            decreaseActionPoints();
+        }
+    }
+
 }
