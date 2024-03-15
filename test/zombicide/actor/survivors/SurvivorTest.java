@@ -41,7 +41,11 @@ public class SurvivorTest {
         assertNotNull(survivor.getWhatINHand(), "In hand item should not be null");
     }
 
-
+    @Test
+    public void testBackpackInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertEquals(0, survivor.getAllInBackpack().size(), "Backpack should be empty");
+    }
 
     @Test
     public void testIncreaseXP() {
