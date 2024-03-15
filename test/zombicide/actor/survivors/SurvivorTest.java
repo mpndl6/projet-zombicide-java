@@ -43,10 +43,19 @@ public class SurvivorTest {
         Survivor survivor = new Survivor("TestSurvivor");
         Street cell = new Street(); // Créez une instance de Cell
         survivor.setCell(cell);
-        Item item = new Pistol();
-        survivor.putItemInBackpack(item);
+        Item itemInHand = survivor.getWhatINHand();
+        survivor.putItemInBackpack(itemInHand);
         assertEquals(1, survivor.getAllInBackpack().size());
-        assertTrue(survivor.getAllInBackpack().contains(item));
+        assertTrue(survivor.getAllInBackpack().contains(itemInHand));
+    }
+
+    @Test
+    public void survivorHasPistolInHandAtCreation(){
+        Survivor survivor = new Survivor("TestSurvivor");
+        Street cell = new Street(); // Créez une instance de Cell
+        survivor.setCell(cell);
+        Item itemInHand = survivor.getWhatINHand();
+        assertTrue(itemInHand instanceof Pistol);
     }
 
     @Test
@@ -71,4 +80,6 @@ public class SurvivorTest {
         survivor.dropItALL();
         assertEquals(0, survivor.getAllInBackpack().size(), "Backpack should be empty after dropping all items");
     }
+
+
 }
