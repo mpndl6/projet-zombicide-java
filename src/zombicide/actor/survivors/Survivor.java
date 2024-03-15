@@ -234,9 +234,10 @@ private int oneDieThrow() {
  * @return the result of dice throws
  */
 public int diceThrows(int howMany){
-    int result=0;
-    for (int i=0; i<howMany+1; i++)
-        result+= this.oneDieThrow();
+    int result = 0;
+    for (int i = 0; i < howMany; i++) {
+        result += this.oneDieThrow();
+    }
     return result;
 }
 
