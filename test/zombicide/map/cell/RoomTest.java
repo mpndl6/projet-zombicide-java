@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Before;
 import org.junit.Test;
 import zombicide.item.Item;
+import zombicide.item.NoSuchItemException;
 import zombicide.item.utility.Plan;
 import zombicide.item.utility.Vial;
 import zombicide.item.weapon.Pistol;
@@ -56,7 +57,7 @@ public class RoomTest {
     }
 
     @Test
-    public void testRemoveItem(){
+    public void testRemoveItem() throws NoSuchItemException {
         room.addItem(pistol);
         room.addItem(vial); //ajout des items
         room.removeItem(vial); // on enlève la fiole

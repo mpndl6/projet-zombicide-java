@@ -10,8 +10,13 @@ public class StreetWW extends Street {
         this.cellType = CellType.SPECIALSTREET;
     }
 
+    /**
+     * @return a description of the cell
+     */
     public String toString() {
         return " W ";
 
     }
+
+
 }

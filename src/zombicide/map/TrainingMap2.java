@@ -1,7 +1,6 @@
 package zombicide.map;
 
 import zombicide.actor.Actor;
-import zombicide.item.IsWallException;
 import zombicide.map.cell.Cell;
 import zombicide.map.util.Location;
 

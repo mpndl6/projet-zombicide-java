@@ -3,10 +3,8 @@ package zombicide.map;
 import java.util.*;
 
 import zombicide.actor.Actor;
-import zombicide.item.IsWallException;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
-import zombicide.map.cell.room.*;
 import zombicide.map.cell.util.CellType;
 
 

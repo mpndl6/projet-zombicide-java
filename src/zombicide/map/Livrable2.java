@@ -10,7 +10,6 @@ import zombicide.actor.zombies.type.Abomination;
 import zombicide.actor.zombies.type.Powerful;
 import zombicide.actor.zombies.type.Runner;
 import zombicide.actor.zombies.type.Walker;
-import zombicide.item.IsWallException;
 import zombicide.item.utility.Plan;
 import zombicide.item.utility.Vial;
 import zombicide.map.cell.room.Continental;

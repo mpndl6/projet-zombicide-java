@@ -7,6 +7,7 @@ import java.util.List;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
 import zombicide.item.Item;
+import zombicide.item.NoSuchItemException;
 import zombicide.map.util.*;
 
 public abstract class Cell /*implements ElementGrid*/ {

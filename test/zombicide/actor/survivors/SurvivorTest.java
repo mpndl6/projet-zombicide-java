@@ -84,7 +84,7 @@ public class SurvivorTest {
     }
 
     @Test
-    public void testPutInHand() {
+    public void testPutInHand(){
         Survivor survivor = new Survivor("TestSurvivor");
         Street cell = new Street(); // Créez une instance de Cell
         survivor.setCell(cell);
@@ -94,7 +94,7 @@ public class SurvivorTest {
     }
 
     @Test
-    public  void testDropItALL() {
+    public  void testDropItALL(){
         Survivor survivor = new Survivor("TestSurvivor");
         Street cell = new Street(); // Créez une instance de Cell
         survivor.setCell(cell);
