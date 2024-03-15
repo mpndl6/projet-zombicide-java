@@ -35,6 +35,12 @@ public class SurvivorTest {
         assertEquals(5, survivor.getLifePoints(), "Life points should be 5");
     }
 
+    @Test
+    public void testInHandItemInitialization() {
+        Survivor survivor = new Survivor("test");
+        assertNotNull(survivor.getWhatINHand(), "In hand item should not be null");
+    }
+
 
 
     @Test
