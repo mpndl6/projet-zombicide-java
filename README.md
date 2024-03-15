@@ -37,6 +37,17 @@ Et pour l'exécuter :
 
 ## Livrable 2
 
+### Pour compiler/executer
+
+Il faut un junit dans le repertoire courant/principale
+Pour créer l'exécutable il faut effectuer la commande :  
+
+- make deliverable2
+
+Pour faire la doc : 
+
+- make doc
+
 ### Choix de la modélisation 
 Pour les actor nous avons décidé de faire le choix d'une modélisation d'héritage de la sorte :
  
