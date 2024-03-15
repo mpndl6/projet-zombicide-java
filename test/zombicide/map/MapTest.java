@@ -5,14 +5,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import zombicide.map.cell.Cell;
+import zombicide.map.cell.StreetWW;
+import zombicide.map.cell.room.Continental;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapTest {
 
     private Map testMap;
+    private List<Cell> listrooms = new ArrayList<Cell>();
+    private List<Cell> liststreets = new ArrayList<Cell>();
 
     @Before
     public void before() {
-     testMap = new Map(10, 10);
+        liststreets.add(new StreetWW());
+        listrooms.add(new Continental());
+        testMap = new Map(5,5,listrooms,liststreets);
     }
 
     @Test

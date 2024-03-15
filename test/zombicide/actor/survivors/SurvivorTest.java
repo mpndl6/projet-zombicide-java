@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Test;
 import zombicide.item.weapon.*;
 import zombicide.item.*;
+import zombicide.map.cell.Cell;
+import zombicide.map.cell.Street;
 
 
 public class SurvivorTest {
@@ -39,6 +41,8 @@ public class SurvivorTest {
     @Test
     public void testPutItemInBackpack() {
         Survivor survivor = new Survivor("TestSurvivor");
+        Street cell = new Street(); // Créez une instance de Cell
+        survivor.setCell(cell);
         Item item = new Pistol();
         survivor.putItemInBackpack(item);
         assertEquals(1, survivor.getAllInBackpack().size());
@@ -48,6 +52,8 @@ public class SurvivorTest {
     @Test
     public void testPutInHand() {
         Survivor survivor = new Survivor("TestSurvivor");
+        Street cell = new Street(); // Créez une instance de Cell
+        survivor.setCell(cell);
         Item item = new Axe();
         survivor.putInHand(item);
         assertEquals(item, survivor.getWhatINHand());
@@ -56,9 +62,11 @@ public class SurvivorTest {
     @Test
     public  void testDropItALL() {
         Survivor survivor = new Survivor("TestSurvivor");
+        Street cell = new Street(); // Créez une instance de Cell
+        survivor.setCell(cell);
         Item item1 = new Pistol();
-        Item item2 = new Carabine();
         survivor.putItemInBackpack(item1);
+        Item item2 = new Carabine();
         survivor.putItemInBackpack(item2);
         survivor.dropItALL();
         assertEquals(0, survivor.getAllInBackpack().size(), "Backpack should be empty after dropping all items");

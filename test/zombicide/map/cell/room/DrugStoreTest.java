@@ -14,7 +14,7 @@ public class DrugStoreTest {
         Position position = new Position(2, 2);
         int width = 4;
         int height = 4;
-       // drugstore = new DrugStore(position, width, height);
+        drugstore = new DrugStore();
     }
 
     @Test

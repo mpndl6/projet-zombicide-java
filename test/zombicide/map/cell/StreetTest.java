@@ -1,12 +1,9 @@
 package zombicide.map.cell;
 
-import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Before;
 import org.junit.Test;
 import zombicide.map.util.Position;
-import zombicide.actor.survivors.Survivor;
-import zombicide.actor.zombies.Zombie;
 
 public class StreetTest {
 
@@ -17,7 +14,7 @@ public class StreetTest {
     public void before() {
         Position position = new Position(1, 1);
 
-       // streetWithoutWastewater = new Street(position);
+        streetWithoutWastewater = new Street();
     }
 
   /*  @Test
