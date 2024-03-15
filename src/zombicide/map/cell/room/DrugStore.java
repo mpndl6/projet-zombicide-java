@@ -1,9 +1,7 @@
 package zombicide.map.cell.room;
 import zombicide.actor.Actor;
 import zombicide.item.utility.Vial;
-import zombicide.map.cell.*;
-import zombicide.map.util.*;
-import zombicide.actor.survivors.Survivor;
+import zombicide.actor.survivor.Survivor;
 
 
 public class DrugStore extends SpecialRoom {

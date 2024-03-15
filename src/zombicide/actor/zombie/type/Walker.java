@@ -1,6 +1,6 @@
-package zombicide.actor.zombies.type;
+package zombicide.actor.zombie.type;
 
-import zombicide.actor.zombies.Zombie;
+import zombicide.actor.zombie.Zombie;
 
 public class Walker extends Zombie{
     public static final int WALKER_DAMAGES=1;

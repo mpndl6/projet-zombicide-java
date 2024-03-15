@@ -1,6 +1,6 @@
-package zombicide.actor.survivors.type;
+package zombicide.actor.survivor.type;
 
-import zombicide.actor.survivors.Survivor;
+import zombicide.actor.survivor.Survivor;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

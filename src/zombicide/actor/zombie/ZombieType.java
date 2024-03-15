@@ -1,6 +1,6 @@
-package zombicide.actor.zombies;
+package zombicide.actor.zombie;
 import java.util.Random;
-import zombicide.actor.zombies.type.*;
+import zombicide.actor.zombie.type.*;
 
 public enum ZombieType {
 

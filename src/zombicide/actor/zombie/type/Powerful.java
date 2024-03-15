@@ -1,6 +1,6 @@
-package zombicide.actor.zombies.type;
+package zombicide.actor.zombie.type;
 
-import zombicide.actor.zombies.Zombie;
+import zombicide.actor.zombie.Zombie;
 
 public class Powerful extends Zombie {
     public static final int POWERFUL_DAMAGES=2;

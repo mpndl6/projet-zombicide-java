@@ -1,6 +1,4 @@
 package grid;
-import zombicide.actor.Actor;
-import zombicide.actor.zombies.Zombie;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;

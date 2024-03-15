@@ -1,6 +1,6 @@
 package zombicide.item;
 
-import zombicide.actor.survivors.Survivor;
+import zombicide.actor.survivor.Survivor;
 
 public abstract class Item {
     protected Survivor survivor;

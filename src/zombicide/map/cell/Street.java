@@ -3,8 +3,8 @@ import java.util.Random;
 
 import zombicide.item.Item;
 import zombicide.map.util.*;
-import zombicide.actor.survivors.*;
-import zombicide.actor.zombies.*;
+import zombicide.actor.survivor.*;
+import zombicide.actor.zombie.*;
 import zombicide.map.cell.util.*;
 
 /** the street cell in the map */

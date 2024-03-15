@@ -7,6 +7,7 @@ public class Vial extends Utility {
 
     }
 
+
     /**
      * Uses the vial utility item to increase the life points of the survivor.
      * This method overrides the use method from the Utility class.

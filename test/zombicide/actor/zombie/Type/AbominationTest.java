@@ -1,7 +1,7 @@
-package zombicide.actor.zombies.Type;
+package zombicide.actor.zombie.Type;
 import org.junit.jupiter.api.Test;
 import zombicide.actor.ActorType;
-import zombicide.actor.zombies.type.Abomination;
+import zombicide.actor.zombie.type.Abomination;
 
 import static org.junit.jupiter.api.Assertions.*;
 

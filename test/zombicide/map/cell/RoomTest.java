@@ -5,14 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 import zombicide.item.Item;
 import zombicide.item.NoSuchItemException;
-import zombicide.item.utility.Plan;
 import zombicide.item.utility.Vial;
 import zombicide.item.weapon.Pistol;
-import zombicide.map.Map;
-import zombicide.map.TrainingMap2;
 import zombicide.map.cell.util.CellType;
 import zombicide.map.util.Position;
-//import zombicide.item.Door; <-- import obselete
 import zombicide.map.util.Location;
 
 import java.util.ArrayList;

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
-import zombicide.actor.survivors.Survivor;
+import zombicide.actor.survivor.Survivor;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
 import zombicide.map.cell.StreetWW;

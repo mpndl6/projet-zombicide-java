@@ -1,6 +1,6 @@
 package zombicide.item.utility;
 
-import zombicide.actor.survivors.Survivor;
+import zombicide.actor.survivor.Survivor;
 
 public class FirstAidKit extends Utility {
 

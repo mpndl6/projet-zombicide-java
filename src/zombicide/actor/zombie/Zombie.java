@@ -1,8 +1,7 @@
-package zombicide.actor.zombies;
+package zombicide.actor.zombie;
 
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
-import zombicide.map.cell.util.CellType;
 
 public abstract class Zombie extends Actor {
     protected final int DAMAGES;

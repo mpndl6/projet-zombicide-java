@@ -1,5 +1,5 @@
-package zombicide.actor.zombies.type;
-import zombicide.actor.zombies.Zombie;
+package zombicide.actor.zombie.type;
+import zombicide.actor.zombie.Zombie;
 
 /**
  * The abomination represents a type of zombie called abomination in the zombicide game

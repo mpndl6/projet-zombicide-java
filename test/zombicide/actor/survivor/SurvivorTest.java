@@ -1,10 +1,8 @@
-package zombicide.actor.survivors;
-import org.junit.jupiter.api.*;
+package zombicide.actor.survivor;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Test;
 import zombicide.item.weapon.*;
 import zombicide.item.*;
-import zombicide.map.cell.Cell;
 import zombicide.map.cell.Street;
 
 

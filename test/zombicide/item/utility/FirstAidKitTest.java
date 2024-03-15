@@ -1,7 +1,7 @@
 package zombicide.item.utility;
 
 import org.junit.Test;
-import zombicide.actor.survivors.Survivor;
+import zombicide.actor.survivor.Survivor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,4 +1,4 @@
-package zombicide.actor.survivors.type;
+package zombicide.actor.survivor.type;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class LuckyTest {

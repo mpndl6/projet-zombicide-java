@@ -1,6 +1,6 @@
-package zombicide.actor.survivors.type;
+package zombicide.actor.survivor.type;
 
-import zombicide.actor.survivors.Survivor;
+import zombicide.actor.survivor.Survivor;
 
 public class Nosy extends Survivor {
 

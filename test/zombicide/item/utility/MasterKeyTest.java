@@ -1,7 +1,7 @@
 package zombicide.item.utility;
 
 import org.junit.Test;
-import zombicide.actor.survivors.Survivor;
+import zombicide.actor.survivor.Survivor;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;

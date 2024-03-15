@@ -1,4 +1,4 @@
-package zombicide.actor.survivors;
+package zombicide.actor.survivor;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
 import zombicide.item.*;
