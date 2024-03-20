@@ -110,7 +110,7 @@ public class Livrable2 {
         Zombie walker = new Walker();
 
         fighter.increaseXP();
-       // map.putActorONCell(abomination, map.getPositionOFWaster(Location.NORTH));
+       map.putActorONCell(abomination, map.getPositionOFWaster(Location.NORTH));
         map.putActorONCell(runner, map.getPositionOFWaster(Location.EAST));
         map.putActorONCell(powerful, map.getPositionOFWaster(Location.WEST));
         map.putActorONCell(walker, map.getPositionOFWaster(Location.SOUTH));
