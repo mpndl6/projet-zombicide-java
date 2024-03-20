@@ -105,7 +105,7 @@ public class Livrable2 {
 
         //construction zombie
        // Zombie abomination = new Abomination();
-      /**  Zombie runner = new Runner();
+        Zombie runner = new Runner();
         Zombie powerful = new Powerful();
         Zombie walker = new Walker();
 
@@ -120,6 +120,6 @@ public class Livrable2 {
         System.out.println(fighter+"\n");
         System.out.println(lucky+"\n");
         System.out.println(nosy+"\n");
-        System.out.println(healer+"\n");*/
+        System.out.println(healer+"\n");
     }
 }
