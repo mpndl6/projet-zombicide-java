@@ -1,7 +1,7 @@
 package grid;
-import zombicide.map.Map;
-import zombicide.map.cell.Cell;
-import zombicide.map.cell.Room;
+import zombicide.map.*;
+import zombicide.map.util.*;
+import zombicide.map.cell.*;
 import zombicide.map.util.Location;
 
 

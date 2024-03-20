@@ -38,4 +38,3 @@ clean:
 	rm -rf $(CLASSES) $(DOCS)
 
 .PHONY: all clean
-
