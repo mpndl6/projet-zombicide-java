@@ -6,7 +6,10 @@ import zombicide.actor.survivor.type.Healer;
 import zombicide.actor.survivor.type.Lucky;
 import zombicide.actor.survivor.type.Nosy;
 import zombicide.actor.zombie.Zombie;
-import zombicide.actor.zombie.type.*;
+import zombicide.actor.zombie.type.Abomination;
+import zombicide.actor.zombie.type.Powerful;
+import zombicide.actor.zombie.type.Runner;
+import zombicide.actor.zombie.type.Walker;
 import zombicide.item.utility.Plan;
 import zombicide.item.utility.Vial;
 import zombicide.map.cell.room.Continental;
@@ -36,7 +39,7 @@ public class Livrable2 {
 
         liststreets.add(new StreetWW());
         listrooms.add(new Continental());
-       // listrooms.add(new DrugStore());
+        // listrooms.add(new DrugStore());
 
 
         TrainingMap2 map = new TrainingMap2(listrooms,liststreets);
@@ -87,16 +90,16 @@ public class Livrable2 {
             grid.displayGrid();
 
             /**
-            //test healer deplacement to the right
-            map.openDoorOfRoom(healer.getCell(), Location.EAST); // open the door
-            map.moveActor(healer, Location.EAST);
-            System.out.println("healer moves to the right :");
-            grid.displayGrid();
+             //test healer deplacement to the right
+             map.openDoorOfRoom(healer.getCell(), Location.EAST); // open the door
+             map.moveActor(healer, Location.EAST);
+             System.out.println("healer moves to the right :");
+             grid.displayGrid();
 
-            //test fighter deplacement downside
-            map.moveActor(fighter, Location.SOUTH);
-            System.out.println("fighter moves downside :");
-            grid.displayGrid();*/
+             //test fighter deplacement downside
+             map.moveActor(fighter, Location.SOUTH);
+             System.out.println("fighter moves downside :");
+             grid.displayGrid();*/
         }
         catch (IsWallException e){
             System.out.println("It's wall around here.");
@@ -104,13 +107,13 @@ public class Livrable2 {
         }
 
         //construction zombie
-       // Zombie abomination = new Abomination();
-      /**  Zombie runner = new Runner();
+        Zombie abomination = new Abomination();
+        Zombie runner = new Runner();
         Zombie powerful = new Powerful();
         Zombie walker = new Walker();
 
         fighter.increaseXP();
-       // map.putActorONCell(abomination, map.getPositionOFWaster(Location.NORTH));
+        map.putActorONCell(abomination, map.getPositionOFWaster(Location.NORTH));
         map.putActorONCell(runner, map.getPositionOFWaster(Location.EAST));
         map.putActorONCell(powerful, map.getPositionOFWaster(Location.WEST));
         map.putActorONCell(walker, map.getPositionOFWaster(Location.SOUTH));
@@ -120,6 +123,6 @@ public class Livrable2 {
         System.out.println(fighter+"\n");
         System.out.println(lucky+"\n");
         System.out.println(nosy+"\n");
-        System.out.println(healer+"\n");*/
+        System.out.println(healer+"\n");
     }
 }
