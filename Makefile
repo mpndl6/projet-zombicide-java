@@ -22,7 +22,7 @@ deliverable1.jar: classes
 	jar cvfe deliverable1.jar zombicide.map.deliverable1 -C $(CLASSES) .
 
 deliverable2.jar: classes
-	jar cvfe deliverable2.jar zombicide.map.Livrable2 -C $(CLASSES) .
+	jar cvfe deliverable2.jar zombicide.map.Livrable2 -C $(CLASSES) . -d jar
 
 test: classesTest
 	java -jar junit-console.jar -classpath $(SRC):$(CLASSES) -scan-classpath

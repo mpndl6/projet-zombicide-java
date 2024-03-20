@@ -104,7 +104,7 @@ public class Livrable2 {
         }
 
         //construction zombie
-       // Zombie abomination = new Abomination();
+        Zombie abomination = new Abomination();
         Zombie runner = new Runner();
         Zombie powerful = new Powerful();
         Zombie walker = new Walker();
