@@ -19,18 +19,18 @@ doc: classes
 	$(JAVADOC) -sourcepath $(SRC) -subpackages zombicide -d $(DOCS)
 
 deliverable1.jar: classes
-	jar cvfe deliverable1.jar zombicide.map.deliverable1 -C $(CLASSES) .
+	jar cvfe jar/deliverable1.jar zombicide.map.deliverable1 -C $(CLASSES) .
 
 deliverable2.jar: classes
-	jar cvfe deliverable2.jar zombicide.map.Livrable2 -C $(CLASSES) . -d jar
+	jar cvfe jar/deliverable2.jar zombicide.map.Livrable2 -C $(CLASSES) .
 
 test: classesTest
 	java -jar junit-console.jar -classpath $(SRC):$(CLASSES) -scan-classpath
 
-deliverable2: deliverable2.jar
+deliverable2: jar/deliverable2.jar
 	java -jar $<
 
-deliverable1: deliverable1.jar
+deliverable1: jar/deliverable1.jar
 	java -jar $<
 
 clean:
