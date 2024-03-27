@@ -20,8 +20,11 @@ public abstract class Cell implements Callable {
 	protected int noiseLevel;
 	protected Position position;
 
-	
-	// Constructor to initialize the cell with noise level and position
+
+	/***
+	 * Construct a new Cell
+	 * At creation a Cell has 0 noise level
+	 */
 	public Cell() {
 		
 		this.noiseLevel=0;
