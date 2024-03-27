@@ -91,13 +91,13 @@ De plus on réfléchi encore comment pouvoir affecter plusieurs rôles aux survi
 
 ## Livrable 3
 
-Ce dossier contient un Makefile qui contient les règles nécéssaires. L'exécution de la commande ```make``` dans le répectoire courent permet de :
-    - Créer les trois exécutables des diférents livrables (rangés dans le dossier ``/jar``)
-    - Générer la doc à jour (rangée dans le dossier ``/doc``)
-    - Compliler les classes et de créer les fichiers ```.class``` (rangés dans le dossier ``/classes``)
+>Ce dossier contient un ``Makefile`` qui contient les règles nécéssaires. L'exécution de la commande ```make``` dans le répectoire courent permet de :
+- Créer les trois exécutables des diférents livrables (rangés dans le dossier ``/jar``)
+- Générer la doc à jour (rangée dans le dossier ``/doc``)
+- Compliler les classes et de créer les fichiers ```.class``` (rangés dans le dossier ``/classes``)
 
 Après l'exécution de cette commande les exécutables seront créés ainsi que celui qui nous intéresse, le livrable 3.
->Pour exécuter le jar du livrable3, exécuter la commande : ```make test-deliverable3```.
+>Pour exécuter le jar du livrable3, exécuter la commande : ```make test-deliverable3```.\
 >Pour tester tous les tests à la fois, exécuter la commande ```make test```. 
 
 
