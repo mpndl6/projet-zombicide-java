@@ -177,7 +177,7 @@ return this.inHand!=null;
  * Put  the item i in the hand of the survivor
  * @param i the wanted item to put in hand
  */
-public void putInHand(Item i){
+public void putInHand(Item i) throws FullBackpackException{
     if(hasItemOnHand())
         putItemInBackpack(this.inHand);
     this.inHand = i;
@@ -200,10 +200,9 @@ public void putItemOnCell(Item i){
  * If the cell is a street, it will disapear and if it's a room it will be added to the list of item of the cell
  * @param i the item wanted in backpack
  */
-public void putItemInBackpack(Item i){
+public void putItemInBackpack(Item i) throws FullBackpackException{
     if (this.backPack.size()==MAX_NB_ITEM){
-        Item oldestItem = this.backPack.get(0); // the oldest item added
-        this.putItemOnCell(oldestItem);
+        throw new FullBackpackException("Backpack full");
     }
     if (this.cell.containsItem(i))
         this.cell.removeItem(i);

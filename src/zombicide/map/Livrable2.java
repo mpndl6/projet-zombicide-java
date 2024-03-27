@@ -1,5 +1,6 @@
 package zombicide.map;
 import grid.Grid;
+import zombicide.actor.survivor.FullBackpackException;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.survivor.type.Fighter;
 import zombicide.actor.survivor.type.Healer;
@@ -55,18 +56,22 @@ public class Livrable2 {
         map.putActorONCell(fighter, crossRoadPos);
         map.putActorONCell(lucky, crossRoadPos);
 
+        try{
         //add of vials in hand
         healer.putInHand(new Vial());
         nosy.putInHand(new Vial());
         fighter.putInHand(new Vial());
         lucky.putInHand(new Vial());
 
-        //add of the plan on backpack
-        healer.putItemInBackpack(new Plan(map));
-        nosy.putItemInBackpack(new Plan(map));
-        fighter.putItemInBackpack(new Plan(map));
-        lucky.putItemInBackpack(new Plan(map));
-
+            //add of the plan on backpack
+            healer.putItemInBackpack(new Plan(map));
+            nosy.putItemInBackpack(new Plan(map));
+            fighter.putItemInBackpack(new Plan(map));
+            lucky.putItemInBackpack(new Plan(map));
+        }
+        catch (FullBackpackException f){
+            System.out.println("the backpack is full. Throw one item on cell.");
+        }
         System.out.println("first display of the map:");
         Grid grid = new Grid(map, weightOfCells);
         grid.displayGrid();

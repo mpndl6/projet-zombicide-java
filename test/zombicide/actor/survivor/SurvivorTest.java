@@ -1,9 +1,14 @@
 package zombicide.actor.survivor;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Test;
+import zombicide.item.utility.*;
 import zombicide.item.weapon.*;
 import zombicide.item.*;
+import zombicide.map.Map;
 import zombicide.map.cell.Street;
+
+import java.util.ArrayList;
+import java.util.*;
 
 
 public class SurvivorTest {
@@ -62,9 +67,9 @@ public class SurvivorTest {
 
 
     @Test
-    public void testPutItemInBackpack() {
+    public void testPutItemInBackpack() throws FullBackpackException{
         Survivor survivor = new Survivor("TestSurvivor");
-        Street cell = new Street(); // Créez une instance de Cell
+        Street cell = new Street();
         survivor.setCell(cell);
         Item itemInHand = survivor.getWhatINHand();
         survivor.putItemInBackpack(itemInHand);
@@ -75,16 +80,16 @@ public class SurvivorTest {
     @Test
     public void survivorHasPistolInHandAtCreation(){
         Survivor survivor = new Survivor("TestSurvivor");
-        Street cell = new Street(); // Créez une instance de Cell
+        Street cell = new Street();
         survivor.setCell(cell);
         Item itemInHand = survivor.getWhatINHand();
         assertTrue(itemInHand instanceof Pistol);
     }
 
     @Test
-    public void testPutInHand(){
+    public void testPutInHand() throws FullBackpackException{
         Survivor survivor = new Survivor("TestSurvivor");
-        Street cell = new Street(); // Créez une instance de Cell
+        Street cell = new Street();
         survivor.setCell(cell);
         Item item = new Axe();
         survivor.putInHand(item);
@@ -92,9 +97,32 @@ public class SurvivorTest {
     }
 
     @Test
-    public  void testDropItALL(){
+    public void testPutInHandButAlreadyItemInHandAndBackPackFull() throws FullBackpackException{
+        Survivor survivor = new Survivor("TestSurvivor"); // Survivor has a pistol in hand at creation
+        Street cell = new Street();
+        survivor.setCell(cell);
+
+        List<Item> itemOfSurvivor = new ArrayList<>();
+
+        Item Axe = new Axe();
+        Item Pistol = new Pistol();
+        Item Vial = new Vial();
+        Item Carabine = new Carabine();
+        Item FAK = new FirstAidKit();
+
+        survivor.putItemInBackpack(Axe);
+        survivor.putItemInBackpack(Pistol);
+        survivor.putItemInBackpack(Vial);
+        survivor.putItemInBackpack(Carabine);
+        survivor.putItemInBackpack(FAK); // backpack full
+
+        assertThrows( FullBackpackException.class, () -> {survivor.putInHand(new Vial());}); // It will put the item in hand of the survivor and tries to put it in backapck
+    }
+
+    @Test
+    public  void testDropItALL() throws FullBackpackException{
         Survivor survivor = new Survivor("TestSurvivor");
-        Street cell = new Street(); // Créez une instance de Cell
+        Street cell = new Street();
         survivor.setCell(cell);
         Item item1 = new Pistol();
         survivor.putItemInBackpack(item1);
