@@ -2,7 +2,7 @@ package zombicide.action;
 
 import zombicide.actor.survivor.Survivor;
 
-public class LookAround extends Action{
+public class LookAround extends ActionSurvivor {
     public LookAround(Survivor s) {
         super(s);
         this.cost = 0;
