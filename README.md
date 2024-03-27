@@ -179,6 +179,13 @@ De plus on réfléchi encore comment pouvoir affecter plusieurs rôles aux survi
 
 ## Semaine 9
 
+    Nous partons sur l'idée de créer une interface Action, et cette interface est implémentée par ActionSurvivor et actionZombie 
+    qui sont des classes abstraites.
+    Nous décidons de crée une interface Callable pour gérer les diférents paramètres de la méthodes use des utilitaires, afin que chaque utilitaire ai la même méthode avec la même signature.
+    On crée une classe exception pour gérer les sac à dos qui sont remplis
+    On décide de gérer le taux de drop des zombies afin que les Balaises et les abominations ai un taux de fréquence moins élevé comparé aux autres zombies.
+    Nous allons nous répartir le travail sur le gestionnaire de tâche Trello.
+
 ## Semaine 10
 
 ## Semaine 11
