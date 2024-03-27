@@ -6,7 +6,12 @@ import zombicide.callable.Callable;
 public abstract class Item implements Callable {
     protected Survivor survivor;
 
+    /**
+     * Construct an item
+     * At creation an item has no survivor
+     */
     public Item(){
+        this.survivor = null;
     }
 
     /**
