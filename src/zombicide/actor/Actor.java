@@ -1,6 +1,7 @@
 package zombicide.actor;
+import zombicide.callable.Callable;
 import zombicide.map.cell.*;
-public abstract class Actor {
+public abstract class Actor implements Callable {
 protected Cell cell;
 protected int lifePoint; // life points of the survivor
 protected String nickName;

@@ -6,11 +6,12 @@ import java.util.List;
 //import zombicide.map.grid.element.ElementGrid;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
+import zombicide.callable.Callable;
 import zombicide.item.Item;
 import zombicide.item.NoSuchItemException;
 import zombicide.map.util.*;
 
-public abstract class Cell /*implements ElementGrid*/ {
+public abstract class Cell implements Callable {
 	
 	//List to store survivors and zombies in the cell
 	protected List<Actor> actors;

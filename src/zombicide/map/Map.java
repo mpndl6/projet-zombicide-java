@@ -3,12 +3,13 @@ package zombicide.map;
 import java.util.*;
 
 import zombicide.actor.Actor;
+import zombicide.callable.Callable;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
 import zombicide.map.cell.util.CellType;
 
 
-public class Map {
+public class Map implements Callable {
 
     protected int width;
     protected int heigth;

@@ -1,8 +1,9 @@
 package zombicide.item;
 
 import zombicide.actor.survivor.Survivor;
+import zombicide.callable.Callable;
 
-public abstract class Item {
+public abstract class Item implements Callable {
     protected Survivor survivor;
 
     public Item(){
