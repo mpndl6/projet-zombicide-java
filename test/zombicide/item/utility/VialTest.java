@@ -3,6 +3,7 @@ package zombicide.item.utility;
 
 import org.junit.Test;
 import zombicide.actor.survivor.Survivor;
+import zombicide.callable.Callable;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

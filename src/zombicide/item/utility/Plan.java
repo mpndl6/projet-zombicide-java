@@ -1,5 +1,6 @@
 package zombicide.item.utility;
 import grid.Grid;
+import zombicide.callable.Callable;
 import zombicide.map.*;
 
 public class Plan extends Utility {
