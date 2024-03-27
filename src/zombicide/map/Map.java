@@ -114,6 +114,7 @@ public class Map implements Callable {
      * Open the neighbor door of the current Cell
      * @param current the cell we want to open the door
      * @param l Location of the door
+     * @throws IsWallException if a wall is tried to be opened
      */
     public void openDoorOfRoom(Cell current ,Location l) throws IsWallException {
         int xCell = current.getPosition().getX();
