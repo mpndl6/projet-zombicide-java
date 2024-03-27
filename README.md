@@ -173,6 +173,9 @@ De plus on réfléchi encore comment pouvoir affecter plusieurs rôles aux survi
 - Creation classe exception
 
 ## Semaine 8
+- Nous avons récapituler toutes les actions nécessaire pour le jeu avec leur couts et contrainte.
+- On a réfléchi comment pouvoir les implémenter(Actions)
+- En ce qui concerne la modélisation nous avons pensé a faire une interface pour les actions suivi de deux classes d'héritage une pour les Actions des survivants et une des actions pour les zombies.
 
 ## Semaine 9
 
