@@ -179,7 +179,8 @@ public class Grid {
         }
 
     /**
-     *
+     * display below the cell, the actor present
+     * @param c the current cell
      */
     public String displayActor(Cell c){
         int nbActors=c.howManyActors();
@@ -234,7 +235,7 @@ public class Grid {
     }
 
     /**
-     *
+     * final display of the grid with each line to draw
      */
     public void displayGrid(){
         Cell[][] cellsOfMap = this.map.getCells();
