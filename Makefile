@@ -6,13 +6,12 @@ CLASSES = classes
 DOCS = doc
 JAR = jar
 
-all: classes deliverable2.jar deliverable1.jar doc
+all: doc classes deliverable2.jar deliverable1.jar
 
 classes: classesTest classSrc
 
 classSrc:
 	$(JAVAC) -sourcepath src src/zombicide/map/*.java -d $(CLASSES)
-
 
 classesTest:
 	$(JAVAC) -sourcepath src:test -classpath junit-console.jar:classes test/zombicide/map/cell/*.java test/zombicide/map/util/*.java test/zombicide/item/utility/*.java test/zombicide/item/weapon/*.java test/zombicide/actor/survivor/*.java test/zombicide/actor/survivor/type/*.java test/zombicide/actor/zombie/type/*.java -d $(CLASSES)
