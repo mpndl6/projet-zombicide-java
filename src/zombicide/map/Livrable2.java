@@ -16,6 +16,7 @@ import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 import zombicide.map.cell.*;
 
+import java.awt.desktop.SystemEventListener;
 import java.util.*;
 
 /**
@@ -127,5 +128,12 @@ public class Livrable2 {
         System.out.println(lucky+"\n");
         System.out.println(nosy+"\n");
         System.out.println(healer+"\n");
+        System.out.println(abomination+"\n");
+        System.out.println(powerful+"\n");
+        System.out.println(walker+"\n");
+        System.out.println(runner+"\n");
+
+
+
     }
 }
