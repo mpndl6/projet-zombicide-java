@@ -6,6 +6,7 @@ import org.junit.Test;
 import zombicide.item.utility.*;
 import zombicide.item.weapon.*;
 import zombicide.item.*;
+import zombicide.map.cell.Room;
 import zombicide.map.cell.Street;
 
 import java.util.ArrayList;
@@ -14,6 +15,12 @@ import java.util.*;
 
 public class SurvivorTest {
 
+    @Test
+    public void testLifePointDecrease(){
+        Survivor survivor = new Survivor("test");
+        survivor.decreaseLifePoints(); // a survivor has initially 5 life points at creation
+        assertEquals(4, survivor.getLifePoints());
+    }
 
     @Test
     public void testNicknameInitialization() {
@@ -131,6 +138,12 @@ public class SurvivorTest {
         survivor.putItemInBackpack(item2);
         survivor.dropItALL();
         assertEquals(0, survivor.getAllInBackpack().size(), "Backpack should be empty after dropping all items");
+    }
+
+    @Test
+    public void survivorIsAliveAtCreation(){
+        Survivor survivor = new Survivor("TestSurvivor");
+        assertTrue(survivor.isAlive());
     }
 
 
