@@ -6,9 +6,7 @@ import org.junit.Test;
 import zombicide.item.utility.*;
 import zombicide.item.weapon.*;
 import zombicide.item.*;
-import zombicide.map.cell.Room;
 import zombicide.map.cell.Street;
-
 import java.util.ArrayList;
 import java.util.*;
 
