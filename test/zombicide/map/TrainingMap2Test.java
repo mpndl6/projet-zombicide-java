@@ -1,6 +1,8 @@
 package zombicide.map;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import exception.IsWallException;
 import org.junit.Before;
 import org.junit.Test;
 import zombicide.actor.survivor.Survivor;
@@ -34,7 +36,7 @@ public class TrainingMap2Test {
     }
 
     @Test
-    public void testMoveAnActor() throws IsWallException{
+    public void testMoveAnActor() throws IsWallException {
         trainingMap.putActorONCell(healer,p);
         trainingMap.moveActor(healer, Location.EAST); //actor move to the right
         assertEquals(healer.getCell(), trainingMap.getCell(new Position(1,4))); // survivor should be on cell pos(1?3)

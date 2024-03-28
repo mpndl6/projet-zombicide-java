@@ -1,4 +1,6 @@
 package zombicide.actor.survivor;
+import exception.FullBackpackException;
+import exception.NoSuchItemException;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
 import zombicide.item.*;
@@ -177,7 +179,7 @@ return this.inHand!=null;
  * Put  the item i in the hand of the survivor
  * @param i the wanted item to put in hand
  */
-public void putInHand(Item i) throws FullBackpackException{
+public void putInHand(Item i) throws FullBackpackException {
     if(hasItemOnHand())
         putItemInBackpack(this.inHand);
     this.inHand = i;

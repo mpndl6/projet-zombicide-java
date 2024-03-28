@@ -1,10 +1,11 @@
 package zombicide.actor.survivor;
 import static org.junit.jupiter.api.Assertions.*;
+
+import exception.FullBackpackException;
 import org.junit.Test;
 import zombicide.item.utility.*;
 import zombicide.item.weapon.*;
 import zombicide.item.*;
-import zombicide.map.Map;
 import zombicide.map.cell.Street;
 
 import java.util.ArrayList;
@@ -67,7 +68,7 @@ public class SurvivorTest {
 
 
     @Test
-    public void testPutItemInBackpack() throws FullBackpackException{
+    public void testPutItemInBackpack() throws FullBackpackException {
         Survivor survivor = new Survivor("TestSurvivor");
         Street cell = new Street();
         survivor.setCell(cell);

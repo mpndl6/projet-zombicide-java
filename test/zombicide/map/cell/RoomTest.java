@@ -4,15 +4,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Before;
 import org.junit.Test;
 import zombicide.item.Item;
-import zombicide.item.NoSuchItemException;
+import exception.NoSuchItemException;
 import zombicide.item.utility.Vial;
 import zombicide.item.weapon.Pistol;
 import zombicide.map.cell.util.CellType;
 import zombicide.map.util.Position;
 import zombicide.map.util.Location;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class RoomTest {
 

@@ -1,4 +1,4 @@
-package zombicide.actor.survivor;
+package exception;
 
 /** Class FullBackpackException util when an item does not exist in a particular place */
 public class FullBackpackException extends Exception{

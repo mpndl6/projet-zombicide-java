@@ -1,4 +1,4 @@
-package zombicide.item;
+package exception;
 
 /** Class NoSuchItemException util when an item does not exist in a particular place */
 public class NoSuchItemException extends Exception{

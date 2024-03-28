@@ -1,6 +1,7 @@
 package zombicide.map;
+import exception.IsWallException;
 import grid.Grid;
-import zombicide.actor.survivor.FullBackpackException;
+import exception.FullBackpackException;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.survivor.type.Fighter;
 import zombicide.actor.survivor.type.Healer;

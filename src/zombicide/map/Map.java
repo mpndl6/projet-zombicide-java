@@ -2,6 +2,7 @@ package zombicide.map;
 
 import java.util.*;
 
+import exception.IsWallException;
 import zombicide.actor.Actor;
 import zombicide.callable.Callable;
 import zombicide.map.cell.*;

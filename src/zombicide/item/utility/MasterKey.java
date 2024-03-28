@@ -1,8 +1,7 @@
 package zombicide.item.utility;
 
-import zombicide.actor.survivor.FullBackpackException;
 import zombicide.callable.Callable;
-import zombicide.map.IsWallException;
+import exception.IsWallException;
 import zombicide.map.util.Location;
 import zombicide.map.*;
 

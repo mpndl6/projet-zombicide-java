@@ -1,4 +1,4 @@
-package zombicide.map;
+package exception;
 
 /**
  * Class IsWallException necessary when a wall is trying to be reach
