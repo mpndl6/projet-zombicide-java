@@ -100,13 +100,13 @@ public Item getWhatINHand(){
     return this.inHand;
 }
 
-    /**
-     * Returns  level of expertise of a survivor
-     * @return XP of survivor
-     */
-public int getLifePoints(){
-    return this.lifePoint;
+/**
+ * increase life points of actor
+ */
+public void increaseLifePoints(){
+    this.lifePoint++;
 }
+
 /**
  * Return all of  item present in the backpack
  * @return all item in backpack

@@ -28,13 +28,6 @@ public boolean isAlive(){
 
 
 /**
- * increase life points of actor
- */
-public void increaseLifePoints(){
-    this.lifePoint++;
-}
-
-/**
  * decrease the life point of a survivor. If their life point reach 0, they die
  */
 public void decreaseLifePoints(){
@@ -75,5 +68,12 @@ public void setCell(Cell c){
 public abstract ActorType getTypeOfActor();
 
     //methode action
+/**
+ * Returns  lifePoints of a survivor
+ * @return lifePoints of actor
+ */
+public int getLifePoints(){
+    return this.lifePoint;
+}
 
 }
