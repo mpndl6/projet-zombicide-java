@@ -25,37 +25,34 @@ protected String nickName; // nickname of survivor
 protected int XP; // level of expertise of a survivor
 protected Item inHand; // the item the survivor has in hand
 protected List<Item> backPack;
-// protected List<Role> roles;
 protected int actionPoint;
-    protected ActorType typeOfActor;
-
-
+protected ActorType typeOfActor;
     private static Random randomNB = new Random( ) ;
 
-    /**
-     *  Construct a survivor with their name in parameter.
-     *  At creation, a survivor has a Pistol in hand
-     * 5 life points, 0 XP, 0 action points et nothing in backpack
-     * @param name the nickname of the survivor
-     *
-     */
-    public Survivor(String name){
-        super(name, 5);
-        this.typeOfActor = ActorType.SURVIVOR;
-        this.XP = 0;
-        this.currentLevel = SurvivorsLevel.STARTING_LEVEL;
-        this.actionPoint = 3;
-        this.backPack = new ArrayList<>();
-        this.inHand = new Pistol();
-        this.nickName=name;
-    }
+/**
+ *  Construct a survivor with their name in parameter.
+ *  At creation, a survivor has a Pistol in hand
+ * 5 life points, 0 XP, 0 action points et nothing in backpack
+ * @param name the nickname of the survivor
+ *
+ */
+public Survivor(String name){
+    super(name, 5);
+    this.typeOfActor = ActorType.SURVIVOR;
+    this.XP = 0;
+    this.currentLevel = SurvivorsLevel.STARTING_LEVEL;
+    this.actionPoint = 3;
+    this.backPack = new ArrayList<>();
+    this.inHand = new Pistol();
+    this.nickName=name;
+}
 
-    /**
-     *@return type of Actor
-     */
-    public ActorType getTypeOfActor() {
-        return this.typeOfActor;
-    }
+/**
+ *@return type of Actor
+ */
+public ActorType getTypeOfActor() {
+    return this.typeOfActor;
+}
 
 
 /**
@@ -154,12 +151,6 @@ public void increaseXP(){
     }
 }
 
-/**
- * * Increase HP of survivor
- */
-public void increaseLifePoints(){
-    this.lifePoint++;
-}
 /**
  * decrease action points of survivor
  */
