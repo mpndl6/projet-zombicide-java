@@ -232,22 +232,27 @@ public int diceThrows(int howMany){
     return result;
 }
 
+/**
+ * Gives a precise description of the survivor
+ * @return the description of the survivor
+ */
 public String toString(){
-    String description=  "Survivor name : "+ super.nickName;
-            if (this.alive)
-                description+="\nStatus : alive";
-            else
-                description+="\nStatus : dead...";
+String description=  "Survivor name : "+ super.nickName;
+        if (this.alive)
+            description+="\nStatus : alive";
+        else
+            description+="\nStatus : dead...";
 
-            description+="\nIn Hand : "+this.inHand+
-            "\nXP : "+this.XP +
-            "\nAction Point :"+this.actionPoint+
-            "\nCurrent level : "+this.currentLevel+
-            "\nIn backpack : ";
-    for (Item i: backPack){
-        description+=i+" ";
-    }
-    return description+"";
+        description+="\nIn Hand : "+this.inHand+
+        "\nXP : "+this.XP +
+        "\nAction Point : "+this.actionPoint+
+        "\nCurrent level : "+this.currentLevel+
+        "\nIn backpack : ";
+
+        for (Item i: backPack){
+            description+=i+" ";
+        }
+return description+"";
 
 }
 
