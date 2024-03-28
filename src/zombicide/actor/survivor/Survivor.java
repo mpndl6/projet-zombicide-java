@@ -233,8 +233,13 @@ public int diceThrows(int howMany){
 }
 
 public String toString(){
-    String description=  "Survivor name : "+ super.nickName+
-            "\nIn Hand : "+this.inHand+
+    String description=  "Survivor name : "+ super.nickName;
+            if (this.alive)
+                description+="\nStatus : alive";
+            else
+                description+="\nStatus : dead...";
+
+            description+="\nIn Hand : "+this.inHand+
             "\nXP : "+this.XP +
             "\nAction Point :"+this.actionPoint+
             "\nCurrent level : "+this.currentLevel+
