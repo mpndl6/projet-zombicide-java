@@ -6,6 +6,7 @@ protected Cell cell;
 protected int lifePoint; // life points of the survivor
 protected String nickName;
 protected boolean alive;
+protected int kills;
 
 /**
  * Constrcut an actor
@@ -16,6 +17,7 @@ public Actor(String name, int lp){
     this.nickName=name;
     this.lifePoint = lp;
     this.alive = true;
+    this.kills=0;
 }
 
 /**
@@ -24,6 +26,14 @@ public Actor(String name, int lp){
  */
 public boolean isAlive(){
     return this.alive;
+}
+
+/**
+ * Tells how many kills has been done by the actor
+ * @return the nb of kills
+ */
+public int getHowManyKills(){
+    return this.kills;
 }
 
 

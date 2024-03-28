@@ -252,6 +252,7 @@ String description=  "Survivor name : "+ super.nickName;
         for (Item i: backPack){
             description+=i+" ";
         }
+        description+="\nKills : "+super.kills;
 return description+"";
 
 }
