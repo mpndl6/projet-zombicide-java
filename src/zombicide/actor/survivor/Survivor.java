@@ -1,6 +1,7 @@
 package zombicide.actor.survivor;
 import exception.FullBackpackException;
 import exception.NoSuchItemException;
+import zombicide.action.Action;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
 import zombicide.item.*;
@@ -261,6 +262,10 @@ String description=  "Survivor name : "+ super.nickName;
         description+="\nKills : "+super.kills;
 return description+"";
 
+}
+
+public void makeAction(Action action){
+    action.make();
 }
 
 
