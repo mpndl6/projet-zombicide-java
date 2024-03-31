@@ -12,7 +12,10 @@ public class UseItem extends ActionSurvivor {
     public UseItem(Survivor s) {
         super(s);
     }
+    /*
+    * Executes the action of using the item currently held by the survivor associated with this action
 
+    */
     @Override
     public void make() {
         Survivor survivor = getSurvivor();
