@@ -107,6 +107,11 @@ public int getNoiseLevel() {
 	return this.noiseLevel;
 }
 
+/**
+ *
+ *  increase the noise level in the cell
+ *
+ * */
 public void makenoise(){ this.noiseLevel++;}
 /**
  * Adds an item to the room.
