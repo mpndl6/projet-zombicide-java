@@ -9,7 +9,10 @@ import zombicide.map.cell.*;
 import zombicide.map.util.*;
 import zombicide.map.cell.util.CellType;
 
-
+/**
+ * Class of the principal Map of the game
+ * Actors will be playing on a object Map
+ */
 public class Map implements Callable {
 
     protected int width;
@@ -151,20 +154,23 @@ public class Map implements Callable {
     }
 
     /**
-     * @return heigth ofmap
+     * Gets the height of the map
+     * @return height of map
      */
     public int getHeight() {
         return this.heigth;
     }
 
     /**
-     * @return width ofmap
+     * Get the  width of the map
+     * @return width of map
      */
     public int getWidth() {
         return this.heigth;
     }
 
     /**
+     * Get a tab with all the cells of the map
      * @return the cells of the map
      */
     public Cell[][] getCells() {
@@ -172,6 +178,7 @@ public class Map implements Callable {
     }
 
     /**
+     * Get the specific cell the specific position p
      * @return a specific cell
      * @param p the position of the wanted cell
      */
@@ -180,6 +187,7 @@ public class Map implements Callable {
     }
 
     /**
+     * Get the principal intersection of the Map.
      * @return the position of the principal intersection
      */
     public Position getPrincipalIntersection() {
