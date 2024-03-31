@@ -1,5 +1,6 @@
 package zombicide.action;
 
+import exception.FullBackpackException;
 import zombicide.actor.survivor.Survivor;
 import zombicide.item.Item;
 import zombicide.map.cell.Room;
@@ -28,6 +29,11 @@ public class Search extends ActionSurvivor {
         Room currentRoom = (Room) survivor.getCell();
         if(currentRoom != null) {
             List<Item> itemsFound = currentRoom.getItems();
+            try{
+                survivor.putItemInBackpack(itemsFound.get(0));
+            }catch (FullBackpackException e){
+                System.out.println("Backpack is full cannot add item");
+            }
         }
 
     }
