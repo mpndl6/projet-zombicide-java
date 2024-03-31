@@ -10,6 +10,12 @@ public interface Action {
      * specific behavior for the action.
      */
     public void make();
+
+    /**
+     * Gets the cost of the action that will be required
+     * This method should be implemented by concrete classes
+     */
+    public int getCost();
 }
 
 
