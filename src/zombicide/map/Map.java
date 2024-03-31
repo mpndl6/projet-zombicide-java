@@ -178,7 +178,7 @@ public class Map implements Callable {
     }
 
     /**
-     * Get the specific cell the specific position p
+     * Get the specific cell a specific position
      * @return a specific cell
      * @param p the position of the wanted cell
      */
@@ -187,7 +187,7 @@ public class Map implements Callable {
     }
 
     /**
-     * Get the principal intersection of the Map.
+     * Get the principal intersection of the Map
      * @return the position of the principal intersection
      */
     public Position getPrincipalIntersection() {
