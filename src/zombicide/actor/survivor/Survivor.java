@@ -18,7 +18,7 @@ public class Survivor extends Actor {
 protected static final int THIRD_LEVEL = 3;
 protected static final int ELEVENTH_LEVEL = 11;
 protected static final int SEVENTH_LEVEL = 7;
-protected static final int STARTING_LEVEL =0; // at begenning a survivor is at level 0
+protected static final int STARTING_LEVEL =0; // at beginning a survivor is at level 0
 protected static final int MAX_NB_ITEM = 5; // in backpack
 protected SurvivorsLevel currentLevel; // the level the survivor is currently in
 protected String nickName; // nickname of survivor
@@ -48,6 +48,7 @@ public Survivor(String name){
 }
 
 /**
+ * Gets th type of actr the survivor is
  *@return type of Actor
  */
 public ActorType getTypeOfActor() {
@@ -79,6 +80,7 @@ public SurvivorsLevel getCurrentLevel(){
 
 
 /**
+ * Gets the nickname of  the survivor
  * @return the nickname of the survivor
  */
 public String getNickName(){
@@ -86,6 +88,7 @@ public String getNickName(){
 }
 
 /**
+ * Gets the number of action points of the survivor
  * @return number of action points of survivor
  */
 public int getActionPoint(){
@@ -174,7 +177,7 @@ public void putInHand(Item i) throws FullBackpackException {
     if(hasItemOnHand())
         putItemInBackpack(this.inHand);
     this.inHand = i;
-}
+} // La méthode sera peut-être enlever étant donné que nous avons les actions
 
 /**
  * It puts an item on cell. It can be an item that is on hand or in the backpack.
@@ -187,9 +190,9 @@ public void putItemOnCell(Item i){
 }
 
 /**
- * Take the item and put it in Backpack. If the number of item in backpack has reach 5, the oldest item added of the list will be
+ * Take the item and put it in Backpack. If the number of item in backpack has reach the maximum, the oldest item added of the list will be
  * removed and replace by the wanted item.
- * If the item is taken from the cell of the survivor, then it will be remove of the cell when taken.
+ * If the item is taken from the cell of the survivor, then it will be removed of the cell when taken.
  * If the cell is a street, it will disapear and if it's a room it will be added to the list of item of the cell
  * @param i the item wanted in backpack
  */
@@ -203,7 +206,7 @@ public void putItemInBackpack(Item i) throws FullBackpackException{
 }
 
 /**
- * When the survivor dies (or in other circumstances) all items of their backpack go on cell or disapear.
+ * When the survivor dies (or in other circumstances) all items of their backpack go on cell or disappear.
  * That method take all the items in backpack and drop it on cell.
  */
 public void dropItALL(){
@@ -214,13 +217,16 @@ public void dropItALL(){
     backPack.clear();
 }
 
-/** @return random result of a 1d6 throw*/
+/**
+ *  Provides on die throw
+ * @return random result of the throw
+ */
 private int oneDieThrow() {
     return Survivor.randomNB.nextInt(6)+ 1;
 }
 
 /**
- * Throw several dice.
+ * Throw several dice according to the number in parameter
  * @param howMany the number of dice to throw
  * @return the result of dice throws
  */
