@@ -107,6 +107,7 @@ public int getNoiseLevel() {
 	return this.noiseLevel;
 }
 
+public void makenoise(){ this.noiseLevel++;}
 /**
  * Adds an item to the room.
  * @param i The item to be added.
@@ -187,3 +188,4 @@ public void putPosition(Position p) {
 public abstract String description();
 
 }
+
