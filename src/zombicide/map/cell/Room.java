@@ -102,7 +102,11 @@ public class Room extends Cell {
 
     }
 
-
+    /**
+     * Retrieves the items present in the room.
+     *
+     * @return The list of items present in the room.
+     */
     public List<Item>getItems(){
         return new ArrayList<>(this.items);
     }
