@@ -2,22 +2,41 @@ package zombicide.action;
 
 import zombicide.actor.zombie.Zombie;
 
-public abstract class ActionZombie implements Action{
-    protected int cost;
-    protected Zombie zombie;
+/**
+ * The abstract class ActionZombie represents an action that can be performed by a Zombie.
+ * This class implements the Action interface.
+ */
+public abstract class ActionZombie implements Action {
+protected int cost; //The cost of performing this action
+protected Zombie zombie; //The Zombie associated with this action.
 
-    public ActionZombie(Zombie z) {
-        this.cost = 1;
-        this.zombie = z;
-    }
+/**
+ * Constructs a new ActionZombie object with the specified Zombie.
+ * @param z the Zombie associated with this action.
+ */
+public ActionZombie(Zombie z) {
+    this.cost = 1;
+    this.zombie = z;
+}
 
-    public int getCost(){
-        return this.cost;
-    }
+/**
+ * Gets the cost of performing this action.
+ * @return the cost of performing this action.
+ */
+public int getCost() {
+    return this.cost;
+}
 
-    public Zombie getSurvivor(){
-        return this.zombie;
-    }
+/**
+ * Gets the Zombie associated with this action.
+ * @return the Zombie associated with this action.
+ */
+public Zombie getZombie() {
+    return this.zombie;
+}
 
-    public abstract void make();
+/**
+ * Abstract method to be implemented by subclasses to perform the action.
+ */
+public abstract void make();
 }
