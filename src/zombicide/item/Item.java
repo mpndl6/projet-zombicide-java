@@ -28,4 +28,8 @@ public abstract class Item implements Callable {
     public Survivor getSurvivor() {
         return survivor;
     }
+
+    public void use () {
+        System.out.println(" this item can be used ");
+    }
 }
