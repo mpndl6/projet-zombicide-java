@@ -5,23 +5,29 @@ import zombicide.map.util.*;
 import zombicide.item.*;
 import zombicide.map.cell.util.*;
 
+/**
+ * Class of the room present on Map. The rooms are cells with particular features.
+ */
 public class Room extends Cell {
 
     protected Map<Location,Boolean> doors;
     protected CellType cellType;
 
+    /**
+     * Creates a Room with 0 item at creation and no doors open
+     */
     public Room() {
-        super();
-        this.cellType = CellType.ROOM;
-        super.items = new ArrayList<Item>();
-        this.doors = new HashMap<Location,Boolean>();
+    super();
+    this.cellType = CellType.ROOM;
+    super.items = new ArrayList<Item>();
+    this.doors = new HashMap<Location,Boolean>();
 
-        List<Location> locations = this.locationOfDoors();
+    List<Location> locations = this.locationOfDoors();
 
-        for(Location l : locations) {
-            this.doors.put(l,false);
-        }
+    for(Location l : locations) {
+        this.doors.put(l,false);
     }
+}
 
     /**
      * get type of cell
@@ -42,7 +48,7 @@ public class Room extends Cell {
      *
      * @return A list of possible door locations.
     */
-    private List<Location> locationOfDoors() {
+    protected List<Location> locationOfDoors() {
         List<Location> locations =new ArrayList<Location>();
         locations.add(Location.NORTH);
         locations.add(Location.SOUTH);
@@ -54,7 +60,6 @@ public class Room extends Cell {
 
     /**
      * Adds an item to the room.
-     *
      * @param i The item to be added.
      */
     public void addItem(Item i) {
