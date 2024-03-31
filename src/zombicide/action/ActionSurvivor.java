@@ -22,3 +22,4 @@ public abstract class ActionSurvivor implements Action{
 
     public abstract void make();
 }
+
