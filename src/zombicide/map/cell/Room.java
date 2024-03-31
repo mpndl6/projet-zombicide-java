@@ -70,6 +70,7 @@ public class Room extends Cell {
         super.items.remove(i);
     }
 
+
     /**
      * Tell is the door at location l is open or not
      * @param l the location of the door
@@ -100,6 +101,14 @@ public class Room extends Cell {
         return "R";
 
     }
+
+
+    public List<Item>getItems(){
+        return new ArrayList<>(this.items);
+    }
+
+
+
 
 }
 
