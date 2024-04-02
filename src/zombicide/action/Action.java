@@ -1,5 +1,6 @@
 package zombicide.action;
 
+Chimport exception.NoSuchItemException;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 
@@ -12,7 +13,7 @@ public interface Action {
      * This method should be implemented by concrete classes to define
      * specific behavior for the action.
      */
-    public void make(Callable callable);
+    public boolean make(Callable callable) throws Exception;
 
     /**
      * Gets the cost of the action that will be required
