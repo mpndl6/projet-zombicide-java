@@ -2,10 +2,11 @@ package zombicide.item.utility;
 
 import zombicide.callable.Callable;
 import exception.IsWallException;
+import zombicide.item.CanOpenDoor;
 import zombicide.map.util.Location;
 import zombicide.map.*;
 
-public class MasterKey extends Utility{
+public class MasterKey extends Utility implements CanOpenDoor {
     protected Map map;
     public MasterKey(Map map) {
         this.map = map;
@@ -17,12 +18,7 @@ public class MasterKey extends Utility{
      * @param callable The location of the door to be opened.
      */
     public void use(Callable callable){
-        try {
-            this.map.openDoorOfRoom(this.survivor.getCell(), (Location) callable);
-        }
-        catch(IsWallException iw){
-            System.out.println(iw.getMessage());
-        }
+        this.open((Location)callable);
     }
 
     /**
@@ -30,5 +26,19 @@ public class MasterKey extends Utility{
      */
     public String toString(){
         return "MasterKey";
+    }
+
+    /**
+     *
+     * @param location
+     */
+    @Override
+    public void open(Location location) {
+        try {
+            this.map.openDoorOfRoom(this.survivor.getCell(), location);
+        }
+        catch(IsWallException iw){
+            System.out.println(iw.getMessage());
+        }
     }
 }
