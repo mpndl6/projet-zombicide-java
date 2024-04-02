@@ -4,6 +4,7 @@ import exception.NoSuchItemException;
 import zombicide.action.Action;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
+import zombicide.callable.Callable;
 import zombicide.item.*;
 import java.util.*;
 import zombicide.item.weapon.*;
@@ -158,8 +159,8 @@ public void increaseXP(){
 /**
  * decrease action points of survivor
  */
-public void decreaseActionPoints(){
-    this.actionPoint--;
+public void decreaseActionPoints(int nb){
+    this.actionPoint= this.actionPoint - nb;
 }
 
 /**
@@ -264,8 +265,8 @@ return description+"";
 
 }
 
-public void makeAction(Action action){
-    action.make();
+public void makeAction(Action action, Callable callable) throws Exception{
+    action.make(callable);
 }
 
 
