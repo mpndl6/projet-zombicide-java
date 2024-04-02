@@ -1,5 +1,6 @@
 package zombicide.action;
 
+import exception.NoSuchItemException;
 import zombicide.actor.zombie.Zombie;
 
 /**
@@ -38,5 +39,5 @@ public Zombie getZombie() {
 /**
  * Abstract method to be implemented by subclasses to perform the action.
  */
-public abstract void make();
+public abstract boolean make() throws Exception;
 }
