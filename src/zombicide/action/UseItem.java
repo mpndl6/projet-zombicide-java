@@ -1,6 +1,8 @@
 package zombicide.action;
 
+import exception.NoSuchItemException;
 import zombicide.actor.survivor.Survivor;
+import zombicide.callable.Callable;
 import zombicide.item.Item;
 
 public class UseItem extends ActionSurvivor {
@@ -12,16 +14,30 @@ public class UseItem extends ActionSurvivor {
     public UseItem(Survivor s) {
         super(s);
     }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public boolean canMakeAction() {
+        return super.survivor.getWhatINHand()!=null;
+    }
+
     /*
     * Executes the action of using the item currently held by the survivor associated with this action
 
     */
     @Override
-    public void make() {
-        Survivor survivor = getSurvivor();
-        if(survivor.hasItemOnHand()) {
-            Item item = survivor.getWhatINHand();
-            item.use();
+    public boolean make(Callable callable) throws Exception {
+        if(!this.canMakeAction())
+            throw new NoSuchItemException("There's no item in their hand.");
+
+        Item i = (Item) callable;
+        i = super.survivor.getWhatINHand();
+        i.addSurvivor(this.survivor);
+        i.use();
+        return true;
         }
     }
-}
+
