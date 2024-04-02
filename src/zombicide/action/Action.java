@@ -21,9 +21,10 @@ public interface Action {
     public int getCost();
 
     /**
-     *
+    * Tells if the actionc can be realised
+    * @return true if the action can be realised
      */
-    public boolean canMakeAction(Survivor s);
+    public boolean canMakeAction();
 }
 
 
