@@ -1,6 +1,8 @@
 package zombicide.action;
 
+import exception.NoSuchItemException;
 import zombicide.actor.survivor.Survivor;
+import zombicide.callable.Callable;
 
 /**
  * The LookAround class represents an action where a Survivor looks around.
@@ -19,12 +21,23 @@ public LookAround(Survivor s) {
 }
 
 /**
+ *
+ */
+public boolean canMakeAction(){
+    return true;
+}
+
+/**
  * Performs the action of looking around.
  * This method calls the description method of the cell the Survivor is currently in.
  * It overrides the methode make of the superclass
  */
 @Override
-public void make() {
-    this.survivor.getCell().description();
+public boolean make(Callable callable) throws Exception {
+    if(canMakeAction()) {
+        this.survivor.getCell().description();
+        return true;
+    }
+    return false;
 }
 }
