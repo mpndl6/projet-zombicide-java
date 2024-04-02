@@ -18,12 +18,12 @@ public class Nosy extends Survivor {
     }
 
     //Quand on sera au rendu pour les actions il faudra ajouter l'action fouiller ici
-    public void search() {
+   /* public void search() {
         if (firstSearchFree) {
             firstSearchFree = false;
         } else {
             decreaseActionPoints();
         }
-    }
+    }*/
 
 }
