@@ -1,7 +1,8 @@
 package zombicide.action;
 
-import exception.FullBackpackException;
+import exception.NoSuchItemException;
 import zombicide.actor.survivor.Survivor;
+import zombicide.callable.Callable;
 import zombicide.item.Item;
 import zombicide.map.cell.Room;
 
@@ -21,20 +22,24 @@ public class Search extends ActionSurvivor {
         this.cost = 1;
     }
 
+    @Override
+    public boolean canMakeAction() {
+        if(!(super.survivor.getCell() instanceof Room)) {
+            System.out.println("There's nothing in there, it's not a room.");
+            return false;
+        }
+         return true;
+    }
+
     /**
      * Performs the action of searching for items in the current room.
      */
     @Override
-    public void make() {
-        Room currentRoom = (Room) survivor.getCell();
-        if(currentRoom != null) {
-            List<Item> itemsFound = currentRoom.getItems();
-            try{
-                survivor.putItemInBackpack(itemsFound.get(0));
-            }catch (FullBackpackException e){
-                System.out.println("Backpack is full cannot add item");
-            }
-        }
+    public boolean make(Callable callable) throws Exception {
+        if (!this.canMakeAction()){
 
+        }
+        //TODO
+        return true
     }
 }
