@@ -30,11 +30,6 @@ public abstract class Item implements Callable {
     }
 
     /**
-    */
-    public void setSurvivor(Survivor survivor){
-        this.survivor = survivor;
-    }
-    /**
      * Executes the action associated with using this item.
      * This method prints a message indicating that the item can be used.
      */
