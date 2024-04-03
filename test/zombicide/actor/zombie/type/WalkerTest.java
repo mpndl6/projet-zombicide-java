@@ -1,9 +1,7 @@
 package zombicide.actor.zombie.type;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import zombicide.actor.ActorType;
-import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,7 +32,7 @@ public class WalkerTest {
     @Test
     public void testLifePointDecrease(){
         Zombie zombie = new Walker();
-        zombie.decreaseLifePoints(); // a survivor has initially 5 life points at creation
+        zombie.beingAttacked(); // a survivor has initially 5 life points at creation
         assertEquals(0, zombie.getLifePoints());
     }
 

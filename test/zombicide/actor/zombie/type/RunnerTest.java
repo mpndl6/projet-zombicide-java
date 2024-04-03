@@ -32,7 +32,7 @@ public class RunnerTest {
 
     @Test
     public void testLifePointDecrease(){
-        runner.decreaseLifePoints(); // a survivor has initially 5 life points at creation
+        runner.beingAttacked(); // a survivor has initially 5 life points at creation
         assertEquals(1, runner.getLifePoints());
     }
 

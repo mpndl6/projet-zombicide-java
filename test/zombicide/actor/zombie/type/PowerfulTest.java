@@ -32,7 +32,7 @@ public class PowerfulTest {
 
     @Test
     public void testLifePointDecrease(){
-        powerful.decreaseLifePoints(); // a survivor has initially 5 life points at creation
+        powerful.beingAttacked(); // a survivor has initially 5 life points at creation
         assertEquals(3, powerful.getLifePoints());
     }
 

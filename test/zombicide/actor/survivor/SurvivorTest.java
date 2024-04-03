@@ -16,7 +16,7 @@ public class SurvivorTest {
     @Test
     public void testLifePointDecrease(){
         Survivor survivor = new Survivor("test");
-        survivor.decreaseLifePoints(); // a survivor has initially 5 life points at creation
+        survivor.beingAttacked(); // a survivor has initially 5 life points at creation
         assertEquals(4, survivor.getLifePoints());
     }
 

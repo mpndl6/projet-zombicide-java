@@ -30,7 +30,7 @@ public class AbominationTest {
 
     @Test
     public void testLifePointDecrease(){
-        abomination.decreaseLifePoints(); // a survivor has initially 5 life points at creation
+        abomination.beingAttacked(); // a survivor has initially 5 life points at creation
         assertEquals(5, abomination.getLifePoints());
     }
 

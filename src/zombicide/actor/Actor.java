@@ -40,7 +40,7 @@ public int getHowManyKills(){
 /**
  * decrease the life point of a survivor. If their life point reach 0, they die
  */
-public void decreaseLifePoints(){
+public void beingAttacked(){
     this.lifePoint--;
     if (this.lifePoint==0)
         this.alive=false;

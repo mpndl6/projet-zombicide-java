@@ -4,7 +4,6 @@ import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
-import zombicide.map.cell.Cell;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,7 @@ public class ActionAttackZombie extends  ActionZombie{
             int size = listSurvivor.size();
             int n = (int)(Math.random() * size);
             Survivor target = listSurvivor.get(n);
-            target.decreaseLifePoints();
+            target.beingAttacked();
             return true;
 
         }
