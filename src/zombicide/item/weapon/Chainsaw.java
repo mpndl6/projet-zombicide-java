@@ -1,10 +1,10 @@
 package zombicide.item.weapon;
 
 /**
- * The class Crowbar represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
+ * The class Chainsaw represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
  * It implements the characteristics and behavior of a Chainsaw weapon.
  */
-public class Chainsaw extends Weapon {
+public class Chainsaw extends Weapon  {
 
     /**
      * Construct a new Chainsaw
