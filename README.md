@@ -201,6 +201,17 @@ L'uml de ce livrable se trouve dans le dossier ``uml/``
 
 ## Semaine 10
 
+ Nous avons modifié les méthodes make
+  - ajout exception méthode make 
+- garder les callable dans les méthode make
+- Création classe Game
+- Création actionAttackZombie et survivors
+- Ajout méthode isOPen dans map pour savoir les méthodes 
+- méthode doorsbetween dans Game
+- Nous ne savons toujours pas comment faire l'action search
+- Modifier comment on attribue un survivant à un item
+
+
 ## Semaine 11
 
 ## Semaine 12
