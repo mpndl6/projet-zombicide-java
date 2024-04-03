@@ -12,7 +12,6 @@ public class MakeNoise extends ActionSurvivor{
      */
     public MakeNoise(Survivor s) {
         super(s);
-        this.survivor.decreaseActionPoints(super.cost);
     }
 
     @Override
