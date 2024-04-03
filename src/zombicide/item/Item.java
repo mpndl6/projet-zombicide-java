@@ -23,6 +23,14 @@ public abstract class Item implements Callable {
     }
 
     /**
+     * removes a Survivor
+     * @param
+     */
+    public void removeSurvivor(Survivor s){
+        this.survivor = null;
+    }
+
+    /**
      * @return the survivor of the item
      */
     public Survivor getSurvivor() {
