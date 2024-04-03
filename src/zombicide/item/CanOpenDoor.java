@@ -8,5 +8,5 @@ public interface CanOpenDoor {
     /**
      *
      */
-    public void open(Location location);
+    public void open(Location location) throws IsWallException;
 }
