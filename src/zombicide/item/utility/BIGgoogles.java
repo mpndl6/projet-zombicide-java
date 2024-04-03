@@ -26,6 +26,7 @@ public class BIGgoogles extends Utility{
      */
     @Override
     public void use(Callable callable){
+        System.out.println("That's BIG GOOGLES you're using here\n");
        Position pos = (Position)callable;
       Cell cell = map.getCell(pos);
       System.out.println("In this cell you have :\n\n"+cell.description()); // Ajouter le type de la cellule
