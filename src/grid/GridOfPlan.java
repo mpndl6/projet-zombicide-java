@@ -9,11 +9,11 @@ import zombicide.map.util.Location;
 /**
  * Grid for the display of a plan
  */
-public class gridOfPlan extends Grid{
+public class GridOfPlan extends Grid{
     protected Map map;
     protected static final int WOFC = 5;
     protected static final String CONTINENTAL_COVERUP = "R"; // Continental will be faking a room to be impossible to find.
-    public gridOfPlan(Map map){
+    public GridOfPlan(Map map){
         super(map,WOFC);
     }
 

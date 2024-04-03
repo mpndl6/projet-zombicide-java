@@ -1,5 +1,6 @@
 package zombicide.item.utility;
 import grid.Grid;
+import grid.GridOfPlan;
 import zombicide.callable.Callable;
 import zombicide.map.*;
 
@@ -16,8 +17,8 @@ public class Plan extends Utility {
      */
     @Override
     public void use() {
-        Grid grid= new Grid(this.map, 5);
-        grid.displayGrid();
+        GridOfPlan grid= new GridOfPlan(this.map);
+         grid.displayGrid();
     }
 
     /**
