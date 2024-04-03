@@ -46,6 +46,12 @@ public class Armory extends SpecialRoom{
         this.pnj = p;
     }
 
+    /**
+     *
+     */
+    public String toString(){
+        return "A*";
+    }
 
 
 }
