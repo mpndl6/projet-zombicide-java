@@ -1,5 +1,6 @@
 package zombicide.item.utility;
 
+import zombicide.callable.Callable;
 import zombicide.map.Map;
 import zombicide.map.util.Position;
 
