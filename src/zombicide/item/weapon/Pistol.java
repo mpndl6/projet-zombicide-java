@@ -39,7 +39,10 @@ public class Pistol extends Weapon implements CanOpenDoor {
         return "Pistol";
     }
 
-
+    /**
+     *
+     * @param location
+     */
     @Override
     public void open(Location location) throws IsWallException {
         this.map.openDoorOfRoom(this.survivor.getCell(), location);
