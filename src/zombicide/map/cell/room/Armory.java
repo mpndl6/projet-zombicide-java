@@ -21,6 +21,7 @@ public class Armory extends SpecialRoom{
      * Adds an actor to the cell
      *@param a to be added to the cell
      */
+    @Override
     public void welcomeActor(Actor a){
         if(a instanceof Zombie)
             return;
