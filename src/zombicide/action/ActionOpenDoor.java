@@ -9,6 +9,9 @@ import zombicide.map.cell.Cell;
 import zombicide.item.*;
 import zombicide.map.util.Location;
 
+/**
+ * This action permits to open a door
+ */
 public class ActionOpenDoor extends ActionSurvivor{
 
 protected Map map;
@@ -16,7 +19,6 @@ protected Callable callable;
 
 /**
  * Constructs a new ActionSurvivor object with the specified Survivor.
- *
  * @param s the Survivor associated with this action.
  */
 public ActionOpenDoor(Survivor s, Map map) {
@@ -37,13 +39,6 @@ public void setMap(Map map){
  */
 public Map getMap(){
     return this.map;
-}
-
-/**
- *
- */
-public void setCallable(Callable callable){
-    this.callable = callable;
 }
 
 /**
