@@ -38,6 +38,10 @@ public class Room extends Cell {
         return this.cellType;
     }
 
+    /**
+     * Gives a description of the cell. The number of actors, which door is open of not etc.
+     * @return a description of the Cell
+     */
     @Override
     public String description() {
         return "Cell de type:" + this +"\n" + "nombre de survivants:" + this.howManySurvivors() +"\n" + "nombre de zombies:" + this.howManyZombies() + "\n"+"nombre d'objets:" + this.getNbItem() +"\n"+"porte Nord"+this.isOpen(Location.NORTH)+"porte Sud"+this.isOpen(Location.SOUTH)+"porte Est"+this.isOpen(Location.EAST)+"porte Ouest"+this.isOpen(Location.WEST);
