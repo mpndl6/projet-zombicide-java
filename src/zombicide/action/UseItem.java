@@ -35,7 +35,7 @@ public class UseItem extends ActionSurvivor {
 
         Item i = (Item) callable;
         i = super.survivor.getWhatINHand();
-        i.addSurvivor(this.survivor);
+        //i.addSurvivor(this.survivor);
         i.use();
         return true;
         }
