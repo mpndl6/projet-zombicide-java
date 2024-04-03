@@ -179,6 +179,7 @@ public void putInHand(Item i) throws FullBackpackException {
     if(hasItemOnHand())
         putItemInBackpack(this.inHand);
     this.inHand = i;
+    i.addSurvivor(this);
 } // La méthode sera peut-être enlever étant donné que nous avons les actions
 
 /**
@@ -265,8 +266,9 @@ return description+"";
 
 }
 
-public void makeAction(Action action, Callable callable) throws Exception{
+public boolean makeAction(Action action, Callable callable) throws Exception{
     action.make(callable);
+    return true;
 }
 
 

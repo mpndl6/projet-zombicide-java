@@ -40,6 +40,6 @@ public class Search extends ActionSurvivor {
 
         }
         //TODO
-        return true
+        return true;
     }
 }

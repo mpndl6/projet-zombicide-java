@@ -17,7 +17,7 @@ public class MasterKey extends Utility implements CanOpenDoor {
      * If the survivor is in a room cell, the method attempts to open the door.
      * @param callable The location of the door to be opened.
      */
-    public void use(Callable callable){
+    public void use(Callable callable) throws Exception{
         this.open((Location)callable);
     }
 
@@ -33,12 +33,7 @@ public class MasterKey extends Utility implements CanOpenDoor {
      * @param location
      */
     @Override
-    public void open(Location location) {
-        try {
-            this.map.openDoorOfRoom(this.survivor.getCell(), location);
-        }
-        catch(IsWallException iw){
-            System.out.println(iw.getMessage());
-        }
+    public void open(Location location) throws IsWallException {
+        this.map.openDoorOfRoom(this.survivor.getCell(), location);
     }
 }

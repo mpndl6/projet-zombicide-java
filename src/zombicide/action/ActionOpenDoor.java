@@ -12,15 +12,15 @@ import zombicide.map.util.Location;
 public class ActionOpenDoor extends ActionSurvivor{
 
 protected Map map;
+protected Callable callable;
 
 /**
  * Constructs a new ActionSurvivor object with the specified Survivor.
  *
  * @param s the Survivor associated with this action.
  */
-public ActionOpenDoor(Survivor s) {
+public ActionOpenDoor(Survivor s, Map map) {
     super(s);
-    this.map = null;
 }
 
 /**
@@ -31,20 +31,33 @@ public void setMap(Map map){
     this.map = map;
 }
 
+/**
+ * Gets the map of the current AttackOpenDoor
+ * @return the map used for this action
+ */
+public Map getMap(){
+    return this.map;
+}
+
+/**
+ *
+ */
+public void setCallable(Callable callable){
+    this.callable = callable;
+}
 
 /**
  * Open the neighbor door of the current Cell
- * @param callable a callable, here it's the Location of the door we want to open
  * @return true if the action has been realised
  */
 @Override
 public boolean make(Callable callable) throws Exception {
     if (!canMakeAction())
-        throw new NoSuchItemException(this.survivor.getNickName()+" doesn't have the correct item in hand");
+        throw new NoSuchItemException(this.survivor.getNickName()+" doesn't have the correct item in hand.");
 
         Cell cellOfSurvivor = this.survivor.getCell();
         try {
-            this.map.openDoorOfRoom(cellOfSurvivor, (Location) callable);
+            this.map.openDoorOfRoom(cellOfSurvivor, (Location)callable);
             this.survivor.decreaseActionPoints(super.getCost());
             return true;
         }
@@ -65,7 +78,7 @@ public boolean make(Callable callable) throws Exception {
 
     @Override
     public boolean canMakeAction() {
-        return (super.survivor.getWhatINHand() instanceof CanOpenDoor) & super.survivor.getActionPoint()>0;
+        return (super.survivor.getWhatINHand() instanceof CanOpenDoor);
     }
 
 
