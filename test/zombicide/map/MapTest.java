@@ -93,7 +93,7 @@ public class MapTest {
     @Test
     public void testGetPrincipalInterSection(){
         //pour une map 5,5 les coordonées de la rue principale  devrait être 2,2
-        assertEquals(map.getPrincipalIntersection(), new Position(2,2));
+        assertEquals(map.getCrossRoad(), new Position(2,2));
     }
 
 

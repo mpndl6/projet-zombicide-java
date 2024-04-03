@@ -16,7 +16,6 @@ import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 import zombicide.map.cell.*;
 
-import java.awt.desktop.SystemEventListener;
 import java.util.*;
 
 /**
@@ -50,7 +49,7 @@ public class Livrable2 {
         Survivor fighter= new Fighter("Annie");
         Survivor lucky = new Lucky("Gab");
 
-        Position crossRoadPos = map.getPrincipalIntersection();
+        Position crossRoadPos = map.getCrossRoad();
 
         //add of players on principal street
         map.putActorONCell(healer,crossRoadPos);

@@ -27,7 +27,7 @@ Map implements Callable {
      * the Map is initialised at creation
      *
      * @param w width of Map
-     * @param h heigth of Map
+     * @param h height of Map
      * @param listRooms list of specialrooms
      * @param listStreets list of specialstreets
      */
@@ -42,7 +42,7 @@ Map implements Callable {
             }
         }
 
-        this.principalIntersection = this.generatFirstRoad();
+        this.principalIntersection = this.generateCrossRoad();
         this.putWasteWater();
         this.putPositionOfCells();
 
@@ -230,7 +230,7 @@ Map implements Callable {
      * Get the principal intersection of the Map
      * @return the position of the principal intersection
      */
-    public Position getPrincipalIntersection() {
+    public Position getCrossRoad() {
         return principalIntersection;
     }
 
@@ -241,7 +241,7 @@ Map implements Callable {
      * @param min1 The minimum value.
      * @return A random number within the specified range.
      */
-    protected int generateNumberForInitmap(int max1, int min1) {
+    protected int generateNumberForInitMap(int max1, int min1) {
         int max = max1 - 2;
         int min = min1 + 2;
         int range = max - min + 1;
@@ -258,38 +258,38 @@ Map implements Callable {
      * @param hmax The maximum height.
      * @param hmin The minimum height.
      */
-    protected void initmap(int wmax, int wmin, int hmax, int hmin) {
+    protected void initMap(int wmax, int wmin, int hmax, int hmin) {
         if (wmax - wmin >= 4 && hmax - hmin >= 4) {
-            int wl = generateNumberForInitmap(wmax, wmin);
-            int hl = generateNumberForInitmap(hmax, hmin);
+            int wl = generateNumberForInitMap(wmax, wmin);
+            int hl = generateNumberForInitMap(hmax, hmin);
             for (int j = hmin; j <= hmax; j++) {
                 this.cells[wl][j] = new Street();
             }
             for (int i = wmin; i <= wmax; i++) {
                 this.cells[i][hl] = new Street();
             }
-            initmap(wmax, wl + 1, hl - 1, hmin);
-            initmap(wmax, wl + 1, hmax, hl + 1);
-            initmap(wl - 1, wmin, hl - 1, hmin);
-            initmap(wl - 1, wmin, hmax, hl + 1);
+            initMap(wmax, wl + 1, hl - 1, hmin);
+            initMap(wmax, wl + 1, hmax, hl + 1);
+            initMap(wl - 1, wmin, hl - 1, hmin);
+            initMap(wl - 1, wmin, hmax, hl + 1);
         }
 
         if (wmax - wmin >= 4 && hmax - hmin < 4) {
-            int wl = generateNumberForInitmap(wmax, wmin);
+            int wl = generateNumberForInitMap(wmax, wmin);
             for (int j = hmin; j <= hmax; j++) {
                 this.cells[wl][j] = new Street();
             }
-            initmap(wmax, wl + 1, hmax, hmin);
-            initmap(wl - 1, wmin, hmax, hmin);
+            initMap(wmax, wl + 1, hmax, hmin);
+            initMap(wl - 1, wmin, hmax, hmin);
         }
 
         if (wmax - wmin < 4 && hmax - hmin >= 4) {
-            int hl = generateNumberForInitmap(hmax, hmin);
+            int hl = generateNumberForInitMap(hmax, hmin);
             for (int i = wmin; i <= wmax; i++) {
                 this.cells[i][hl] = new Street();
             }
-            initmap(wmax, wmin, hl - 1, hmin);
-            initmap(wmax, wmin, hmax, hl + 1);
+            initMap(wmax, wmin, hl - 1, hmin);
+            initMap(wmax, wmin, hmax, hl + 1);
         }
     }
 
@@ -298,19 +298,19 @@ Map implements Callable {
      *
      * @return The position of the main intersection.
      */
-    protected Position generatFirstRoad() {
-        int wl = generateNumberForInitmap(this.width - 1, 0);
-        int hl = generateNumberForInitmap(this.heigth - 1, 0);
+    protected Position generateCrossRoad() {
+        int wl = generateNumberForInitMap(this.width - 1, 0);
+        int hl = generateNumberForInitMap(this.heigth - 1, 0);
         for (int j = 0; j <= this.heigth - 1; j++) {
             this.cells[wl][j] = new Street();
         }
         for (int i = 0; i <= this.width - 1; i++) {
             this.cells[i][hl] = new Street();
         }
-        initmap(this.width - 1, wl + 1, hl - 1, 0);
-        initmap(this.width - 1, wl + 1, this.heigth - 1, hl + 1);
-        initmap(wl - 1, 0, hl - 1, 0);
-        initmap(wl - 1, 0, this.heigth - 1, hl + 1);
+        initMap(this.width - 1, wl + 1, hl - 1, 0);
+        initMap(this.width - 1, wl + 1, this.heigth - 1, hl + 1);
+        initMap(wl - 1, 0, hl - 1, 0);
+        initMap(wl - 1, 0, this.heigth - 1, hl + 1);
         return new Position(wl, hl);
     }
 
@@ -321,7 +321,7 @@ Map implements Callable {
      * @param m The maximum value.
      * @return A random number for special room placement.
      */
-    protected int generatNumberForSpecialRoom(int m) {
+    protected int generateNumberForSpecialRoom(int m) {
         int max = m;
         int min = 0;
         int range = max - min + 1;
@@ -359,7 +359,7 @@ Map implements Callable {
         List<Position> list = new ArrayList<Position>();
         for(int  i = n ; i > 0 ; i--) {
             if(cellIterator.hasNext()) {
-                int j = generatNumberForSpecialRoom(l.size() - 1);
+                int j = generateNumberForSpecialRoom(l.size() - 1);
                 list.add(l.get(j).getPosition());
                 l.remove(j);
             } else {
