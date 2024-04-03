@@ -6,6 +6,9 @@ import zombicide.item.CanOpenDoor;
 import zombicide.map.util.Location;
 import zombicide.map.*;
 
+/**
+ * Class of the MasterKey. A MasterKey can open any door in a Map
+ */
 public class MasterKey extends Utility implements CanOpenDoor {
     protected Map map;
     public MasterKey(Map map) {
@@ -22,6 +25,7 @@ public class MasterKey extends Utility implements CanOpenDoor {
     }
 
     /**
+     * Gives a description of the utility
      * @return a description of the item
      */
     public String toString(){
@@ -29,11 +33,13 @@ public class MasterKey extends Utility implements CanOpenDoor {
     }
 
     /**
-     *
-     * @param location
+     * Open a door
+     * @param location of the wanted door
      */
     @Override
     public void open(Location location) throws IsWallException {
+        System.out.println("Ok Master.");
         this.map.openDoorOfRoom(this.survivor.getCell(), location);
+        System.out.println("It's open. You can go.");
     }
 }
