@@ -1,10 +1,17 @@
 package zombicide.item.weapon;
 
+import exception.IsWallException;
+import zombicide.item.CanOpenDoor;
+import zombicide.map.Map;
+import zombicide.map.util.Location;
+
 /**
- * The class Crowbar represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
+ * The class Pistol represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
  * It implements the characteristics and behavior of a Pistol weapon.
  */
-public class Pistol extends Weapon {
+public class Pistol extends Weapon implements CanOpenDoor {
+
+    protected Map map;
 
     /**
      * Construct a new Pistol
@@ -30,5 +37,11 @@ public class Pistol extends Weapon {
      */
     public String toString(){
         return "Pistol";
+    }
+
+
+    @Override
+    public void open(Location location) throws IsWallException {
+        this.map.openDoorOfRoom(this.survivor.getCell(), location);
     }
 }
