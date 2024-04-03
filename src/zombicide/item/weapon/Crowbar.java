@@ -33,6 +33,7 @@ public class Crowbar extends Weapon implements CanOpenDoor {
     }
 
     /**
+     * Gives a description of the utility
      * @return a description of the item
      */
     public String toString(){
@@ -40,11 +41,13 @@ public class Crowbar extends Weapon implements CanOpenDoor {
     }
 
     /**
-     *
-     * @param location
+     * Open a door
+     * @param location of the wanted door
      */
     @Override
     public void open(Location location) throws IsWallException {
+        System.out.println("Give it all.\n");
         this.map.openDoorOfRoom(this.survivor.getCell(), location);
+        System.out.println("It's open. You can go.");
     }
 }
