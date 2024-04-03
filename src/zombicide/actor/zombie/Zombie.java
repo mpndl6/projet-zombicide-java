@@ -1,7 +1,9 @@
 package zombicide.actor.zombie;
 
+import zombicide.action.Action;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
+import zombicide.callable.Callable;
 import zombicide.item.Item;
 
 /**
@@ -57,5 +59,10 @@ public String toString(){
     return description+"";
 
 }
+
+    public void makeAction(Action action, Callable callable) throws Exception{
+        action.make(callable);
+    }
+
 
 }
