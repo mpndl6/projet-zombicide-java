@@ -3,6 +3,7 @@ package zombicide.map.cell.room;
 import zombicide.actor.Actor;
 import zombicide.actor.PNJ;
 import zombicide.actor.zombie.Zombie;
+import zombicide.item.Item;
 
 public class Armory extends SpecialRoom{
 
@@ -26,7 +27,13 @@ public class Armory extends SpecialRoom{
 
         boolean hasSucced = this.pnj.welcomeSurvivor();
         if(hasSucced){
+            //input A - fabricate ?
             this.pnj.fabricate();
+            //input B - ameliorate an waepon
+            Item input = null;
+            this.pnj.ameliorate(input);
+            //int C - ne rien faire
+            System.out.println("Shme. OK");
         }
 
     }
