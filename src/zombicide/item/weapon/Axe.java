@@ -1,10 +1,17 @@
 package zombicide.item.weapon;
 
+import exception.IsWallException;
+import zombicide.item.CanOpenDoor;
+import zombicide.map.Map;
+import zombicide.map.util.Location;
+
 /**
- * The class Crowbar represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
+ * The class Axe represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
  * It implements the characteristics and behavior of a Axe weapon.
  */
-public class Axe extends Weapon {
+public class Axe extends Weapon implements CanOpenDoor {
+
+    protected Map map;
 
     /**
      * Construct a new Axe
@@ -30,5 +37,10 @@ public class Axe extends Weapon {
      */
     public String toString(){
         return "Axe";
+    }
+
+    @Override
+    public void open(Location location) throws IsWallException {
+        this.map.openDoorOfRoom(this.survivor.getCell(), location);
     }
 }
