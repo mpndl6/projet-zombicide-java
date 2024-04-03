@@ -1,7 +1,9 @@
 package zombicide.action;
 
 import exception.NoSuchItemException;
+import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
+import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
 
 /**
