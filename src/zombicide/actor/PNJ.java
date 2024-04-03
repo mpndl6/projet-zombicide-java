@@ -1,6 +1,5 @@
 package zombicide.actor;
 
-import zombicide.actor.survivor.Survivor;
 import zombicide.item.Item;
 import zombicide.item.utility.Vial;
 import zombicide.item.weapon.*;
@@ -26,6 +25,7 @@ public class PNJ extends Actor{
         this.armory = new Armory();
         super.setCell(this.armory);
         this.fabricateObject = new ArrayList<>();
+        this.fabricableObject();
     }
 
     /**
@@ -40,7 +40,7 @@ public class PNJ extends Actor{
     /**
      *
      */
-    public void createRandomItem(){
+    protected void fabricableObject(){
         List<Item> items = new ArrayList<>();
         items.add(new Carabine());
         items.add(new Vial());
