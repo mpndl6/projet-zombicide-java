@@ -40,11 +40,21 @@ public class Pistol extends Weapon implements CanOpenDoor {
     }
 
     /**
-     *
-     * @param location
+     * Open a door
+     * @param location of the door wanted
      */
     @Override
     public void open(Location location) throws IsWallException {
+        System.out.println("Please step aside. It's gonna bomb \n");
+        for (int i = 0; i < 3; i++)
+            System.out.print(".");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("***BOOM!***\n");
         this.map.openDoorOfRoom(this.survivor.getCell(), location);
+        System.out.println("It's open. You can go.\n Don't burn your hand buddy!");
     }
 }
