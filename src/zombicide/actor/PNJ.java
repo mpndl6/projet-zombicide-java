@@ -74,4 +74,25 @@ public class PNJ extends Actor{
         return item;
     }
 
+    public void ameliorate(Weapon w){
+        //TODO
+    }
+
+    /**
+     *
+     */
+    public boolean welcomeSurvivor(){
+        System.out.println("Welcome welcome to the Armory.\n As you can see there's no items in this room. NOt yet. Do you want to check ?(Y/N)");
+        // INput + methode action de fouiller de survivant
+        //Input si le survivant veut améliorer son arme.
+        System.out.println("You see. Nothing. But I can made some. It will cost you nothing. It's not about money you know. I get bored in here.");
+        System.out.println("I kill time buy creating enigmas. Do you want to play? If you win you i make you something. (Y/N)");
+        // Input oui ou non
+            if(true) {
+                System.out.println("I will make you something.");
+                return true;
+            }
+          System.out.println("Shame man. Maybe another time. Farewell");
+        return false;
+    }
 }
