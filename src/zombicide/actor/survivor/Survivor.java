@@ -271,7 +271,7 @@ return description+"";
  * @param action The action wanted by the survivor
  * @param callable any object in this game that is callable. Will be cast depending on the action.
  * @return true if the action has been made with success
- * @throws Exception an Exception depending on the action. The method can throw 0 action in certain cases
+ * @throws Exception an Exception depending on the action. The method can throw 0 exception in certain cases
  */
 public boolean makeAction(Action action, Callable callable) throws Exception{
 
