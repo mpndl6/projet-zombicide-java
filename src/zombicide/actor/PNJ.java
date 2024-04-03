@@ -1,5 +1,6 @@
 package zombicide.actor;
 
+import zombicide.actor.survivor.Survivor;
 import zombicide.item.Item;
 import zombicide.item.utility.Vial;
 import zombicide.item.weapon.*;
@@ -75,7 +76,14 @@ public class PNJ extends Actor{
     }
 
     public void ameliorate(Weapon w){
-        //TODO
+        System.out.println("So you want me to ameliorate your weapon? I mean it can be necessary in here. Although you arme will be destroyed if you let them here.");
+        //input, quelle arme?
+        System.out.println("ok");
+        if (!(w instanceof Weapon))
+            System.out.println("Give me a weapon, dude.");
+        else{
+            //ameliorer les damage infligé
+        }
     }
 
     /**
