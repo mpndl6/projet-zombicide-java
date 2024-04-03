@@ -266,9 +266,21 @@ return description+"";
 
 }
 
+/**
+ * The survivor realises an action. Based on their role they can or not realise the action
+ * @param action The action wanted by the survivor
+ * @param callable any object in this game that is callable. Will be cast depending on the action.
+ * @return true if the action has been made with success
+ * @throws Exception an Exception depending on the action. The method can throw 0 action in certain cases
+ */
 public boolean makeAction(Action action, Callable callable) throws Exception{
-    action.make(callable);
+
+boolean actionMade = action.make(callable);
+if (actionMade) {
+    this.decreaseActionPoints(action.getCost());
     return true;
+}
+return false;
 }
 
 
