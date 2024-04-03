@@ -2,6 +2,7 @@ package zombicide.action;
 
 import exception.NoSuchItemException;
 import zombicide.actor.survivor.Survivor;
+import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
 import zombicide.item.Item;
 import zombicide.item.weapon.Weapon;
@@ -27,8 +28,9 @@ public class ActionAttackSurvivor extends ActionSurvivor {
         if(!canMakeAction()){
             throw new NoSuchItemException("There's no weapon in their hand.");
         }
+        Zombie zombie = (Zombie)callable;
         Item weapon = this.survivor.getWhatINHand();
-        weapon.use();
+        //weapon.attack(zombie);
         return  true;
     }
 
