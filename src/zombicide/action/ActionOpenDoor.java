@@ -48,16 +48,15 @@ public Map getMap(){
 @Override
 public boolean make(Callable callable) throws Exception {
     if (!canMakeAction())
-        throw new NoSuchItemException(this.survivor.getNickName()+" doesn't have the correct item in hand.");
-
-        Cell cellOfSurvivor = this.survivor.getCell();
+        throw new NoSuchItemException(" Survivor doesn't have the correct item in hand.");
         try {
-            this.map.openDoorOfRoom(cellOfSurvivor, (Location)callable);
-            this.survivor.decreaseActionPoints(super.getCost());
+            Location l = (Location)callable;
+            CanOpenDoor itemOpenable = ((CanOpenDoor) this.survivor.getWhatINHand());
+            itemOpenable.open(l);
             return true;
         }
         catch (IsWallException is) {
-            System.out.println("Its a wall around here.");
+            System.out.println("It's a wall around here!!! Can be open or broke.");
             return false;
         }
 }
