@@ -8,18 +8,30 @@ import zombicide.map.util.Position;
 
 import java.util.*;
 
-
+/**
+ *
+ */
 public class Game {
     protected Map map;
     protected List<Survivor> listSurvivors;
     protected List<Zombie> listZombies;
 
+    /**
+     *
+     * @param map
+     */
     public Game(Map map) {
         this.map = map;
         this.listSurvivors = new ArrayList<>();
         this.listZombies = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param p1
+     * @param p2
+     * @return
+     */
     public boolean doorsBetween(Position p1, Position p2) {
         int x1 = p1.getX();
         int y1 = p1.getY();
