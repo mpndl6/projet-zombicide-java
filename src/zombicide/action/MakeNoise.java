@@ -14,6 +14,10 @@ public class MakeNoise extends ActionSurvivor{
         super(s);
     }
 
+    /**
+     * Tells if the action can be made
+     * @return true if the action can be made
+     */
     @Override
     public boolean canMakeAction() {
         return true;
