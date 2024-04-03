@@ -13,7 +13,8 @@ import zombicide.map.cell.util.CellType;
  * Class of the principal Map of the game
  * Actors will be playing on a object Map
  */
-public class Map implements Callable {
+public class
+Map implements Callable {
 
     protected int width;
     protected int heigth;
@@ -151,6 +152,45 @@ public class Map implements Callable {
                     ((Room) right).openDoor(Location.WEST);
                     break;
             }
+    }
+
+    /**
+     * @param current the cell we want to open the door
+     * @param l Location of the door
+     * @return true if current door is open and false else
+     */
+    public boolean isOpenDoor(Cell current ,Location l)  {
+        int xCell = current.getPosition().getX();
+        int yCell = current.getPosition().getY();
+
+        if (isWall(current, l)){
+            return false;
+        }
+        if (current instanceof Room)
+            return ((Room) current).isOpen(l);
+        switch (l) {
+            case NORTH:
+                Cell up = this.cells[xCell-1][yCell];
+                if (up instanceof Room)
+                    return ((Room) up).isOpen(Location.SOUTH);
+                break;
+            case SOUTH:
+                Cell down = this.cells[xCell+1][yCell];
+                if(down instanceof Room)
+                    return ((Room) down).isOpen(Location.NORTH);
+                break;
+            case WEST:
+                Cell left = this.cells[xCell][yCell-1];
+                if (left instanceof Room)
+                    return ((Room) left).isOpen(Location.EAST);
+                break;
+            case EAST:
+                Cell right = this.cells[xCell][yCell+1];
+                if (right instanceof Room)
+                    return ((Room) right).isOpen(Location.WEST);
+                break;
+        }
+        return false;
     }
 
     /**
