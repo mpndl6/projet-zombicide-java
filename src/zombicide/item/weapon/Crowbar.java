@@ -39,6 +39,10 @@ public class Crowbar extends Weapon implements CanOpenDoor {
         return "Crowbar";
     }
 
+    /**
+     *
+     * @param location
+     */
     @Override
     public void open(Location location) throws IsWallException {
         this.map.openDoorOfRoom(this.survivor.getCell(), location);
