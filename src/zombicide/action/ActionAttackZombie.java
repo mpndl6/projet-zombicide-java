@@ -31,6 +31,10 @@ public class ActionAttackZombie extends  ActionZombie{
             int n = (int)(Math.random() * size);
             Survivor target = listSurvivor.get(n);
             target.beingAttacked();
+            if (!target.isAlive()){
+                System.out.println(target.getNickName()+" is dead.");
+            }
+
             return true;
 
         }
