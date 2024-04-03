@@ -54,3 +54,24 @@ public class PNJ extends Actor{
         }
     }
 
+    /**
+     *
+     */
+    public Item fabricate(){
+        int randomIndex = rand.nextInt(fabricateObject.size());
+        Item item = fabricateObject.get(randomIndex);
+        this.getCell().addItem(item);
+        System.out.println("Let's find out what i can make.");
+        for (int i = 0; i < 10; i++)
+            System.out.print(".");
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("I made a "+item+" if you want it, just put it in you bag.");
+        return item;
+    }
+
+}
