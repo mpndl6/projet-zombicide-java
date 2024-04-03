@@ -1,7 +1,7 @@
 package zombicide.item.weapon;
 
 /**
- * The class Crowbar represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
+ * The class Carabine represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
  * It implements the characteristics and behavior of a Carabine weapon.
  */
 public class Carabine extends Weapon {
