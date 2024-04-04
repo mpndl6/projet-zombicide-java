@@ -71,6 +71,11 @@ public boolean make(Callable callable) throws Exception {
         return 0;
     }
 
+/**
+ * Checks if the survivor can perform the action
+ *
+ * @return true if the survivor has an item in hand that can open a door, false otherwise.
+ */
     @Override
     public boolean canMakeAction() {
         return (super.survivor.getWhatINHand() instanceof CanOpenDoor);
