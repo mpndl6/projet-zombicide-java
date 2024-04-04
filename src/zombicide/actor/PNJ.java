@@ -3,6 +3,7 @@ package zombicide.actor;
 import zombicide.action.LookAround;
 import zombicide.action.Search;
 import zombicide.actor.survivor.Survivor;
+import zombicide.actor.zombie.type.Walker;
 import zombicide.item.Item;
 import zombicide.item.utility.Vial;
 import zombicide.item.weapon.*;
@@ -100,29 +101,33 @@ public class PNJ extends Actor{
         return item;
     }
 
+    /**
+     *
+     * @param s
+     */
     public void ameliorate(Survivor s){
-        System.out.println("So you want me to ameliorate your weapon? I mean it can be necessary in here. Although you arme will be destroyed if you let them here.");
+        System.out.println("So you want me to ameliorate your weapon? I mean it can be necessary in here. Although you arme will be destroyed if you let one here.");
         System.out.println("Which one?");
-        System.out.println("The damage can reach + "+MAX_DAMAGE+" damage more");
+        System.out.println("The damage can reach + "+MAX_DAMAGE+" damage supplementary.");
         Iterator<Item> it = s.getAllInBackpack().iterator();
-        int n =
+        int n = generateRandomInt(MAX_DAMAGE);
         int i = 1;
         while(it.hasNext()){
             System.out.println(i+" - "+ it.next());
         }
-        this.getRandomWeapon(s).increaseDamage();
-
-
+        Weapon chosenWeapon = this.getRandomWeapon(s);
+        chosenWeapon.increaseDamage(n);
+        System.out.println("Your "+chosenWeapon+ " damages has increase of "+n+" damages.\n");
+        System.out.println("Farewell");
     }
 
     /**
      *
-     * @param n
      * @param m
      * @return
      */
-    public int generateRandomInt(int n, int m){
-        return (int) Math.floor(Math.random() * (m - n + 1)) + n;
+    public int generateRandomInt(int m){
+        return (int) Math.floor(Math.random() * m);
     }
 
     /**
