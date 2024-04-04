@@ -161,7 +161,7 @@ public class PNJ extends Actor{
         else{
             System.out.println("OK. Glad for you trust.");
         }
-        System.out.println("You see. Nothing. But I can made some. It will cost you nothing. It's not about money you know. I get bored in here.");
+        System.out.println("But I can made some. It will cost you nothing. It's not about money you know. I get bored in here.");
         System.out.println("I kill time by creating enigmas. Do you want to play? If you win i'll make you something. (Y/N)");
         survivorResponse= generateRandomResponse();
             if(survivorResponse) {
