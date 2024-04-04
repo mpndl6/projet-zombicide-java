@@ -2,6 +2,7 @@ package zombicide.map.cell.room;
 
 import zombicide.actor.Actor;
 import zombicide.actor.PNJ;
+import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 import zombicide.item.Item;
 
@@ -25,10 +26,10 @@ public class Armory extends SpecialRoom{
     public void welcomeActor(Actor a){
         if(a instanceof Zombie)
             return;
-
-        boolean hasSucced = this.pnj.welcomeSurvivor();
+        Survivor survivor = (Survivor)a;
+        boolean hasSucced = this.pnj.welcome(survivor);
         if(hasSucced){
-            //input A - fabricate ?
+
             this.pnj.fabricate();
             //input B - ameliorate an waepon
             Item input = null;
@@ -45,6 +46,12 @@ public class Armory extends SpecialRoom{
     public void setPNJ(PNJ p){
         this.pnj = p;
     }
+
+    /**
+     *
+     */
+
+
 
     /**
      *
