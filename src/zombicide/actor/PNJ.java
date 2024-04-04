@@ -9,6 +9,7 @@ import zombicide.item.weapon.*;
 import zombicide.map.cell.room.Armory;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -19,6 +20,7 @@ public class PNJ extends Actor{
     public static final boolean POSITIVE_RESPONSE =true;
     public static final boolean NEGATIVE_RESPONSE =false;
     protected Armory armory;
+    public static final int MAX_DAMAGE = 3;
     protected List<Item> fabricateObject;
     protected static Random rand = new Random();
     protected static final int MAX_ITEMS =10;
@@ -62,6 +64,24 @@ public class PNJ extends Actor{
 
     /**
      *
+     * @param s
+     * @return
+     */
+    public Weapon getRandomWeapon(Survivor s){
+        Random rand = new Random();
+        int backPackSize = s.getAllInBackpack().size();
+        int n = (int) Math.round(Math.random() * backPackSize);
+        List<Item> backPackOfSurvivor = s.getAllInBackpack();
+        List<Weapon> weaponsOfSurvivor = new ArrayList<>();
+        for (Item i : backPackOfSurvivor){
+            if (i instanceof Weapon)
+                weaponsOfSurvivor.add((Weapon)i);
+        }
+        return weaponsOfSurvivor.get(n);
+    }
+
+    /**
+     *
      */
     public Item fabricate(){
         int randomIndex = rand.nextInt(fabricateObject.size());
@@ -82,13 +102,27 @@ public class PNJ extends Actor{
 
     public void ameliorate(Survivor s){
         System.out.println("So you want me to ameliorate your weapon? I mean it can be necessary in here. Although you arme will be destroyed if you let them here.");
-        //  choisir une arme random dans ses armes.
-        System.out.println("ok");
-        if (!(w instanceof Weapon))
-            System.out.println("Give me a weapon, dude.");
-        else{
-            //ameliorer les damage infligé
+        System.out.println("Which one?");
+        System.out.println("The damage can reach + "+MAX_DAMAGE+" damage more");
+        Iterator<Item> it = s.getAllInBackpack().iterator();
+        int n =
+        int i = 1;
+        while(it.hasNext()){
+            System.out.println(i+" - "+ it.next());
         }
+        this.getRandomWeapon(s).increaseDamage();
+
+
+    }
+
+    /**
+     *
+     * @param n
+     * @param m
+     * @return
+     */
+    public int generateRandomInt(int n, int m){
+        return (int) Math.floor(Math.random() * (m - n + 1)) + n;
     }
 
     /**
@@ -118,13 +152,12 @@ public class PNJ extends Actor{
         catch (Exception e){
             System.out.println("Nah. Can't do this action it seems.");
         }
-            System.out.println("You see. Nothing. But I can made some. It will cost you nothing. It's not about money you know. I get bored in here.");
         }
         else{
             System.out.println("OK. Glad for you trust.");
         }
         System.out.println("You see. Nothing. But I can made some. It will cost you nothing. It's not about money you know. I get bored in here.");
-        System.out.println("I kill time buy creating enigmas. Do you want to play? If you win i'll make you something. (Y/N)");
+        System.out.println("I kill time by creating enigmas. Do you want to play? If you win i'll make you something. (Y/N)");
         survivorResponse= generateRandomResponse();
             if(survivorResponse) {
                 System.out.println("LETS PLAY ! I will make you something.");
