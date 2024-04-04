@@ -186,6 +186,14 @@ public void putPosition(Position p) {
 	this.position = p;
 }
 
+public boolean equals(Object o) {
+	if(!(o instanceof Cell)) {
+		return false;
+	}
+	Cell other = (Cell) o;
+	return this.position.equals(other.position);
+}
+
 /**
  * Provides a description of the cell
  * @return description of cell
