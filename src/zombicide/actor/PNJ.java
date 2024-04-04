@@ -80,9 +80,9 @@ public class PNJ extends Actor{
         return item;
     }
 
-    public void ameliorate(Weapon w){
+    public void ameliorate(Survivor s){
         System.out.println("So you want me to ameliorate your weapon? I mean it can be necessary in here. Although you arme will be destroyed if you let them here.");
-        //input, quelle arme?
+        //  choisir une arme random dans ses armes.
         System.out.println("ok");
         if (!(w instanceof Weapon))
             System.out.println("Give me a weapon, dude.");
