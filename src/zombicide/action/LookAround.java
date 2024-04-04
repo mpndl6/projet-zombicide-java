@@ -22,6 +22,8 @@ public LookAround(Survivor s) {
 
 /**
  *
+ * Checks if the Survivor can perform the action of looking around.
+ * @return true if the Survivor can perform the action, false otherwise.
  */
 public boolean canMakeAction(){
     return true;
@@ -31,6 +33,9 @@ public boolean canMakeAction(){
  * Performs the action of looking around.
  * This method calls the description method of the cell the Survivor is currently in.
  * It overrides the methode make of the superclass
+ * @param callable A callable object
+ * @return true if the action was successfully performed, false otherwise
+ * @throws Exception if an error occurs during the action
  */
 @Override
 public boolean make(Callable callable) throws Exception {

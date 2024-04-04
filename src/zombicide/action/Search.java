@@ -6,6 +6,7 @@ import zombicide.callable.Callable;
 import zombicide.item.Item;
 import zombicide.map.cell.Room;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,13 +34,32 @@ public class Search extends ActionSurvivor {
 
     /**
      * Performs the action of searching for items in the current room.
+     *
+     * @param callable Any object in the game that is callable. Will be cast depending on the action.
+     * @return true if the action is successfully made, false otherwise.
+     * @throws NoSuchItemException if no items are found in the room.
+     * @throws Exception if an error occurs during the action.
      */
     @Override
     public boolean make(Callable callable) throws Exception {
-        if (!this.canMakeAction()){
-
+        if (!this.canMakeAction()) {
+            return false;
         }
-        //TODO
+        Room currentRoom = (Room) super.survivor.getCell();
+
+        List<Item> itemsInRoom = currentRoom.getItems();
+        if (itemsInRoom.isEmpty()) {
+            System.out.println("The room is empty, there are no items to search for.");
+            throw new NoSuchItemException("No items found in the room.");
+        }
+
+        List<Item> itemsFound = new ArrayList<>();
+
+        for (Item item : itemsInRoom) {
+            itemsFound.add(item);
+            currentRoom.removeItem(item);
+        }
         return true;
     }
+
 }

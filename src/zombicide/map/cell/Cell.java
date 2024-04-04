@@ -173,8 +173,9 @@ public Position getPosition() {
 }
 
 /**
- * TODO
- * @return
+ * Returns the type of the cell
+ *
+ * @return the type of the cell
  */
 public abstract Object getTypeOfCell();
 
@@ -184,6 +185,22 @@ public abstract Object getTypeOfCell();
  */
 public void putPosition(Position p) {
 	this.position = p;
+}
+
+/**
+ * Indicates whether some other object is "equal to" this one.
+ * Two cells are considered equal if they have the same position.
+ *
+ * @param o the reference object with which to compare.
+ * @return true if this cell is the same as the object argument; false otherwise.
+ */
+
+public boolean equals(Object o) {
+	if(!(o instanceof Cell)) {
+		return false;
+	}
+	Cell other = (Cell) o;
+	return this.position.equals(other.position);
 }
 
 /**

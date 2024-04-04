@@ -25,12 +25,15 @@ public class MakeNoise extends ActionSurvivor{
 
     /**
      * Performs the action of making noise by an survivor in the current room.
+     *
+     * @param callable Any object in the game that is callable. Will be cast depending on the action.
+     * @return true if the action is successfully made, false otherwise.
+     * @throws Exception If an error occurs during the action.
      */
     @Override
     public boolean make(Callable callable) throws Exception {
         if(this.canMakeAction()) {
             this.survivor.getCell().makenoise();
-            this.survivor.decreaseActionPoints(this.getCost());
             return true;
         }
         return false;
