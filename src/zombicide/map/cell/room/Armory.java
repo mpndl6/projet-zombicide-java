@@ -5,6 +5,11 @@ import zombicide.actor.PNJ;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 import zombicide.item.Item;
+import zombicide.item.weapon.Weapon;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Armory extends SpecialRoom{
 
@@ -13,6 +18,24 @@ public class Armory extends SpecialRoom{
     public Armory(){
         super();
         this.pnj = null;
+    }
+
+    /**
+     *
+     * @param s
+     * @return
+     */
+    public Weapon getRandomWeapon(Survivor s){
+        Random rand = new Random();
+        int backPackSize = s.getAllInBackpack().size();
+        int n = (int) Math.round(Math.random() * backPackSize);
+        List<Item> backPackOfSurvivor = s.getAllInBackpack();
+        List<Weapon> weaponsOfSurvivor = new ArrayList<>();
+        for (Item i : backPackOfSurvivor){
+            if (i instanceof Weapon)
+                weaponsOfSurvivor.add((Weapon)i);
+        }
+        return weaponsOfSurvivor.get(n);
     }
 
     /**
@@ -29,12 +52,17 @@ public class Armory extends SpecialRoom{
         Survivor survivor = (Survivor)a;
         boolean hasSucced = this.pnj.welcome(survivor);
         if(hasSucced){
+            System.out.println("What do you want? :");
+            System.out.println("1 - AMELIORATE ");
+            System.out.println("2 - FABRICATE");
+            boolean response = this.pnj.generateRandomResponse();
+            if(response)
+                this.pnj.fabricate();
+            else {
+                System.out.println("Which weapon do you want to ameliorate?");
 
-            this.pnj.fabricate();
-            //input B - ameliorate an waepon
-            Item input = null;
-            this.pnj.ameliorate(input);
-            //int C - ne rien faire
+                this.pnj.ameliorate(input);
+            }
             System.out.println("Shme. OK");
         }
 
