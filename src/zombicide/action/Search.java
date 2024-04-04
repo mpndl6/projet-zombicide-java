@@ -34,6 +34,11 @@ public class Search extends ActionSurvivor {
 
     /**
      * Performs the action of searching for items in the current room.
+     *
+     * @param callable Any object in the game that is callable. Will be cast depending on the action.
+     * @return true if the action is successfully made, false otherwise.
+     * @throws NoSuchItemException if no items are found in the room.
+     * @throws Exception if an error occurs during the action.
      */
     @Override
     public boolean make(Callable callable) throws Exception {
