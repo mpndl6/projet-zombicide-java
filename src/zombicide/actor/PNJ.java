@@ -1,5 +1,7 @@
 package zombicide.actor;
 
+import zombicide.action.LookAround;
+import zombicide.actor.survivor.Survivor;
 import zombicide.item.Item;
 import zombicide.item.utility.Vial;
 import zombicide.item.weapon.*;
@@ -13,6 +15,8 @@ public class PNJ extends Actor{
 
     protected static final String PNJ = "PNJ";
     protected static final int PNJ_LF = 1;
+    public static final boolean POSITIVE_RESPONSE =true;
+    public static final boolean NEGATIVE_RESPONSE =false;
     protected Armory armory;
     protected List<Item> fabricateObject;
     protected static Random rand = new Random();
@@ -89,18 +93,37 @@ public class PNJ extends Actor{
     /**
      *
      */
-    public boolean welcomeSurvivor(){
+    public boolean welcome(Survivor s){
         System.out.println("Welcome welcome to the Armory.\n As you can see there's no items in this room. NOt yet. Do you want to check ?(Y/N)");
-        // INput + methode action de fouiller de survivant
-        //Input si le survivant veut améliorer son arme.
+        boolean survivorResponse;
+        boolean[] responses= new boolean[2];
+        responses[0] = POSITIVE_RESPONSE;
+        responses[1] = NEGATIVE_RESPONSE;
+        int n = (int)(Math.random() * 1);
+        survivorResponse = responses[n];
+        if (survivorResponse) {
+        System.out.println("OK. Do so.");
+        try {
+            s.makeAction(new LookAround(s), s);
+        }
+        catch (Exception e){
+            System.out.println("Nah. Can't do this action it seems.");
+        }
+            System.out.println("You see. Nothing. But I can made some. It will cost you nothing. It's not about money you know. I get bored in here.");
+        }
+        else{
+            System.out.println("OK. Glad for you trust.");
+        }
         System.out.println("You see. Nothing. But I can made some. It will cost you nothing. It's not about money you know. I get bored in here.");
-        System.out.println("I kill time buy creating enigmas. Do you want to play? If you win you i make you something. (Y/N)");
-        // Input oui ou non
-            if(true) {
-                System.out.println("I will make you something.");
+        System.out.println("I kill time buy creating enigmas. Do you want to play? If you win i'll make you something. (Y/N)");
+        survivorResponse= responses[n];
+            if(survivorResponse) {
+                System.out.println("LETS PLAY ! I will make you something.");
                 return true;
             }
-          System.out.println("Shame man. Maybe another time. Farewell");
+          else {
+              System.out.println("Shame man. Maybe another time. Farewell");
+            }
         return false;
     }
 }
