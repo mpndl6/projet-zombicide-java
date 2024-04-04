@@ -1,6 +1,7 @@
 package zombicide.actor;
 
 import zombicide.action.LookAround;
+import zombicide.action.Search;
 import zombicide.actor.survivor.Survivor;
 import zombicide.item.Item;
 import zombicide.item.utility.Vial;
@@ -93,18 +94,26 @@ public class PNJ extends Actor{
     /**
      *
      */
-    public boolean welcome(Survivor s){
-        System.out.println("Welcome welcome to the Armory.\n As you can see there's no items in this room. NOt yet. Do you want to check ?(Y/N)");
+    public boolean generateRandomResponse(){
         boolean survivorResponse;
+        int n = (int)(Math.random() * 1);
         boolean[] responses= new boolean[2];
         responses[0] = POSITIVE_RESPONSE;
         responses[1] = NEGATIVE_RESPONSE;
-        int n = (int)(Math.random() * 1);
         survivorResponse = responses[n];
+        return survivorResponse;
+    }
+
+    /**
+     *
+     */
+    public boolean welcome(Survivor s){
+        System.out.println("Welcome welcome to the Armory.\n As you can see there's no items in this room. NOt yet. Do you want to check ?(Y/N)");
+        boolean survivorResponse = generateRandomResponse();
         if (survivorResponse) {
         System.out.println("OK. Do so.");
         try {
-            s.makeAction(new LookAround(s), s);
+            s.makeAction(new Search(s), s);
         }
         catch (Exception e){
             System.out.println("Nah. Can't do this action it seems.");
@@ -116,7 +125,7 @@ public class PNJ extends Actor{
         }
         System.out.println("You see. Nothing. But I can made some. It will cost you nothing. It's not about money you know. I get bored in here.");
         System.out.println("I kill time buy creating enigmas. Do you want to play? If you win i'll make you something. (Y/N)");
-        survivorResponse= responses[n];
+        survivorResponse= generateRandomResponse();
             if(survivorResponse) {
                 System.out.println("LETS PLAY ! I will make you something.");
                 return true;
