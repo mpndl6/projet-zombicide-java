@@ -30,7 +30,6 @@ public class MakeNoise extends ActionSurvivor{
     public boolean make(Callable callable) throws Exception {
         if(this.canMakeAction()) {
             this.survivor.getCell().makenoise();
-            this.survivor.decreaseActionPoints(this.getCost());
             return true;
         }
         return false;
