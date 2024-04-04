@@ -20,23 +20,6 @@ public class Armory extends SpecialRoom{
         this.pnj = null;
     }
 
-    /**
-     *
-     * @param s
-     * @return
-     */
-    public Weapon getRandomWeapon(Survivor s){
-        Random rand = new Random();
-        int backPackSize = s.getAllInBackpack().size();
-        int n = (int) Math.round(Math.random() * backPackSize);
-        List<Item> backPackOfSurvivor = s.getAllInBackpack();
-        List<Weapon> weaponsOfSurvivor = new ArrayList<>();
-        for (Item i : backPackOfSurvivor){
-            if (i instanceof Weapon)
-                weaponsOfSurvivor.add((Weapon)i);
-        }
-        return weaponsOfSurvivor.get(n);
-    }
 
     /**
      *
@@ -50,6 +33,7 @@ public class Armory extends SpecialRoom{
         if(a instanceof Zombie)
             return;
         Survivor survivor = (Survivor)a;
+        super.welcomeActor(survivor);
         boolean hasSucced = this.pnj.welcome(survivor);
         if(hasSucced){
             System.out.println("What do you want? :");
@@ -58,14 +42,9 @@ public class Armory extends SpecialRoom{
             boolean response = this.pnj.generateRandomResponse();
             if(response)
                 this.pnj.fabricate();
-            else {
-                System.out.println("Which weapon do you want to ameliorate?");
-
-                this.pnj.ameliorate(input);
-            }
-            System.out.println("Shme. OK");
+            else
+                this.pnj.ameliorate(survivor);
         }
-
     }
 
     /**
@@ -77,9 +56,11 @@ public class Armory extends SpecialRoom{
 
     /**
      *
+     * @return
      */
-
-
+    public PNJ getPnj(){
+        return this.pnj;
+    }
 
     /**
      *
