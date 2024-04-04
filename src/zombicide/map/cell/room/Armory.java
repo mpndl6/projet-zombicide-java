@@ -4,17 +4,17 @@ import zombicide.actor.Actor;
 import zombicide.actor.PNJ;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
-import zombicide.item.Item;
-import zombicide.item.weapon.Weapon;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
+/**
+ *
+ */
 public class Armory extends SpecialRoom{
 
     protected PNJ pnj;
 
+    /**
+     *
+     */
     public Armory(){
         super();
         this.pnj = null;
