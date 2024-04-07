@@ -175,12 +175,18 @@ return this.inHand!=null;
  * Put  the item i in the hand of the survivor
  * @param i the wanted item to put in hand
  */
+public void setInHand(Item i ){
+    this.inHand=i;
+}
+
+    /**
 public void putInHand(Item i) throws FullBackpackException {
     if(hasItemOnHand())
         putItemInBackpack(this.inHand);
     this.inHand = i;
     i.addSurvivor(this);
 } // La méthode sera peut-être enlever étant donné que nous avons les actions
+     */
 
 /**
  * It puts an item on cell. It can be an item that is on hand or in the backpack.
