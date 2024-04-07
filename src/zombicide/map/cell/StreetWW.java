@@ -18,5 +18,9 @@ public class StreetWW extends Street {
 
     }
 
+    public void spwanZombies(int howMany){
+        //TODO
+    }
+
 
 }
