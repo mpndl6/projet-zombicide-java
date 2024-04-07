@@ -111,11 +111,16 @@ public class Room extends Cell {
 
     }
 
-    public Item searchForItem() {
-        if (!items.isEmpty()) {
+    /**
+     * Search a random intem in the Cell (if it's a street it will automatically be emtpy!) and returns it.
+     * @return a random item found in the Cell
+     */
+    public static Item searchForItem(Cell cell) {
+        List<Item> itemsOfCell = cell.getItems();
+        if (!itemsOfCell.isEmpty()) {
             Random random = new Random();
-            int index = random.nextInt(items.size());
-            return items.get(index);
+            int index = random.nextInt(itemsOfCell.size());
+            return itemsOfCell.get(index);
         } else {
             return null;
         }
