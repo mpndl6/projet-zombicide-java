@@ -21,7 +21,7 @@ protected static final int THIRD_LEVEL = 3;
 protected static final int ELEVENTH_LEVEL = 11;
 protected static final int SEVENTH_LEVEL = 7;
 protected static final int STARTING_LEVEL =0; // at beginning a survivor is at level 0
-protected static final int MAX_NB_ITEM = 5; // in backpack
+public static final int MAX_NB_ITEM = 5; // in backpack
 protected SurvivorsLevel currentLevel; // the level the survivor is currently in
 protected String nickName; // nickname of survivor
 protected int XP; // level of expertise of a survivor
