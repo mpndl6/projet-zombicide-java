@@ -27,4 +27,23 @@ public class ActionAttackZombieTest {
 
         } catch (Exception e) {
             fail("Une exception ne devrait pas être levée lorsqu'un survivant est disponible pour être attaqué");
-        }}}
+        }}
+
+    @Test
+    public void make_NoSurvivorInCell() {
+        // Arrange
+        Zombie zombie = new Walker();
+        ActionAttackZombie action = new ActionAttackZombie(zombie);
+        Cell cell = new Room();
+        zombie.setCell(cell);
+        cell.welcomeActor(zombie);
+
+        // Act
+        try {
+            zombie.makeAction(action, cell);
+            assertEquals(0, cell.howManySurvivors());
+        } catch (Exception e) {
+            fail("Une exception ne devrait pas être levée lorsqu'il n'y a pas de survivant dans la cellule");
+        }
+    }
+}
