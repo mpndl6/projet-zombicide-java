@@ -214,6 +214,22 @@ public void putItemInBackpack(Item i) throws FullBackpackException{
     this.backPack.add(i);
 }
 
+public Item chooseItemToDiscard() {
+    List<Item> backpack = this.getAllInBackpack();
+    if (backpack.isEmpty()) {
+        return null;
+    } else {
+        Random random = new Random();
+        int index = random.nextInt(backpack.size());
+        Item discardedItem = backpack.get(index);
+        backpack.remove(index);
+        return discardedItem;
+    }
+}
+
+public int maxSizeOfBackPack(){
+    return MAX_NB_ITEM;
+}
 /**
  * When the survivor dies (or in other circumstances) all items of their backpack go on cell or disappear.
  * That method take all the items in backpack and drop it on cell.
