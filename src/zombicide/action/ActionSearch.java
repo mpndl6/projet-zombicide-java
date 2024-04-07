@@ -1,5 +1,6 @@
 package zombicide.action;
 
+import zombicide.actor.PNJ;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.item.Item;
@@ -41,6 +42,12 @@ public class ActionSearch extends ActionSurvivor {
             }
         }
         else {
+            boolean survivorWantToDropOffSomeItem = PNJ.generateRandomResponse(); // survivor chooses randomly if they want or not to drop off something to swap an item for another
+            if (!survivorWantToDropOffSomeItem) {
+                System.out.println(survivor.getNickName() + " dosent want to give something up. End of search.");
+                return false;
+            }
+
             Item discardedItem = survivor.chooseItemToDiscard();
             if (discardedItem != null) {
                 survivor.putItemOnCell(discardedItem);
