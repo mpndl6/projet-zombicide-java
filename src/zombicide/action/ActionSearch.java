@@ -3,9 +3,10 @@ package zombicide.action;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.item.Item;
+import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
 
-public class ActionSearch extends ActionSurvivor{
+public class ActionSearch extends ActionSurvivor {
 
 
     public ActionSearch(Survivor s) {
@@ -15,7 +16,7 @@ public class ActionSearch extends ActionSurvivor{
 
     @Override
     public boolean canMakeAction() {
-        if(!(super.survivor.getCell() instanceof Room)) {
+        if (!(super.survivor.getCell() instanceof Room)) {
             System.out.println("There's nothing in there, it's not a room.");
             return false;
         }
@@ -25,39 +26,39 @@ public class ActionSearch extends ActionSurvivor{
 
     @Override
     public boolean make(Callable callable) throws Exception {
-        if (!canMakeAction()) {
+        if (!canMakeAction())
             return false;
-        }
+        Cell survivorCell = survivor.getCell();
         if (survivor.getAllInBackpack().size() < survivor.maxSizeOfBackPack()) {
-            Item foundItem = ((Room) survivor.getCell()).searchForItem();
+            Item foundItem = Room.searchForItem(survivorCell);
             if (foundItem != null) {
                 survivor.putItemInBackpack(foundItem);
-                //System.out.println(survivor.getNickName() + " found " + foundItem.toString() + " and put it in the backpack.");
+                System.out.println(survivor.getNickName() + " found " + foundItem.toString() + " and put it in the backpack.");
                 return true;
             } else {
-                //System.out.println("No item found in the room.");
+                System.out.println("No item found in the room. Sorry ...");
                 return false;
             }
-        } else {
+        }
+        else {
             Item discardedItem = survivor.chooseItemToDiscard();
             if (discardedItem != null) {
-                ((Room) survivor.getCell()).addItem(discardedItem);
-
-                //System.out.println(survivor.getNickName() + " discarded " + discardedItem.toString() + " to make space in the backpack.");
+                survivor.putItemOnCell(discardedItem);
+                System.out.println(survivor.getNickName() + " discarded " + discardedItem.toString() + " to make space in the backpack.");
                 //On pourrait rappeler la méthode mais ça couterait un cout supplémentaire
                 //return make(callable);
 
-                Item foundItem = ((Room) survivor.getCell()).searchForItem();
+                Item foundItem = Room.searchForItem(survivorCell);
                 if (foundItem != null) {
                     survivor.putItemInBackpack(foundItem);
                     return true;
-                } else {
-                    return false;
                 }
-            } else {
-               // System.out.println(survivor.getNickName() + " couldn't find any item in the room.");
+            }
+            else {
+                System.out.println(survivor.getNickName() + " couldn't find any item in the room.");
                 return false;
             }
         }
+        return false;
     }
 }
