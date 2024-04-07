@@ -134,6 +134,14 @@ public int getNbItems(){
 }
 
 /**
+ * Retrieves the items present in the room.
+ * @return The list of items present in the room.
+ */
+public List<Item>getItems(){
+	return this.items;
+}
+
+/**
  * Tells if the item in parameter is on cell
  * @param i the item wanted
  * @return true if the item i is on cell
