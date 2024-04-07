@@ -133,13 +133,18 @@ public class PNJ extends Actor{
     /**
      *
      */
-    public boolean generateRandomResponse(){
+    public static boolean generateRandomResponse(){
         boolean survivorResponse;
         int n = (int)(Math.random() * 1);
         boolean[] responses= new boolean[2];
         responses[0] = POSITIVE_RESPONSE;
         responses[1] = NEGATIVE_RESPONSE;
         survivorResponse = responses[n];
+        if (survivorResponse)
+            System.out.println("YES.");
+        else{
+            System.out.println("NO.");
+        }
         return survivorResponse;
     }
 
