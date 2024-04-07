@@ -19,16 +19,6 @@ public class Nosy extends Survivor {
         this.firstSearchFree = true;
     }
 
-    //Quand on sera au rendu pour les actions il faudra ajouter l'action fouiller ici
-    public void search(Callable callable) {
-        if (firstSearchFree) {
-            firstSearchFree = false;
-
-
-        } else {
-            decreaseActionPoints();
-        }
-    }
 
     public boolean makeAction(Action action, Callable callable) throws Exception{
         boolean actionMade = false;

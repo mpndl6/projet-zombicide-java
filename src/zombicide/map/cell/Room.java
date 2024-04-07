@@ -120,7 +120,15 @@ public class Room extends Cell {
         return new ArrayList<>(this.items);
     }
 
-
+    public Item searchForItem() {
+        if (!items.isEmpty()) {
+            Random random = new Random();
+            int index = random.nextInt(items.size());
+            return items.get(index);
+        } else {
+            return null;
+        }
+    }
 
 
 }
