@@ -48,7 +48,7 @@ public class ActionSearch extends ActionSurvivor {
                 return false;
             }
 
-            Item discardedItem = survivor.chooseItemToDiscard();
+            Item discardedItem = Survivor.chooseItemToDiscard(survivor);
             if (discardedItem != null) {
                 survivor.putItemOnCell(discardedItem);
                 System.out.println(survivor.getNickName() + " discarded " + discardedItem.toString() + " to make space in the backpack.");

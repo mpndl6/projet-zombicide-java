@@ -214,8 +214,8 @@ public void putItemInBackpack(Item i) throws FullBackpackException{
     this.backPack.add(i);
 }
 
-public Item chooseItemToDiscard() {
-    List<Item> backpack = this.getAllInBackpack();
+public static Item chooseItemToDiscard( Survivor s) {
+    List<Item> backpack = s.getAllInBackpack();
     if (backpack.isEmpty()) {
         return null;
     } else {
