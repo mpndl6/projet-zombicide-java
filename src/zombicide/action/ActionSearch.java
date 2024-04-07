@@ -30,7 +30,7 @@ public class ActionSearch extends ActionSurvivor {
         if (!canMakeAction())
             return false;
         Cell survivorCell = survivor.getCell();
-        if (survivor.getAllInBackpack().size() < survivor.maxSizeOfBackPack()) {
+        if (survivor.getAllInBackpack().size() < Survivor.MAX_NB_ITEM) {
             Item foundItem = Room.searchForItem(survivorCell);
             if (foundItem != null) {
                 survivor.putItemInBackpack(foundItem);
