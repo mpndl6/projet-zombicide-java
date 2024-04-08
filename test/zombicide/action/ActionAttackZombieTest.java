@@ -13,7 +13,7 @@ public class ActionAttackZombieTest {
     @Test
     public void make_AttacksSurvivorWhenAvailable(){
         Zombie zombie = new Walker();
-        ActionAttackZombie action = new ActionAttackZombie(zombie);
+        AttackZombie action = new AttackZombie(zombie);
         Cell cell = new Room();
         Survivor survivor1 = new Survivor("Survivor1");
         survivor1.setCell(cell);
@@ -33,7 +33,7 @@ public class ActionAttackZombieTest {
     public void make_NoSurvivorInCell() {
         // Arrange
         Zombie zombie = new Walker();
-        ActionAttackZombie action = new ActionAttackZombie(zombie);
+        AttackZombie action = new AttackZombie(zombie);
         Cell cell = new Room();
         zombie.setCell(cell);
         cell.welcomeActor(zombie);

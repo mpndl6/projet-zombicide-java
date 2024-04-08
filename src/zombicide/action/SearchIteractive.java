@@ -4,8 +4,8 @@ import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.map.cell.Cell;
 
-public class ActionSearchIteractive extends ActionSearch {
-    public ActionSearchIteractive(Survivor s) {
+public class SearchIteractive extends Search {
+    public SearchIteractive(Survivor s) {
         super(s);
     }
 

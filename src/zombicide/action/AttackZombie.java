@@ -8,9 +8,9 @@ import zombicide.callable.Callable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActionAttackZombie extends  ActionZombie{
+public class AttackZombie extends  ActionZombie{
 
-    public ActionAttackZombie(Zombie z) {
+    public AttackZombie(Zombie z) {
         super(z);
     }
 

@@ -1,23 +1,15 @@
 package zombicide.action;
 
-import exception.NoSuchItemException;
+import zombicide.actor.PNJ;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.item.Item;
+import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * Represents the action of searching for items in a room.
- */
 public class Search extends ActionSurvivor {
-    /**
-     * Constructor for the search action.
-     *
-     * @param s The survivor performing the search.
-     */
+
+
     public Search(Survivor s) {
         super(s);
         this.cost = 1;
@@ -25,41 +17,55 @@ public class Search extends ActionSurvivor {
 
     @Override
     public boolean canMakeAction() {
-        if(!(super.survivor.getCell() instanceof Room)) {
+        if (!(super.survivor.getCell() instanceof Room)) {
             System.out.println("There's nothing in there, it's not a room.");
             return false;
-        }
-         return true;
-    }
-
-    /**
-     * Performs the action of searching for items in the current room.
-     *
-     * @param callable Any object in the game that is callable. Will be cast depending on the action.
-     * @return true if the action is successfully made, false otherwise.
-     * @throws NoSuchItemException if no items are found in the room.
-     * @throws Exception if an error occurs during the action.
-     */
-    @Override
-    public boolean make(Callable callable) throws Exception {
-        if (!this.canMakeAction()) {
-            return false;
-        }
-        Room currentRoom = (Room) super.survivor.getCell();
-
-        List<Item> itemsInRoom = currentRoom.getItems();
-        if (itemsInRoom.isEmpty()) {
-            System.out.println("The room is empty, there are no items to search for.");
-            throw new NoSuchItemException("No items found in the room.");
-        }
-
-        List<Item> itemsFound = new ArrayList<>();
-
-        for (Item item : itemsInRoom) {
-            itemsFound.add(item);
-            currentRoom.removeItem(item);
         }
         return true;
     }
 
+
+    @Override
+    public boolean make(Callable callable) throws Exception {
+        if (!canMakeAction())
+            return false;
+        Cell survivorCell = survivor.getCell();
+        if (survivor.getAllInBackpack().size() < Survivor.MAX_NB_ITEM) {
+            Item foundItem = Room.searchForItem(survivorCell);
+            if (foundItem != null) {
+                survivor.putItemInBackpack(foundItem);
+                System.out.println(survivor.getNickName() + " found " + foundItem.toString() + " and put it in the backpack.");
+                return true;
+            } else {
+                System.out.println("No item found in the room. Sorry ...");
+                return false;
+            }
+        }
+        else {
+            boolean survivorWantToDropOffSomeItem = PNJ.generateRandomResponse(); // survivor chooses randomly if they want or not to drop off something to swap an item for another
+            if (!survivorWantToDropOffSomeItem) {
+                System.out.println("BackPack's full. and "+survivor.getNickName() + " dosent want to give something up. End of search.");
+                return false;
+            }
+
+            Item discardedItem = Survivor.chooseItemToDiscard(survivor);
+            if (discardedItem != null) {
+                survivor.putItemOnCell(discardedItem);
+                System.out.println(survivor.getNickName() + " discarded " + discardedItem.toString() + " to make space in the backpack.");
+                //On pourrait rappeler la méthode mais ça couterait un cout supplémentaire
+                //return make(callable);
+
+                Item foundItem = Room.searchForItem(survivorCell);
+                if (foundItem != null) {
+                    survivor.putItemInBackpack(foundItem);
+                    return true;
+                }
+            }
+            else {
+                System.out.println(survivor.getNickName() + " couldn't find any item in the room.");
+                return false;
+            }
+        }
+        return false;
+    }
 }

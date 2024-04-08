@@ -5,14 +5,13 @@ import exception.NoSuchItemException;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.map.Map;
-import zombicide.map.cell.Cell;
 import zombicide.item.*;
 import zombicide.map.util.Location;
 
 /**
  * This action permits to open a door
  */
-public class ActionOpenDoor extends ActionSurvivor{
+public class OpenDoor extends ActionSurvivor{
 
 protected Map map;
 protected Callable callable;
@@ -21,7 +20,7 @@ protected Callable callable;
  * Constructs a new ActionSurvivor object with the specified Survivor.
  * @param s the Survivor associated with this action.
  */
-public ActionOpenDoor(Survivor s, Map map) {
+public OpenDoor(Survivor s, Map map) {
     super(s);
 }
 

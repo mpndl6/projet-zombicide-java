@@ -7,9 +7,9 @@ import zombicide.callable.Callable;
 import zombicide.item.Item;
 import zombicide.item.weapon.Weapon;
 
-public class ActionAttackSurvivor extends ActionSurvivor {
+public class AttackSurvivor extends ActionSurvivor {
 
-    public ActionAttackSurvivor(Survivor s) {
+    public AttackSurvivor(Survivor s) {
         super(s);
     }
     /**
