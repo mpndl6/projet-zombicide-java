@@ -188,6 +188,14 @@ public Position getPosition() {
 public abstract Object getTypeOfCell();
 
 /**
+ * Set a position to the current Cell
+ * @param p the position wanted
+ */
+public void setPosition(Position p){
+	this.position = p;
+}
+
+/**
  * put the position of the cell
  * @param p position of cell
  */
