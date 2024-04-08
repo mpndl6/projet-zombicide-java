@@ -25,18 +25,33 @@ public class TakeInHand extends ActionSurvivor {
     }
 
 
+/**
+ * Performs the action of taking an item from the survivor's backpack and placing it in their hand.
+ * If the survivor already has an item in hand, that item is placed back in the backpack.
+ *
+ * @param callable The item to take from the backpack and place in hand.
+ * @return true if the action is performed successfully, false otherwise.
+ * @throws FullBackpackException If the backpack is full after taking an item.
+ * */
     @Override
     public boolean make(Callable callable) throws Exception {
-        if(survivor.getAllInBackpack().size() >= Survivor.MAX_NB_ITEM)
-            throw new FullBackpackException("There's to many item in the backPack");
-        if(survivor.hasItemOnHand())
-            survivor.putItemInBackpack(survivor.getWhatINHand());
-        survivor.setInHand((Item)callable);
-        Item i = survivor.getWhatINHand();
-        i.addSurvivor(survivor);
+        Item itemInHand = survivor.getWhatINHand();
+        Item newItem = (Item) callable;
+
+        if (newItem != null) {
+            survivor.setInHand(newItem);
+            survivor.removeItemFromBackpack(newItem);
+        } else {
+            return false;
+        }
+
+        if (itemInHand != null) {
+            if (survivor.getAllInBackpack().size() >= Survivor.MAX_NB_ITEM) {
+                throw new FullBackpackException("Backpack full");
+            } else {
+                survivor.putItemInBackpack(itemInHand);
+            }
+        }
+
         return true;
-    }
-
-
-
-}
+}}
