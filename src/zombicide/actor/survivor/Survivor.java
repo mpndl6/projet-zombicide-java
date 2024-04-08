@@ -213,7 +213,13 @@ public void putItemInBackpack(Item i) throws FullBackpackException{
         this.cell.removeItem(i);
     this.backPack.add(i);
 }
-
+/**
+ * remove an item of the backpack
+ * @param item the item wanted out of the backpack
+ * */
+public void removeItemFromBackpack(Item item) {
+    this.backPack.remove(item);
+}
 public static Item chooseItemToDiscard( Survivor s) {
     List<Item> backpack = s.getAllInBackpack();
     if (backpack.isEmpty()) {
