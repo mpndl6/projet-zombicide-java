@@ -19,4 +19,13 @@ public class MakeNoiseTest {
         survivor.makeAction(makeNoise,cell);
         assertEquals(1,cell.getNoiseLevel());
     }
+
+    @Test
+    public void testGetCostActionMakeNoise() throws Exception {
+        // Arrange
+        Survivor survivor = new Survivor("Survivor1");
+
+        MakeNoise makeNoise = new MakeNoise(survivor);
+        assertEquals(1,makeNoise.getCost());
+    }
 }
