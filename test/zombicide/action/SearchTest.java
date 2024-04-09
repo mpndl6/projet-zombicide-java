@@ -22,13 +22,9 @@ public class SearchTest {
         cell.addItem(item);
         Search search = new Search(survivor);
 
-        try {
             survivor.makeAction(search,cell);
             assertTrue(survivor.getAllInBackpack().contains(item));
 
-        } catch (Exception e) {
-            fail("An unexpected exception was thrown: " + e.getMessage());
-        }
     }
 
 
