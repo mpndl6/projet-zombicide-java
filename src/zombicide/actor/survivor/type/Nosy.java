@@ -1,6 +1,8 @@
 package zombicide.actor.survivor.type;
 
+import zombicide.action.Action;
 import zombicide.actor.survivor.Survivor;
+import zombicide.callable.Callable;
 
 public class Nosy extends Survivor {
 
@@ -17,13 +19,23 @@ public class Nosy extends Survivor {
         this.firstSearchFree = true;
     }
 
-    //Quand on sera au rendu pour les actions il faudra ajouter l'action fouiller ici
-   /* public void search() {
+
+    public boolean makeAction(Action action, Callable callable) throws Exception{
+        boolean actionMade = false;
         if (firstSearchFree) {
             firstSearchFree = false;
+            actionMade = action.make(callable);
         } else {
-            decreaseActionPoints();
+            if (this.getActionPoint() >= action.getCost()) {
+                actionMade = action.make(callable);
+                if (actionMade) {
+                    decreaseActionPoints(action.getCost());
+                }
+            } else {
+                System.out.println("Not enough action points to perform this action.");
+            }
         }
-    }*/
 
+        return actionMade;
+    }
 }

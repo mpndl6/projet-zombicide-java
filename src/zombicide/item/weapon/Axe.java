@@ -40,11 +40,25 @@ public class Axe extends Weapon implements CanOpenDoor {
     }
 
     /**
-     *
-     * @param location
+     * Open the door
+     * @param location of the door wanted
      */
     @Override
     public void open(Location location) throws IsWallException {
+        System.out.println("I hope you're strong enough? \n");
+        if(this.survivor.getLifePoints()<2) {
+            System.out.println("You dont have enough strength :(.\n You will break your arm.");
+            return;
+        }
+        System.out.println("Ok give it all.\n");
+        for (int i = 0; i < 2; i++)
+            System.out.print(".");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("The door it's broke. You can go.");
         this.map.openDoorOfRoom(this.survivor.getCell(), location);
     }
 }

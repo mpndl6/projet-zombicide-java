@@ -21,7 +21,7 @@ protected static final int THIRD_LEVEL = 3;
 protected static final int ELEVENTH_LEVEL = 11;
 protected static final int SEVENTH_LEVEL = 7;
 protected static final int STARTING_LEVEL =0; // at beginning a survivor is at level 0
-protected static final int MAX_NB_ITEM = 5; // in backpack
+public static final int MAX_NB_ITEM = 5; // in backpack
 protected SurvivorsLevel currentLevel; // the level the survivor is currently in
 protected String nickName; // nickname of survivor
 protected int XP; // level of expertise of a survivor
@@ -175,12 +175,18 @@ return this.inHand!=null;
  * Put  the item i in the hand of the survivor
  * @param i the wanted item to put in hand
  */
+public void setInHand(Item i ){
+    this.inHand=i;
+}
+
+    /**
 public void putInHand(Item i) throws FullBackpackException {
     if(hasItemOnHand())
         putItemInBackpack(this.inHand);
     this.inHand = i;
     i.addSurvivor(this);
 } // La méthode sera peut-être enlever étant donné que nous avons les actions
+     */
 
 /**
  * It puts an item on cell. It can be an item that is on hand or in the backpack.
@@ -207,7 +213,29 @@ public void putItemInBackpack(Item i) throws FullBackpackException{
         this.cell.removeItem(i);
     this.backPack.add(i);
 }
+/**
+ * remove an item of the backpack
+ * @param item the item wanted out of the backpack
+ * */
+public void removeItemFromBackpack(Item item) {
+    this.backPack.remove(item);
+}
+public static Item chooseItemToDiscard( Survivor s) {
+    List<Item> backpack = s.getAllInBackpack();
+    if (backpack.isEmpty()) {
+        return null;
+    } else {
+        Random random = new Random();
+        int index = random.nextInt(backpack.size());
+        Item discardedItem = backpack.get(index);
+        backpack.remove(index);
+        return discardedItem;
+    }
+}
 
+public int maxSizeOfBackPack(){
+    return MAX_NB_ITEM;
+}
 /**
  * When the survivor dies (or in other circumstances) all items of their backpack go on cell or disappear.
  * That method take all the items in backpack and drop it on cell.

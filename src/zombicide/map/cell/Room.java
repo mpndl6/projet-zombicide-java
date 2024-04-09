@@ -38,6 +38,10 @@ public class Room extends Cell {
         return this.cellType;
     }
 
+    /**
+     * Gives a description of the cell. The number of actors, which door is open of not etc.
+     * @return a description of the Cell
+     */
     @Override
     public String description() {
         return "Cell de type:" + this +"\n" + "nombre de survivants:" + this.howManySurvivors() +"\n" + "nombre de zombies:" + this.howManyZombies() + "\n"+"nombre d'objets:" + this.getNbItem() +"\n"+"porte Nord"+this.isOpen(Location.NORTH)+"porte Sud"+this.isOpen(Location.SOUTH)+"porte Est"+this.isOpen(Location.EAST)+"porte Ouest"+this.isOpen(Location.WEST);
@@ -108,15 +112,19 @@ public class Room extends Cell {
     }
 
     /**
-     * Retrieves the items present in the room.
-     *
-     * @return The list of items present in the room.
+     * Search a random intem in the Cell (if it's a street it will automatically be emtpy!) and returns it.
+     * @return a random item found in the Cell
      */
-    public List<Item>getItems(){
-        return new ArrayList<>(this.items);
+    public static Item searchForItem(Cell cell) {
+        List<Item> itemsOfCell = cell.getItems();
+        if (!itemsOfCell.isEmpty()) {
+            Random random = new Random();
+            int index = random.nextInt(itemsOfCell.size());
+            return itemsOfCell.get(index);
+        } else {
+            return null;
+        }
     }
-
-
 
 
 }

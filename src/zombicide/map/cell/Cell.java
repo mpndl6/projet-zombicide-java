@@ -134,6 +134,14 @@ public int getNbItems(){
 }
 
 /**
+ * Retrieves the items present in the room.
+ * @return The list of items present in the room.
+ */
+public List<Item>getItems(){
+	return this.items;
+}
+
+/**
  * Tells if the item in parameter is on cell
  * @param i the item wanted
  * @return true if the item i is on cell
@@ -178,6 +186,14 @@ public Position getPosition() {
  * @return the type of the cell
  */
 public abstract Object getTypeOfCell();
+
+/**
+ * Set a position to the current Cell
+ * @param p the position wanted
+ */
+public void setPosition(Position p){
+	this.position = p;
+}
 
 /**
  * put the position of the cell

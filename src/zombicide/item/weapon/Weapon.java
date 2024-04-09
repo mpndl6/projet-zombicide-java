@@ -64,6 +64,13 @@ public abstract class Weapon extends Item {
     }
 
     /**
+     *
+     */
+    public void increaseDamage(int i){
+        this.damage = this.damage +i;
+    }
+
+    /**
      * @return a description of the item
      */
     public abstract String toString();

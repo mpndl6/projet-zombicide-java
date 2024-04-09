@@ -20,6 +20,7 @@ public Vial(){
 @Override
 public void use() {
     this.survivor.increaseLifePoints();
+    System.out.println("Your life points just increased.\n You have "+super.survivor.getLifePoints()+" lp.");
 }
 
 /**

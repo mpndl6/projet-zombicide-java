@@ -8,9 +8,9 @@ import zombicide.callable.Callable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActionAttackZombie extends  ActionZombie{
+public class AttackZombie extends  ActionZombie{
 
-    public ActionAttackZombie(Zombie z) {
+    public AttackZombie(Zombie z) {
         super(z);
     }
 
@@ -31,6 +31,10 @@ public class ActionAttackZombie extends  ActionZombie{
             int n = (int)(Math.random() * size);
             Survivor target = listSurvivor.get(n);
             target.beingAttacked();
+            if (!target.isAlive()){
+                System.out.println(target.getNickName()+" is dead.");
+            }
+
             return true;
 
         }
