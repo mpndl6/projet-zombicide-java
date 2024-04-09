@@ -204,6 +204,19 @@ public void putPosition(Position p) {
 }
 
 /**
+ * Checks if the cell contains a zombie.
+ * @return true if the cell contains a zombie, false otherwise.
+ */
+public boolean containsZombie() {
+	for (Actor a : this.actors) {
+		if (a.getTypeOfActor() == ActorType.ZOMBIE) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
  * Indicates whether some other object is "equal to" this one.
  * Two cells are considered equal if they have the same position.
  *
