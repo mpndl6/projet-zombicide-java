@@ -10,7 +10,7 @@ import zombicide.map.cell.Room;
 public class LookAroundTest {
 
     @Test
-    public void make_SuccessfullyMakeLookAround() throws Exception {
+    public void make_SuccessfullyLookedAround() throws Exception {
         Survivor survivor = new Survivor("Survivor1");
         Cell cell = new Room();
         survivor.setCell(cell);
@@ -19,7 +19,7 @@ public class LookAroundTest {
     }
 
     @Test
-    public void testGetCostActionMakeLookAround() throws Exception {
+    public void testGetCostActionLookAround() throws Exception {
         // Arrange
         Survivor survivor = new Survivor("Survivor1");
 
@@ -28,7 +28,7 @@ public class LookAroundTest {
     }
 
     @Test
-    public void testGetSurvivorActionMakeLookAround() throws Exception {
+    public void testGetSurvivorActionLookAround() throws Exception {
         // Arrange
         Survivor survivor = new Survivor("Survivor1");
 

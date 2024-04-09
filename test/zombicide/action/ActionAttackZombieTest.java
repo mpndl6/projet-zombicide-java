@@ -21,13 +21,9 @@ public class ActionAttackZombieTest {
         cell.welcomeActor(zombie);
         cell.welcomeActor(survivor1);
         // Act
-        try {
             zombie.makeAction(action, cell);
             assertEquals(4,survivor1.getLifePoints());// Appel de makeAction
-
-        } catch (Exception e) {
-            fail("Une exception ne devrait pas être levée lorsqu'un survivant est disponible pour être attaqué");
-        }}
+        }
 
     @Test
     public void make_NoSurvivorInCell() {
@@ -39,11 +35,7 @@ public class ActionAttackZombieTest {
         cell.welcomeActor(zombie);
 
         // Act
-        try {
             zombie.makeAction(action, cell);
             assertEquals(0, cell.howManySurvivors());
-        } catch (Exception e) {
-            fail("Une exception ne devrait pas être levée lorsqu'il n'y a pas de survivant dans la cellule");
-        }
     }
 }
