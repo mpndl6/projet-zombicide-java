@@ -21,7 +21,7 @@ public class ChainsawTest {
     @Test
     public void testHowManyDamageInitialization() {
         Chainsaw chainsaw = new Chainsaw();
-        assertEquals(3, chainsaw.getHowManyDamage());
+        assertEquals(3, chainsaw.getHowMushDamage());
     }
 
     @Test

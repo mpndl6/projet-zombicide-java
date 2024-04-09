@@ -20,7 +20,7 @@ public class AxeTest {
     @Test
     public void testHowManyDamageInitialization() {
         Axe axe = new Axe();
-        assertEquals(2, axe.getHowManyDamage());
+        assertEquals(2, axe.getHowMushDamage());
     }
 
     @Test

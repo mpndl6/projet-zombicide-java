@@ -19,7 +19,7 @@ public class CrowbarTest {
     @Test
     public void testHowManyDamageInitialization() {
         Crowbar crowbar = new Crowbar();
-        assertEquals(1, crowbar.getHowManyDamage());
+        assertEquals(1, crowbar.getHowMushDamage());
     }
 
     @Test

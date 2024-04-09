@@ -36,13 +36,15 @@ public abstract class Weapon extends Item {
     public abstract int howManyThrows();
 
     /**
+     * Returns how much damage the weapon inflicts
      * @return the damage the weapon can inflict
      */
-    public int getHowManyDamage(){
+    public int getHowMushDamage(){
         return this.damage;
     }
 
     /**
+     * Returns the minimums range of the weapon
      * @return the minimum range of the weapon
      */
     public int getRangeMin(){
@@ -50,6 +52,7 @@ public abstract class Weapon extends Item {
     }
 
     /**
+     * Return the maximum range of the weapon
      * @return the maximum range of the weapon
      */
     public int getRangeMax() {
@@ -57,6 +60,7 @@ public abstract class Weapon extends Item {
     }
 
     /**
+     * Returns the threshold of the weapon
      * @return the threshold of the weapon
      */
     public int getThreshold(){
@@ -64,13 +68,14 @@ public abstract class Weapon extends Item {
     }
 
     /**
-     *
+     * Increase the damage power of the current weapon
      */
     public void increaseDamage(int i){
         this.damage = this.damage +i;
     }
 
     /**
+     * Gives a description of the item
      * @return a description of the item
      */
     public abstract String toString();

@@ -1,5 +1,4 @@
 package zombicide.item.weapon;
-import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Test;
 public class PistolTest {
@@ -19,7 +18,7 @@ public class PistolTest {
     @Test
     public void testHowManyDamageInitialization() {
         Pistol pistol = new Pistol();
-        assertEquals(1, pistol.getHowManyDamage());
+        assertEquals(1, pistol.getHowMushDamage());
     }
 
     @Test

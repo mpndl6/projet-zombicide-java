@@ -21,7 +21,7 @@ public class CarabineTest {
         @Test
         public void testHowManyDamageInitialization() {
             Carabine carabine = new Carabine();
-            assertEquals(1, carabine.getHowManyDamage());
+            assertEquals(1, carabine.getHowMushDamage());
         }
 
         @Test
