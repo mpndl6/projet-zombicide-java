@@ -20,7 +20,7 @@ public class Nosy extends Survivor {
     }
 
 
-    public boolean makeAction(Action action, Callable callable) throws Exception{
+    public boolean makeAction(Action action, Callable callable){
         boolean actionMade = false;
         if (firstSearchFree) {
             firstSearchFree = false;
