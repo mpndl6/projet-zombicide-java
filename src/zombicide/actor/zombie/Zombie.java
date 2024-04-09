@@ -60,7 +60,7 @@ public String toString(){
 
 }
 
-    public void makeAction(Action action, Callable callable) throws Exception{
+    public void makeAction(Action action, Callable callable){
         action.make(callable);
     }
 

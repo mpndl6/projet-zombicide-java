@@ -12,7 +12,7 @@ public class Walker extends Zombie{
         super(WALKER_NN,WALKER_DAMAGES,1);
     }
 
-    public void makeAction(Action action, Callable callable) throws Exception {
+    public void makeAction(Action action, Callable callable){
         action.make(callable);
         action.make(callable);
     }
