@@ -14,13 +14,13 @@ public class AbominationTest {
         abomination = new Abomination();
     }
     @Test
-    public void abominationHasFourLifePOint(){
-        assertEquals(4, abomination.getLifePoints() );
+    public void abominationHasSixLifePOint(){
+        assertEquals(abomination.getLifePoints(), 6 );
     }
 
     @Test
-    public void abominationInflictsOneDamage(){
-        assertEquals(2, abomination.howManyDamages());
+    public void abominationInflictsTreeDamage(){
+        assertEquals(abomination.howManyDamages(), 3);
     }
 
     @Test
@@ -31,9 +31,8 @@ public class AbominationTest {
     @Test
     public void testLifePointDecrease(){
         abomination.beingAttacked(); // a survivor has initially 5 life points at creation
-        assertEquals(5, abomination.getLifePoints());
+        assertEquals(abomination.getLifePoints(), 5);
     }
-
     @Test
     public void abominationIsAliveAtCreation(){
         assertTrue(abomination.isAlive());
