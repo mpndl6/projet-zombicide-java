@@ -16,7 +16,7 @@ public class VialTest {
         Vial vail = new Vial();
         Survivor s = new Survivor("toto");
         vail.addSurvivor(s);
-        vail.use();
+        vail.use(null);
         assertEquals(6,s.getLifePoints());
     }
 }
