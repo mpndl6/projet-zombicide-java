@@ -20,6 +20,7 @@ public class MasterKey extends Utility implements CanOpenDoor {
      * If the survivor is in a room cell, the method attempts to open the door.
      * @param callable The location of the door to be opened.
      */
+    @Override
     public void use(Callable callable) throws Exception{
         this.open((Location)callable);
     }

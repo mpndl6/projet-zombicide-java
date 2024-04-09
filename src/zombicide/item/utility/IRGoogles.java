@@ -16,7 +16,7 @@ public class IRGoogles extends Utility {
      * Uses the IR goggles utility item to view adjacent map cells.
      * This method displays information about adjacent cells relative to the survivor's current position.
      */
-    public void use(){
+    public void use(Callable callable){
         Position p = this.survivor.getCell().getPosition();
         System.out.println("*****************************************************");
         if(p.getX() + 1 < this.map.getWidth())

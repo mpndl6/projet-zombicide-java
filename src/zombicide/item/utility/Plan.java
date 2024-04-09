@@ -16,7 +16,7 @@ public class Plan extends Utility {
      * This method overrides the use method from the Utility class.
      */
     @Override
-    public void use() {
+    public void use(Callable callable) {
         GridOfPlan grid= new GridOfPlan(this.map);
          grid.displayGrid();
     }

@@ -1,5 +1,7 @@
 package zombicide.item.utility;
 
+import zombicide.callable.Callable;
+
 /**
 * Represents a vial utility item.
 * Vials can be used to increase the life points of the survivor.
@@ -18,7 +20,7 @@ public Vial(){
  * This method overrides the use method from the Utility class.
  */
 @Override
-public void use() {
+public void use(Callable callable) {
     this.survivor.increaseLifePoints();
     System.out.println("Your life points just increased.\n You have "+super.survivor.getLifePoints()+" lp.");
 }
