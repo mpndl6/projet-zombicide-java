@@ -1,4 +1,4 @@
-package zombicide;
+package zombicide.game;
 
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;

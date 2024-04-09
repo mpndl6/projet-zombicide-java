@@ -1,6 +1,8 @@
-package zombicide.map;
+package zombicide;
 
 import java.util.*;
+
+import zombicide.map.Map;
 import zombicide.map.cell.*;
 
 import grid.Grid;
@@ -8,7 +10,7 @@ import zombicide.map.cell.room.Continental;
 import zombicide.map.cell.room.DrugStore;
 
 
-public class MainFirstDeliverable {
+public class Livrable1 {
     public static void main(String [] args){
 
         Scanner scanner = new Scanner(System.in);
@@ -41,7 +43,7 @@ public class MainFirstDeliverable {
                 listrooms.add(new DrugStore());
             }
 
-            Map map = new Map(weightOfMap,heitghOfMap,listrooms,liststreets);
+            zombicide.map.Map map = new Map(weightOfMap,heitghOfMap,listrooms,liststreets);
             Grid grid= new Grid(map, weightOfCells);
 
             System.out.println("Voici à qoi ressemble votre plateau:");

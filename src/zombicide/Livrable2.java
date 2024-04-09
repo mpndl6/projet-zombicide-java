@@ -1,4 +1,4 @@
-package zombicide.map;
+package zombicide;
 import exception.IsWallException;
 import grid.Grid;
 import exception.FullBackpackException;
@@ -11,6 +11,7 @@ import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.type.*;
 import zombicide.item.utility.Plan;
 import zombicide.item.utility.Vial;
+import zombicide.map.TrainingMap2;
 import zombicide.map.cell.room.Continental;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
