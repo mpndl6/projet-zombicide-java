@@ -28,6 +28,13 @@ public class CoverUp extends Utility{
         }
     }
 
+    /**
+     * Returns a textual representation of the camouflage object.
+     * This method is used to obtain a textual description of the object when it is converted to a string.
+     *
+     * @return A string representing the camouflage object.
+     */
+
     public String toString(){
         return "Cover Up";
     }
