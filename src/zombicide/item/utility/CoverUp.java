@@ -22,5 +22,9 @@ public class CoverUp extends Utility{
         }
     }
 
+    public String toString(){
+        return "Cover Up";
+    }
+
 
 }
