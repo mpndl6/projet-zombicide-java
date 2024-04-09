@@ -75,4 +75,13 @@ public class SearchTest {
         Search search = new Search(survivor);
         assertEquals(1,search.getCost());
     }
+
+    @Test
+    public void testGetSurvivorActionMakeSearch() throws Exception {
+        // Arrange
+        Survivor survivor = new Survivor("Survivor1");
+
+        Search search = new Search(survivor);
+        assertEquals(survivor,search.getSurvivor());
+    }
 }

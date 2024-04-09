@@ -28,4 +28,13 @@ public class MakeNoiseTest {
         MakeNoise makeNoise = new MakeNoise(survivor);
         assertEquals(1,makeNoise.getCost());
     }
+
+    @Test
+    public void testGetSurvivorActionMakeNoise() throws Exception {
+        // Arrange
+        Survivor survivor = new Survivor("Survivor1");
+
+        MakeNoise makeNoise = new MakeNoise(survivor);
+        assertEquals(survivor,makeNoise.getSurvivor());
+    }
 }

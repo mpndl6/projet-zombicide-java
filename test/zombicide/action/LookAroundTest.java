@@ -26,4 +26,13 @@ public class LookAroundTest {
         LookAround lookAround = new LookAround(survivor);
         assertEquals(0,lookAround.getCost());
     }
+
+    @Test
+    public void testGetSurvivorActionMakeLookAround() throws Exception {
+        // Arrange
+        Survivor survivor = new Survivor("Survivor1");
+
+        LookAround lookAround = new LookAround(survivor);
+        assertEquals(survivor,lookAround.getSurvivor());
+    }
 }

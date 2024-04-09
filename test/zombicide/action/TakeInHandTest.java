@@ -67,4 +67,13 @@ public class TakeInHandTest {
         TakeInHand takeInHand = new TakeInHand(survivor);
         assertEquals(1,takeInHand.getCost());
     }
+
+    @Test
+    public void testGetSurvivorActionMakeTakeInHand() throws Exception {
+        // Arrange
+        Survivor survivor = new Survivor("Survivor1");
+
+        TakeInHand takeInHand = new TakeInHand(survivor);
+        assertEquals(survivor,takeInHand.getSurvivor());
+    }
 }
