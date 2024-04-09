@@ -11,7 +11,16 @@ public class CoverUp extends Utility{
         this.map = map;
     }
 
+    public void use(Callable callable) {
+        Position pos = (Position) callable;
+        Cell cell = map.getCell(pos);
 
+        if (cell.containsZombie()) {
+            System.out.println("You are camouflaged as a zombie. The zombie ignores you.");
+        } else {
+            System.out.println("There are no zombies in this cell.");
+        }
+    }
 
 
 }
