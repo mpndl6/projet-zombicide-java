@@ -59,10 +59,10 @@ public class Livrable2 {
 
         try{
         //add of vials in hand
-        healer.putInHand(new Vial());
+     /*   healer.putInHand(new Vial());
         nosy.putInHand(new Vial());
         fighter.putInHand(new Vial());
-        lucky.putInHand(new Vial());
+        lucky.putInHand(new Vial()); Methode putInHand No longer exists*/
 
             //add of the plan on backpack
             healer.putItemInBackpack(new Plan(map));
