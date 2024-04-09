@@ -11,6 +11,12 @@ public class CoverUp extends Utility{
         this.map = map;
     }
 
+    /**
+     * Uses the camouflage ability to disguise as a zombie in the specified cell.
+     *
+     * @param callable the position of the cell where to use the camouflage ability.
+     */
+
     public void use(Callable callable) {
         Position pos = (Position) callable;
         Cell cell = map.getCell(pos);
