@@ -2,6 +2,9 @@ package zombicide.actor.survivor.type;
 
 import zombicide.actor.survivor.Survivor;
 
+/**
+ * Class of the fighter
+ */
 public class Fighter extends Survivor {
     /**
      * Contruct a survivor with their name in parameter.

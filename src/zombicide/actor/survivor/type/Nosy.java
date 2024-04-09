@@ -4,6 +4,9 @@ import zombicide.action.Action;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 
+/**
+ * Class of the nosy
+ */
 public class Nosy extends Survivor {
 
     private boolean firstSearchFree;

@@ -1,6 +1,9 @@
 package zombicide.actor.survivor.type;
 import zombicide.actor.survivor.Survivor;
 
+/**
+ * Class of the lucky
+ */
 public class Lucky extends Survivor {
     /**
      * Contruct a survivor with their name in parameter.

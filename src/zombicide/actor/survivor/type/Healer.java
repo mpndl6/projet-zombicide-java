@@ -2,6 +2,9 @@ package zombicide.actor.survivor.type;
 
 import zombicide.actor.survivor.Survivor;
 
+/**
+ * Class of the healer
+ */
 public class Healer extends Survivor {
     /**
      * Construct a survivor with their name in parameter.
@@ -22,6 +25,6 @@ public class Healer extends Survivor {
     public void heal(Survivor survivor){
         this.increaseLifePoints();
         survivor.increaseLifePoints();
-    }
+    } // devra être convertit en action
 
 }
