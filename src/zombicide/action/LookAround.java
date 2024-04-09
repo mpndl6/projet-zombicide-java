@@ -35,10 +35,9 @@ public boolean canMakeAction(){
  * It overrides the methode make of the superclass
  * @param callable A callable object
  * @return true if the action was successfully performed, false otherwise
- * @throws Exception if an error occurs during the action
  */
 @Override
-public boolean make(Callable callable) throws Exception {
+public boolean make(Callable callable){
     if(canMakeAction()) {
         this.survivor.getCell().description();
         return true;

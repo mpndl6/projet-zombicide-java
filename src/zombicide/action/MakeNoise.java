@@ -5,9 +5,9 @@ import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 
 public class MakeNoise extends ActionSurvivor{
+
     /**
      * Constructor for the makeNoise action.
-     *
      * @param s The survivor performing the action
      */
     public MakeNoise(Survivor s) {
@@ -25,13 +25,12 @@ public class MakeNoise extends ActionSurvivor{
 
     /**
      * Performs the action of making noise by an survivor in the current room.
-     *
      * @param callable Any object in the game that is callable. Will be cast depending on the action.
      * @return true if the action is successfully made, false otherwise.
      * @throws Exception If an error occurs during the action.
      */
     @Override
-    public boolean make(Callable callable) throws Exception {
+    public boolean make(Callable callable){
         if(this.canMakeAction()) {
             this.survivor.getCell().makenoise();
             return true;

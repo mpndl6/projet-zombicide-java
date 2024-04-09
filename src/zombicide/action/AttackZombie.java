@@ -18,7 +18,7 @@ public class AttackZombie extends  ActionZombie{
      * Performs the action of making the action attack by an survivor;
      */
     @Override
-    public boolean make(Callable callable) throws Exception {
+    public boolean make(Callable callable){
         if(this.zombie.getCell().howManySurvivors()>0){
             List<Survivor> listSurvivor = new ArrayList<>();
             List<Actor> listActors = this.zombie.getCell().getActors();

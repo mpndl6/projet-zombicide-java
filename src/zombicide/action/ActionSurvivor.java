@@ -25,7 +25,9 @@ public abstract class ActionSurvivor implements Action {
     }
 
     /**
-     *
+     * This method will be useful in each action.
+     * It will prevent if the survivor can do or not the action of the class wanted
+     * @return true if the survivor had been able to do the action wanted
      */
     public abstract boolean canMakeAction();
 
@@ -48,7 +50,7 @@ public abstract class ActionSurvivor implements Action {
     /**
      * Abstract method to be implemented by subclasses to perform the action.
      */
-    public abstract boolean make(Callable callable) throws Exception;
+    public abstract boolean make(Callable callable);
 }
 
 

@@ -17,10 +17,14 @@ public class TakeInHand extends ActionSurvivor {
 
     /**
      *
-     * Checks if the Survivor can perform the action of looking around.
+     * Checks if the Survivor can perform the action of Taking in Hand\n
+     * The only way they can't is if they have at the time a item on hand and the backpack is full
      * @return true if the Survivor can perform the action, false otherwise.
      */
+    @Override
     public boolean canMakeAction(){
+        if (survivor.getAllInBackpack().size() >= Survivor.MAX_NB_ITEM)
+            return false;
         return true;
     }
 
@@ -34,24 +38,19 @@ public class TakeInHand extends ActionSurvivor {
  * @throws FullBackpackException If the backpack is full after taking an item.
  * */
     @Override
-    public boolean make(Callable callable) throws Exception {
+    public boolean make(Callable callable){
         Item itemInHand = survivor.getWhatINHand();
         Item newItem = (Item) callable;
 
-        if (newItem != null) {
-            survivor.setInHand(newItem);
-            survivor.removeItemFromBackpack(newItem);
-        } else {
-            return false;
-        }
-
         if (itemInHand != null) {
-            if (survivor.getAllInBackpack().size() >= Survivor.MAX_NB_ITEM) {
-                throw new FullBackpackException("Backpack full");
-            } else {
+            try {
                 survivor.putItemInBackpack(itemInHand);
+                System.out.println(survivor.getWhatINHand()+" go in backpack.");
+            } catch (FullBackpackException f) {
+                System.out.println("Backpack full.");
             }
         }
-
+        survivor.setInHand(newItem); // On géra dans game le fait qu'il veuille potentiellement jeter quelque chose sur la cell
         return true;
-}}
+}
+}

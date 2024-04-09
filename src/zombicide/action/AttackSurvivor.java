@@ -7,13 +7,22 @@ import zombicide.callable.Callable;
 import zombicide.item.Item;
 import zombicide.item.weapon.Weapon;
 
+/**
+ * This is the class of the action that permits to attack a zombie, by a survivor.
+ */
 public class AttackSurvivor extends ActionSurvivor {
 
+    /**
+     * Constructs an AttackSurvivor with a survivor at construction
+     * @param s the survivor that will attack
+     */
     public AttackSurvivor(Survivor s) {
         super(s);
     }
+
     /**
      * Verify if the survivor can attack or not( verify if he had a weapon in their hands)
+     * @return true if the survivor has the correct item in hand
      */
     @Override
     public boolean canMakeAction() {
@@ -21,12 +30,16 @@ public class AttackSurvivor extends ActionSurvivor {
     }
 
     /**
-     * Performs the action of making the action attack by an survivor;
+     * Performs the action of making the action attack by a survivor;
+     * Survivor can attack a Zombie if and only if, they have a weapon on hand
+     * @param callable the callable, here it's an instance of Zombie
+     * @return true if the action has be realised successfully
      */
     @Override
-    public boolean make(Callable callable) throws Exception {
+    public boolean make(Callable callable){
         if(!canMakeAction()){
-            throw new NoSuchItemException("There's no weapon in their hand.");
+            System.out.println("There's no weapon in their hand");
+            return false;
         }
         Zombie zombie = (Zombie)callable;
         Item weapon = this.survivor.getWhatINHand();

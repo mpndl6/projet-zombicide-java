@@ -13,7 +13,7 @@ public interface Action {
      * This method should be implemented by concrete classes to define
      * specific behavior for the action.
      */
-    public boolean make(Callable callable) throws Exception;
+    public boolean make(Callable callable);
 
     /**
      * Gets the cost of the action that will be required

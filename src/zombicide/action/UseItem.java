@@ -16,8 +16,9 @@ public class UseItem extends ActionSurvivor {
     }
 
     /**
-     *
-     * @return
+     * Tells if the survivor can make the action of using an item.
+     * They can, always. Unless they have no item in hand
+     * @return true if the survivor can realise this action
      */
     @Override
     public boolean canMakeAction() {
@@ -30,13 +31,13 @@ public class UseItem extends ActionSurvivor {
     */
     @Override
     public boolean make(Callable callable) throws Exception {
-        if(!this.canMakeAction())
-            throw new NoSuchItemException("There's no item in their hand.");
-
-        Item i = (Item) callable;
-        i = super.survivor.getWhatINHand();
-        //i.addSurvivor(this.survivor);
-        i.use();
+        if(!this.canMakeAction()) {
+            System.out.println("There's no item in their hand.");
+            return false;
+        }
+        Item i = super.survivor.getWhatINHand();
+        //i.addSurvivor(this.survivor); <- déjà géré autrepart ça normalement
+        i.use(callable);
         return true;
         }
     }

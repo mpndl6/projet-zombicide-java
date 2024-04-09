@@ -10,7 +10,7 @@ public class SearchIteractive extends Search {
     }
 
     @Override
-    public boolean make(Callable callable) throws Exception {
+    public boolean make(Callable callable){
         if (!canMakeAction())
             return false;
         Cell survivorCell = survivor.getCell();

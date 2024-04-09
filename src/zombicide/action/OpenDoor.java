@@ -45,13 +45,15 @@ public Map getMap(){
  * @return true if the action has been realised
  */
 @Override
-public boolean make(Callable callable) throws Exception {
-    if (!canMakeAction())
-        throw new NoSuchItemException(" Survivor doesn't have the correct item in hand.");
+public boolean make(Callable callable) {
+    if (!canMakeAction()) {
+        System.out.println("the survivor doesn't have the correct item on hand.");
+        return false;
+    }
+        Location l = (Location)callable;
         try {
-            Location l = (Location)callable;
             CanOpenDoor itemOpenable = ((CanOpenDoor) this.survivor.getWhatINHand());
-            itemOpenable.open(l);
+            itemOpenable.open( (Location)callable);
             return true;
         }
         catch (IsWallException is) {

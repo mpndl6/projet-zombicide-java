@@ -20,8 +20,9 @@ public class MoveAside extends ActionSurvivor {
     }
 
     /**
-     *
-     * @return
+     * This methode tells if the survivor can do this action.
+     * It always returns true basically
+     * @return true, always
      */
     @Override
     public boolean canMakeAction() {
@@ -29,19 +30,21 @@ public class MoveAside extends ActionSurvivor {
     }
 
     /**
-     *
-     * @param callable
-     * @return
-     * @throws Exception
+     * This methode moves the survivor to a specific cell.
+     * Survivors have cell and those cell can have different positions.
+     * @param callable a callable, here it's an instance of Location
+     * @return true if the survivor has moved eventually
      */
     @Override
-    public boolean make(Callable callable) throws Exception {
+    public boolean make(Callable callable){
         Cell cell = survivor.getCell();
         Position p = cell.getPosition();
         int xCell = p.getX();
         int yCell = p.getY();
-        if (!canMakeAction())
+        if (!canMakeAction()) {
+            System.out.println("Survivor is trying to go outside of the Map!");
             return false;
+        }
         Location l = (Location)callable;
         switch (l){
             case NORTH:

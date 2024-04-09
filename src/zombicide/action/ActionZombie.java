@@ -14,7 +14,6 @@ public abstract class ActionZombie implements Action {
 
     /**
      * Constructs a new ActionZombie object with the specified Zombie.
-     *
      * @param z the Zombie associated with this action.
      */
     public ActionZombie(Zombie z) {
@@ -24,7 +23,6 @@ public abstract class ActionZombie implements Action {
 
     /**
      * Gets the cost of performing this action.
-     *
      * @return the cost of performing this action.
      */
     public int getCost() {
@@ -33,7 +31,6 @@ public abstract class ActionZombie implements Action {
 
     /**
      * Gets the Zombie associated with this action.
-     *
      * @return the Zombie associated with this action.
      */
     public Zombie getZombie() {
@@ -43,7 +40,7 @@ public abstract class ActionZombie implements Action {
     /**
      * Abstract method to be implemented by subclasses to perform the action.
      */
-    public abstract boolean make(Callable callable) throws Exception;
+    public abstract boolean make(Callable callable);
 }
 
 
