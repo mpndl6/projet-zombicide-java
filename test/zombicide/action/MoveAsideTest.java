@@ -25,4 +25,19 @@ public class MoveAsideTest {
         assertTrue(result);
         assertEquals(new Position(0, 1), cell.getPosition());
     }
+
+    @Test
+    public void make_MoveSurvivorSouth_Successful() throws Exception {
+        Survivor survivor = new Survivor("Survivor1");
+        Cell cell = new Room();
+        cell.setPosition(new Position(1,1));
+
+        survivor.setCell(cell);
+        MoveAside moveAside = new MoveAside(survivor);
+
+        boolean result = moveAside.make(Location.SOUTH);
+
+        assertTrue(result);
+        assertEquals(new Position(2, 1), cell.getPosition());
+    }
 }
