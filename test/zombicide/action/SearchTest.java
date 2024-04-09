@@ -66,4 +66,13 @@ public class SearchTest {
             fail("An unexpected exception was thrown: " + e.getMessage());
         }
     }
+
+    @Test
+    public void testGetCostActionMakeSearch() throws Exception {
+        // Arrange
+        Survivor survivor = new Survivor("Survivor1");
+
+        Search search = new Search(survivor);
+        assertEquals(1,search.getCost());
+    }
 }
