@@ -20,6 +20,12 @@ public class Nosy extends Survivor {
     }
 
 
+    /**
+     * Permits to the survivor to make an Action.
+     * @param action The action wanted by the survivor
+     * @param callable any object in this game that is callable. Will be cast depending on the action.
+     * @return true if the action has been done successfully
+     */
     public boolean makeAction(Action action, Callable callable){
         boolean actionMade = false;
         if (firstSearchFree) {
