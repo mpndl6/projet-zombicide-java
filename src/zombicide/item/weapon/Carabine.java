@@ -1,5 +1,7 @@
 package zombicide.item.weapon;
 
+import zombicide.callable.Callable;
+
 /**
  * The class Carabine represents a specific type of weapon, extending the Weapon class, for use in the game Zombicide.
  * It implements the characteristics and behavior of a Carabine weapon.
@@ -23,6 +25,14 @@ public class Carabine extends Weapon {
     @Override
     public int howManyThrows() {
         return 2;
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void use(Callable callable){
+
     }
 
     /**

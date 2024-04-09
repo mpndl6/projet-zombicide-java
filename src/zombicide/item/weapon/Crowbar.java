@@ -1,6 +1,7 @@
 package zombicide.item.weapon;
 
 import exception.IsWallException;
+import zombicide.callable.Callable;
 import zombicide.item.CanOpenDoor;
 import zombicide.map.Map;
 import zombicide.map.util.Location;
@@ -38,6 +39,14 @@ public class Crowbar extends Weapon implements CanOpenDoor {
      */
     public String toString(){
         return "Crowbar";
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void use(Callable callable){
+
     }
 
     /**

@@ -1,6 +1,7 @@
 package zombicide.item.weapon;
 
 import exception.IsWallException;
+import zombicide.callable.Callable;
 import zombicide.item.CanOpenDoor;
 import zombicide.map.Map;
 import zombicide.map.util.Location;
@@ -37,6 +38,14 @@ public class Pistol extends Weapon implements CanOpenDoor {
      */
     public String toString(){
         return "Pistol";
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void use(Callable callable){
+
     }
 
     /**
