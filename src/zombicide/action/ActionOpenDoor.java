@@ -47,8 +47,9 @@ public Map getMap(){
  */
 @Override
 public boolean make(Callable callable) throws Exception {
-    if (!canMakeAction())
-        throw new NoSuchItemException(this.survivor.getNickName()+" doesn't have the correct item in hand.");
+    if (!canMakeAction()) {
+        throw new NoSuchItemException(this.survivor.getNickName() + " doesn't have the correct item in hand.");
+    }
 
         Cell cellOfSurvivor = this.survivor.getCell();
         try {

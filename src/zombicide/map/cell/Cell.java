@@ -187,6 +187,16 @@ public void putPosition(Position p) {
 	this.position = p;
 }
 
+
+public boolean containsZombie() {
+	for (Actor a : this.actors) {
+		if (a.getTypeOfActor() == ActorType.ZOMBIE) {
+			return true;
+		}
+	}
+	return false;
+}
+
 /**
  * Indicates whether some other object is "equal to" this one.
  * Two cells are considered equal if they have the same position.
