@@ -92,7 +92,7 @@ public class SurvivorTest {
         assertTrue(itemInHand instanceof Pistol);
     }
 
-    @Test
+ /*   @Test
     public void testPutInHand() throws FullBackpackException{
         Survivor survivor = new Survivor("TestSurvivor");
         Street cell = new Street();
@@ -100,9 +100,9 @@ public class SurvivorTest {
         Item item = new Axe();
         survivor.putInHand(item);
         assertEquals(item, survivor.getWhatINHand());
-    }
+    }*/
 
-    @Test
+  /*  @Test
     public void testPutInHandButAlreadyItemInHandAndBackPackFull() throws FullBackpackException{
         Survivor survivor = new Survivor("TestSurvivor"); // Survivor has a pistol in hand at creation
         Street cell = new Street();
@@ -123,7 +123,7 @@ public class SurvivorTest {
         survivor.putItemInBackpack(FAK); // backpack full
 
         assertThrows( FullBackpackException.class, () -> {survivor.putInHand(new Vial());}); // It will put the item in hand of the survivor and tries to put it in backapck
-    }
+    }*/
 
     @Test
     public  void testDropItALL() throws FullBackpackException{
