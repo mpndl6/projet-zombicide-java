@@ -187,7 +187,10 @@ public void putPosition(Position p) {
 	this.position = p;
 }
 
-
+/**
+ * Checks if the cell contains a zombie.
+ * @return true if the cell contains a zombie, false otherwise.
+ */
 public boolean containsZombie() {
 	for (Actor a : this.actors) {
 		if (a.getTypeOfActor() == ActorType.ZOMBIE) {
