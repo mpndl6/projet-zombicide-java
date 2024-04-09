@@ -49,7 +49,7 @@ public class Axe extends Weapon implements CanOpenDoor {
     }
 
     /**
-     * Open the door
+     * Open the door with the Axe. It will make noise
      * @param location of the door wanted
      */
     @Override
@@ -59,7 +59,7 @@ public class Axe extends Weapon implements CanOpenDoor {
             System.out.println("You dont have enough strength :(.\n You will break your arm.");
             return;
         }
-        System.out.println("Ok give it all.\n");
+        System.out.println("Ok it's going to make some noise around here. Give it all.\n");
         for (int i = 0; i < 2; i++)
             System.out.print(".");
         try {
@@ -69,5 +69,6 @@ public class Axe extends Weapon implements CanOpenDoor {
         }
         System.out.println("The door it's broke. You can go.");
         this.map.openDoorOfRoom(this.survivor.getCell(), location);
+        this.survivor.getCell().makenoise(); // quand une arme est utilisée pour ouvrir une porte, le niveau de bruit de la cellule augmente
     }
 }

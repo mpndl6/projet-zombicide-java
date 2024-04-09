@@ -19,6 +19,7 @@ public class Plan extends Utility {
     public void use(Callable callable) {
         GridOfPlan grid= new GridOfPlan(this.map);
          grid.displayGrid();
+         this.survivor.getCell().makenoise(); // quand un plan est utilisé il fera du bruit
     }
 
     /**

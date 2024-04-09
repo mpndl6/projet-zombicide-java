@@ -49,7 +49,7 @@ public class Pistol extends Weapon implements CanOpenDoor {
     }
 
     /**
-     * Open a door
+     * Open a door with a pistol. It makes a lot of noise
      * @param location of the door wanted
      */
     @Override
@@ -64,6 +64,8 @@ public class Pistol extends Weapon implements CanOpenDoor {
         }
         System.out.println("***BOOM!***\n");
         this.map.openDoorOfRoom(this.survivor.getCell(), location);
-        System.out.println("It's open. You can go.\n Don't burn your hand buddy!");
+        super.survivor.getCell().makenoise();
+        super.survivor.getCell().makenoise(); //x2
+        System.out.println("It's open. You can go.\n Don't burn your hand buddy!\n Remember this has made a lot of noise");
     }
 }

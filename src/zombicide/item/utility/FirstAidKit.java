@@ -3,9 +3,17 @@ package zombicide.item.utility;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 
+/**
+ * Class of FirstAidKit. Useful to heal a survivor
+ */
 public class FirstAidKit extends Utility {
 
-    public FirstAidKit(){}
+    /**
+     * Construct a FirstAidKit
+     */
+    public FirstAidKit(){
+        super();
+    }
 
     /**
      * Uses the first aid kit utility item to increase the life points of the specified survivor.

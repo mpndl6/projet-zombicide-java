@@ -7,15 +7,15 @@ import zombicide.map.cell.room.Continental;
 import zombicide.map.util.Position;
 
 /**
- *
+ * Class of BIGGoogles
  */
 public class BIGgoogles extends Utility{
 
     protected Map map;
 
     /**
-     *
-     * @param map
+     * Constructs a BIGgoogles. It permits to see at a specific position
+     * @param map the map where it's able to see
      */
     public BIGgoogles(Map map){
         this.map = map;

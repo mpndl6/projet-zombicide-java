@@ -50,7 +50,6 @@ public boolean make(Callable callable) {
         System.out.println("the survivor doesn't have the correct item on hand.");
         return false;
     }
-        Location l = (Location)callable;
         try {
             CanOpenDoor itemOpenable = ((CanOpenDoor) this.survivor.getWhatINHand());
             itemOpenable.open( (Location)callable);
