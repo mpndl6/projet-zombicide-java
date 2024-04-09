@@ -6,13 +6,12 @@ import zombicide.map.cell.*;
 import zombicide.map.util.*;
 
 /**
- *
+ * This method permits to the survivor to move aside.
  */
 public class MoveAside extends ActionSurvivor {
 
     /**
      * Constructs a new ActionSurvivor object with the specified Survivor.
-     *
      * @param s the Survivor associated with this action.
      */
     public MoveAside(Survivor s) {

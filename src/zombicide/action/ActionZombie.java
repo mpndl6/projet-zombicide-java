@@ -1,6 +1,5 @@
 package zombicide.action;
 
-import exception.NoSuchItemException;
 import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
 

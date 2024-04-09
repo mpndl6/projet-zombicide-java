@@ -8,14 +8,23 @@ import zombicide.callable.Callable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This action attack is for the zombies that attack Survivors
+ */
 public class AttackZombie extends  ActionZombie{
 
+    /**
+     *
+     * @param z
+     */
     public AttackZombie(Zombie z) {
         super(z);
     }
 
     /**
-     * Performs the action of making the action attack by an survivor;
+     * Performs the action of attacking a zombie by a zombie;
+     * @param callable the callable, here it's an instance of Survivor
+     * @return true if the action has been done successfully
      */
     @Override
     public boolean make(Callable callable){
@@ -42,7 +51,8 @@ public class AttackZombie extends  ActionZombie{
     }
 
     /**
-     * Verify if the survivor can attack or not( verify if he had a weapon in their hands)
+     * The zombie can always attack a survivor on the same cell as its
+     * @return true, always
      */
     @Override
     public boolean canMakeAction() {
