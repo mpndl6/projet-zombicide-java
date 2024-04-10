@@ -64,6 +64,9 @@ public class Livrable3 {
         game.addZombieGame(powerful);
         game.addZombieGame(runner);
 
+
+
+
         //Les survivants sur une cell
         trainningMap.putActorONCell(julien,new Position(0,2));
         trainningMap.putActorONCell(youssef,new Position(0,2));
@@ -95,11 +98,18 @@ public class Livrable3 {
         AttackSurvivor attack = new AttackSurvivor(youssef);
 
 
-
-        youssef.makeAction(attack, abomination);
+        System.out.println("Youssef attaque le zombie abomination de sa cellule\n");
+        attack.make(abomination);
+        System.out.println("Julien descend d'une celulle(vers le sud)\n");
         julien.makeAction(moveAside,Location.SOUTH);
+        System.out.println("Annie fait du bruit(on augmente le bruit de la cell)"+annie.getCell().getNoiseLevel()+"\n");
         annie.makeAction(makeNoise,annie.getCell());
+        System.out.println("Gabrielle fait l'action search(et ne trouve rien technhiquement car rien sur la cellule)\n");
         gabrielle.makeAction(search,gabrielle.getCell());
+
+
+
+
 
 
 
@@ -133,17 +143,11 @@ public class Livrable3 {
 
 
          //Affichage statut des survivants
-         System.out.println(julien);
-         System.out.println(gabrielle);
-         System.out.println(annie);
-         System.out.println(youssef);
+         System.out.println(julien.toString());
+         System.out.println(gabrielle.toString());
+         System.out.println(annie.toString());
+         System.out.println(youssef.toString());
 
-            //mettre en main les object à chaue acteur
 
-        // methode MoveAside pour les Zombie (on peut utiliser la même ue dans survivor)
-       // System.out.println("Which action do you want to use?");
-       // System.out.println("1 - MOVE\n2 - LOOK AROUND\n3 - MAKE NOISE\n4 - OPEN A DOOR\n 5 - SEARCH\n6 - TAKE IN HAND\n7 - USE AN ITEM");
-
-        //listChooser
 
 }}
