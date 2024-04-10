@@ -95,7 +95,7 @@ public abstract class Weapon extends Item {
         }
 
         if(posOfSuvivor.getX() == posOfZombie.getX() && this.survivor.getGame().doorsBetween(posOfSuvivor,posOfZombie)){
-            if(this.rangeMax >= dX && dX >= this.rangeMin){
+            if(this.rangeMax >= dY && dY >= this.rangeMin){
                 int resDice = this.survivor.diceThrows(this.howManyThrows());
                 if(resDice >= this.threshold){
                     for(int i = 0 ; i < this.damage ; i++){
@@ -107,7 +107,7 @@ public abstract class Weapon extends Item {
             }
         }
         if(posOfSuvivor.getY() == posOfZombie.getY() && this.survivor.getGame().doorsBetween(posOfSuvivor,posOfZombie)){
-            if(this.rangeMax >= dY && dY >= this.rangeMin){
+            if(this.rangeMax >= dX && dX >= this.rangeMin){
                 int resDice = this.survivor.diceThrows(this.howManyThrows());
                 if(resDice >= this.threshold){
                     for(int i = 0 ; i < this.damage ; i++){
