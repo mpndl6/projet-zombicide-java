@@ -51,22 +51,22 @@ public class MoveAside extends ActionSurvivor {
         switch (l){
             case NORTH:
                 if(!(map.isWall(cell,l) && map.isOpenDoor(cell,l))) {
-                    map.putActorONCell(this.survivor,new Position(xCell, yCell - 1));
+                    map.putActorONCell(this.survivor,new Position(xCell-1, yCell));
                     return true;
                 }
             case SOUTH:
                 if(!(map.isWall(cell,l) && map.isOpenDoor(cell,l))) {
-                    map.putActorONCell(this.survivor,new Position(xCell, yCell + 1));
+                    map.putActorONCell(this.survivor,new Position(xCell+1, yCell ));
                     return true;
                 }
             case EAST:
                 if(!(map.isWall(cell,l) && map.isOpenDoor(cell,l))) {
-                    map.putActorONCell(this.survivor,new Position(xCell + 1, yCell));
+                    map.putActorONCell(this.survivor,new Position(xCell , yCell+1));
                     return true;
                 }
             case WEST:
                 if(!(map.isWall(cell,l) && map.isOpenDoor(cell,l))) {
-                    map.putActorONCell(this.survivor,new Position(xCell - 1, yCell ));
+                    map.putActorONCell(this.survivor,new Position(xCell , yCell -1));
                     return true;
                 }
             default:
