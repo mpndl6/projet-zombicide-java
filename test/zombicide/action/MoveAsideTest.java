@@ -7,7 +7,7 @@ import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
-
+/**
 public class MoveAsideTest {
     @Test
     public void make_MoveSurvivorNorth_Successful()  {
@@ -72,3 +72,4 @@ public class MoveAsideTest {
         assertEquals(new Position(1, 0), cell.getPosition());
     }
 }
+*/

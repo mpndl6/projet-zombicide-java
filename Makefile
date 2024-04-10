@@ -6,7 +6,7 @@ CLASSES = classes
 DOCS = doc
 JAR = jar
 
-all: doc deliverable2.jar deliverable1.jar
+all: doc deliverable2.jar deliverable1.jar deliverable3.jar
 
 classes: classesTest classSrc
 
@@ -27,6 +27,9 @@ deliverable1.jar: classSrc
 deliverable2.jar: classSrc
 	jar cvfe jar/deliverable2.jar zombicide.map.Livrable2 -C $(CLASSES) .
 
+deliverable3.jar: classSrc
+	jar cvfe jar/deliverable3.jar zombicide.map.Livrable3 -C $(CLASSES) .
+
 test: classesTest
 	java -jar junit-console.jar -classpath $(SRC):$(CLASSES) -scan-classpath
 
@@ -34,6 +37,9 @@ test-deliverable2: jar/deliverable2.jar
 	java -jar $<
 
 test-deliverable1: jar/deliverable1.jar
+	java -jar $<
+
+test-deliverable3: jar/deliverable3.jar
 	java -jar $<
 
 clean:
