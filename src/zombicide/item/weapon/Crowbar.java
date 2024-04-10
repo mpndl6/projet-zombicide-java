@@ -57,7 +57,7 @@ public class Crowbar extends Weapon implements CanOpenDoor {
     public void open(Location location) throws IsWallException {
         System.out.println("Give it all.\n");
         this.map.openDoorOfRoom(this.survivor.getCell(), location);
-        super.survivor.getCell().makenoise(); //quand une arme est utilisée pour ouvrir une porte, le niveau de bruit de la cellule augmente
+        super.survivor.getCell().makeNoise(); //quand une arme est utilisée pour ouvrir une porte, le niveau de bruit de la cellule augmente
         System.out.println("It's open. You can go.");
     }
 

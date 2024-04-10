@@ -64,8 +64,8 @@ public class Pistol extends Weapon implements CanOpenDoor {
         }
         System.out.println("***BOOM!***\n");
         this.map.openDoorOfRoom(this.survivor.getCell(), location);
-        super.survivor.getCell().makenoise();
-        super.survivor.getCell().makenoise(); //x2
+        super.survivor.getCell().makeNoise();
+        super.survivor.getCell().makeNoise(); //x2
         System.out.println("It's open. You can go.\n Don't burn your hand buddy!\n Remember this has made a lot of noise");
     }
 }

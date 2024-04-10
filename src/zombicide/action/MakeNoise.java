@@ -1,6 +1,5 @@
 package zombicide.action;
 
-import exception.NoSuchItemException;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 
@@ -32,7 +31,7 @@ public class MakeNoise extends ActionSurvivor{
     @Override
     public boolean make(Callable callable){
         if(this.canMakeAction()) {
-            this.survivor.getCell().makenoise();
+            this.survivor.getCell().makeNoise();
             return true;
         }
         return false;

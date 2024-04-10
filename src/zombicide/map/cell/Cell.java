@@ -112,7 +112,7 @@ public int getNoiseLevel() {
  *  increase the noise level in the cell
  *
  * */
-public void makenoise(){ this.noiseLevel++;}
+public void makeNoise(){ this.noiseLevel++;}
 /**
  * Adds an item to the room.
  * @param i The item to be added.

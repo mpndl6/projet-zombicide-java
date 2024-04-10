@@ -1,5 +1,4 @@
 package zombicide.item.utility;
-import grid.Grid;
 import grid.GridOfPlan;
 import zombicide.callable.Callable;
 import zombicide.map.*;
@@ -19,7 +18,7 @@ public class Plan extends Utility {
     public void use(Callable callable) {
         GridOfPlan grid= new GridOfPlan(this.map);
          grid.displayGrid();
-         this.survivor.getCell().makenoise(); // quand un plan est utilisé il fera du bruit
+         this.survivor.getCell().makeNoise(); // quand un plan est utilisé il fera du bruit
     }
 
     /**
