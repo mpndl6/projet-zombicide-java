@@ -1,9 +1,10 @@
 package zombicide.action;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
+import zombicide.actor.zombie.type.Walker;
 import zombicide.callable.Callable;
 import zombicide.item.Item;
-import zombicide.item.weapon.Weapon;
+import zombicide.item.weapon.*;
 
 /**
  * This is the class of the action that permits to attack a zombie, by a survivor.
@@ -40,9 +41,8 @@ public class AttackSurvivor extends ActionSurvivor {
             return false;
         }
         Zombie zombie = (Zombie)callable;
-        Item weapon = this.survivor.getWhatINHand();
-        //weapon.attack(zombie);
-        return  true;
+        Weapon weapon = (Weapon)this.survivor.getWhatINHand();
+        return weapon.attack(zombie);
     }
 
 }
