@@ -81,5 +81,13 @@ public class RoomTest {
      assertEquals(room.getTypeOfCell(), CellType.ROOM);
     }
 
+    @Test
+    public void testSearchItemOnFloor() {
+        room.addItem(pistol);
 
+        Item item = Room.searchForItem(room);
+        assertEquals(pistol,item);
+
+
+    }
 }
