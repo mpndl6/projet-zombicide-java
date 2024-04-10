@@ -40,6 +40,10 @@ public class Axe extends Weapon implements CanOpenDoor {
         return "Axe";
     }
 
+    public void setMap(Map map){
+        this.map = map;
+    }
+    
     /**
      *
      */

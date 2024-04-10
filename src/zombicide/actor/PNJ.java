@@ -55,7 +55,7 @@ public class PNJ extends Actor{
         items.add(new Axe());
         items.add(new Chainsaw());
         items.add(new Crowbar());
-        items.add(new Pistol());
+      //  items.add(new Pistol());
         while (this.fabricateObject.size()!=MAX_ITEMS) {
             int randomIndex = rand.nextInt(items.size());
             Item i = items.get(randomIndex);

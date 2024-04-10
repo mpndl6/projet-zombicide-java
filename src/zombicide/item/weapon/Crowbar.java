@@ -49,6 +49,10 @@ public class Crowbar extends Weapon implements CanOpenDoor {
 
     }
 
+    public void setMap(Map map){
+        this.map = map;
+    }
+
     /**
      * Open a door with a crowbar. It makes noise.
      * @param location of the wanted door

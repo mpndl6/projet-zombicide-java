@@ -25,6 +25,14 @@ public class MasterKey extends Utility implements CanOpenDoor {
         this.open((Location)callable);
     }
 
+    public Map getMap(){
+        return this.map;
+    }
+
+    public void setMap(Map map){
+        this.map = map;
+    }
+
     /**
      * Gives a description of the utility
      * @return a description of the item

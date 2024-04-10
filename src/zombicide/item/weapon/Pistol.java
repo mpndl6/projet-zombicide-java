@@ -1,6 +1,7 @@
 package zombicide.item.weapon;
 
 import exception.IsWallException;
+import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.item.CanOpenDoor;
 import zombicide.map.Map;
@@ -23,8 +24,16 @@ public class Pistol extends Weapon implements CanOpenDoor {
      */
     public Pistol(){
         super(0,1,1,4);
-        this.map=super.survivor.getGame().getMap();
     }
+
+    /**
+     *
+     */
+    @Override
+    public void setMap(Map map) {
+        this.map=map;
+    }
+
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
      * @return The number of dice rolls needed for this weapon.

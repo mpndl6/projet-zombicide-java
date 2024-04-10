@@ -41,6 +41,8 @@ public class TakeInHand extends ActionSurvivor {
     public boolean make(Callable callable){
         Item itemInHand = survivor.getWhatINHand();
         Item newItem = (Item) callable;
+        if (!canMakeAction())
+            return false;
 
         if (itemInHand != null) {
             try {
