@@ -23,6 +23,8 @@ class UseItemTest {
     Survivor s;
     Item item1;
     Item item2;
+    Item item3;
+    Item item4;
     UseItem use;
     Map map;
 
@@ -31,12 +33,14 @@ class UseItemTest {
         s = new Survivor("Jul");
         item1 = new Vial();
         item2 = new FirstAidKit();
-        item3 = new BIGgoogles();
-        item4 = new IRGoogles();
         use = new UseItem(s);
         List<Cell> listRooms = new ArrayList<Cell>();
         List<Cell> listSreet = new ArrayList<Cell>();
         map = new TrainingMap2(listRooms,listSreet);
+        item3 = new BIGgoogles(map);
+        item4 = new IRGoogles(map);
+
+
     }
 
     @Test
