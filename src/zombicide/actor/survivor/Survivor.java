@@ -1,7 +1,7 @@
 package zombicide.actor.survivor;
 import exception.FullBackpackException;
 import exception.NoSuchItemException;
-import zombicide.action.Action;
+import zombicide.action.*;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
 import zombicide.callable.Callable;
@@ -29,7 +29,8 @@ protected Item inHand; // the item the survivor has in hand
 protected List<Item> backPack;
 protected int actionPoint;
 protected ActorType typeOfActor;
-    private static Random randomNB = new Random( ) ;
+private static Random randomNB = new Random( );
+List<Action> actions;
 
 /**
  *  Construct a survivor with their name in parameter.
@@ -49,6 +50,8 @@ public Survivor(String name){
     item.addSurvivor(this);
     this.inHand = item;
     this.nickName=name;
+    this.actions = new ArrayList<>();
+    initAction(); //init the list
 }
 
 /**
@@ -235,9 +238,6 @@ public static Item chooseItemToDiscard( Survivor s) {
     }
 }
 
-public int maxSizeOfBackPack(){
-    return MAX_NB_ITEM;
-}
 /**
  * When the survivor dies (or in other circumstances) all items of their backpack go on cell or disappear.
  * That method take all the items in backpack and drop it on cell.
@@ -297,8 +297,30 @@ String description=  "Survivor name : "+ super.nickName;
 return description+"";
 
 }
+    /**
+     * Permet de récuperer une action qu'on va utiliser pour le zombie
+     * @param a index of the listActionZombie
+     * @return an of  the list
+     */
+    public Action getAction(int a){
+        return actions.get(a);
+    }
 
-/**
+    /**
+     * Init the list of actions of the current survivor
+     */
+    protected void initAction(){
+        actions.add(new MoveAside(this));
+        actions.add(new OpenDoor(this, null)); //for now
+        actions.add(new Search(this));
+        actions.add(new TakeInHand(this));
+        actions.add(new UseItem(this));
+        actions.add(new AttackSurvivor(this));
+        actions.add(new LookAround(this));
+        actions.add(new MakeNoise(this));
+    }
+
+    /**
  * The survivor realises an action. Based on their role they can or not realise the action
  * @param action The action wanted by the survivor
  * @param callable any object in this game that is callable. Will be cast depending on the action.
