@@ -23,7 +23,7 @@ public class TakeInHand extends ActionSurvivor {
      */
     @Override
     public boolean canMakeAction(){
-        if (survivor.getAllInBackpack().size() >= Survivor.MAX_NB_ITEM)
+        if (survivor.getAllInBackpack().size() >= Survivor.MAX_NB_ITEM & survivor.getWhatINHand()!=null)
             return false;
         return true;
     }
