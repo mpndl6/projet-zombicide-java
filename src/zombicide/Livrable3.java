@@ -96,15 +96,12 @@ public class Livrable3 {
 
 
 
-        attack.make(abomination);
+        youssef.makeAction(attack, abomination);
         julien.makeAction(moveAside,Location.SOUTH);
         annie.makeAction(makeNoise,annie.getCell());
         gabrielle.makeAction(search,gabrielle.getCell());
 
 
-
-        System.out.println(gabrielle.getCell().getNoiseLevel());
-        System.out.println(gabrielle.getCell().description());
 
         //Action des zombies
         for (Zombie zombie : game.listZombies) {
@@ -136,16 +133,16 @@ public class Livrable3 {
 
 
          //Affichage statut des survivants
-         System.out.println(julien.toString());
-         System.out.println(gabrielle.toString());
-         System.out.println(annie.toString());
-         System.out.println(youssef.toString());
+         System.out.println(julien);
+         System.out.println(gabrielle);
+         System.out.println(annie);
+         System.out.println(youssef);
 
             //mettre en main les object à chaue acteur
 
         // methode MoveAside pour les Zombie (on peut utiliser la même ue dans survivor)
-        System.out.println("Which action do you want to use?");
-        System.out.println("1 - MOVE\n2 - LOOK AROUND\n3 - MAKE NOISE\n4 - OPEN A DOOR\n 5 - SEARCH\n6 - TAKE IN HAND\n7 - USE AN ITEM");
+       // System.out.println("Which action do you want to use?");
+       // System.out.println("1 - MOVE\n2 - LOOK AROUND\n3 - MAKE NOISE\n4 - OPEN A DOOR\n 5 - SEARCH\n6 - TAKE IN HAND\n7 - USE AN ITEM");
 
         //listChooser
 
