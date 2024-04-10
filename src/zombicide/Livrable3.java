@@ -90,6 +90,7 @@ public class Livrable3 {
         annie.makeAction(makeNoise,annie.getCell());
         gabrielle.makeAction(search,gabrielle.getCell());
 
+        trainningMap.putActorONCell(julien,julien.getCell().getPosition());
 
         grid.displayGrid();
         System.out.println(gabrielle.getCell().getNoiseLevel());
