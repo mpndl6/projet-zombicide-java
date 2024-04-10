@@ -50,7 +50,9 @@ public class TakeInHand extends ActionSurvivor {
                 System.out.println("Backpack full.");
             }
         }
-        survivor.setInHand(newItem); // On géra dans game le fait qu'il veuille potentiellement jeter quelque chose sur la cell
+        survivor.setInHand(newItem);
+        newItem.addSurvivor(survivor);
+// On géra dans game le fait qu'il veuille potentiellement jeter quelque chose sur la cell
         return true;
 }
 }
