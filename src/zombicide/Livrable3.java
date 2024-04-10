@@ -94,11 +94,7 @@ public class Livrable3 {
         LookAround lookaround = new LookAround(julien);
         MakeNoise makeNoise = new MakeNoise(annie);
         AttackSurvivor attack = new AttackSurvivor(youssef);
-        //Action zombie
-      //  MoveAsideZombie move = new MoveAsideZombie(abomination);
-        MoveAsideZombie move1 = new MoveAsideZombie(walker);
-        MoveAsideZombie move2 = new MoveAsideZombie(runner);
-        MoveAsideZombie move3 = new MoveAsideZombie(powerful);
+
 
 
         attack.make(abomination);
@@ -106,8 +102,7 @@ public class Livrable3 {
         annie.makeAction(makeNoise,annie.getCell());
         gabrielle.makeAction(search,gabrielle.getCell());
 
-       // ActionZombie actionMove = zombie.getAction(0);
-        //move.make(Location.EAST);
+
 
 
 
