@@ -5,6 +5,9 @@ import zombicide.map.Map;
 import zombicide.map.cell.Cell;
 import zombicide.map.util.Position;
 
+/**
+ * Class of the item CoverUp
+ */
 public class CoverUp extends Utility{
     protected Map map;
     public CoverUp(Map map){
@@ -13,7 +16,6 @@ public class CoverUp extends Utility{
 
     /**
      * Uses the camouflage ability to disguise as a zombie in the specified cell.
-     *
      * @param callable the position of the cell where to use the camouflage ability.
      */
 
