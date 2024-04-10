@@ -6,7 +6,7 @@ import zombicide.callable.Callable;
  * The abstract class ActionSurvivor represents an action that can be performed by a Survivor.
  * This class implements the Action interface.
  */
-public abstract class ActionSurvivor implements Action {
+public abstract class ActionSurvivor implements Action, Callable {
     protected int cost; //The cost of performing this action.
 
     protected Survivor survivor; //The Survivor associated with this action.

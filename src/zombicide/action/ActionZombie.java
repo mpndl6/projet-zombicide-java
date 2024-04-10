@@ -7,7 +7,7 @@ import zombicide.callable.Callable;
  * The abstract class ActionZombie represents an action that can be performed by a Zombie.
  * This class implements the Action interface.
  */
-public abstract class ActionZombie implements Action {
+public abstract class ActionZombie implements Action,Callable {
     protected int cost; //The cost of performing this action
     protected Zombie zombie; //The Zombie associated with this action.
 

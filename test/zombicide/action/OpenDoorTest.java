@@ -42,7 +42,7 @@ class OpenDoorTest {
     }
 
     @Test
-    void testSetMap() {
+    public void testSetMap() {
         op.setMap(map);
         assertEquals(map, op.getMap());
         //On set une nouvelle map
@@ -54,13 +54,13 @@ class OpenDoorTest {
     }
 
     @Test
-    void testGetMap() {
+    public void testGetMap() {
         //openDoor has a map at creation
         op.setMap(map);
         assertSame(map, op.getMap());
     }
     @Test
-    void testMakePositive() {
+    public void testMakePositive() {
         System.out.println("Positive :\n");
 
         op.setMap(s.getGame().getMap());
@@ -70,7 +70,7 @@ class OpenDoorTest {
         System.out.println("\n\n");
     }
     @Test
-    void testMakeNegative(){
+   public void testMakeNegative(){
         System.out.println("Negative :\n");
         op.setMap(s.getGame().getMap());
         s.setCell(map.getCell(new Position(2,2)));
@@ -80,7 +80,7 @@ class OpenDoorTest {
     }
 
    @Test
-    void testMakeWhenIsWall(){
+    public void testMakeWhenIsWall(){
         op.setMap(map);
         s.setCell(map.getCell(new Position(4,1)));
        ((CanOpenDoor)s.getWhatINHand()).setMap(map);
@@ -88,12 +88,12 @@ class OpenDoorTest {
     }
 
     @Test
-    void testGetCost() {
+    public void testGetCost() {
         assertEquals(op.getCost(),0);
     }
 
     @Test
-    void testCanMakeActionPositif() {
+    public void testCanMakeActionPositif() {
         //survivor has a pistol at creation and its a object that open a door
         assertTrue(op.canMakeAction());
     }
