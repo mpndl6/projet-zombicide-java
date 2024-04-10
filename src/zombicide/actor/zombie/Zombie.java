@@ -1,10 +1,15 @@
 package zombicide.actor.zombie;
 
 import zombicide.action.Action;
+import zombicide.action.ActionZombie;
+import zombicide.action.*;
+import zombicide.action.AttackZombie;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
 import zombicide.callable.Callable;
-import zombicide.item.Item;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class abstract Zombie. Zombies must have a precise type
@@ -13,6 +18,9 @@ public abstract class Zombie extends Actor {
 
 protected final int DAMAGES;
 protected ActorType typeOfActor;
+
+protected List<ActionZombie> listActionZombie;
+
 
 /**
  * Constrcuts a Zombie
@@ -24,8 +32,16 @@ protected ActorType typeOfActor;
      super(name,lp);
      this.typeOfActor = ActorType.ZOMBIE;
      this.DAMAGES = damage;
+     this.listActionZombie = new ArrayList<>();
+     MoveAsideZombie move = new MoveAsideZombie(this);
+     AttackZombie attack = new AttackZombie(this);
+     listActionZombie.add(move);
+     listActionZombie.add(attack);
  }
 
+ public ActionZombie getAction(int a){
+     return listActionZombie.get(a);
+ }
 /**
  *
  * @return the damage inflicted by the zombie

@@ -55,6 +55,11 @@ public class Livrable3 {
         annie.setGame(game);
         youssef.setGame(game);
         gabrielle.setGame(game);
+        abomination.setGame(game);
+        runner.setGame(game);
+        walker.setGame(game);
+        powerful.setGame(game);
+
 
 
         //Les survivants sur une cell
@@ -84,22 +89,48 @@ public class Livrable3 {
         LookAround lookaround = new LookAround(julien);
         MakeNoise makeNoise = new MakeNoise(annie);
         AttackSurvivor attack = new AttackSurvivor(youssef);
+        //Action zombie
+      //  MoveAsideZombie move = new MoveAsideZombie(abomination);
+        MoveAsideZombie move1 = new MoveAsideZombie(walker);
+        MoveAsideZombie move2 = new MoveAsideZombie(runner);
+        MoveAsideZombie move3 = new MoveAsideZombie(powerful);
+
 
         attack.make(abomination);
         julien.makeAction(moveAside,Location.SOUTH);
         annie.makeAction(makeNoise,annie.getCell());
         gabrielle.makeAction(search,gabrielle.getCell());
 
-        trainningMap.putActorONCell(julien,julien.getCell().getPosition());
+       // ActionZombie actionMove = zombie.getAction(0);
+        //move.make(Location.EAST);
+
+
 
         grid.displayGrid();
         System.out.println(gabrielle.getCell().getNoiseLevel());
         System.out.println(gabrielle.getCell().description());
 
 
+        for (Zombie zombie : game.listZombies) {
+            ActionZombie actionAttack=zombie.getAction(1);
+            zombie.makeAction(zombie.getAction(1),zombie.getCell());
+            ActionZombie actionMove = zombie.getAction(0);
+            actionAttack.make(Location.SOUTH);
 
+            actionMove.make(Location.SOUTH) ;
+
+            if(actionAttack.make(zombie.getCell())){
+                System.out.println("Le zombie a attaque");
+            }
+            else{
+
+
+
+                }
+        }
 
         // creer la map
+        grid.displayGrid();
 
         //mettre en main les object à chaue acteur
 
@@ -108,5 +139,5 @@ public class Livrable3 {
         System.out.println("1 - MOVE\n2 - LOOK AROUND\n3 - MAKE NOISE\n4 - OPEN A DOOR\n 5 - SEARCH\n6 - TAKE IN HAND\n7 - USE AN ITEM");
 
         //listChooser
-    }
-}
+
+}}
