@@ -39,11 +39,16 @@ protected List<ActionZombie> listActionZombie;
      listActionZombie.add(attack);
  }
 
+    /**
+     * Permet de récuperer une action qu'on va utiliser pour le zombie
+     * @param a index of the listActionZombie
+     * @return an of  the list
+     */
  public ActionZombie getAction(int a){
      return listActionZombie.get(a);
  }
 /**
- *
+ * to know how can deal (damage) a zombie
  * @return the damage inflicted by the zombie
  */
  public int howManyDamages(){
@@ -51,6 +56,7 @@ protected List<ActionZombie> listActionZombie;
  }
 
 /**
+ * to know the type of actor
  *@return type of Actor
  */
 public ActorType getTypeOfActor() {

@@ -77,9 +77,11 @@ public class Livrable3 {
         trainningMap.putActorONCell(walker,new Position(2,0));
         trainningMap.putActorONCell(runner,new Position(4,2));
         trainningMap.putActorONCell(powerful,new Position(2,4));
+
         //Premier affichage
         Grid grid = new Grid(trainningMap, 10);
         grid.displayGrid();
+
         //Action pour donner la hache et une fiole a 2 survivants
         Item axe = new Axe();
         TakeInHand takeInHand = new TakeInHand(youssef);
