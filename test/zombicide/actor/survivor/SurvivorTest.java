@@ -144,5 +144,17 @@ public class SurvivorTest {
         assertTrue(survivor.isAlive());
     }
 
+    @Test
+    public void SurvivorRemoveItemFromBackapack() throws FullBackpackException{
+        Survivor survivor = new Survivor("TestSurvivor");
+        Street cell = new Street();
+        survivor.setCell(cell);
+        Item item2 = new Carabine();
+        survivor.putItemInBackpack(item2);
+        survivor.removeItemFromBackpack(item2);
+        assertEquals(0,survivor.getAllInBackpack().size());
+
+    }
+
 
 }
