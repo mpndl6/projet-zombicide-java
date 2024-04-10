@@ -106,10 +106,10 @@ public class Livrable3 {
 
 
 
-        grid.displayGrid();
         System.out.println(gabrielle.getCell().getNoiseLevel());
         System.out.println(gabrielle.getCell().description());
 
+        //Action des zombies
         for (Zombie zombie : game.listZombies) {
             ActionZombie actionAttack = zombie.getAction(1);
             if (actionAttack.make(zombie.getCell())) {
@@ -132,12 +132,13 @@ public class Livrable3 {
                     System.out.println("Le zombie se déplace vers le sud");
                     hasMoved = true;
                 }
+            }
         }
-
-        // creer la map
+        //Affichage map final après toutes les actions
         grid.displayGrid();
 
 
+         //Affichage statut des survivants
          System.out.println(julien.toString());
          System.out.println(gabrielle.toString());
          System.out.println(annie.toString());
@@ -151,4 +152,4 @@ public class Livrable3 {
 
         //listChooser
 
-}}}
+}}
