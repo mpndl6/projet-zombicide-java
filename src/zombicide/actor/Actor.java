@@ -1,4 +1,5 @@
 package zombicide.actor;
+import zombicide.Game;
 import zombicide.callable.Callable;
 import zombicide.map.cell.*;
 public abstract class Actor implements Callable {
@@ -7,6 +8,8 @@ protected int lifePoint; // life points of the survivor
 protected String nickName;
 protected boolean alive;
 protected int kills;
+
+protected Game game;
 
 /**
  * Constrcut an actor
@@ -18,6 +21,7 @@ public Actor(String name, int lp){
     this.lifePoint = lp;
     this.alive = true;
     this.kills=0;
+    this.game=null;
 }
 
 /**
@@ -70,6 +74,15 @@ public Cell getCell(){
 public void setCell(Cell c){
     this.cell = c;
 }
+
+/**
+ * Sets the game where the actor is located.
+ * @param g The game to set.
+ */
+public void setGame(Game g){
+        this.game = g;
+    }
+
 
 /**
  * Method to know the type of actor the actor is
