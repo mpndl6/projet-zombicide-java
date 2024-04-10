@@ -62,11 +62,10 @@ class UseItemTest {
     @Test
     public void testMakeUseFirstAidKit() {
         TakeInHand takeInHand = new TakeInHand(s);
-        Survivor survivor = new Survivor("Neilla");
-        survivor.setCell(map.getCell(new Position(3,2)));
-        survivor.makeAction(takeInHand,item2);
-        survivor.makeAction(use,survivor);
-        assertEquals(survivor.getLifePoints(), 6);
+        s.setCell(map.getCell(new Position(3,2)));
+        s.makeAction(takeInHand,item2);
+        s.makeAction(use,s);
+        assertEquals(s.getLifePoints(), 6);
 
     }
 }
