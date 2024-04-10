@@ -156,5 +156,17 @@ public class SurvivorTest {
 
     }
 
+    @Test
+    public void TestSurvivorChooseItemToDiscard() throws FullBackpackException{
+        Survivor survivor = new Survivor("TestSurvivor");
+        Street cell = new Street();
+        survivor.setCell(cell);
+        Item item1 = new Pistol();
+        survivor.putItemInBackpack(item1);
+        Item item2 = new Carabine();
+        survivor.putItemInBackpack(item2);
+        Item discardedItem = Survivor.chooseItemToDiscard(survivor);
+        assertEquals(discardedItem,item1);
 
-}
+
+}}
