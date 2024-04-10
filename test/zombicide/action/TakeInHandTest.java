@@ -13,7 +13,7 @@ import zombicide.map.cell.Room;
 public class TakeInHandTest {
 
     @Test
-    public void make_PutsItemInHandWhenBackpackNotFull() throws Exception {
+    public void make_PutsItemInHandWhenBackpackNotFull() throws FullBackpackException  {
 
         Survivor survivor = new Survivor("Survivor1");
         TakeInHand takeInHand = new TakeInHand(survivor);

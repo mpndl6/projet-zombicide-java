@@ -10,7 +10,7 @@ import zombicide.map.cell.Street;
 public class MakeNoiseTest {
 
     @Test
-    public void make_SuccessfullyMakesNoiseInRoom() throws Exception {
+    public void make_SuccessfullyMakesNoiseInRoom()  {
         // Arrange
         Survivor survivor = new Survivor("Survivor1");
         Cell cell = new Room();
@@ -21,7 +21,7 @@ public class MakeNoiseTest {
     }
 
     @Test
-    public void testGetCostActionMakeNoise() throws Exception {
+    public void testGetCostActionMakeNoise()  {
         // Arrange
         Survivor survivor = new Survivor("Survivor1");
 
@@ -30,7 +30,7 @@ public class MakeNoiseTest {
     }
 
     @Test
-    public void testGetSurvivorActionMakeNoise() throws Exception {
+    public void testGetSurvivorActionMakeNoise() {
         // Arrange
         Survivor survivor = new Survivor("Survivor1");
 

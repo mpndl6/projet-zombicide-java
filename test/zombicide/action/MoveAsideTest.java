@@ -10,7 +10,7 @@ import zombicide.map.util.Position;
 
 public class MoveAsideTest {
     @Test
-    public void make_MoveSurvivorNorth_Successful() throws Exception {
+    public void make_MoveSurvivorNorth_Successful()  {
 
         Survivor survivor = new Survivor("Survivor1");
         Cell cell = new Room();
@@ -27,7 +27,7 @@ public class MoveAsideTest {
     }
 
     @Test
-    public void make_MoveSurvivorSouth_Successful() throws Exception {
+    public void make_MoveSurvivorSouth_Successful()  {
         Survivor survivor = new Survivor("Survivor1");
         Cell cell = new Room();
         cell.setPosition(new Position(1,1));
@@ -41,7 +41,7 @@ public class MoveAsideTest {
         assertEquals(new Position(2, 1), cell.getPosition());
     }
     @Test
-    public void make_MoveSurvivorEast_Successful() throws Exception {
+    public void make_MoveSurvivorEast_Successful()  {
         Survivor survivor = new Survivor("Survivor1");
         Cell cell = new Room();
         cell.setPosition(new Position(1,1));
@@ -56,7 +56,7 @@ public class MoveAsideTest {
     }
 
     @Test
-    public void make_MoveSurvivorWest_Successful() throws Exception {
+    public void make_MoveSurvivorWest_Successful()  {
 
         Survivor survivor = new Survivor("Survivor1");
         Cell cell = new Room();

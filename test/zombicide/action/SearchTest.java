@@ -64,7 +64,7 @@ public class SearchTest {
     }
 
     @Test
-    public void testGetCostActionMakeSearch() throws Exception {
+    public void testGetCostActionMakeSearch()  {
         // Arrange
         Survivor survivor = new Survivor("Survivor1");
 
@@ -73,7 +73,7 @@ public class SearchTest {
     }
 
     @Test
-    public void testGetSurvivorActionMakeSearch() throws Exception {
+    public void testGetSurvivorActionMakeSearch()  {
         // Arrange
         Survivor survivor = new Survivor("Survivor1");
 
