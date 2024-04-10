@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import zombicide.actor.survivor.Survivor;
 import zombicide.item.Item;
 import zombicide.item.utility.FirstAidKit;
+import zombicide.item.utility.BIGgoogles;
 import zombicide.item.utility.IRGoogles;
-import zombicide.item.utility.Plan;
 import zombicide.item.utility.Vial;
 import zombicide.map.Map;
 import zombicide.map.TrainingMap2;
@@ -31,6 +31,8 @@ class UseItemTest {
         s = new Survivor("Jul");
         item1 = new Vial();
         item2 = new FirstAidKit();
+        item3 = new BIGgoogles();
+        item4 = new IRGoogles();
         use = new UseItem(s);
         List<Cell> listRooms = new ArrayList<Cell>();
         List<Cell> listSreet = new ArrayList<Cell>();
@@ -67,5 +69,23 @@ class UseItemTest {
         s.makeAction(use,s);
         assertEquals(s.getLifePoints(), 6);
 
+    }
+
+    @Test
+    public void testMakeUseBIGgoogles(){
+        TakeInHand takeInHand = new TakeInHand(s);
+        s.setCell(map.getCell(new Position(3,2)));
+        s.makeAction(takeInHand,item3);
+        s.makeAction(use,s);
+        assertTrue(true);
+    }
+
+    @Test
+    public void testMakeUseIRGoogles(){
+        TakeInHand takeInHand = new TakeInHand(s);
+        s.setCell(map.getCell(new Position(3,2)));
+        s.makeAction(takeInHand,item4);
+        s.makeAction(use,s);
+        assertTrue(true);
     }
 }
