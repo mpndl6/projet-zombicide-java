@@ -68,6 +68,14 @@ public Cell getCell(){
 }
 
 /**
+ * Gets the game where the actor is located.
+ * @return The game where the actor is located.
+ */
+public Game getGame(){
+        return this.game;
+    }
+
+/**
  * Sets the cell where the actor is located.
  * @param c The cell to set.
  */
