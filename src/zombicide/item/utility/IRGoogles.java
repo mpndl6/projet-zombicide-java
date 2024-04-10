@@ -5,9 +5,16 @@ import zombicide.map.Map;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
+/**
+ * Item that permits to see through doors
+ */
 public class IRGoogles extends Utility {
     protected Map map;
 
+    /**
+     * Constructs an item, IRGoogles item
+     * @param m the map when it will be used
+     */
     public IRGoogles(Map m){
         this.map = m;
     }
@@ -31,6 +38,7 @@ public class IRGoogles extends Utility {
     }
 
     /**
+     * Gives a description of the item
      * @return a description of the item
      */
     public String toString(){
