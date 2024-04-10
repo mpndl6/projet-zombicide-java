@@ -45,7 +45,9 @@ public Survivor(String name){
     this.currentLevel = SurvivorsLevel.STARTING_LEVEL;
     this.actionPoint = 3;
     this.backPack = new ArrayList<>();
-    this.inHand = new Pistol();
+    Item item = new Pistol();
+    item.addSurvivor(this);
+    this.inHand = item;
     this.nickName=name;
 }
 
