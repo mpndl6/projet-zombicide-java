@@ -2,6 +2,7 @@ package zombicide.action;
 
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
+import zombicide.map.Map;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
 
@@ -40,6 +41,8 @@ public class MoveAside extends ActionSurvivor {
         Position p = cell.getPosition();
         int xCell = p.getX();
         int yCell = p.getY();
+        Map map = this.survivor.getGame().getMap();
+
         if (!canMakeAction()) {
             System.out.println("Survivor is trying to go outside of the Map!");
             return false;
@@ -47,18 +50,27 @@ public class MoveAside extends ActionSurvivor {
         Location l = (Location)callable;
         switch (l){
             case NORTH:
-                cell.setPosition(new Position(xCell-1, yCell));
-                return true;
+                if(!(map.isWall(cell,l) && map.isOpenDoor(cell,l))) {
+                    map.putActorONCell(this.survivor,new Position(xCell, yCell - 1));
+                    return true;
+                }
             case SOUTH:
-                cell.setPosition(new Position(xCell+1, yCell));
-                return true;
+                if(!(map.isWall(cell,l) && map.isOpenDoor(cell,l))) {
+                    map.putActorONCell(this.survivor,new Position(xCell, yCell + 1));
+                    return true;
+                }
             case EAST:
-                cell.setPosition(new Position(xCell, yCell+1));
-                return true;
+                if(!(map.isWall(cell,l) && map.isOpenDoor(cell,l))) {
+                    map.putActorONCell(this.survivor,new Position(xCell + 1, yCell));
+                    return true;
+                }
             case WEST:
-                cell.setPosition(new Position(xCell, yCell-1));
-                return true;
+                if(!(map.isWall(cell,l) && map.isOpenDoor(cell,l))) {
+                    map.putActorONCell(this.survivor,new Position(xCell - 1, yCell ));
+                    return true;
+                }
             default:
+                System.out.println("le survivant ne peut pas bouger");
                 return false;
 
         }
