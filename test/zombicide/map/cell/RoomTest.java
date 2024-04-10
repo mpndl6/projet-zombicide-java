@@ -19,6 +19,8 @@ public class RoomTest {
     private Item pistol;
 
 
+
+
     @Before
     public void before() {
         position = new Position(2, 2);
@@ -84,6 +86,17 @@ public class RoomTest {
     @Test
     public void testSearchItemOnFloor() {
         room.addItem(pistol);
+
+        Item item = Room.searchForItem(room);
+        assertEquals(pistol,item);
+
+
+    }
+
+    @Test
+    public void testSearchItemOnFloorWithAtLeast2item() {
+        room.addItem(pistol);
+        room.addItem(vial);
 
         Item item = Room.searchForItem(room);
         assertEquals(pistol,item);
