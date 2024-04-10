@@ -6,9 +6,11 @@ CLASSES = classes
 DOCS = doc
 JAR = jar
 
-all: doc classes deliverable2.jar deliverable1.jar
+all: doc deliverable2.jar deliverable1.jar
 
 classes: classesTest classSrc
+
+doc : classes
 
 classSrc:
 	$(JAVAC) -sourcepath src src/zombicide/map/*.java -d $(CLASSES)

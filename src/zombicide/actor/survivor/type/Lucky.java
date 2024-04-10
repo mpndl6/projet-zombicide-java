@@ -22,6 +22,7 @@ public class Lucky extends Survivor {
      * @param howMany The number of dice to throw.
      * @return The total result of the dice throws.
      */
+    @Override
     public int diceThrows(int howMany) {
 
             return super.diceThrows(howMany) + super.diceThrows(1);

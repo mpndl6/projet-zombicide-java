@@ -29,6 +29,7 @@ public class Nosy extends Survivor {
      * @param callable any object in this game that is callable. Will be cast depending on the action.
      * @return true if the action has been done successfully
      */
+    @Override
     public boolean makeAction(Action action, Callable callable){
         boolean actionMade = false;
         if (firstSearchFree) {
