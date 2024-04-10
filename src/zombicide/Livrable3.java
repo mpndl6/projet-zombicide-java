@@ -64,9 +64,6 @@ public class Livrable3 {
         game.addZombieGame(powerful);
         game.addZombieGame(runner);
 
-
-
-
         //Les survivants sur une cell
         trainningMap.putActorONCell(julien,new Position(0,2));
         trainningMap.putActorONCell(youssef,new Position(0,2));
@@ -103,8 +100,6 @@ public class Livrable3 {
         julien.makeAction(moveAside,Location.SOUTH);
         annie.makeAction(makeNoise,annie.getCell());
         gabrielle.makeAction(search,gabrielle.getCell());
-
-
 
 
 

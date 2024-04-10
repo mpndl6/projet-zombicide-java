@@ -6,14 +6,14 @@ CLASSES = classes
 DOCS = doc
 JAR = jar
 
-all: doc deliverable2.jar deliverable1.jar deliverable3.jar
+all: doc jar/deliverable2.jar jar/deliverable1.jar jar/deliverable3.jar
 
 classes: classesTest classSrc
 
 doc : classes
 
 classSrc:
-	$(JAVAC) -sourcepath src src/zombicide/map/*.java -d $(CLASSES)
+	$(JAVAC) -sourcepath src src/zombicide/*.java -d $(CLASSES)
 
 classesTest:
 	$(JAVAC) -sourcepath src:test -classpath junit-console.jar:classes test/zombicide/map/cell/*.java test/zombicide/map/util/*.java test/zombicide/item/utility/*.java test/zombicide/item/weapon/*.java test/zombicide/actor/survivor/*.java test/zombicide/actor/survivor/type/*.java test/zombicide/actor/zombie/type/*.java -d $(CLASSES)
@@ -21,14 +21,14 @@ classesTest:
 doc: classes
 	$(JAVADOC) -sourcepath $(SRC) -subpackages zombicide -d $(DOCS)
 
-deliverable1.jar: classSrc
-	jar cvfe jar/deliverable1.jar zombicide.map.MainFirstDeliverable -C $(CLASSES) .
+jar/deliverable1.jar: classSrc
+	jar cvfe jar/deliverable1.jar zombicide.Livrable1 -C $(CLASSES) .
 
-deliverable2.jar: classSrc
-	jar cvfe jar/deliverable2.jar zombicide.map.Livrable2 -C $(CLASSES) .
+jar/deliverable2.jar: classSrc
+	jar cvfe jar/deliverable2.jar zombicide.Livrable2 -C $(CLASSES) .
 
-deliverable3.jar: classSrc
-	jar cvfe jar/deliverable3.jar zombicide.map.Livrable3 -C $(CLASSES) .
+jar/deliverable3.jar: classSrc
+	jar cvfe jar/deliverable3.jar zombicide.Livrable3 -C $(CLASSES) .
 
 test: classesTest
 	java -jar junit-console.jar -classpath $(SRC):$(CLASSES) -scan-classpath
