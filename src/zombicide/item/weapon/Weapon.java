@@ -1,6 +1,8 @@
 package zombicide.item.weapon;
 
+import zombicide.actor.zombie.Zombie;
 import zombicide.item.Item;
+import zombicide.map.util.Position;
 
 /**
  * The abstract class Weapon represents a type of item usable as a weapon in the game Zombicide.
@@ -79,4 +81,44 @@ public abstract class Weapon extends Item {
      * @return a description of the item
      */
     public abstract String toString();
+
+    public boolean attack(Zombie zombie){
+        Position posOfSuvivor = this.survivor.getCell().getPosition();
+        Position posOfZombie = zombie.getCell().getPosition();
+        int dX = posOfSuvivor.getX() - posOfZombie.getX();
+        int dY = posOfSuvivor.getY() - posOfZombie.getY();
+        if(dY < 0){
+            dY = dY*(-1);
+        }
+        if(dX < 0){
+            dX = dX*(-1);
+        }
+
+        if(posOfSuvivor.getX() == posOfZombie.getX() && this.survivor.getGame().doorsBetween(posOfSuvivor,posOfZombie)){
+            if(this.rangeMax >= dX && dX >= this.rangeMin){
+                int resDice = this.survivor.diceThrows(this.howManyThrows());
+                if(resDice >= this.threshold){
+                    for(int i = 0 ; i < this.damage ; i++){
+                        zombie.takeDamage();
+                    }
+                    this.survivor.getCell().makenoise();
+                    return true;
+                }
+            }
+        }
+        if(posOfSuvivor.getY() == posOfZombie.getY() && this.survivor.getGame().doorsBetween(posOfSuvivor,posOfZombie)){
+            if(this.rangeMax >= dY && dY >= this.rangeMin){
+                int resDice = this.survivor.diceThrows(this.howManyThrows());
+                if(resDice >= this.threshold){
+                    for(int i = 0 ; i < this.damage ; i++){
+                        zombie.takeDamage();
+                    }
+                    this.survivor.getCell().makenoise();
+                    return true;
+                }
+            }
+        }
+        System.out.println("attaque impossible");
+        return false;
+    }
 }
