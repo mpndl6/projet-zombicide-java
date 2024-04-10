@@ -92,7 +92,7 @@ De plus on réfléchi encore comment pouvoir affecter plusieurs rôles aux survi
 ## Livrable 3
 
 >Ce dossier contient un ``Makefile`` qui contient les règles nécéssaires. L'exécution de la commande ```make``` dans le répectoire courent permet de :
-- Créer les trois exécutables des diférents livrables (rangés dans le dossier ``/jar``)
+- Créer les trois exécutables des différents livrables (rangés dans le dossier ``/jar``)
 - Générer la doc à jour (rangée dans le dossier ``/doc``)
 - Compliler les classes et de créer les fichiers ```.class``` (rangés dans le dossier ``/classes``)
 
@@ -104,9 +104,34 @@ Après l'exécution de cette commande les exécutables seront créés ainsi que 
 L'uml de ce livrable se trouve dans le dossier ``uml/`` 
 
 
+
 ### Atteinte des objectifs
 
+Nous avons modélisé toutes les actions demandé dans le cahier des charges.
+
+En ce qui concerne le choix de la modélisation, nous avons decidé de crée un dossier Action avec toutes les actions des zombies et survivants.
+
+Il y'a une interface action qu'on implemente dans deux classes une classe abstraite ActionZombie et une classe abstraite ActionSurvivor.
+
+Le reste des actions avoir un héritage de ActionZombie ou ActionSurvivor
+Ces classes abstraites ont une méthode canMake pour vérifier si ils peuvent ou non effectué l'action 
+De plus il y'a une méthode make qui va réaliser l'action.
+La méthode make prend en paramètre Callable cela permet de pouvoir cast un type d'élément qu'on veut pour faire l'action. 
+Par exemple pour AttackSurvivor on met en paramètre le zombie qu'on attaque.
+
+Pour information Callable c'est une interface.
+
+
 ### Difficultés restant à résoudre
+
+Il faut gérer le déplacement des zombies vers le bruit
+
+Il faut gérer le déplacement des actors pour pas qu'il ne se déplace vers une cell où il y'a une porte fermé.
+
+On doit effectué l'appartion des zombies quand on ouvre une porte.
+
+
+
 
 ## Livrable 4
 
@@ -213,5 +238,18 @@ L'uml de ce livrable se trouve dans le dossier ``uml/``
 
 
 ## Semaine 11
+- Nous avons modifié la méthode MoveAside.
+- Nous avons éffectué tous les test des actions.
+- Nous avons fait le livrable3(main)
+- On a rajouté des méthodes dans map pour rajouter les zombies ou survivor dans la list.
+- On a modifié/crée l'action Takeinhand
+- Ajout de documentation
+- Ajout removeItemFromBackpack
+- Ajout action Search
+- Ajout dans Weapon la méthode use pour pouvoir attack(On y fait appel dans AttackSurvivor).
+- Action Makenoise
+- Ajout méthode Searchitem dans room
+- Modification makefile 
+
 
 ## Semaine 12
