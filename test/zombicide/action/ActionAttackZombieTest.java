@@ -21,8 +21,8 @@ public class ActionAttackZombieTest {
         cell.welcomeActor(zombie);
         cell.welcomeActor(survivor1);
         // Act
-            zombie.makeAction(action, cell);
-            assertEquals(4,survivor1.getLifePoints());// Appel de makeAction
+        zombie.makeAction(action, cell);
+        assertEquals(3,survivor1.getLifePoints());
         }
 
     @Test
