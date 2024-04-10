@@ -27,11 +27,11 @@ public class Pistol extends Weapon implements CanOpenDoor {
     }
 
     /**
-     *
+     * Set a map to the master key
+     * @param map the map wanted
      */
-    @Override
-    public void setMap(Map map) {
-        this.map=map;
+    public void setMap(Map map){
+        this.map = map;
     }
 
     /**

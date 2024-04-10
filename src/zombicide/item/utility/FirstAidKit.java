@@ -24,6 +24,7 @@ public class FirstAidKit extends Utility {
     }
 
     /**
+     * Gives a description of the item
      * @return a description of the item
      */
     public String toString(){

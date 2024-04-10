@@ -22,6 +22,7 @@ public class Plan extends Utility {
     }
 
     /**
+     * Gives a description o the item
      * @return a description of the item
      */
     public String toString(){

@@ -82,6 +82,11 @@ public abstract class Weapon extends Item {
      */
     public abstract String toString();
 
+    /**
+     *
+     * @param zombie
+     * @return
+     */
     public boolean attack(Zombie zombie){
         Position posOfSuvivor = this.survivor.getCell().getPosition();
         Position posOfZombie = zombie.getCell().getPosition();
