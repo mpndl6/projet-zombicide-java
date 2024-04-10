@@ -92,7 +92,7 @@ De plus on réfléchi encore comment pouvoir affecter plusieurs rôles aux survi
 ## Livrable 3
 
 >Ce dossier contient un ``Makefile`` qui contient les règles nécéssaires. L'exécution de la commande ```make``` dans le répectoire courent permet de :
-- Créer les trois exécutables des diférents livrables (rangés dans le dossier ``/jar``)
+- Créer les trois exécutables des différents livrables (rangés dans le dossier ``/jar``)
 - Générer la doc à jour (rangée dans le dossier ``/doc``)
 - Compliler les classes et de créer les fichiers ```.class``` (rangés dans le dossier ``/classes``)
 
@@ -111,15 +111,15 @@ Nous avons modélisé toutes les actions demandé dans le cahier des charges.
 
 En ce qui concerne le choix de la modélisation, nous avons decidé de crée un dossier Action avec toutes les actions des zombies et survivants.
 
-Il y'a une interface action qu'on implementes dans deux classes une classe abstraite ActionZombie et une classe abstraite ActionSurvivor.
+Il y'a une interface action qu'on implemente dans deux classes une classe abstraite ActionZombie et une classe abstraite ActionSurvivor.
 
 Le reste des actions avoir un héritage de ActionZombie ou ActionSurvivor
 Ces classes abstraites ont une méthode canMake pour vérifier si ils peuvent ou non effectué l'action 
 De plus il y'a une méthode make qui va réaliser l'action.
-La méthode make prend en parametre Callable cela permet de pouvoir cast un type d'element qu'on veut pour faire l'action. 
+La méthode make prend en paramètre Callable cela permet de pouvoir cast un type d'élément qu'on veut pour faire l'action. 
 Par exemple pour AttackSurvivor on met en paramètre le zombie qu'on attaque.
 
-Pour information Callable il est une interface.
+Pour information Callable c'est une interface.
 
 
 ### Difficultés restant à résoudre
