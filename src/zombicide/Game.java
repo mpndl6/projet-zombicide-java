@@ -72,4 +72,11 @@ public class Game {
     public Map getMap(){
         return this.map;
     }
+
+    public void addSurvivorGame(Survivor s){
+        listSurvivors.add(s);
+    }
+    public void addZombieGame(Zombie z){
+        listZombies.add(z);
+    }
 }

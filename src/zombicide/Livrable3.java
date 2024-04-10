@@ -59,6 +59,11 @@ public class Livrable3 {
         runner.setGame(game);
         walker.setGame(game);
         powerful.setGame(game);
+        game.addZombieGame(abomination);
+        game.addZombieGame(walker);
+        game.addZombieGame(powerful);
+        game.addZombieGame(runner);
+
 
 
 
@@ -110,34 +115,45 @@ public class Livrable3 {
         System.out.println(gabrielle.getCell().getNoiseLevel());
         System.out.println(gabrielle.getCell().description());
 
-
         for (Zombie zombie : game.listZombies) {
-            ActionZombie actionAttack=zombie.getAction(1);
-            zombie.makeAction(zombie.getAction(1),zombie.getCell());
-            ActionZombie actionMove = zombie.getAction(0);
-            actionAttack.make(Location.SOUTH);
-
-            actionMove.make(Location.SOUTH) ;
-
-            if(actionAttack.make(zombie.getCell())){
+            ActionZombie actionAttack = zombie.getAction(1);
+            if (actionAttack.make(zombie.getCell())) {
                 System.out.println("Le zombie a attaque");
-            }
-            else{
+            } else {
+                ActionZombie actionMove = zombie.getAction(0);
+                boolean hasMoved = false;
 
-
-
+                // Vérifier si le zombie peut bouger dans au moins une direction
+                if (actionMove.make(Location.NORTH) && !hasMoved) {
+                    System.out.println("Le zombie se déplace vers le nord");
+                    hasMoved = true;
+                } else if (actionMove.make(Location.EAST) && !hasMoved) {
+                    System.out.println("Le zombie se déplace vers l'est");
+                    hasMoved = true;
+                } else if (actionMove.make(Location.WEST) && !hasMoved) {
+                    System.out.println("Le zombie se déplace vers l'ouest");
+                    hasMoved = true;
+                } else if (actionMove.make(Location.SOUTH) && !hasMoved) {
+                    System.out.println("Le zombie se déplace vers le sud");
+                    hasMoved = true;
                 }
         }
 
         // creer la map
         grid.displayGrid();
 
-        //mettre en main les object à chaue acteur
 
-        // methode MoveAside pour les ZOmbie (on peut utiliser la même ue dans survivor)
+         System.out.println(julien.toString());
+         System.out.println(gabrielle.toString());
+         System.out.println(annie.toString());
+         System.out.println(youssef.toString());
+
+            //mettre en main les object à chaue acteur
+
+        // methode MoveAside pour les Zombie (on peut utiliser la même ue dans survivor)
         System.out.println("Which action do you want to use?");
         System.out.println("1 - MOVE\n2 - LOOK AROUND\n3 - MAKE NOISE\n4 - OPEN A DOOR\n 5 - SEARCH\n6 - TAKE IN HAND\n7 - USE AN ITEM");
 
         //listChooser
 
-}}
+}}}

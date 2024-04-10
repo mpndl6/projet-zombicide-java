@@ -89,6 +89,7 @@ public void setCell(Cell c){
  */
 public void setGame(Game g){
         this.game = g;
+
     }
 
 
