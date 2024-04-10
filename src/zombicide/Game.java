@@ -38,19 +38,21 @@ public class Game {
         int x2 = p2.getX();
         int y2 = p2.getY();
         boolean res = true;
-        if (x1 == x2 || y1 == y2){
+        if (x1 == x2) {
             if (x1 > x2) {
-                for (int i = x1; i > x2 ; i--) {
-                    res = res && this.map.isOpenDoor(this.map.getCell(new Position(i,y1)), Location.WEST);
+                for (int i = x1; i > x2; i--) {
+                    res = res && this.map.isOpenDoor(this.map.getCell(new Position(i, y1)), Location.WEST);
 
                 }
             }
             if (x1 < x2) {
-                for (int i = x1; i < x2 ; i++) {
-                    res = res && this.map.isOpenDoor(this.map.getCell(new Position(i,y1)), Location.EAST);
+                for (int i = x1; i < x2; i++) {
+                    res = res && this.map.isOpenDoor(this.map.getCell(new Position(i, y1)), Location.EAST);
 
                 }
             }
+        }
+        if(y1 == y2) {
             if (y1 > y2) {
                 for (int i = y1; i > y2 ; i--) {
                     res = res && this.map.isOpenDoor(this.map.getCell(new Position(x1,i)), Location.NORTH);
