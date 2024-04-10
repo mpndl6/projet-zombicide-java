@@ -68,4 +68,8 @@ public class Game {
         }
         return res;
     }
+
+    public Map getMap(){
+        return this.map;
+    }
 }

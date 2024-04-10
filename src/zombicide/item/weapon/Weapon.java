@@ -101,7 +101,7 @@ public abstract class Weapon extends Item {
                     for(int i = 0 ; i < this.damage ; i++){
                         zombie.takeDamage();
                     }
-                    this.survivor.getCell().makenoise();
+                    this.survivor.getCell().makeNoise();
                     return true;
                 }
             }
@@ -113,7 +113,7 @@ public abstract class Weapon extends Item {
                     for(int i = 0 ; i < this.damage ; i++){
                         zombie.takeDamage();
                     }
-                    this.survivor.getCell().makenoise();
+                    this.survivor.getCell().makeNoise();
                     return true;
                 }
             }

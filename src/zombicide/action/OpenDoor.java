@@ -1,7 +1,6 @@
 package zombicide.action;
 
 import exception.IsWallException;
-import exception.NoSuchItemException;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.map.Map;
@@ -22,6 +21,7 @@ protected Callable callable;
  */
 public OpenDoor(Survivor s, Map map) {
     super(s);
+    this.map=map;
 }
 
 /**

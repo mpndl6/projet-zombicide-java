@@ -23,6 +23,7 @@ public class Pistol extends Weapon implements CanOpenDoor {
      */
     public Pistol(){
         super(0,1,1,4);
+        this.map=super.survivor.getGame().getMap();
     }
     /**
      * Abstract method to determine the number of dice rolls needed for this weapon.
