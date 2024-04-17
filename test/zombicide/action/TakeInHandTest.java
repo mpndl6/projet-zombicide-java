@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import exception.FullBackpackException;
 import org.junit.Test;
+import zombicide.action.actionSurvivor.TakeInHand;
 import zombicide.actor.survivor.Survivor;
 import zombicide.item.Item;
 import zombicide.item.utility.FirstAidKit;

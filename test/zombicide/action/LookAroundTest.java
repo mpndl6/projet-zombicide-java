@@ -2,6 +2,7 @@ package zombicide.action;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Test;
+import zombicide.action.actionSurvivor.LookAround;
 import zombicide.actor.survivor.Survivor;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;

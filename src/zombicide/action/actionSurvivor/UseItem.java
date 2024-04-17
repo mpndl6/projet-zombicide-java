@@ -1,6 +1,6 @@
-package zombicide.action;
+package zombicide.action.actionSurvivor;
 
-import exception.NoSuchItemException;
+import zombicide.action.actionSurvivor.ActionSurvivor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.item.Item;

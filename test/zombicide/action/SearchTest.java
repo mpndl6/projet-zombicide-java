@@ -3,10 +3,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import exception.FullBackpackException;
 import org.junit.Test;
+import zombicide.action.actionSurvivor.Search;
 import zombicide.actor.survivor.Survivor;
 import zombicide.item.Item;
 import zombicide.item.utility.FirstAidKit;
-import zombicide.item.utility.IRGoogles;
 import zombicide.item.utility.Vial;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;

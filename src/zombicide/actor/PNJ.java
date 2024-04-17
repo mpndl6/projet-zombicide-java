@@ -1,9 +1,7 @@
 package zombicide.actor;
 
-import zombicide.action.LookAround;
-import zombicide.action.Search;
+import zombicide.action.actionSurvivor.Search;
 import zombicide.actor.survivor.Survivor;
-import zombicide.actor.zombie.type.Walker;
 import zombicide.item.Item;
 import zombicide.item.utility.Vial;
 import zombicide.item.weapon.*;

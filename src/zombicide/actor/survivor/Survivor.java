@@ -2,6 +2,7 @@ package zombicide.actor.survivor;
 import exception.FullBackpackException;
 import exception.NoSuchItemException;
 import zombicide.action.*;
+import zombicide.action.actionSurvivor.*;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
 import zombicide.callable.Callable;

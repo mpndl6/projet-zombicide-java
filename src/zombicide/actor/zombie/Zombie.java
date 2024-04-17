@@ -1,9 +1,9 @@
 package zombicide.actor.zombie;
 
 import zombicide.action.Action;
-import zombicide.action.ActionZombie;
-import zombicide.action.*;
-import zombicide.action.AttackZombie;
+import zombicide.action.actionZombie.ActionZombie;
+import zombicide.action.actionZombie.AttackZombie;
+import zombicide.action.actionZombie.MoveAsideZombie;
 import zombicide.actor.Actor;
 import zombicide.actor.ActorType;
 import zombicide.callable.Callable;

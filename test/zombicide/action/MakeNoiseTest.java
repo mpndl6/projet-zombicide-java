@@ -4,8 +4,7 @@ import org.junit.Test;
 import zombicide.actor.survivor.Survivor;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
-import zombicide.action.MakeNoise;
-import zombicide.map.cell.Street;
+import zombicide.action.actionSurvivor.MakeNoise;
 
 public class MakeNoiseTest {
 

@@ -1,4 +1,5 @@
-package zombicide.action;
+package zombicide.action.actionSurvivor;
+import zombicide.action.Action;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 

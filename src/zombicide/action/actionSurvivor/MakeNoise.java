@@ -1,9 +1,10 @@
-package zombicide.action;
+package zombicide.action.actionSurvivor;
 
+import zombicide.action.actionSurvivor.ActionSurvivor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 
-public class MakeNoise extends ActionSurvivor{
+public class MakeNoise extends ActionSurvivor {
 
     /**
      * Constructor for the makeNoise action.

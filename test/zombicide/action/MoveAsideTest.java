@@ -1,13 +1,13 @@
 package zombicide.action;
 
 import zombicide.Game;
+import zombicide.action.actionSurvivor.MoveAside;
 import zombicide.actor.survivor.Survivor;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Test;
 import zombicide.map.Map;
 import zombicide.map.TrainingMap2;
 import zombicide.map.cell.Cell;
-import zombicide.map.cell.Room;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 

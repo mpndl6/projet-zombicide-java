@@ -1,14 +1,13 @@
 package zombicide.action;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import zombicide.action.actionSurvivor.OpenDoor;
+import zombicide.action.actionSurvivor.TakeInHand;
 import zombicide.actor.survivor.Survivor;
 import zombicide.item.CanOpenDoor;
-import zombicide.item.Item;
 import zombicide.item.utility.MasterKey;
 import zombicide.item.utility.Vial;
-import zombicide.item.weapon.Pistol;
 import zombicide.map.Map;
 import java.util.*;
 import zombicide.map.*;

@@ -1,6 +1,7 @@
 package zombicide.action;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Test;
+import zombicide.action.actionZombie.AttackZombie;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.type.Walker;

@@ -1,5 +1,6 @@
-package zombicide.action;
+package zombicide.action.actionZombie;
 
+import zombicide.action.actionZombie.ActionZombie;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * This action attack is for the zombies that attack Survivors
  */
-public class AttackZombie extends  ActionZombie{
+public class AttackZombie extends ActionZombie {
 
     /**
      *

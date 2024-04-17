@@ -1,21 +1,18 @@
-package zombicide.action;
+package zombicide.action.actionSurvivor;
 
 import exception.IsWallException;
 import zombicide.Game;
+import zombicide.action.actionSurvivor.ActionSurvivor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.map.Map;
 import zombicide.item.*;
 import zombicide.map.util.Location;
-import zombicide.actor.zombie.ZombieType;
-
-import static zombicide.actor.zombie.ZombieType.createZombie;
-import static zombicide.actor.zombie.ZombieType.random;
 
 /**
  * This action permits to open a door
  */
-public class OpenDoor extends ActionSurvivor{
+public class OpenDoor extends ActionSurvivor {
 
 protected Map map;
 protected Callable callable;

@@ -2,6 +2,8 @@ package zombicide.action;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import zombicide.action.actionSurvivor.TakeInHand;
+import zombicide.action.actionSurvivor.UseItem;
 import zombicide.actor.survivor.Survivor;
 import zombicide.item.Item;
 import zombicide.item.utility.FirstAidKit;

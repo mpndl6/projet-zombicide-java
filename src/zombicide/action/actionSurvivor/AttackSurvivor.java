@@ -1,9 +1,8 @@
-package zombicide.action;
+package zombicide.action.actionSurvivor;
+import zombicide.action.actionSurvivor.ActionSurvivor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
-import zombicide.actor.zombie.type.Walker;
 import zombicide.callable.Callable;
-import zombicide.item.Item;
 import zombicide.item.weapon.*;
 
 /**

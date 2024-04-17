@@ -1,10 +1,5 @@
 package zombicide.map;
 
-import zombicide.action.Action;
-import zombicide.action.OpenDoor;
-import zombicide.action.TakeInHand;
-import zombicide.actor.Actor;
-import zombicide.actor.survivor.Survivor;
 import zombicide.map.cell.Cell;
 
 import java.util.*;

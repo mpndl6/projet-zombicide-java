@@ -1,5 +1,6 @@
-package zombicide.action;
+package zombicide.action.actionZombie;
 
+import zombicide.action.actionZombie.AttackZombie;
 import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
 import zombicide.map.Map;
@@ -7,7 +8,7 @@ import zombicide.map.cell.Cell;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
-public class MoveAsideZombie extends AttackZombie{
+public class MoveAsideZombie extends AttackZombie {
     /**
      * @param z
      */

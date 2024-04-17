@@ -1,7 +1,8 @@
 package zombicide;
 
 import grid.Grid;
-import zombicide.action.*;
+import zombicide.action.actionSurvivor.*;
+import zombicide.action.actionZombie.ActionZombie;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.survivor.type.Fighter;
 import zombicide.actor.survivor.type.Healer;
@@ -14,12 +15,9 @@ import zombicide.actor.zombie.type.Walker;
 import zombicide.item.Item;
 import zombicide.item.utility.Vial;
 import zombicide.item.weapon.Axe;
-import zombicide.item.weapon.Carabine;
 import zombicide.map.Map;
 import zombicide.map.TrainingMap3;
 import zombicide.map.cell.Cell;
-import listchooser.util.*;
-import listchooser.*;
 import zombicide.map.cell.StreetWW;
 import zombicide.map.cell.room.Continental;
 import zombicide.map.util.Location;
