@@ -2,11 +2,15 @@ package zombicide;
 
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
+import zombicide.actor.zombie.ZombieType;
 import zombicide.map.Map;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
 import java.util.*;
+
+import static zombicide.actor.zombie.ZombieType.createZombie;
+import static zombicide.actor.zombie.ZombieType.random;
 
 /**
  *
@@ -68,6 +72,16 @@ public class Game {
         }
         return res;
     }
+    public void spawnZombies(int random){
+        int n = (int)(Math.random() * random);
+        for(int i=0;i<n;i++){
+            ZombieType randomType = random();
+            Zombie zombie = createZombie(randomType);
+            Position location =  this.map.getPositionOFWaster(Location.EAST);
+            addZombieGame(zombie);
+            this.map.putActorONCell(zombie,location);
+
+    }}
 
     public Map getMap(){
         return this.map;
