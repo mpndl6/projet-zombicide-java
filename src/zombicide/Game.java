@@ -77,7 +77,7 @@ public class Game {
         for(int i=0;i<n;i++){
             ZombieType randomType = random();
             Zombie zombie = createZombie(randomType);
-            Position location =  this.map.getPositionOFWaster(Location.EAST);
+            Position location =  this.map.getPositionOFWaster(Location.randomLocation());
             addZombieGame(zombie);
             this.map.putActorONCell(zombie,location);
 
