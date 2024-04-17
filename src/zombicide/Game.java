@@ -13,7 +13,7 @@ import static zombicide.actor.zombie.ZombieType.createZombie;
 import static zombicide.actor.zombie.ZombieType.random;
 
 /**
- *
+ * Class of the game
  */
 public class Game {
     protected Map map;
@@ -21,8 +21,8 @@ public class Game {
     protected List<Zombie> listZombies;
 
     /**
-     *
-     * @param map
+     * Construct a new game with  map at construction
+     * @param map the map of the game
      */
     public Game(Map map) {
         this.map = map;
@@ -31,10 +31,10 @@ public class Game {
     }
 
     /**
-     *
-     * @param p1
-     * @param p2
-     * @return
+     * Verify if there's doors open between two positions
+     * @param p1 first position
+     * @param p2 second position
+     * @return true the doors between are open
      */
     public boolean doorsBetween(Position p1, Position p2) {
         int x1 = p1.getX();
@@ -72,6 +72,11 @@ public class Game {
         }
         return res;
     }
+
+    /**
+     * swapan Random zombies
+     * @param random how many zombies can be spawn
+     */
     public void spawnZombies(int random){
         int n = (int)(Math.random() * random);
         for(int i=0;i<n;i++){
@@ -83,13 +88,26 @@ public class Game {
 
     }}
 
+    /**
+     * Retrieves the map of the game
+     * @return the map of the game
+     */
     public Map getMap(){
         return this.map;
     }
 
+    /**
+     * Add a survivor to the game
+     * @param s the survivors we want to add
+     */
     public void addSurvivorGame(Survivor s){
         listSurvivors.add(s);
     }
+
+    /**
+     * Add a zombie to the game
+     * @param z the zombie we want to add
+     */
     public void addZombieGame(Zombie z){
         listZombies.add(z);
     }
