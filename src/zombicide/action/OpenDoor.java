@@ -1,11 +1,16 @@
 package zombicide.action;
 
 import exception.IsWallException;
+import zombicide.Game;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.map.Map;
 import zombicide.item.*;
 import zombicide.map.util.Location;
+import zombicide.actor.zombie.ZombieType;
+
+import static zombicide.actor.zombie.ZombieType.createZombie;
+import static zombicide.actor.zombie.ZombieType.random;
 
 /**
  * This action permits to open a door
@@ -50,9 +55,11 @@ public boolean make(Callable callable) {
         System.out.println("the survivor doesn't have the correct item on hand.");
         return false;
     }
-        try {
+    Game game  = this.survivor.getGame();
+    try {
             CanOpenDoor itemOpenable = ((CanOpenDoor) this.survivor.getWhatINHand());
             itemOpenable.open( (Location)callable);
+            game.spawnZombies(3);
             return true;
         }
         catch (IsWallException is) {
