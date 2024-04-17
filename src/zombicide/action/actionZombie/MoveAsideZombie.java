@@ -8,6 +8,8 @@ import zombicide.map.cell.Cell;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
+import java.util.Random;
+
 public class MoveAsideZombie extends AttackZombie {
     /**
      * @param z
@@ -23,6 +25,65 @@ public class MoveAsideZombie extends AttackZombie {
     @Override
     public boolean canMakeAction() {
         return true;
+    }
+
+    /**
+     * Indicate to the zombie the area with the most level of noise
+     * @return the location for the zombie to go
+     */
+    protected Location whereToGo(){
+        Cell cell = this.zombie.getCell();
+        Position p = cell.getPosition();
+        int xCell = p.getX();
+        int yCell = p.getY();
+        Map map = this.zombie.getGame().getMap();
+
+        Cell noisier = map.NoisierCell();
+        if(noisier.getPosition().getX()==xCell || noisier.getPosition().getX()==yCell) {
+            if (xCell - noisier.getPosition().getX() > 0)
+                return Location.NORTH;
+            if (yCell - noisier.getPosition().getY()>0)
+                return Location.WEST;
+            else if (xCell - noisier.getPosition().getX()<0)
+                return Location.SOUTH;
+            else if (yCell - noisier.getPosition().getY()<0)
+                return Location.EAST;
+        }
+        Random random = new Random();
+        int dir =  random.nextInt(2);
+        if (xCell - noisier.getPosition().getX() >0 & yCell - noisier.getPosition().getY()>0){
+            switch (dir){
+                case 0:
+                    return Location.WEST;
+                case 1:
+                    return Location.NORTH;
+            }
+        }
+        if (xCell - noisier.getPosition().getX() <0 & yCell - noisier.getPosition().getY()>0){
+            switch (dir){
+                case 0:
+                    return Location.WEST;
+                case 1:
+                    return Location.SOUTH;
+            }
+        }
+        if (xCell - noisier.getPosition().getX() >0 & yCell - noisier.getPosition().getY()<0){
+            switch (dir){
+                case 0:
+                    return Location.EAST;
+                case 1:
+                    return Location.NORTH;
+            }
+        }
+        if (xCell - noisier.getPosition().getX() <0 & yCell - noisier.getPosition().getY()<0){
+            switch (dir){
+                case 0:
+                    return Location.EAST;
+                case 1:
+                    return Location.SOUTH;
+            }
+        }
+        return whereToGo();
     }
 
     /**
@@ -43,7 +104,7 @@ public class MoveAsideZombie extends AttackZombie {
             System.out.println("Survivor is trying to go outside of the Map!");
             return false;
         }
-        Location l = (Location)callable;
+        Location l = whereToGo();
         switch (l){
             case NORTH:
                 if(!(map.isWall(cell,l) && map.isOpenDoor(cell,l))) {
