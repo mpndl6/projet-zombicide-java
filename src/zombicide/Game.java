@@ -4,6 +4,7 @@ import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.ZombieType;
 import zombicide.map.Map;
+import zombicide.map.cell.Cell;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
@@ -110,5 +111,7 @@ public class Game {
      */
     public void addZombieGame(Zombie z){
         listZombies.add(z);
-    }
-}
+    }}
+
+
+
