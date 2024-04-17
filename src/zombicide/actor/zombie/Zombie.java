@@ -42,6 +42,8 @@ protected List<ActionZombie> listActionZombie;
     /**
      * Permet de récuperer une action qu'on va utiliser pour le zombie
      * @param a index of the listActionZombie
+     * 0 : move
+     * 1 : attack
      * @return an of  the list
      */
  public ActionZombie getAction(int a){
