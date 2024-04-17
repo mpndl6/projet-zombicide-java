@@ -57,6 +57,21 @@ Map implements Callable {
     }
 
     /**
+     * Retrieves the noisier cell of the map
+     * @return the noisier cell
+     */
+    public Cell NoisierCell(){
+        Cell noisier = this.cells[0][0];
+        for (int w = 0; w < this.width; w++) {
+            for (int h = 0; h < this.heigth; h++) {
+                if( this.cells[w][h].getNoiseLevel() > noisier.getNoiseLevel())
+                    noisier = this.cells[w][h];
+            }
+        }
+        return noisier;
+    }
+
+    /**
      * Places waste water objects at specified positions on the map.
      * Wastewater objects are placed at the edges of
      * the plan in relation to the main crossroads.
