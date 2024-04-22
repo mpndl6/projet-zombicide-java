@@ -1,7 +1,5 @@
 package zombicide.action;
-
-import exception.NoSuchItemException;
-import zombicide.actor.survivor.Survivor;
+import zombicide.actor.Actor;
 import zombicide.callable.Callable;
 
 /**
@@ -16,16 +14,10 @@ public interface Action extends Callable {
     boolean make(Callable callable);
 
     /**
-     * Gets the cost of the action that will be required
-     * This method should be implemented by concrete classes
+     * Retrieves to actor linked to the action
+     * @return the actor linked to the action
      */
-     int getCost();
-
-    /**
-    * Tells if the actionc can be realised
-    * @return true if the action can be realised
-     */
-     boolean canMakeAction();
+    Actor getActor();
 }
 
 
