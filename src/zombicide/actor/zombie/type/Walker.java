@@ -12,8 +12,9 @@ public class Walker extends Zombie{
         super(WALKER_NN,WALKER_DAMAGES,1);
     }
 
-    public void makeAction(Action action, Callable callable){
-        action.make(callable);
-        action.make(callable);
+    public boolean makeAction(Action action, Callable callable){
+       boolean firstAction =  action.make(callable);
+       boolean secondACtion =  action.make(callable);
+       return firstAction & secondACtion;
     }
 }
