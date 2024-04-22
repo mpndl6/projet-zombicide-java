@@ -31,7 +31,7 @@ protected List<Item> backPack;
 protected int actionPoint;
 protected ActorType typeOfActor;
 private static Random randomNB = new Random( );
-List<Action> actions;
+Map<String, Action> actions;
 
 /**
  *  Construct a survivor with their name in parameter.
@@ -51,12 +51,12 @@ public Survivor(String name){
     item.addSurvivor(this);
     this.inHand = item;
     this.nickName=name;
-    this.actions = new ArrayList<>();
+    this.actions = new HashMap<>();
     initAction(); //init the list
 }
 
 /**
- * Gets th type of actr the survivor is
+ * Gets th type of actor the survivor is
  *@return type of Actor
  */
 public ActorType getTypeOfActor() {
@@ -311,14 +311,32 @@ return description+"";
      * Init the list of actions of the current survivor
      */
     protected void initAction(){
-        actions.add(new MoveAside(this));
-        actions.add(new OpenDoor(this, null)); //for now
-        actions.add(new Search(this));
-        actions.add(new TakeInHand(this));
-        actions.add(new UseItem(this));
-        actions.add(new AttackSurvivor(this));
-        actions.add(new LookAround(this));
-        actions.add(new MakeNoise(this));
+        ActionSurvivor move = new MoveAside(this);
+        ActionSurvivor open = new OpenDoor(this, null);
+        ActionSurvivor search = new Search(this);
+        ActionSurvivor take = new TakeInHand(this);
+        ActionSurvivor use = new UseItem(this);
+        ActionSurvivor attack = new AttackSurvivor(this);
+        ActionSurvivor look = new LookAround(this);
+        ActionSurvivor makeNoise = new MakeNoise(this);
+
+
+        actions.put(move.toString(), move);
+        actions.put(open.toString(), open); //for now
+        actions.put(search.toString(), search);
+        actions.put(take.toString(), take);
+        actions.put(use.toString(), use);
+        actions.put(attack.toString(), attack);
+        actions.put(look.toString(), look);
+        actions.put(makeNoise.toString(), makeNoise);
+    }
+
+    /**
+     * Permits to add an action to the list of actions
+     * @param action the action to add
+     */
+    public void addAction(ActionSurvivor action){
+        this.actions.put(action.toString(), action);
     }
 
     /**
