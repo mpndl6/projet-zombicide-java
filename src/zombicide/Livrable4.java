@@ -49,7 +49,7 @@ public class Livrable4 {
         Action moveWalker = walker.getAction(0);
         while (!walker.getCell().equals(cellGab) & walker.makeAction(moveWalker, cellGab)){
             grid.displayGrid();
-        }
+        } // quand ça ne montre rien c'est parce que le zombie veut aller à droit (c'est aléatoire) sauf qu'il ne peut pas il faut re run
 
     }
 
