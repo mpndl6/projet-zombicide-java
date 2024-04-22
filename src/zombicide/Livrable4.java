@@ -33,38 +33,23 @@ public class Livrable4 {
         game.addZombieGame(walker);
 
         Grid grid = new Grid(trainningMap, 10);
-        grid.displayGrid();
         trainningMap.putActorONCell(walker, new Position(4,2));
 
-        grid.displayGrid();
+        Cell cellJul = trainningMap.getCell(new Position(2,4));
+        cellJul.welcomeActor(new Survivor("jul"));
 
-        Cell cell = trainningMap.getCell(new Position(2,4));
-        cell.welcomeActor(new Survivor("jul"));
-        cell.makeNoise();
-        System.out.println(cell.getNoiseLevel());
+        Cell cellGab = trainningMap.getCell(new Position(1,3));
+        cellGab.welcomeActor(new Survivor("gab"));
+
+
+        cellJul.makeNoise();
+        cellGab.makeNoise();
+
+        grid.displayGrid();
         Action moveWalker = walker.getAction(0);
-        walker.makeAction(moveWalker, walker);
-
-        grid.displayGrid();
-        walker.makeAction(moveWalker, walker);
-        grid.displayGrid();
-        walker.makeAction(moveWalker, walker);
-        grid.displayGrid();
-        walker.makeAction(moveWalker, walker);
-        grid.displayGrid();
-        walker.makeAction(moveWalker, walker);
-        grid.displayGrid();
-        walker.makeAction(moveWalker, walker);
-        grid.displayGrid();
-        walker.makeAction(moveWalker, walker);
-        grid.displayGrid();
-        walker.makeAction(moveWalker, walker);
-        grid.displayGrid();
-        walker.makeAction(moveWalker, walker);
-        grid.displayGrid();
-        walker.makeAction(moveWalker, walker);
-        grid.displayGrid();
-
+        while (!walker.getCell().equals(cellGab) & walker.makeAction(moveWalker, cellGab)){
+            grid.displayGrid();
+        }
 
     }
 
