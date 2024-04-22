@@ -84,7 +84,13 @@ public String toString(){
 
 }
 
-    public boolean makeAction(Action action, Callable callable){
+    /**
+     * Permits to the zombie to make an action
+     * @param action the action wanted
+     * @param callable the callable needed
+     * @return true if the action has been made correctly
+     */
+    public boolean makeAction(ActionZombie action, Callable callable){
         return action.make(callable);
     }
 

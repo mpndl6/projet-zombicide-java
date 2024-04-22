@@ -2,6 +2,7 @@ package zombicide;
 
 import grid.Grid;
 import zombicide.action.Action;
+import zombicide.action.actionZombie.ActionZombie;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
@@ -46,7 +47,7 @@ public class Livrable4 {
         cellGab.makeNoise();
 
         grid.displayGrid();
-        Action moveWalker = walker.getAction(0);
+        ActionZombie moveWalker = walker.getAction(0);
         while (!walker.getCell().equals(cellGab) & walker.makeAction(moveWalker, cellGab)){
             grid.displayGrid();
         } // quand ça ne montre rien c'est parce que le zombie veut aller à droit (c'est aléatoire) sauf qu'il ne peut pas il faut re run
