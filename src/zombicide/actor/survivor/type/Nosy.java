@@ -1,6 +1,7 @@
 package zombicide.actor.survivor.type;
 
 import zombicide.action.Action;
+import zombicide.action.actionSurvivor.ActionSurvivor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 
@@ -30,7 +31,7 @@ public class Nosy extends Survivor {
      * @return true if the action has been done successfully
      */
     @Override
-    public boolean makeAction(Action action, Callable callable){
+    public boolean makeAction(ActionSurvivor action, Callable callable){
         boolean actionMade = false;
         if (firstSearchFree) {
             firstSearchFree = false;
