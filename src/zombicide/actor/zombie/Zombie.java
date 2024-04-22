@@ -84,8 +84,8 @@ public String toString(){
 
 }
 
-    public void makeAction(Action action, Callable callable){
-        action.make(callable);
+    public boolean makeAction(Action action, Callable callable){
+        return action.make(callable);
     }
 
 
