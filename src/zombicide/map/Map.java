@@ -174,7 +174,7 @@ Map implements Callable {
      * @param l Location of the door
      * @return true if current door is open and false else
      */
-C''    public boolean isOpenDoor(Cell current ,Location l) {
+    public boolean isOpenDoor(Cell current ,Location l) {
         int xCell = current.getPosition().getX();
         int yCell = current.getPosition().getY();
 
