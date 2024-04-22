@@ -179,6 +179,7 @@ Map implements Callable {
         int yCell = current.getPosition().getY();
 
         if (isWall(current, l)) {
+            System.out.println("It's a wall.");
             return false;
         }
         if (current instanceof Room)
