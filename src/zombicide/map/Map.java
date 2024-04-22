@@ -174,15 +174,16 @@ Map implements Callable {
      * @param l Location of the door
      * @return true if current door is open and false else
      */
-    public boolean isOpenDoor(Cell current ,Location l)  {
+C''    public boolean isOpenDoor(Cell current ,Location l) {
         int xCell = current.getPosition().getX();
         int yCell = current.getPosition().getY();
 
-        if (isWall(current, l)){
+        if (isWall(current, l)) {
             return false;
         }
         if (current instanceof Room)
             return ((Room) current).isOpen(l);
+
         switch (l) {
             case NORTH:
                 Cell up = this.cells[xCell-1][yCell];
@@ -205,7 +206,7 @@ Map implements Callable {
                     return ((Room) right).isOpen(Location.WEST);
                 break;
         }
-        return false;
+        return true;
     }
 
     /**
