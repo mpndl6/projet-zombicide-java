@@ -12,14 +12,15 @@ import java.util.List;
 /**
  * This action attack is for the zombies that attack Survivors
  */
-public class AttackZombie extends ActionZombie {
+public class AttackZombie implements ActionZombie {
+    protected Zombie zombie;
 
     /**
-     *
-     * @param z
+     * Construct a AttackZombie
+     * @param z the zombie linked to this method
      */
     public AttackZombie(Zombie z) {
-        super(z);
+        this.zombie = z;
     }
 
     /**
@@ -52,12 +53,12 @@ public class AttackZombie extends ActionZombie {
     }
 
     /**
-     * The zombie can always attack a survivor on the same cell as its
-     * @return true, always
+     * Retrieves the zombie linked to this action
+     * @return the zombie linked to this action
      */
     @Override
-    public boolean canMakeAction() {
-        return true;
+    public Actor getActor() {
+        return this.zombie;
     }
 
 

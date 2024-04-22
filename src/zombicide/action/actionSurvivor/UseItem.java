@@ -1,6 +1,7 @@
 package zombicide.action.actionSurvivor;
 
 import zombicide.action.actionSurvivor.ActionSurvivor;
+import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.item.Item;
@@ -8,13 +9,17 @@ import zombicide.item.Item;
 /**
  * Permits to a survivor to use an Item
  */
-public class UseItem extends ActionSurvivor {
+public class UseItem implements ActionSurvivor {
+
+    protected static final int USE_ITEM_COST = 1;
+    protected Survivor survivor;
+
     /**
      * Constructs a new ActionSurvivor object with the specified Survivor.
      * @param s the Survivor associated with this action.
      */
     public UseItem(Survivor s) {
-        super(s);
+        this.survivor = s;
     }
 
     /**
@@ -24,7 +29,21 @@ public class UseItem extends ActionSurvivor {
      */
     @Override
     public boolean canMakeAction() {
-        return super.survivor.getWhatINHand()!=null;
+        return survivor.getWhatINHand()!=null;
+    }
+
+    @Override
+    public int getCost() {
+        return USE_ITEM_COST;
+    }
+
+    /**
+     * Retrieves the survivor linked to this action
+     * @return the survivor linked to this action
+     */
+    @Override
+    public Actor getActor() {
+        return this.survivor;
     }
 
     /**
@@ -38,7 +57,7 @@ public class UseItem extends ActionSurvivor {
             System.out.println("There's no item in their hand.");
             return false;
         }
-        Item i = super.survivor.getWhatINHand();
+        Item i = survivor.getWhatINHand();
         //i.addSurvivor(this.survivor); <- déjà géré autrepart ça normalement
         try {
             i.use(callable);

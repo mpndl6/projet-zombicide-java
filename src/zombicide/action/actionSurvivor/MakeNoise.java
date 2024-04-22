@@ -1,17 +1,21 @@
 package zombicide.action.actionSurvivor;
 
 import zombicide.action.actionSurvivor.ActionSurvivor;
+import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 
-public class MakeNoise extends ActionSurvivor {
+public class MakeNoise implements ActionSurvivor {
+
+    protected Survivor survivor;
+    protected static final int MAKE_NOISE_COST = 0;
 
     /**
      * Constructor for the makeNoise action.
      * @param s The survivor performing the action
      */
     public MakeNoise(Survivor s) {
-        super(s);
+        this.survivor = s;
     }
 
     /**
@@ -21,6 +25,16 @@ public class MakeNoise extends ActionSurvivor {
     @Override
     public boolean canMakeAction() {
         return true;
+    }
+
+    @Override
+    public int getCost() {
+        return MAKE_NOISE_COST;
+    }
+
+    @Override
+    public Actor getActor() {
+        return this.survivor;
     }
 
     /**

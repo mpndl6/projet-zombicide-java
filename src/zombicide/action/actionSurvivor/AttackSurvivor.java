@@ -1,5 +1,6 @@
 package zombicide.action.actionSurvivor;
 import zombicide.action.actionSurvivor.ActionSurvivor;
+import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
@@ -8,14 +9,15 @@ import zombicide.item.weapon.*;
 /**
  * This is the class of the action that permits to attack a zombie, by a survivor.
  */
-public class AttackSurvivor extends ActionSurvivor {
+public class AttackSurvivor implements ActionSurvivor {
 
+    protected Survivor survivor;
     /**
      * Constructs an AttackSurvivor with a survivor at construction
      * @param s the survivor that will attack
      */
     public AttackSurvivor(Survivor s) {
-        super(s);
+        this.survivor = s;
     }
 
     /**
@@ -25,6 +27,16 @@ public class AttackSurvivor extends ActionSurvivor {
     @Override
     public boolean canMakeAction() {
         return this.survivor.getWhatINHand() instanceof Weapon;
+    }
+
+    @Override
+    public int getCost() {
+        return 0;
+    }
+
+    @Override
+    public Actor getActor() {
+        return this.survivor;
     }
 
     /**

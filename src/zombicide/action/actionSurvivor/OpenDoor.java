@@ -3,6 +3,7 @@ package zombicide.action.actionSurvivor;
 import exception.IsWallException;
 import zombicide.Game;
 import zombicide.action.actionSurvivor.ActionSurvivor;
+import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.map.Map;
@@ -12,17 +13,18 @@ import zombicide.map.util.Location;
 /**
  * This action permits to open a door
  */
-public class OpenDoor extends ActionSurvivor {
+public class OpenDoor implements ActionSurvivor {
 
 protected Map map;
 protected Callable callable;
+protected Survivor survivor;
 
 /**
  * Constructs a new ActionSurvivor object with the specified Survivor.
  * @param s the Survivor associated with this action.
  */
 public OpenDoor(Survivor s, Map map) {
-    super(s);
+    this.survivor = s;
     this.map=map;
 }
 
@@ -81,7 +83,12 @@ public boolean make(Callable callable) {
  */
     @Override
     public boolean canMakeAction() {
-        return (super.survivor.getWhatINHand() instanceof CanOpenDoor);
+        return (this.survivor.getWhatINHand() instanceof CanOpenDoor);
+    }
+
+    @Override
+    public Actor getActor() {
+        return this.survivor;
     }
 
 

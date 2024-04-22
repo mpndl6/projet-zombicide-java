@@ -1,19 +1,24 @@
 package zombicide.action.actionSurvivor;
 
 import exception.FullBackpackException;
-import zombicide.action.actionSurvivor.ActionSurvivor;
+import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.item.Item;
 
-public class TakeInHand extends ActionSurvivor {
+/**
+ * Class Take In Hand
+ */
+public class TakeInHand implements ActionSurvivor {
+    protected static final int TAKE_IN_HAND_COST = 1;
+    protected Survivor survivor;
 
     /**
      * Constructs a new LookAround object with the specified Survivor.
      * @param s the Survivor associated with this action.
      */
     public TakeInHand(Survivor s) {
-        super(s);
+        this.survivor = s;
     }
 
     /**
@@ -29,8 +34,26 @@ public class TakeInHand extends ActionSurvivor {
         return true;
     }
 
+    /**
+     * Retrieves the cost of this action
+     * @return the cost of the Action TakeInHand
+     */
+    @Override
+    public int getCost() {
+        return TAKE_IN_HAND_COST;
+    }
 
-/**
+    /**
+     * Retrieves the survivor linked to this action
+     * @return the survivor linked to this action
+     */
+    @Override
+    public Actor getActor() {
+        return this.survivor;
+    }
+
+
+    /**
  * Performs the action of taking an item from the survivor's backpack and placing it in their hand.
  * If the survivor already has an item in hand, that item is placed back in the backpack.
  *
