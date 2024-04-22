@@ -1,6 +1,5 @@
 package zombicide.action.actionSurvivor;
 
-import zombicide.action.actionSurvivor.ActionSurvivor;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
@@ -58,7 +57,6 @@ public class UseItem implements ActionSurvivor {
             return false;
         }
         Item i = survivor.getWhatINHand();
-        //i.addSurvivor(this.survivor); <- déjà géré autrepart ça normalement
         try {
             i.use(callable);
         }

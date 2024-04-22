@@ -1,6 +1,5 @@
 package zombicide.action.actionZombie;
 
-import zombicide.action.actionZombie.ActionZombie;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
