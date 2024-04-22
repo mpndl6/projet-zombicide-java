@@ -1,6 +1,5 @@
 package zombicide.action.actionZombie;
 
-import zombicide.action.actionZombie.AttackZombie;
 import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
 import zombicide.map.Map;
@@ -10,9 +9,14 @@ import zombicide.map.util.Position;
 
 import java.util.Random;
 
+/**
+ * Class MoveAside for the zombies
+ */
 public class MoveAsideZombie extends AttackZombie {
     /**
-     * @param z
+     * Construct a action move aside Zombie
+     * Permits to a zombie to move
+     * @param z the zombie linked to this action
      */
     public MoveAsideZombie(Zombie z) {
         super(z);
