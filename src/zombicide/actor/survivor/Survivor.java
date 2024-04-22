@@ -328,7 +328,7 @@ return description+"";
  * @return true if the action has been made with success
  * @throws Exception an Exception depending on the action. The method can throw 0 exception in certain cases
  */
-public boolean makeAction(Action action, Callable callable){
+public boolean makeAction(ActionSurvivor action, Callable callable){
 
 boolean actionMade = action.make(callable);
 if (actionMade) {
