@@ -91,7 +91,7 @@ public class MoveAsideZombie extends MoveAside {
     /**
      * This methode moves the zombie to a specific cell.
      * zombies have cell and those cell can have different positions.
-     * @param callable a callable, here it's an instance of Location
+     * @param callable a callable, here it's an instance of Cell
      * @return true if the zombie has moved eventually
      */
     @Override
