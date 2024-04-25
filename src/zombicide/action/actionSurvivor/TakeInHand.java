@@ -6,6 +6,9 @@ import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.item.Item;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Class Take In Hand
  */
@@ -44,6 +47,20 @@ public class TakeInHand implements ActionSurvivor {
     }
 
     /**
+     * Gives all the item present in t
+     * @return
+     */
+    @Override
+    public List<Callable> getChoices() {
+        List<Callable> newList = new ArrayList<>();
+        for(Item i : this.survivor.getAllInBackpack())
+            newList.add(i);
+        for(Item i : this.survivor.getCell().getItems())
+            newList.add(i);
+        return newList;
+    }
+
+    /**
      * Retrieves the survivor linked to this action
      * @return the survivor linked to this action
      */
@@ -59,7 +76,6 @@ public class TakeInHand implements ActionSurvivor {
  *
  * @param callable The item to take from the backpack and place in hand.
  * @return true if the action is performed successfully, false otherwise.
- * @throws FullBackpackException If the backpack is full after taking an item.
  * */
     @Override
     public boolean make(Callable callable){
