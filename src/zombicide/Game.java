@@ -1,10 +1,15 @@
 package zombicide;
 
+import listchooser.ListChooser;
+import listchooser.RandomListChooser;
+import zombicide.action.Action;
+import zombicide.action.actionSurvivor.ActionSurvivor;
+import zombicide.action.actionZombie.ActionZombie;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
-import zombicide.actor.survivor.SurvivorsLevel;
 import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.ZombieType;
+import zombicide.callable.Callable;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
@@ -196,22 +201,54 @@ public class Game {
     }
 
     /**
-     * Reset all the actionPoint of survivors.(According to the current level of the survivors)
+     *
      */
-    public void SetActionPointSurvivor(){
-        for(Survivor s:listSurvivors){
-            if(s.getCurrentLevel()== SurvivorsLevel.STARTING_LEVEL){
-                s.setActionPoint(3);
+    public Cell getRandomNoiseCell(){
+        return map.NoisierCell();
+    }
+
+
+    /**
+     * Run the game
+     */
+    public void run() {
+        ListChooser<ActionSurvivor> actionSurvivorListChooser = new RandomListChooser<>();
+        ListChooser<Callable> choices = new RandomListChooser<>();
+        while (isFinished()) {
+
+            for (Survivor s : listSurvivors) {
+                while (s.getActionPoint() != 0) {
+                    System.out.println(s);
+
+                    ActionSurvivor action = actionSurvivorListChooser.choose("CHOOSE ONE", s.getActions());
+                    List<Callable> actionChoises = action.getChoices();
+                    Callable choice;
+                    if (!actionChoises.isEmpty())
+                        choice = choices.choose("WHICH ONE?", actionChoises);
+                    else
+                        choice = s;
+                    s.makeAction(action, choice);
+                    System.out.println(s + " just made the action :" + action);
+                }
+
             }
-            if(s.getCurrentLevel()==SurvivorsLevel.THIRD_LEVEL){
-                s.setActionPoint(4);
+
+            for (Zombie zombie : listZombies) {
+                ActionZombie actionAttack = zombie.getAction(1);
+                if (actionAttack.make(zombie.getCell())) {
+                    System.out.println("Le zombie a attaque");
+                } else {
+                    ActionZombie actionMove = zombie.getAction(0);
+                    zombie.makeAction(actionMove, this.getRandomNoiseCell());
+                    System.out.println(zombie + " has moved.");
+                }
+
             }
-            if(s.getCurrentLevel()==SurvivorsLevel.SEVENTH_LEVEL){
-                s.setActionPoint(5);
-            }
-            if(s.getCurrentLevel()==SurvivorsLevel.ELEVENTH_LEVEL){
-                s.setActionPoint(6);
-            }
-        }
+            this.removeDeadActors();
+            this.NoiseDown();
+            this.s
+
+        } //fin du while
+
     }
 }
