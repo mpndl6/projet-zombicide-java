@@ -8,7 +8,6 @@ import zombicide.callable.Callable;
 import zombicide.map.Map;
 import zombicide.item.*;
 import zombicide.map.util.Location;
-import zombicide.map.util.Position;
 
 import java.util.ArrayList;
 import java.util.List;
