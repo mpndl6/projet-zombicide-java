@@ -21,7 +21,7 @@ public Actor(String name, int lp){
     this.lifePoint = lp;
     this.alive = true;
     this.kills=0;
-    this.game=null;
+    this.game = null;
 }
 
 /**
