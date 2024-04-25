@@ -3,7 +3,6 @@ package zombicide.action.actionSurvivor;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
-
 import java.util.List;
 
 /**
@@ -41,7 +40,7 @@ public class MakeNoise implements ActionSurvivor {
     }
 
     /**
-     * Return null beaucause there's no choices, but the current cell the survivor is in, to make noise
+     * Return null because there's no choices, but the current cell the survivor is in, to make noise
      * @return null
      */
     @Override
