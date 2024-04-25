@@ -113,6 +113,16 @@ public int getNoiseLevel() {
  *
  * */
 public void makeNoise(){ this.noiseLevel++;}
+
+/**
+ * Turn the noise level of the cell to 0
+ */
+public void shutDownNoise(){
+	this.noiseLevel = 0;
+}
+
+
+
 /**
  * Adds an item to the room.
  * @param i The item to be added.
