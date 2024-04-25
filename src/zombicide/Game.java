@@ -19,7 +19,7 @@ import static zombicide.actor.zombie.ZombieType.random;
  */
 public class Game {
 
-    public static final int GLOBAL_XP = 30;
+    public static final int MAX_GLOBAL_XP = 30;
 
     protected Map map;
     protected List<Survivor> listSurvivors;
@@ -125,15 +125,60 @@ public class Game {
      * Add an actor to the game
      * @param a the actor we want to add
      */
-    public void addActor(Actor a){
+    public void addActorGame(Actor a){
         actors.add(a);
     }
 
     /**
-     *
+     * Remove an actor to the game
+     * @param a the actor e want to remove
+     */
+    public void removeActorGame(Actor a){
+        actors.remove(a);
+        if (listSurvivors.contains(a)) {
+            listSurvivors.remove(a);
+            return;
+        }
+        if(listZombies.contains(a)){
+            listZombies.remove(a);
+        }
+    }
+
+    /**
+     * Remove all the dead ones
+     */
+    public void removeDeadActors(){
+        for (Actor a : actors)
+            if (!a.isAlive())
+                this.removeActorGame(a);
+    }
+
+    /**
+     * Retrives the Global XP of the survivors
+     * @return the global xp of the survivors
+     */
+    public int getGlobalXP(){
+        int cpt =0;
+        for (Survivor s : listSurvivors)
+            cpt+= s.getXP();
+        return cpt;
+    }
+
+    /**
+     * Tells if the game is finished or not
+     * @return true if the game is finished
      */
     public boolean isFinished(){
-        for (Actor a : )
+        for(Survivor s : listSurvivors)
+            if(s.isAlive())
+                return false;
+        for(Zombie z : listZombies)
+            if(z.isAlive())
+                return false;
+        if (getGlobalXP() == MAX_GLOBAL_XP)
+            return true;
+
+        return true;
     }
 
 }
