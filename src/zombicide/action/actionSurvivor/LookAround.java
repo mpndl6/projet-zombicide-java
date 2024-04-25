@@ -30,7 +30,7 @@ public LookAround(Survivor s) {
 /**
  * init the list of choices doable
  */
-public void initCallables(){
+protected void initCallables(){
     this.choices.add(Location.NORTH);
     this.choices.add(Location.SOUTH);
     this.choices.add(Location.EAST);
@@ -40,6 +40,7 @@ public void initCallables(){
 /**
  * Retrieves the list of choices the survivors can make with this action
  * @return the list of choices
+ * @see ActionSurvivor#getChoices()
  */
 public List<Callable> getChoices(){
     return this.choices;
@@ -54,14 +55,22 @@ public boolean canMakeAction(){
     return true;
 }
 
+    /**
+     * the cost of this action
+     * @return the amount of the cost of this action
+     */
     @Override
     public int getCost() {
         return LOOK_AROUND_COST;
     }
 
+    /***
+     * Return the actor linked to this action
+     * @return
+     */
     @Override
     public Actor getActor() {
-        return null;
+        return this.survivor;
     }
 
     /**
