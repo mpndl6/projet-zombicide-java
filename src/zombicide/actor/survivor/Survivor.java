@@ -1,6 +1,7 @@
 package zombicide.actor.survivor;
 import exception.FullBackpackException;
 import exception.NoSuchItemException;
+import zombicide.Game;
 import zombicide.action.*;
 import zombicide.action.actionSurvivor.*;
 import zombicide.actor.Actor;
@@ -86,14 +87,6 @@ public SurvivorsLevel getCurrentLevel(){
     return SurvivorsLevel.ELEVENTH_LEVEL;
 }
 
-
-/**
- * Gets the nickname of  the survivor
- * @return the nickname of the survivor
- */
-public String getNickName(){
-    return this.nickName;
-}
 
 /**
  * Gets the number of action points of the survivor
@@ -317,12 +310,13 @@ return description+"";
         return actions.get(a);
     }
 
+
     /**
      * Init the list of actions of the current survivor
      */
     protected void initAction(){
         ActionSurvivor move = new MoveAside(this);
-        ActionSurvivor open = new OpenDoor(this, this.getGame().getMap());
+       // ActionSurvivor open = new OpenDoor(this, this.getGame().getMap());
         ActionSurvivor search = new Search(this);
         ActionSurvivor take = new TakeInHand(this);
         ActionSurvivor use = new UseItem(this);
@@ -332,7 +326,7 @@ return description+"";
 
 
         actions.add(move);
-        actions.add(open);
+       // actions.add(open);
         actions.add(search);
         actions.add(take);
         actions.add( use);
@@ -363,7 +357,6 @@ return description+"";
  * @param action The action wanted by the survivor
  * @param callable any object in this game that is callable. Will be cast depending on the action.
  * @return true if the action has been made with success
- * @throws Exception an Exception depending on the action. The method can throw 0 exception in certain cases
  */
 public boolean makeAction(ActionSurvivor action, Callable callable){
 

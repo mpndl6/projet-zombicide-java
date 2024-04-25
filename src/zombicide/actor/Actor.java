@@ -89,8 +89,15 @@ public void setCell(Cell c){
  */
 public void setGame(Game g){
         this.game = g;
-
     }
+
+/**
+ * Gets the nickname of  the survivor
+ * @return the nickname of the survivor
+ */
+public String getNickName(){
+    return this.nickName;
+}
 
 
 /**
