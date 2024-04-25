@@ -53,7 +53,6 @@ public Survivor(String name){
     this.inHand = item;
     this.nickName=name;
     this.actions = new ArrayList<>();
-    initAction(); //init the list
 }
 
 /**
@@ -279,7 +278,7 @@ public int diceThrows(int howMany){
  * @return the description of the survivor
  */
 public String toString(){
-String description=  "Survivor name : "+ super.nickName;
+String description=  "Survivor name : "+ super.nickName+"\nPosition : "+this.getCell().getPosition();
         if (this.alive) {
             description += "\nStatus : alive";
             description += "\nPoint de vie : " + this.lifePoint;
@@ -310,30 +309,6 @@ return description+"";
         return actions.get(a);
     }
 
-
-    /**
-     * Init the list of actions of the current survivor
-     */
-    protected void initAction(){
-        ActionSurvivor move = new MoveAside(this);
-       // ActionSurvivor open = new OpenDoor(this, this.getGame().getMap());
-        ActionSurvivor search = new Search(this);
-        ActionSurvivor take = new TakeInHand(this);
-        ActionSurvivor use = new UseItem(this);
-        ActionSurvivor attack = new AttackSurvivor(this);
-        ActionSurvivor look = new LookAround(this);
-        ActionSurvivor makeNoise = new MakeNoise(this);
-
-
-        actions.add(move);
-       // actions.add(open);
-        actions.add(search);
-        actions.add(take);
-        actions.add( use);
-        actions.add(attack);
-        actions.add(look);
-        actions.add(makeNoise);
-    }
 
 
     /**
