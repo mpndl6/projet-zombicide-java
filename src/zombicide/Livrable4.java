@@ -26,11 +26,13 @@ public class Livrable4 {
 
         Map trainningMap = new TrainingMap3(listrooms, liststreets);
         Game game = new Game(trainningMap);
+        game.setMap(trainningMap);
         walker.setGame(game);
         walker.setGame(game);
         game.addZombieGame(walker);
 
-        Grid grid = new Grid(trainningMap, 15);
+
+      /*  Grid grid = new Grid(trainningMap, 15);
         trainningMap.putActorONCell(walker, new Position(4, 2));
 
         Cell cellJul = trainningMap.getCell(new Position(2, 4));
@@ -47,8 +49,21 @@ public class Livrable4 {
         ActionZombie moveWalker = walker.getAction(0);
         while (!walker.getCell().equals(cellGab) & walker.makeAction(moveWalker, cellGab)) {
             grid.displayGrid();
-        } // quand ça ne montre rien c'est parce que le zombie veut aller à droit (c'est aléatoire) sauf qu'il ne peut pas il faut re run
+        } */// quand ça ne montre rien c'est parce que le zombie veut aller à droit (c'est aléatoire) sauf qu'il ne peut pas il faut re run
 
+        Game game2 = new Game(trainningMap);
+        System.out.println(game2.getMap());
+        game2.setMap(trainningMap);
+        Survivor gab = new Survivor("gab");
+        Survivor jul = new Survivor("jul");
+        Survivor youss = new Survivor("youss");
+
+        game2.addSurvivorGame(gab);
+        game2.addSurvivorGame(jul);
+
+        System.out.println(gab.getGame());
+        game2.run();
+        System.out.println(game2.getMap());
 
     }
 }
