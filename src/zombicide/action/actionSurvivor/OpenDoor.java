@@ -87,7 +87,6 @@ public int getCost() {
 @Override
 public List<Callable> getChoices() {
     List<Callable> newList = new ArrayList<>();
-    Position positionSurvivor = this.survivor.getCell().getPosition();
     Map mapOfSurvivor = this.survivor.getGame().getMap();
     newList.add(Location.NORTH);
     newList.add(Location.WEST);
