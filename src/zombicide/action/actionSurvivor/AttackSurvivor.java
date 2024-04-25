@@ -14,6 +14,7 @@ import java.util.List;
 public class AttackSurvivor implements ActionSurvivor {
 
     protected Survivor survivor;
+    public static final int ATTACK_COST =1;
     /**
      * Constructs an AttackSurvivor with a survivor at construction
      * @param s the survivor that will attack
@@ -37,7 +38,7 @@ public class AttackSurvivor implements ActionSurvivor {
      */
     @Override
     public int getCost() {
-        return 0;
+        return ATTACK_COST;
     }
 
     /**
@@ -71,13 +72,18 @@ public class AttackSurvivor implements ActionSurvivor {
      */
     @Override
     public boolean make(Callable callable){
-        if(!canMakeAction()){
+        if(!canMakeAction() || !(callable instanceof Zombie)){
             System.out.println("There's no weapon in their hand");
             return false;
         }
+
         Zombie zombie = (Zombie)callable;
         Weapon weapon = (Weapon)this.survivor.getWhatINHand();
         return weapon.attack(zombie);
+    }
+
+    public String toString(){
+        return "attack";
     }
 
 }
