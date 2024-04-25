@@ -2,6 +2,7 @@ package zombicide;
 
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
+import zombicide.actor.survivor.SurvivorsLevel;
 import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.ZombieType;
 import zombicide.map.Map;
@@ -194,4 +195,23 @@ public class Game {
 
     }
 
+    /**
+     * Reset all the actionPoint of survivors.(According to the current level of the survivors)
+     */
+    public void SetActionPointSurvivor(){
+        for(Survivor s:listSurvivors){
+            if(s.getCurrentLevel()== SurvivorsLevel.STARTING_LEVEL){
+                s.setActionPoint(3);
+            }
+            if(s.getCurrentLevel()==SurvivorsLevel.THIRD_LEVEL){
+                s.setActionPoint(4);
+            }
+            if(s.getCurrentLevel()==SurvivorsLevel.SEVENTH_LEVEL){
+                s.setActionPoint(5);
+            }
+            if(s.getCurrentLevel()==SurvivorsLevel.ELEVENTH_LEVEL){
+                s.setActionPoint(6);
+            }
+        }
+    }
 }
