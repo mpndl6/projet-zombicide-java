@@ -55,7 +55,12 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
             return false;
 
         Location l = (Location)callable;
-        if (!canMakeAction()  ||map.isWall(cell,l) || !map.isOpenDoor(cell,l)) {
+        if (!canMakeAction()) {
+            return false;
+        }
+
+        if (map.isWall(cell,l) || map.isWall(cell,l)) {
+            System.out.println(this.actor.getNickName() + " tried to reach a wall or a door.\n Action move has not been succesful.\n");
             return false;
         }
 
