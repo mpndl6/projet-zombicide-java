@@ -312,7 +312,7 @@ return description+"";
      */
     protected void initAction(){
         ActionSurvivor move = new MoveAside(this);
-        ActionSurvivor open = new OpenDoor(this, null);
+        ActionSurvivor open = new OpenDoor(this, this.getGame().getMap());
         ActionSurvivor search = new Search(this);
         ActionSurvivor take = new TakeInHand(this);
         ActionSurvivor use = new UseItem(this);
