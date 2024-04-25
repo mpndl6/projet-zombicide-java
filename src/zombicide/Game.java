@@ -1,5 +1,6 @@
 package zombicide;
 
+import grid.Grid;
 import listchooser.ListChooser;
 import listchooser.RandomListChooser;
 import zombicide.action.Action;
@@ -33,6 +34,7 @@ public class Game {
     protected List<Survivor> listSurvivors;
     protected List<Zombie> listZombies;
     protected List<Actor> actors;
+    protected Grid grid;
 
     /**
      * Construct a new game with  map at construction
@@ -43,6 +45,7 @@ public class Game {
         this.listSurvivors = new ArrayList<>();
         this.listZombies = new ArrayList<>();
         this.actors = new ArrayList<>();
+        this.grid = new Grid(map, 15);
     }
 
     /**
@@ -101,7 +104,8 @@ public class Game {
             addZombieGame(zombie);
             this.map.putActorONCell(zombie,location);
 
-    }}
+    }
+    }
 
     /**
      * Retrieves the map of the game
@@ -177,16 +181,21 @@ public class Game {
      * @return true if the game is finished
      */
     public boolean isFinished(){
-        for(Survivor s : listSurvivors)
-            if(s.isAlive())
-                return false;
-        for(Zombie z : listZombies)
-            if(z.isAlive())
-                return false;
-        if (getGlobalXP() == MAX_GLOBAL_XP)
-            return true;
+        boolean ok = true;
+        for(Survivor s : listSurvivors) {
+            if (s.isAlive())
+                ok = false;
+        }
 
-        return true;
+        for(Zombie z : listZombies) {
+            if (z.isAlive())
+                ok = false;
+        }
+
+        if (getGlobalXP() == MAX_GLOBAL_XP)
+            ok = true;
+
+        return ok;
     }
 
     /**
@@ -226,6 +235,23 @@ public class Game {
         return map.NoisierCell();
     }
 
+    /**
+     *
+     */
+    public int howManyZombiesToGenerate(){
+        Random random = new Random();
+        int randomZombies;
+        int zombiesToGenerate;
+        int averageExperience;
+        int totalExperience = 0;
+        for (Survivor s : listSurvivors){
+            totalExperience += s.getXP();
+        }
+        averageExperience = totalExperience/listSurvivors.size();
+        zombiesToGenerate = averageExperience/3;
+
+        return  zombiesToGenerate;
+    }
 
     /**
      * Run the game
@@ -233,11 +259,14 @@ public class Game {
     public void run() {
         ListChooser<ActionSurvivor> actionSurvivorListChooser = new RandomListChooser<>();
         ListChooser<Callable> choices = new RandomListChooser<>();
+        int i = 1;
         while (isFinished()) {
-
+            System.out.println("TOUR N°"+i);
             for (Survivor s : listSurvivors) {
+                System.out.println("Phase des survivants");
                 while (s.getActionPoint() != 0) {
                     System.out.println(s);
+                    this.grid.displayGrid();
 
                     ActionSurvivor action = actionSurvivorListChooser.choose("CHOOSE ONE", s.getActions());
                     List<Callable> actionChoises = action.getChoices();
@@ -251,21 +280,27 @@ public class Game {
                 }
 
             }
+            if(!listZombies.isEmpty()){
 
-            for (Zombie zombie : listZombies) {
-                ActionZombie actionAttack = zombie.getAction(1);
-                if (actionAttack.make(zombie.getCell())) {
-                    System.out.println("Le zombie a attaque");
-                } else {
-                    ActionZombie actionMove = zombie.getAction(0);
-                    zombie.makeAction(actionMove, this.getRandomNoiseCell());
-                    System.out.println(zombie + " has moved.");
+                for (Zombie zombie : listZombies) {
+                    System.out.println("Phase des zombies");
+
+                    ActionZombie actionAttack = zombie.getAction(1);
+                    if (actionAttack.make(zombie.getCell())) {
+                        System.out.println("Le zombie a attaque");
+                    } else {
+                        ActionZombie actionMove = zombie.getAction(0);
+                        zombie.makeAction(actionMove, this.getRandomNoiseCell());
+                        System.out.println(zombie + " has moved.");
+                    }
+
                 }
-
             }
             this.removeDeadActors();
             this.NoiseDown();
-            this.s
+            this.SetActionPointSurvivor();
+            this.spawnZombies(5);
+            i++;
 
         } //fin du while
 
