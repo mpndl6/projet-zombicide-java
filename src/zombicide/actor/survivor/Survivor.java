@@ -169,7 +169,15 @@ public void decreaseActionPoints(int nb){
     this.actionPoint= this.actionPoint - nb;
 }
 
+
 /**
+ * set the amount of p action point
+ * @param p the amount
+ */
+public void setActionPoint(int p){
+    this.actionPoint = p;
+}
+    /**
  * Tells if the survivor has an item on their hand
  * @return true if survivor has an item on hand
  */
