@@ -80,10 +80,10 @@ public class TakeInHand implements ActionSurvivor {
     @Override
     public boolean make(Callable callable){
         Item itemInHand = survivor.getWhatINHand();
-        Item newItem = (Item) callable;
-        if (!canMakeAction())
-            return false;
 
+        if (!canMakeAction() || !(callable instanceof Item))
+            return false;
+        Item newItem = (Item) callable;
         if (itemInHand != null) {
             try {
                 survivor.putItemInBackpack(itemInHand);
@@ -97,4 +97,8 @@ public class TakeInHand implements ActionSurvivor {
 // On géra dans game le fait qu'il veuille potentiellement jeter quelque chose sur la cell
         return true;
 }
+
+    public String toString(){
+        return "take in hand";
+    }
 }

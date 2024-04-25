@@ -10,6 +10,7 @@ import zombicide.map.Map;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ import java.util.List;
 public class MoveAside implements ActionSurvivor, ActionZombie {
 
     protected Actor actor;
+    public static final int MOVE_COST =1;
 
     /**
      * Constructs a new ActionSurvivor object with the specified Survivor.
@@ -49,6 +51,8 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
         int xCell = p.getX();
         int yCell = p.getY();
         Map map = this.actor.getGame().getMap();
+        if (!(callable instanceof Location))
+            return false;
 
         Location l = (Location)callable;
         if (!canMakeAction()  ||map.isWall(cell,l) || !map.isOpenDoor(cell,l)) {
@@ -58,23 +62,23 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
         switch (l) {
             case NORTH:
                 map.putActorONCell(this.actor, new Position(xCell - 1, yCell));
-                System.out.println("up");
+                System.out.println(actor.getNickName()+" moved to upside.");
                 return true;
             case SOUTH:
                 map.putActorONCell(this.actor, new Position(xCell + 1, yCell));
-                System.out.println("down");
+                System.out.println(actor.getNickName()+" moved to downside.");
                 return true;
             case EAST:
                 map.putActorONCell(this.actor, new Position(xCell, yCell + 1));
-                System.out.println("east");
+                System.out.println(actor.getNickName()+" moved to the right.");
                 return true;
             case WEST:
                 map.putActorONCell(this.actor, new Position(xCell, yCell - 1));
-                System.out.println("west");
+                System.out.println(actor.getNickName()+" moved to left.");
                 return true;
 
             default:
-                System.out.println("le zombie ne peut pas bouger");
+                System.out.println("cannot move");
                 return false;
 
         }
@@ -86,7 +90,7 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
      */
     @Override
     public int getCost() {
-        return 0;
+        return MOVE_COST;
     }
 
     /**
@@ -96,7 +100,17 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
      */
     @Override
     public List<Callable> getChoices() {
-        return null;
+        List<Callable> newList = new ArrayList<>();
+        Map mapOfSurvivor = this.actor.getGame().getMap();
+        newList.add(Location.NORTH);
+        newList.add(Location.WEST);
+        newList.add(Location.EAST);
+        newList.add(Location.SOUTH);
+        for(Callable l : newList){
+            if (mapOfSurvivor.isWall(this.actor.getCell(), (Location)l))
+                newList.remove(l);
+        }
+        return newList;
     }
 
     /**

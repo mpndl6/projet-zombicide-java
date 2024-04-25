@@ -10,6 +10,7 @@ import zombicide.item.Item;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -58,7 +59,7 @@ protected Survivor survivor;
      */
     @Override
     public List<Callable> getChoices() {
-        return null;
+        return new ArrayList<>();
     }
 
     /**
@@ -128,5 +129,9 @@ protected Survivor survivor;
             }
         }
         return false;
+    }
+
+    public String toString(){
+        return "search";
     }
 }

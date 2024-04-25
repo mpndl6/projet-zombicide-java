@@ -20,6 +20,7 @@ public class OpenDoor implements ActionSurvivor {
 protected Map map;
 protected Callable callable;
 protected Survivor survivor;
+public static final int OPEN_COST = 1;
 
 /**
  * Constructs a new ActionSurvivor object with the specified Survivor.
@@ -75,7 +76,7 @@ public boolean make(Callable callable) {
  */
 @Override
 public int getCost() {
-    return 0;
+    return OPEN_COST;
 }
 
 /**

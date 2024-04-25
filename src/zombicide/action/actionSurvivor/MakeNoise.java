@@ -3,6 +3,8 @@ package zombicide.action.actionSurvivor;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +13,7 @@ import java.util.List;
 public class MakeNoise implements ActionSurvivor {
 
     protected Survivor survivor;
-    protected static final int MAKE_NOISE_COST = 0;
+    protected static final int MAKE_NOISE_COST = 1;
 
     /**
      * Constructor for the makeNoise action.
@@ -45,7 +47,7 @@ public class MakeNoise implements ActionSurvivor {
      */
     @Override
     public List<Callable> getChoices() {
-        return null;
+        return new ArrayList<>();
     }
 
     /**
@@ -70,5 +72,9 @@ public class MakeNoise implements ActionSurvivor {
             return true;
         }
         return false;
+    }
+
+    public String toString(){
+        return "make noise";
     }
 }

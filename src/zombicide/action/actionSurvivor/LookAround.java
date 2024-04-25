@@ -88,4 +88,8 @@ public boolean make(Callable callable){
     }
     return false;
 }
+
+    public String toString(){
+        return "look around";
+    }
 }

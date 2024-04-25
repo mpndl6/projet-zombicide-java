@@ -50,8 +50,7 @@ public class UseItem implements ActionSurvivor {
     @Override
     public List<Callable> getChoices() {
         List<Callable> newList = new ArrayList<>();
-        for (Item i : this.survivor.getAllInBackpack())
-            newList.add(i);
+            newList.add(this.survivor.getWhatINHand());
         return newList;
     }
 
@@ -84,5 +83,9 @@ public class UseItem implements ActionSurvivor {
         }
         return true;
         }
+
+    public String toString(){
+        return "use item";
+    }
     }
 
