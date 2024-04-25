@@ -37,7 +37,7 @@ public class TakeInHand implements ActionSurvivor {
             return false;
         }
         if(this.survivor.getCell().getItems().size()==0 || this.survivor.getAllInBackpack().size()==0) {
-            System.out.println("There is nothing in the cell ");
+            System.out.println("There is nothing in the cell and nothing in the backpack, sorry.");
             return false;
         }
         return true;

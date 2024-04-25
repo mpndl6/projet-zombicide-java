@@ -69,6 +69,7 @@ public class MakeNoise implements ActionSurvivor {
     public boolean make(Callable callable){
         if(this.canMakeAction()) {
             this.survivor.getCell().makeNoise();
+            System.out.println("The noise level of the cell has just increase\n Noise Level of the cell :"+ this.survivor.getCell().getNoiseLevel());
             return true;
         }
         return false;
