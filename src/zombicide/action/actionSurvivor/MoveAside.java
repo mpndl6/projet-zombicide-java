@@ -91,4 +91,11 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
     public Actor getActor() {
         return this.actor;
     }
+
+    /**
+     *
+     */
+    public String toString(){
+        return "move";
+    }
 }

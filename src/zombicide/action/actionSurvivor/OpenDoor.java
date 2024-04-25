@@ -91,5 +91,10 @@ public boolean make(Callable callable) {
         return this.survivor;
     }
 
-
+/**
+ *
+ */
+public String toString(){
+    return "open";
+}
 }

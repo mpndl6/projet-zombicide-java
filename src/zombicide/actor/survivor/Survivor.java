@@ -31,7 +31,7 @@ protected List<Item> backPack;
 protected int actionPoint;
 protected ActorType typeOfActor;
 private static Random randomNB = new Random( );
-Map<String, Action> actions;
+Map<String, ActionSurvivor> actions;
 
 /**
  *  Construct a survivor with their name in parameter.
@@ -185,7 +185,7 @@ public void setInHand(Item i ){
     this.inHand=i;
 }
 
-    /**
+    /*
 public void putInHand(Item i) throws FullBackpackException {
     if(hasItemOnHand())
         putItemInBackpack(this.inHand);
@@ -332,6 +332,15 @@ return description+"";
     }
 
     /**
+     *
+     */
+    public ActionSurvivor getAction(String action){
+        if (!this.actions.containsKey(action))
+            return null;
+        return this.actions.get(action);
+    }
+
+    /**
      * Permits to add an action to the list of actions
      * @param action the action to add
      */
@@ -347,6 +356,7 @@ return description+"";
  * @throws Exception an Exception depending on the action. The method can throw 0 exception in certain cases
  */
 public boolean makeAction(ActionSurvivor action, Callable callable){
+
 
 boolean actionMade = action.make(callable);
 if (actionMade) {
