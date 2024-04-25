@@ -7,7 +7,9 @@ import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.map.Map;
 import zombicide.item.*;
+import zombicide.map.cell.Room;
 import zombicide.map.util.Location;
+import zombicide.map.util.Position;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,9 +59,30 @@ public boolean make(Callable callable) {
         System.out.println("the survivor doesn't have the correct item in hand.");
         return false;
     }
+    Position survivorPos = this.survivor.getCell().getPosition();
     Game game  = this.survivor.getGame();
     Location l = (Location)callable;
-    //Gerer le fait que si la localisation ou il veut ouvrir la porte n'est pas une room alors retourner false et afficher qu'il n'y a aucune porte
+   switch (l){
+       case SOUTH:
+           if(!(( this.map.getCell(new Position(survivorPos.getX()+1, survivorPos.getY()))) instanceof Room)){
+               System.out.println("There's no such thing as a door in the south because there's no such thing as a room there.");
+               return false;
+       }
+       case NORTH:
+           if(!(( this.map.getCell(new Position(survivorPos.getX()-1, survivorPos.getY()))) instanceof Room)){
+               System.out.println("There's no such thing as a door in the norh because there's no such thing as a room there.");
+           return false;
+   }
+       case EAST:
+           if(!(( this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY()+1))) instanceof Room)) {
+               System.out.println("There's no such thing as a door in the east because there's no such thing as a room there.");
+           return false;
+       }
+       case WEST:
+           if(!(( this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY()-1))) instanceof Room)) {
+               System.out.println("There's no such thing as a door in the west because there's no such thing as a room there.");
+           return false;
+       }
 
     try {
             CanOpenDoor itemOpenable = ((CanOpenDoor) this.survivor.getWhatINHand());
@@ -72,7 +95,8 @@ public boolean make(Callable callable) {
             return false;
         }
 }
-
+return false;
+}
 /**
  * Gets the cost of the current ACtion
  * @return the cost of this action
