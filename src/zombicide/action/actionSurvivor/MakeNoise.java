@@ -5,6 +5,11 @@ import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 
+import java.util.List;
+
+/**
+ * Class make noise, action that permits to raise the noise level of the cell of the survivor
+ */
 public class MakeNoise implements ActionSurvivor {
 
     protected Survivor survivor;
@@ -27,11 +32,28 @@ public class MakeNoise implements ActionSurvivor {
         return true;
     }
 
+    /**
+     * Retrives the cost of the action makeNoise
+     * @return the amount
+     */
     @Override
     public int getCost() {
         return MAKE_NOISE_COST;
     }
 
+    /**
+     * Return null beaucause there's no choices, but the current cell the survivor is in, to make noise
+     * @return null
+     */
+    @Override
+    public List<Callable> getChoices() {
+        return null;
+    }
+
+    /**
+     * Retrives the actor linked to this action
+     * @return the actor linked to this action
+     */
     @Override
     public Actor getActor() {
         return this.survivor;
