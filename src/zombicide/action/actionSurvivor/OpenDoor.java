@@ -2,13 +2,14 @@ package zombicide.action.actionSurvivor;
 
 import exception.IsWallException;
 import zombicide.Game;
-import zombicide.action.actionSurvivor.ActionSurvivor;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.map.Map;
 import zombicide.item.*;
 import zombicide.map.util.Location;
+
+import java.util.List;
 
 /**
  * This action permits to open a door
@@ -51,7 +52,7 @@ public Map getMap(){
 @Override
 public boolean make(Callable callable) {
     if (!canMakeAction()) {
-        System.out.println("the survivor doesn't have the correct item on hand.");
+        System.out.println("the survivor doesn't have the correct item in hand.");
         return false;
     }
     Game game  = this.survivor.getGame();
@@ -62,7 +63,7 @@ public boolean make(Callable callable) {
             return true;
         }
         catch (IsWallException is) {
-            System.out.println("It's a wall around here!!! Can be open or broke.");
+            System.out.println("It's a wall around here! Cant be open, broke or bombed with a weapon.");
             return false;
         }
 }
@@ -71,28 +72,41 @@ public boolean make(Callable callable) {
  * Gets the cost of the current ACtion
  * @return the cost of this action
  */
-    @Override
-    public int getCost() {
-        return 0;
-    }
+@Override
+public int getCost() {
+    return 0;
+}
 
+/**
+ * Retrieves the choices possible while opening a door
+ * @return the list of different location
+ * @see ActionSurvivor#getChoices()
+ */
+@Override
+public List<Callable> getChoices() {
+    return null;
+}
 /**
  * Checks if the survivor can perform the action
- *
  * @return true if the survivor has an item in hand that can open a door, false otherwise.
  */
-    @Override
-    public boolean canMakeAction() {
-        return (this.survivor.getWhatINHand() instanceof CanOpenDoor);
-    }
-
-    @Override
-    public Actor getActor() {
-        return this.survivor;
-    }
+@Override
+public boolean canMakeAction() {
+    return (this.survivor.getWhatINHand() instanceof CanOpenDoor);
+}
 
 /**
- *
+ * Return the actor linked to this action
+ * @return the actor linked to this action
+ */
+@Override
+public Actor getActor() {
+    return this.survivor;
+}
+
+/**
+ * Gives a description of the action
+ * @return the description of this action
  */
 public String toString(){
     return "open";
