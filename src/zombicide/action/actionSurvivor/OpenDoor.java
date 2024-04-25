@@ -8,7 +8,9 @@ import zombicide.callable.Callable;
 import zombicide.map.Map;
 import zombicide.item.*;
 import zombicide.map.util.Location;
+import zombicide.map.util.Position;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -84,7 +86,18 @@ public int getCost() {
  */
 @Override
 public List<Callable> getChoices() {
-    return null;
+    List<Callable> newList = new ArrayList<>();
+    Position positionSurvivor = this.survivor.getCell().getPosition();
+    Map mapOfSurvivor = this.survivor.getGame().getMap();
+    newList.add(Location.NORTH);
+    newList.add(Location.WEST);
+    newList.add(Location.EAST);
+    newList.add(Location.SOUTH);
+    for(Callable l : newList){
+        if (mapOfSurvivor.isWall(this.survivor.getCell(), (Location)l))
+            newList.remove(l);
+    }
+    return newList;
 }
 /**
  * Checks if the survivor can perform the action
