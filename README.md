@@ -252,3 +252,10 @@ On doit effectué l'appartion des zombies quand on ouvre une porte.
 
 
 ## Semaine 12
+- Nous avons crée la méthode spawnZombie pour les faire apparaitre sur les égouts aléatoirement
+- Création de la méthode randomLocation() 
+- Documentation dans la classe Game
+- Refactor du dossier Actions
+- Ajout de la méthode noisierCell()
+- Ajout de la méthode WhereToGo() dans l'action move de zombie pour qu'il se déplace vers le bruit.
+- Correction des conditions dans move 
