@@ -354,7 +354,7 @@ return description+"";
      * Return the list of the actions that can do the survivor
      * @return the List of actions.
      */
-    protected List<ActionSurvivor> getActions(){
+    public List<ActionSurvivor> getActions(){
         return actions;
     }
 
