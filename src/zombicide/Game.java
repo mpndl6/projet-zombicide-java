@@ -1,10 +1,11 @@
 package zombicide;
 
 import grid.Grid;
+import listchooser.InteractiveListChooser;
 import listchooser.ListChooser;
 import listchooser.RandomListChooser;
 import zombicide.action.Action;
-import zombicide.action.actionSurvivor.ActionSurvivor;
+import zombicide.action.actionSurvivor.*;
 import zombicide.action.actionZombie.ActionZombie;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
@@ -12,9 +13,9 @@ import zombicide.actor.survivor.SurvivorsLevel;
 import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.ZombieType;
 import zombicide.callable.Callable;
+import zombicide.item.weapon.Pistol;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
-import zombicide.map.cell.Room;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
@@ -41,11 +42,11 @@ public class Game {
      * @param map the map of the game
      */
     public Game(Map map) {
-        this.map = map;
         this.listSurvivors = new ArrayList<>();
         this.listZombies = new ArrayList<>();
         this.actors = new ArrayList<>();
         this.grid = new Grid(map, 15);
+        this.map = map;
     }
 
     /**
@@ -102,6 +103,7 @@ public class Game {
             Zombie zombie = createZombie(randomType);
             Position location =  this.map.getPositionOFWaster(Location.randomLocation());
             addZombieGame(zombie);
+            zombie.setGame(this);
             this.map.putActorONCell(zombie,location);
 
     }
@@ -122,6 +124,42 @@ public class Game {
     public void addSurvivorGame(Survivor s){
         listSurvivors.add(s);
         actors.add(s);
+        s.setGame(this);
+        this.map.putActorONCell(s,map.getCrossRoad());
+    }
+
+    /**
+     * Set a map to the game
+     * @param map the map to set
+     */
+    public void setMap(Map map){
+        this.map = map;
+    }
+
+    /**
+     * Init All the actions of a survivor
+     */
+    protected void initActionOfSurvivors(){
+        for (Survivor s : listSurvivors) {
+            ActionSurvivor move = new MoveAside(s);
+            ActionSurvivor open = new OpenDoor(s, this.map);
+            ActionSurvivor search = new Search(s);
+            ActionSurvivor take = new TakeInHand(s);
+            ActionSurvivor use = new UseItem(s);
+            ActionSurvivor attack = new AttackSurvivor(s);
+            ActionSurvivor look = new LookAround(s);
+            ActionSurvivor makeNoise = new MakeNoise(s);
+
+
+            s.addAction(move);
+            s.addAction(open);
+            s.addAction(search);
+            s.addAction(take);
+            s.addAction(use);
+            s.addAction(attack);
+            s.addAction(look);
+            s.addAction(makeNoise);
+        }
     }
 
     /**
@@ -131,6 +169,7 @@ public class Game {
     public void addZombieGame(Zombie z){
         listZombies.add(z);
         actors.add(z);
+        z.setGame(this);
     }
 
     /**
@@ -139,6 +178,7 @@ public class Game {
      */
     public void addActorGame(Actor a){
         actors.add(a);
+        a.setGame(this);
     }
 
     /**
@@ -180,23 +220,25 @@ public class Game {
      * Tells if the game is finished or not
      * @return true if the game is finished
      */
-    public boolean isFinished(){
-        boolean ok = true;
-        for(Survivor s : listSurvivors) {
-            if (s.isAlive())
-                ok = false;
+    public boolean isFinished() {
+        boolean allSurvivorsDead = true;
+        boolean allZombiesDead = true;
+        for (Survivor s : listSurvivors) {
+            if (s.isAlive()) {
+                allSurvivorsDead = false;
+                break;
+            }
         }
-
-        for(Zombie z : listZombies) {
-            if (z.isAlive())
-                ok = false;
+        for (Zombie z : listZombies) {
+            if (z.isAlive()) {
+                allZombiesDead = false;
+                break;
+            }
         }
-
-        if (getGlobalXP() == MAX_GLOBAL_XP)
-            ok = true;
-
-        return ok;
+        boolean globalXPReached = (getGlobalXP() == MAX_GLOBAL_XP);
+        return allSurvivorsDead && allZombiesDead && globalXPReached;
     }
+
 
     /**
      * Method to set all cells at 0 noise
@@ -229,14 +271,20 @@ public class Game {
         }
     }
     /**
-     *
+     * Method to get a random noisy cell
+     * @return a random noisy cell
      */
     public Cell getRandomNoiseCell(){
         return map.NoisierCell();
     }
 
+    protected void spawnRandomItem(int howmany){
+        //TODO
+    }
+
     /**
-     *
+     * Return the nb of zombie needed
+     * @return the number of zombie needed
      */
     public int howManyZombiesToGenerate(){
         Random random = new Random();
@@ -257,41 +305,59 @@ public class Game {
      * Run the game
      */
     public void run() {
-        ListChooser<ActionSurvivor> actionSurvivorListChooser = new RandomListChooser<>();
-        ListChooser<Callable> choices = new RandomListChooser<>();
+        initActionOfSurvivors();
+        ListChooser<ActionSurvivor> actionSurvivorListChooser = new InteractiveListChooser<>();
+        ListChooser<Callable> choices = new InteractiveListChooser<>();
         int i = 1;
-        while (isFinished()) {
+        System.out.println("Survivors present in the game :");
+        for(Survivor s : listSurvivors) {
+            System.out.println(s.getNickName());
+            Pistol p = (Pistol)s.getWhatINHand();
+            p.setMap(this.map);
+        }
+        System.out.println();
+
+        while (!isFinished()) {
             System.out.println("TOUR N°"+i);
+            System.out.println("PHASE DES SURVIVANTS \n");
             for (Survivor s : listSurvivors) {
-                System.out.println("Phase des survivants");
-                while (s.getActionPoint() != 0) {
-                    System.out.println(s);
+                System.out.println(s);
+
                     this.grid.displayGrid();
 
-                    ActionSurvivor action = actionSurvivorListChooser.choose("CHOOSE ONE", s.getActions());
+                    ActionSurvivor action = actionSurvivorListChooser.choose(s.getNickName()+" choose one : ", s.getActions());
                     List<Callable> actionChoises = action.getChoices();
                     Callable choice;
-                    if (!actionChoises.isEmpty())
+                    System.out.println(s.getNickName() +" choose the action : "+ action+"\n");
+                    if (!actionChoises.isEmpty()) {
                         choice = choices.choose("WHICH ONE?", actionChoises);
+                        System.out.println("CHOICE : " + choice);
+                    }
                     else
-                        choice = s;
-                    s.makeAction(action, choice);
-                    System.out.println(s + " just made the action :" + action);
-                }
+                        choice = null;
+
+                    boolean actionMade = s.makeAction(action, choice);
+                    if (actionMade)
+                    System.out.println(s.getNickName() + " just made the action :" + action+"\n");
+                    else
+                        System.out.println(s.getNickName()+" couldn't do the action : "+action);
 
             }
-            if(!listZombies.isEmpty()){
-
+          if(!listZombies.isEmpty()){
+              System.out.println("PHASE DES ZOMBIES \n");
                 for (Zombie zombie : listZombies) {
-                    System.out.println("Phase des zombies");
+
+                    grid.displayGrid();
 
                     ActionZombie actionAttack = zombie.getAction(1);
                     if (actionAttack.make(zombie.getCell())) {
-                        System.out.println("Le zombie a attaque");
-                    } else {
+                        System.out.println(zombie.getNickName()+" a attaque");
+                    }
+                    else {
                         ActionZombie actionMove = zombie.getAction(0);
-                        zombie.makeAction(actionMove, this.getRandomNoiseCell());
-                        System.out.println(zombie + " has moved.");
+                        boolean move = zombie.makeAction(actionMove, this.getRandomNoiseCell());
+                        if (!move)
+                            System.out.println(zombie.getNickName() + " tried to move but has an obstacle.");
                     }
 
                 }
@@ -299,10 +365,10 @@ public class Game {
             this.removeDeadActors();
             this.NoiseDown();
             this.SetActionPointSurvivor();
-            this.spawnZombies(5);
+            this.spawnZombies(3);
             i++;
 
         } //fin du while
-
+        System.out.println("Le jeu est terminé");
     }
 }
