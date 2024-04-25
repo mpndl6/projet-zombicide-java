@@ -54,32 +54,36 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
         if (!(callable instanceof Location))
             return false;
 
-        Location l = (Location)callable;
-        if (!canMakeAction()) {
+       else if (!canMakeAction()) {
             return false;
         }
-
-        if (map.isWall(cell,l) || map.isWall(cell,l)) {
+        Location l = (Location)callable;
+         if (map.isWall(cell,l) || map.isOpenDoor(cell,l)) {
             System.out.println(this.actor.getNickName() + " tried to reach a wall or a door.\n Action move has not been succesful.\n");
             return false;
         }
+        System.out.println(this.actor.getNickName()+" is on cell "+ this.actor.getCell().getPosition());
 
         switch (l) {
             case NORTH:
                 map.putActorONCell(this.actor, new Position(xCell - 1, yCell));
                 System.out.println(actor.getNickName()+" moved upside.");
+                System.out.println(actor.getNickName()+ " is on cell "+actor.getCell().getPosition());
                 return true;
             case SOUTH:
                 map.putActorONCell(this.actor, new Position(xCell + 1, yCell));
                 System.out.println(actor.getNickName()+" moved downside.");
+                System.out.println(actor.getNickName()+ " is on cell "+actor.getCell().getPosition());
                 return true;
             case EAST:
                 map.putActorONCell(this.actor, new Position(xCell, yCell + 1));
                 System.out.println(actor.getNickName()+" moved to the right.");
+                System.out.println(actor.getNickName()+ " is on cell "+actor.getCell().getPosition());
                 return true;
             case WEST:
                 map.putActorONCell(this.actor, new Position(xCell, yCell - 1));
                 System.out.println(actor.getNickName()+" moved to the left.");
+                System.out.println(actor.getNickName()+ " is on cell "+actor.getCell().getPosition());
                 return true;
 
             default:
