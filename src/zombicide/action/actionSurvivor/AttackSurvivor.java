@@ -73,12 +73,15 @@ public class AttackSurvivor implements ActionSurvivor {
     @Override
     public boolean make(Callable callable){
         if(!canMakeAction() || !(callable instanceof Zombie)){
-            System.out.println("There's no weapon in their hand");
+            System.out.println("There's no weapon in their hand or no zombie around.");
             return false;
         }
 
         Zombie zombie = (Zombie)callable;
         Weapon weapon = (Weapon)this.survivor.getWhatINHand();
+        System.out.println(this.survivor.getNickName()+ "has attacked "+zombie.getNickName()+"\n");
+        if (!zombie.isAlive())
+            System.out.println("The zombie died.");
         return weapon.attack(zombie);
     }
 
