@@ -3,6 +3,8 @@ import zombicide.action.Action;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 
+import java.util.List;
+
 /**
  * The abstract class ActionSurvivor represents an action that can be performed by a Survivor.
  * This class implements the Action interface.
@@ -23,9 +25,10 @@ public interface ActionSurvivor extends Action {
      int getCost();
 
     /**
-     *
+     * Retrieves the list of choices the survivors can make with this action
+     * @return the list of choices
      */
-    Callable getChoices();
+    List<Callable> getChoices();
 }
 
 
