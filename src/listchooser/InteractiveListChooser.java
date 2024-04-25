@@ -32,7 +32,7 @@ public class InteractiveListChooser<T> implements ListChooser<T> {
 			for (T element : list) {
 				System.out.println("      " + (index++) + " - " + element);
 			}
-			System.out.println("            choice ?");
+			System.out.println("Choice ?");
 			try {
 				choice = Input.readInt();
 			} catch (java.io.IOException e) {
