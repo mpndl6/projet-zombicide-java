@@ -1,10 +1,12 @@
 package zombicide.action.actionSurvivor;
-import zombicide.action.actionSurvivor.ActionSurvivor;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
 import zombicide.item.weapon.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is the class of the action that permits to attack a zombie, by a survivor.
@@ -29,16 +31,33 @@ public class AttackSurvivor implements ActionSurvivor {
         return this.survivor.getWhatINHand() instanceof Weapon;
     }
 
+    /**
+     * Return the cost of this action
+     * @return the cost of this action
+     */
     @Override
     public int getCost() {
         return 0;
     }
 
+    /**
+     * Retrieves the choices possible with this action. Here it's the zombie présent
+     * @return the list of zombies present in their cell
+     */
     @Override
-    public Callable getChoices() {
-        return null;
+    public List<Callable> getChoices() {
+        List<Callable> newList = new ArrayList<>();
+        for(Actor z : this.survivor.getCell().getActors()) {
+            if (z instanceof Zombie)
+                newList.add(z);
+        }
+        return newList;
     }
 
+    /**
+     * Retrives the actor linked to this action
+     * @return the actor linked to this action
+     */
     @Override
     public Actor getActor() {
         return this.survivor;
