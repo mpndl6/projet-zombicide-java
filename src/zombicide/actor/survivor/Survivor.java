@@ -103,6 +103,7 @@ public int getActionPoint(){
     return this.actionPoint;
 }
 
+
 /**
  * Returns what item the survivor has in hand
  * @return the item the survivor has in hand
@@ -347,6 +348,14 @@ return description+"";
      */
     public void addAction(ActionSurvivor action){
         this.actions.add(action);
+    }
+
+    /**
+     * Return the list of the actions that can do the survivor
+     * @return the List of actions.
+     */
+    protected List<ActionSurvivor> getActions(){
+        return actions;
     }
 
     /**
