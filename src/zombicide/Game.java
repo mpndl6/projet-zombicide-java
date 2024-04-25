@@ -6,6 +6,7 @@ import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.ZombieType;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
+import zombicide.map.cell.Room;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
@@ -179,6 +180,18 @@ public class Game {
             return true;
 
         return true;
+    }
+
+    /**
+     * Method to set all cells at 0 noise
+     */
+    public void NoiseDown(){
+        for (int w = 0; w < map.getWidth(); w++) {
+            for (int h = 0; h < map.getHeight(); h++) {
+                map.getCell(new Position(w,h)).shutDownNoise();
+            }
+        }
+
     }
 
 }
