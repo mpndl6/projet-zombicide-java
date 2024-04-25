@@ -10,6 +10,8 @@ import zombicide.map.Map;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
 
+import java.util.List;
+
 /**
  * This method permits to an object Actor to move aside.
  */
@@ -87,13 +89,28 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
         return 0;
     }
 
+    /**
+     * Returns the different location possible while moving aside
+     * @return the list of the differret locations
+     * @see ActionSurvivor#getChoices()
+     */
+    @Override
+    public List<Callable> getChoices() {
+        return null;
+    }
+
+    /**
+     * Retrives the actor linked to this action
+     * @return the actor linked to this action
+     */
     @Override
     public Actor getActor() {
         return this.actor;
     }
 
     /**
-     *
+     * Gives a description of this action
+     * @return the description of this action
      */
     public String toString(){
         return "move";
