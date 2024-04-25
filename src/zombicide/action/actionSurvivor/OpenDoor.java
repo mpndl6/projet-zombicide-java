@@ -65,22 +65,22 @@ public boolean make(Callable callable) {
    switch (l){
        case SOUTH:
            if(!(( this.map.getCell(new Position(survivorPos.getX()+1, survivorPos.getY()))) instanceof Room)){
-               System.out.println("There's no such thing as a door in the south because there's no such thing as a room there.");
+               System.out.println("There's no such thing as a door in the south because there's no such thing as a room there.\n");
                return false;
        }
        case NORTH:
            if(!(( this.map.getCell(new Position(survivorPos.getX()-1, survivorPos.getY()))) instanceof Room)){
-               System.out.println("There's no such thing as a door in the norh because there's no such thing as a room there.");
+               System.out.println("There's no such thing as a door in the norh because there's no such thing as a room there.\n");
            return false;
    }
        case EAST:
            if(!(( this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY()+1))) instanceof Room)) {
-               System.out.println("There's no such thing as a door in the east because there's no such thing as a room there.");
+               System.out.println("There's no such thing as a door in the east because there's no such thing as a room there.\n");
            return false;
        }
        case WEST:
            if(!(( this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY()-1))) instanceof Room)) {
-               System.out.println("There's no such thing as a door in the west because there's no such thing as a room there.");
+               System.out.println("There's no such thing as a door in the west because there's no such thing as a room there.\n");
            return false;
        }
 
@@ -91,7 +91,7 @@ public boolean make(Callable callable) {
             return true;
         }
         catch (IsWallException is) {
-            System.out.println("It's a wall around here! Cant be open, broke or bombed with a weapon.");
+            System.out.println("It's a wall around here! Cant be open, broke or bombed with a weapon.\n");
             return false;
         }
 }
