@@ -1,5 +1,6 @@
 package zombicide;
 
+import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.ZombieType;
@@ -17,9 +18,13 @@ import static zombicide.actor.zombie.ZombieType.random;
  * Class of the game
  */
 public class Game {
+
+    public static final int GLOBAL_XP = 30;
+
     protected Map map;
     protected List<Survivor> listSurvivors;
     protected List<Zombie> listZombies;
+    protected List<Actor> actors;
 
     /**
      * Construct a new game with  map at construction
@@ -29,6 +34,7 @@ public class Game {
         this.map = map;
         this.listSurvivors = new ArrayList<>();
         this.listZombies = new ArrayList<>();
+        this.actors = new ArrayList<>();
     }
 
     /**
@@ -103,6 +109,7 @@ public class Game {
      */
     public void addSurvivorGame(Survivor s){
         listSurvivors.add(s);
+        actors.add(s);
     }
 
     /**
@@ -111,7 +118,22 @@ public class Game {
      */
     public void addZombieGame(Zombie z){
         listZombies.add(z);
-    }}
+        actors.add(z);
+    }
 
+    /**
+     * Add an actor to the game
+     * @param a the actor we want to add
+     */
+    public void addActor(Actor a){
+        actors.add(a);
+    }
 
+    /**
+     *
+     */
+    public boolean isFinished(){
+        for (Actor a : )
+    }
 
+}
