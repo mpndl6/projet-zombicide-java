@@ -40,9 +40,12 @@ public class AttackZombie implements ActionZombie {
             int size = listSurvivor.size();
             int n = (int)(Math.random() * size);
             Survivor target = listSurvivor.get(n);
-            target.beingAttacked();
-            if (!target.isAlive()){
-                System.out.println(target.getNickName()+" is dead.");
+            if(target.isAlive()) {
+                target.beingAttacked();
+                System.out.println(this.zombie.getNickName() + " has attacked " + target.getNickName() + ".");
+                if (!target.isAlive()){ //après l'attaque dcp
+                    System.out.println(target.getNickName()+" is dead.");
+                }
             }
 
             return true;
