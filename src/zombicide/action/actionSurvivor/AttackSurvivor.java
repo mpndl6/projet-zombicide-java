@@ -35,6 +35,11 @@ public class AttackSurvivor implements ActionSurvivor {
     }
 
     @Override
+    public Callable getChoices() {
+        return null;
+    }
+
+    @Override
     public Actor getActor() {
         return this.survivor;
     }

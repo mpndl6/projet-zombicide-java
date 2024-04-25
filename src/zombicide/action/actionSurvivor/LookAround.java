@@ -1,9 +1,12 @@
 package zombicide.action.actionSurvivor;
 
-import zombicide.action.actionSurvivor.ActionSurvivor;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
+import zombicide.map.util.Location;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The LookAround class represents an action where a Survivor looks around.
@@ -11,7 +14,7 @@ import zombicide.callable.Callable;
  * This class extends the ActionSurvivor abstract class.
  */
 public class LookAround implements ActionSurvivor {
-
+    protected List<Callable> choices;
     protected Survivor survivor;
     public static final int LOOK_AROUND_COST = 0;
 
@@ -21,6 +24,25 @@ public class LookAround implements ActionSurvivor {
  */
 public LookAround(Survivor s) {
     this.survivor = s;
+    this.choices = new ArrayList<>();
+}
+
+/**
+ * init the list of choices doable
+ */
+public void initCallables(){
+    this.choices.add(Location.NORTH);
+    this.choices.add(Location.SOUTH);
+    this.choices.add(Location.EAST);
+    this.choices.add(Location.WEST);
+}
+
+/**
+ * Retrieves the list of choices the survivors can make with this action
+ * @return the list of choices
+ */
+public List<Callable> getChoices(){
+    return this.choices;
 }
 
 /**

@@ -22,6 +22,10 @@ public interface ActionSurvivor extends Action {
      */
      int getCost();
 
+    /**
+     *
+     */
+    Callable getChoices();
 }
 
 
