@@ -31,7 +31,7 @@ protected List<Item> backPack;
 protected int actionPoint;
 protected ActorType typeOfActor;
 private static Random randomNB = new Random( );
-Map<String, ActionSurvivor> actions;
+List<ActionSurvivor> actions;
 
 /**
  *  Construct a survivor with their name in parameter.
@@ -51,7 +51,7 @@ public Survivor(String name){
     item.addSurvivor(this);
     this.inHand = item;
     this.nickName=name;
-    this.actions = new HashMap<>();
+    this.actions = new ArrayList<>();
     initAction(); //init the list
 }
 
@@ -306,6 +306,7 @@ String description=  "Survivor name : "+ super.nickName;
 return description+"";
 
 }
+
     /**
      * Permet de récuperer une action qu'on va utiliser pour le zombie
      * @param a index of the listActionZombie
@@ -329,31 +330,23 @@ return description+"";
         ActionSurvivor makeNoise = new MakeNoise(this);
 
 
-        actions.put(move.toString(), move);
-        actions.put(open.toString(), open); //for now
-        actions.put(search.toString(), search);
-        actions.put(take.toString(), take);
-        actions.put(use.toString(), use);
-        actions.put(attack.toString(), attack);
-        actions.put(look.toString(), look);
-        actions.put(makeNoise.toString(), makeNoise);
+        actions.add(move);
+        actions.add(open);
+        actions.add(search);
+        actions.add(take);
+        actions.add( use);
+        actions.add(attack);
+        actions.add(look);
+        actions.add(makeNoise);
     }
 
-    /**
-     *
-     */
-    public ActionSurvivor getAction(String action){
-        if (!this.actions.containsKey(action))
-            return null;
-        return this.actions.get(action);
-    }
 
     /**
      * Permits to add an action to the list of actions
      * @param action the action to add
      */
     public void addAction(ActionSurvivor action){
-        this.actions.put(action.toString(), action);
+        this.actions.add(action);
     }
 
     /**
