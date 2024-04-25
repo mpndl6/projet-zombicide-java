@@ -70,8 +70,8 @@ public class UseItem implements ActionSurvivor {
      */
     @Override
     public boolean make(Callable callable){
-        if(!this.canMakeAction()) {
-            System.out.println("There's no item in their hand.");
+        if(!this.canMakeAction() || callable==null) {
+            System.out.println("There's no item to use.\n");
             return false;
         }
         Item i = survivor.getWhatINHand();
