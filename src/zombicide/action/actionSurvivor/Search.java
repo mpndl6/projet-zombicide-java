@@ -10,6 +10,8 @@ import zombicide.item.Item;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
 
+import java.util.List;
+
 /**
  * Class of Search
  */
@@ -46,7 +48,17 @@ protected Survivor survivor;
      */
     @Override
     public int getCost() {
-        return 0;
+        return SEARCH_COST;
+    }
+
+    /**
+     * Return null because there's no choices, but the current cell the survivor is in, to make noise
+     * @return null
+     * @see ActionSurvivor#getChoices()
+     */
+    @Override
+    public List<Callable> getChoices() {
+        return null;
     }
 
     /**
