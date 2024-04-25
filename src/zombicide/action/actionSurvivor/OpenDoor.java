@@ -62,28 +62,28 @@ public boolean make(Callable callable) {
     Position survivorPos = this.survivor.getCell().getPosition();
     Game game  = this.survivor.getGame();
     Location l = (Location)callable;
-   switch (l){
+   switch (l) {
        case SOUTH:
-           if(!(( this.map.getCell(new Position(survivorPos.getX()+1, survivorPos.getY()))) instanceof Room)){
+           if (!((this.map.getCell(new Position(survivorPos.getX() + 1, survivorPos.getY()))) instanceof Room)) {
                System.out.println("There's no such thing as a door in the south because there's no such thing as a room there.\n");
                return false;
-       }
+           }
        case NORTH:
-           if(!(( this.map.getCell(new Position(survivorPos.getX()-1, survivorPos.getY()))) instanceof Room)){
+           if (!((this.map.getCell(new Position(survivorPos.getX() - 1, survivorPos.getY()))) instanceof Room)) {
                System.out.println("There's no such thing as a door in the norh because there's no such thing as a room there.\n");
-           return false;
-   }
+               return false;
+           }
        case EAST:
-           if(!(( this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY()+1))) instanceof Room)) {
+           if (!((this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY() + 1))) instanceof Room)) {
                System.out.println("There's no such thing as a door in the east because there's no such thing as a room there.\n");
-           return false;
-       }
+               return false;
+           }
        case WEST:
-           if(!(( this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY()-1))) instanceof Room)) {
+           if (!((this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY() - 1))) instanceof Room)) {
                System.out.println("There's no such thing as a door in the west because there's no such thing as a room there.\n");
-           return false;
-       }
-
+               return false;
+           }
+   }
     try {
             CanOpenDoor itemOpenable = ((CanOpenDoor) this.survivor.getWhatINHand());
             itemOpenable.open( (Location)callable);
@@ -94,8 +94,7 @@ public boolean make(Callable callable) {
             System.out.println("It's a wall around here! Cant be open, broke or bombed with a weapon.\n");
             return false;
         }
-}
-return false;
+
 }
 /**
  * Gets the cost of the current ACtion
