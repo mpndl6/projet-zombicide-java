@@ -19,6 +19,7 @@ import zombicide.map.cell.Cell;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
+import javax.rmi.ssl.SslRMIClientSocketFactory;
 import java.util.*;
 
 import static zombicide.actor.zombie.ZombieType.createZombie;
@@ -45,7 +46,7 @@ public class Game {
         this.listSurvivors = new ArrayList<>();
         this.listZombies = new ArrayList<>();
         this.actors = new ArrayList<>();
-        this.grid = new Grid(map, 15);
+        this.grid = new Grid(map, 7);
         this.map = map;
     }
 
@@ -105,8 +106,8 @@ public class Game {
             addZombieGame(zombie);
             zombie.setGame(this);
             this.map.putActorONCell(zombie,location);
-
-    }
+        System.out.println(n+" Zombies have spawned.\n");
+        }
     }
 
     /**
@@ -239,6 +240,15 @@ public class Game {
         return allSurvivorsDead && allZombiesDead && globalXPReached;
     }
 
+    /**
+     * Tells if all the survivors have won the game
+     * @return true if the survivors have won
+     */
+    public boolean survivorsWon(){
+        //TODO
+        return false;
+    }
+
 
     /**
      * Method to set all cells at 0 noise
@@ -306,8 +316,8 @@ public class Game {
      */
     public void run() {
         initActionOfSurvivors();
-        ListChooser<ActionSurvivor> actionSurvivorListChooser = new InteractiveListChooser<>();
-        ListChooser<Callable> choices = new InteractiveListChooser<>();
+        ListChooser<ActionSurvivor> actionSurvivorListChooser = new RandomListChooser<>();
+        ListChooser<Callable> choices = new RandomListChooser<>();
         int i = 1;
         System.out.println("Survivors present in the game :");
         for(Survivor s : listSurvivors) {
@@ -319,8 +329,11 @@ public class Game {
 
         while (!isFinished()) {
             System.out.println("TOUR N°"+i);
-            System.out.println("PHASE DES SURVIVANTS \n");
+            System.out.println("___________________________ PHASE DES SURVIVANTS ________________________________ \n");
             for (Survivor s : listSurvivors) {
+                if(!s.isAlive()){
+                    break;
+                }
                 System.out.println(s);
 
                     this.grid.displayGrid();
@@ -340,28 +353,30 @@ public class Game {
                     if (actionMade)
                     System.out.println(s.getNickName() + " just made the action :" + action+"\n");
                     else
-                        System.out.println(s.getNickName()+" couldn't do the action : "+action);
+                        System.out.println(s.getNickName()+" couldn't do the action : "+action+"\n");
 
             }
+            System.out.println("_____________________________________________________________________________________");
           if(!listZombies.isEmpty()){
-              System.out.println("PHASE DES ZOMBIES \n");
+              System.out.println("_________________________________ PHASE DES ZOMBIES _________________________________ \n");
                 for (Zombie zombie : listZombies) {
-
-                    grid.displayGrid();
-
                     ActionZombie actionAttack = zombie.getAction(1);
                     if (actionAttack.make(zombie.getCell())) {
-                        System.out.println(zombie.getNickName()+" a attaque");
+                        System.out.println(zombie.getNickName()+" attacked\n");
+                        grid.displayGrid();
                     }
                     else {
                         ActionZombie actionMove = zombie.getAction(0);
                         boolean move = zombie.makeAction(actionMove, this.getRandomNoiseCell());
                         if (!move)
-                            System.out.println(zombie.getNickName() + " tried to move but has an obstacle.");
+                            System.out.println(zombie.getNickName() + " tried to move but has an obstacle.\n");
+                        System.out.println(zombie.getNickName()+" at position : "+ zombie.getCell().getPosition()+"\n");
+                        grid.displayGrid();
                     }
 
                 }
             }
+          System.out.println("END OF TOUR.\n");
             this.removeDeadActors();
             this.NoiseDown();
             this.SetActionPointSurvivor();
@@ -369,6 +384,6 @@ public class Game {
             i++;
 
         } //fin du while
-        System.out.println("Le jeu est terminé");
+        System.out.println("Le jeu est terminé\n");
     }
 }
