@@ -83,7 +83,7 @@ public boolean canMakeAction(){
 @Override
 public boolean make(Callable callable){
     if(canMakeAction()) {
-        this.survivor.getCell().description();
+        System.out.println(this.survivor.getCell().description());
         return true;
     }
     return false;
