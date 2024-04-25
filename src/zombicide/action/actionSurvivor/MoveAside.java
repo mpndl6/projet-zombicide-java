@@ -62,11 +62,11 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
         switch (l) {
             case NORTH:
                 map.putActorONCell(this.actor, new Position(xCell - 1, yCell));
-                System.out.println(actor.getNickName()+" moved to upside.");
+                System.out.println(actor.getNickName()+" moved upside.");
                 return true;
             case SOUTH:
                 map.putActorONCell(this.actor, new Position(xCell + 1, yCell));
-                System.out.println(actor.getNickName()+" moved to downside.");
+                System.out.println(actor.getNickName()+" moved downside.");
                 return true;
             case EAST:
                 map.putActorONCell(this.actor, new Position(xCell, yCell + 1));
@@ -74,7 +74,7 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
                 return true;
             case WEST:
                 map.putActorONCell(this.actor, new Position(xCell, yCell - 1));
-                System.out.println(actor.getNickName()+" moved to left.");
+                System.out.println(actor.getNickName()+" moved to the left.");
                 return true;
 
             default:
