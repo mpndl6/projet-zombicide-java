@@ -58,6 +58,9 @@ public boolean make(Callable callable) {
         return false;
     }
     Game game  = this.survivor.getGame();
+    Location l = (Location)callable;
+    //Gerer le fait que si la localisation ou il veut ouvrir la porte n'est pas une room alors retourner false et afficher qu'il n'y a aucune porte
+
     try {
             CanOpenDoor itemOpenable = ((CanOpenDoor) this.survivor.getWhatINHand());
             itemOpenable.open( (Location)callable);
