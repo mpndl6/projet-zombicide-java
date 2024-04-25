@@ -5,6 +5,9 @@ import zombicide.actor.survivor.Survivor;
 import zombicide.callable.Callable;
 import zombicide.item.Item;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Permits to a survivor to use an Item
  */
@@ -31,9 +34,25 @@ public class UseItem implements ActionSurvivor {
         return survivor.getWhatINHand()!=null;
     }
 
+    /**
+     * Return the cost of this action
+     * @return the cost of this action
+     */
     @Override
     public int getCost() {
         return USE_ITEM_COST;
+    }
+
+    /**
+     * Return the different items in the backpack of the survivor
+     * @return the list of all the item
+     */
+    @Override
+    public List<Callable> getChoices() {
+        List<Callable> newList = new ArrayList<>();
+        for (Item i : this.survivor.getAllInBackpack())
+            newList.add(i);
+        return newList;
     }
 
     /**
