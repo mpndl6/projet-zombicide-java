@@ -51,7 +51,7 @@ public class Livrable4 {
             grid.displayGrid();
         } */// quand ça ne montre rien c'est parce que le zombie veut aller à droit (c'est aléatoire) sauf qu'il ne peut pas il faut re run
 
-        Game game2 = new Game(trainningMap);
+        Game game2 = new GameInteractive(trainningMap);
         System.out.println(game2.getMap());
         game2.setMap(trainningMap);
         Survivor gab = new Survivor("gab");

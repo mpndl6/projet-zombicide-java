@@ -351,9 +351,13 @@ public class Game {
 
                     boolean actionMade = s.makeAction(action, choice);
                     if (actionMade)
-                    System.out.println(s.getNickName() + " just made the action :" + action+"\n");
-                    else
-                        System.out.println(s.getNickName()+" couldn't do the action : "+action+"\n");
+                    System.out.println(s.getNickName() + " just made the action : " + action+"\n\n");
+                    else{
+                        System.out.println(s.getNickName()+" couldn't do the action : "+action);
+                        System.out.println();
+                }
+
+
 
             }
             System.out.println("_____________________________________________________________________________________");
