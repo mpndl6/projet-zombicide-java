@@ -62,28 +62,34 @@ public boolean make(Callable callable) {
     Position survivorPos = this.survivor.getCell().getPosition();
     Game game  = this.survivor.getGame();
     Location l = (Location)callable;
-   switch (l) {
-       case SOUTH:
-           if (!((this.map.getCell(new Position(survivorPos.getX() + 1, survivorPos.getY()))) instanceof Room)) {
-               System.out.println("There's no such thing as a door in the south because there's no such thing as a room there.\n");
-               return false;
-           }
-       case NORTH:
-           if (!((this.map.getCell(new Position(survivorPos.getX() - 1, survivorPos.getY()))) instanceof Room)) {
-               System.out.println("There's no such thing as a door in the norh because there's no such thing as a room there.\n");
-               return false;
-           }
-       case EAST:
-           if (!((this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY() + 1))) instanceof Room)) {
-               System.out.println("There's no such thing as a door in the east because there's no such thing as a room there.\n");
-               return false;
-           }
-       case WEST:
-           if (!((this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY() - 1))) instanceof Room)) {
-               System.out.println("There's no such thing as a door in the west because there's no such thing as a room there.\n");
-               return false;
-           }
-   }
+    if(!(survivor.getCell() instanceof Room)) {
+        switch (l) {
+            case SOUTH:
+                if (!((this.map.getCell(new Position(survivorPos.getX() + 1, survivorPos.getY()))) instanceof Room)) {
+                    System.out.println("There's no such thing as a door in the south because there's no such thing as a room there.\n");
+                    return false;
+                }
+            case NORTH:
+                if (!((this.map.getCell(new Position(survivorPos.getX() - 1, survivorPos.getY()))) instanceof Room)) {
+                    System.out.println("There's no such thing as a door in the north because there's no such thing as a room there.\n");
+                    return false;
+                }
+            case EAST:
+                if (!((this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY() + 1))) instanceof Room)) {
+                    System.out.println("There's no such thing as a door in the east because there's no such thing as a room there.\n");
+                    return false;
+                }
+            case WEST:
+                if (!((this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY() - 1))) instanceof Room)) {
+                    System.out.println("There's no such thing as a door in the west because there's no such thing as a room there.\n");
+                    return false;
+                }
+        }
+    }
+    if (map.isOpenDoor(survivor.getCell(), l)){
+        System.out.println("the door is already open.");
+        return false;
+    }
     try {
             CanOpenDoor itemOpenable = ((CanOpenDoor) this.survivor.getWhatINHand());
             itemOpenable.open( (Location)callable);
