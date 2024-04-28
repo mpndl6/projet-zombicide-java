@@ -13,6 +13,8 @@ import zombicide.actor.survivor.SurvivorsLevel;
 import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.ZombieType;
 import zombicide.callable.Callable;
+import zombicide.item.Item;
+import zombicide.item.utility.*;
 import zombicide.item.weapon.Pistol;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
@@ -150,7 +152,7 @@ public class Game {
             ActionSurvivor attack = new AttackSurvivor(s);
             ActionSurvivor look = new LookAround(s);
             ActionSurvivor makeNoise = new MakeNoise(s);
-
+            ActionSurvivor getStatus = new GetStatus(s);
 
             s.addAction(move);
             s.addAction(open);
@@ -160,6 +162,7 @@ public class Game {
             s.addAction(attack);
             s.addAction(look);
             s.addAction(makeNoise);
+            s.addAction(getStatus);
         }
     }
 
@@ -288,8 +291,24 @@ public class Game {
         return map.NoisierCell();
     }
 
-    protected void spawnRandomItem(int howmany){
-        //TODO
+    protected void spawnRandomItem(int howmany) {
+        Random randomX = new Random();
+        Random randomY = new Random();
+        for (int i = 0; i < 10; i++) {
+            map.getCell(new Position(randomX.nextInt(map.getWidth()), randomY.nextInt(map.getHeight()))).addItem(new Vial());
+        }
+        for (int i = 0; i < 10; i++) {
+            map.getCell(new Position(randomX.nextInt(map.getWidth()), randomY.nextInt(map.getHeight()))).addItem(new MasterKey(map));
+        }
+        for (int i = 0; i < 10; i++) {
+            map.getCell(new Position(randomX.nextInt(map.getHeight()), randomY.nextInt(map.getHeight()))).addItem(new IRGoogles(map));
+        }
+        for (int i = 0; i < 10; i++) {
+            map.getCell(new Position(randomX.nextInt(map.getWidth()), randomY.nextInt(map.getHeight()))).addItem(new Plan(map));
+        }
+        for (int i = 0; i < 10; i++) {
+            map.getCell(new Position(randomX.nextInt(map.getWidth()), randomY.nextInt(map.getHeight()))).addItem(new FirstAidKit());
+        }
     }
 
     /**
@@ -316,6 +335,7 @@ public class Game {
      */
     public void run() {
         initActionOfSurvivors();
+        spawnRandomItem(10);
         ListChooser<ActionSurvivor> actionSurvivorListChooser = new RandomListChooser<>();
         ListChooser<Callable> choices = new RandomListChooser<>();
         int i = 1;
