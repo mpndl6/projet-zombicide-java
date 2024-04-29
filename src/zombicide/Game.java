@@ -240,7 +240,7 @@ public class Game {
             }
         }
         boolean globalXPReached = (getGlobalXP() == MAX_GLOBAL_XP);
-        return allSurvivorsDead && allZombiesDead && globalXPReached;
+        return allSurvivorsDead || allZombiesDead || globalXPReached;
     }
 
     /**
