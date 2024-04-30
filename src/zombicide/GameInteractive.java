@@ -95,6 +95,7 @@ public class GameInteractive extends Game{
                         boolean move = zombie.makeAction(actionMove, this.getRandomNoiseCell());
                         while(!move){
                             System.out.println(zombie.getNickName() + " tried to move but had an obstacle.\n");
+                            move = zombie.makeAction(actionMove, this.getRandomNoiseCell()); //On bouge vers la même cellule
                         }
                         grid.displayGrid();
                     }
