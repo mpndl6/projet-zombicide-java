@@ -11,6 +11,7 @@ import zombicide.callable.Callable;
 import zombicide.item.weapon.Pistol;
 import zombicide.map.Map;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class GameInteractive extends Game{
@@ -47,9 +48,12 @@ public class GameInteractive extends Game{
         while (!isFinished()) {
             System.out.println("TOUR N°"+i);
             System.out.println("___________________________ PHASE DES SURVIVANTS ________________________________ \n");
-            for (Survivor s : listSurvivors) {
-                if(!s.isAlive()){
-                    break;
+            Iterator<Survivor> iterator = listSurvivors.iterator();
+            while (iterator.hasNext()) {
+                Survivor s = iterator.next();
+                if (!s.isAlive()) {
+                    iterator.remove(); // Supprimez le survivant de la liste en toute sécurité
+                    continue; // Passez au prochain survivant
                 }
                 while(s.getActionPoint()!=0){
 
