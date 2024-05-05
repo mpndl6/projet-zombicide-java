@@ -61,7 +61,7 @@ public class Livrable4 {
         game2.addSurvivorGame(gab);
         game2.addSurvivorGame(jul);
 
-        System.out.println(gab.getGame());
+        System.out.println(gab.getGame().isFinished());
         game2.run();
         System.out.println(game2.getMap());
 

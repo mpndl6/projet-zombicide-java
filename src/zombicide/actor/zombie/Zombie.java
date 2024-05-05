@@ -91,6 +91,10 @@ public String toString(){
      * @return true if the action has been made correctly
      */
     public boolean makeAction(ActionZombie action, Callable callable){
+        if(!this.alive){
+            System.out.println(this.getNickName()+" is dead, can not play.");
+            return false;
+        }
         return action.make(callable);
     }
 

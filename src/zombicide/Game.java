@@ -208,7 +208,10 @@ public class Game {
         while (iterator.hasNext()) {
             Actor actor = iterator.next();
             if (!actor.isAlive()) {
-                iterator.remove(); // supp l'acteur mort
+                iterator.remove();
+                actor.getCell().removeActor(actor);// supp l'acteur mort
+                actor.setGame(null);
+                actors.remove(actor);
                 if (actor instanceof Survivor) {
                     listSurvivors.remove(actor);
                 } else if (actor instanceof Zombie) {
@@ -250,7 +253,7 @@ public class Game {
             }
         }
         boolean globalXPReached = (getGlobalXP() == MAX_GLOBAL_XP);
-        return allSurvivorsDead || allZombiesDead || globalXPReached;
+        return globalXPReached;
     }
 
     /**
@@ -277,7 +280,7 @@ public class Game {
     /**
      * Reset all the actionPoint of survivors.(According to the current level of the survivors)
      */
-    public void SetActionPointSurvivor(){
+    protected void SetActionPointSurvivor(){
         for(Survivor s:listSurvivors){
             if(s.getCurrentLevel()== SurvivorsLevel.STARTING_LEVEL){
                 s.setActionPoint(3);
@@ -402,9 +405,10 @@ public class Game {
                     else {
                         ActionZombie actionMove = zombie.getAction(0);
                         boolean move = zombie.makeAction(actionMove, this.getRandomNoiseCell());
-                        if (!move)
+                        if (!move) {
                             System.out.println(zombie.getNickName() + " tried to move but has an obstacle.\n");
-                        System.out.println(zombie.getNickName()+" at position : "+ zombie.getCell().getPosition()+"\n");
+                            System.out.println(zombie.getNickName() + " at position : " + zombie.getCell().getPosition() + "\n");
+                        }
                         grid.displayGrid();
                     }
 

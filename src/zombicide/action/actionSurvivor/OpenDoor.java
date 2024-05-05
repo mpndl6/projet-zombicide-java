@@ -70,21 +70,25 @@ public boolean make(Callable callable) {
                     System.out.println("There's no such thing as a door in the south because there's no such thing as a room there.\n");
                     return false;
                 }
+                break;
             case NORTH:
                 if (!((this.map.getCell(new Position(survivorPos.getX() - 1, survivorPos.getY()))) instanceof Room)) {
                     System.out.println("There's no such thing as a door in the north because there's no such thing as a room there.\n");
                     return false;
                 }
+                break;
             case EAST:
                 if (!((this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY() + 1))) instanceof Room)) {
                     System.out.println("There's no such thing as a door in the east because there's no such thing as a room there.\n");
                     return false;
                 }
+                break;
             case WEST:
                 if (!((this.map.getCell(new Position(survivorPos.getX(), survivorPos.getY() - 1))) instanceof Room)) {
                     System.out.println("There's no such thing as a door in the west because there's no such thing as a room there.\n");
                     return false;
                 }
+                break;
         }
     }
     if (map.isOpenDoor(survivor.getCell(), l)){

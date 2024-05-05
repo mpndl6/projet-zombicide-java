@@ -10,6 +10,7 @@ import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
 import zombicide.item.weapon.Pistol;
 import zombicide.map.Map;
+import zombicide.map.util.Position;
 
 import java.util.Iterator;
 import java.util.List;
@@ -34,8 +35,8 @@ public class GameInteractive extends Game{
     @Override
     public void run() {
         initActionOfSurvivors();
-        ListChooser<ActionSurvivor> actionSurvivorListChooser = new RandomListChooser<>();
-        ListChooser<Callable> choices = new RandomListChooser<>();
+        ListChooser<ActionSurvivor> actionSurvivorListChooser = new InteractiveListChooser<>();
+        ListChooser<Callable> choices = new InteractiveListChooser<>();
         int i = 1;
         System.out.println("Survivors present in the game :");
         for(Survivor s : listSurvivors) {
@@ -45,7 +46,7 @@ public class GameInteractive extends Game{
 
         }
 
-        while (!isFinished()) {
+        while (!super.isFinished()) {
             System.out.println("TOUR N°"+i);
             System.out.println("___________________________ PHASE DES SURVIVANTS ________________________________ \n");
             Iterator<Survivor> iterator = listSurvivors.iterator();
@@ -90,14 +91,14 @@ public class GameInteractive extends Game{
                 System.out.println("_________________________________ PHASE DES ZOMBIES _________________________________ \n");
                 for (Zombie zombie : listZombies) {
                     ActionZombie actionAttack = zombie.getAction(1);
-                    if (actionAttack.make(zombie.getCell())) {
+                    if (actionAttack.make(null)) {
                         System.out.println(zombie.getNickName()+" attacked\n");
                         grid.displayGrid();
                     }
                     else {
                         ActionZombie actionMove = zombie.getAction(0);
-                        boolean move = zombie.makeAction(actionMove, this.getRandomNoiseCell());
-                        while(!move){
+                        boolean move = zombie.makeAction(actionMove, map.getCell(new Position(2,3)));
+                        if(!move){
                             System.out.println(zombie.getNickName() + " tried to move but had an obstacle.\n");
                             move = zombie.makeAction(actionMove, this.getRandomNoiseCell()); //On bouge vers la même cellule
                         }
@@ -107,10 +108,10 @@ public class GameInteractive extends Game{
                 }
             }
             System.out.println("END OF TOUR.\n");
+            this.spawnZombies(3);
             this.removeDeadActors();
             this.NoiseDown();
             this.SetActionPointSurvivor();
-            this.spawnZombies(3);
             i++;
 
         } //fin du while

@@ -41,22 +41,16 @@ public int getHowManyKills(){
 }
 
 
-/**
- * decrease the life point of a survivor. If their life point reach 0, they die
- */
-public void beingAttacked(){
-    this.lifePoint--;
-    if (this.lifePoint==0)
-        this.alive=false;
-}
 
 /**
  * This method inflicts one damage to the current actor.
  * @return true if this one damage is fatal to the actor (if they die basically)
  */
-public boolean takeDamage(){
+public boolean beingAttacked(){
     this.lifePoint--;
-    return this.lifePoint==0;
+    if (this.lifePoint==0)
+        this.alive=false;
+    return this.alive;
 }
 
 /**

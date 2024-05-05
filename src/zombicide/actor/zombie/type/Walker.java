@@ -15,6 +15,6 @@ public class Walker extends Zombie{
     public boolean makeAction(Action action, Callable callable){
        boolean firstAction =  action.make(callable);
        boolean secondACtion =  action.make(callable);
-       return firstAction & secondACtion;
+       return firstAction || secondACtion;
     }
 }

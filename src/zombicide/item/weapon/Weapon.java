@@ -104,7 +104,7 @@ public abstract class Weapon extends Item {
                 int resDice = this.survivor.diceThrows(this.howManyThrows());
                 if(resDice >= this.threshold){
                     for(int i = 0 ; i < this.damage ; i++){
-                        zombie.takeDamage();
+                        zombie.beingAttacked();
                     }
                     this.survivor.getCell().makeNoise();
                     return true;
@@ -116,7 +116,7 @@ public abstract class Weapon extends Item {
                 int resDice = this.survivor.diceThrows(this.howManyThrows());
                 if(resDice >= this.threshold){
                     for(int i = 0 ; i < this.damage ; i++){
-                        zombie.takeDamage();
+                        zombie.beingAttacked();
                     }
                     this.survivor.getCell().makeNoise();
                     return true;
