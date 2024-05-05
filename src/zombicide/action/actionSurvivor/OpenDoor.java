@@ -12,6 +12,7 @@ import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -124,12 +125,18 @@ public List<Callable> getChoices() {
     newList.add(Location.WEST);
     newList.add(Location.EAST);
     newList.add(Location.SOUTH);
-    for(Callable l : newList){
-        if (mapOfSurvivor.isWall(this.survivor.getCell(), (Location)l))
-            newList.remove(l);
+
+    Iterator<Callable> iterator = newList.iterator();
+    while (iterator.hasNext()) {
+        Callable l = iterator.next();
+        if (mapOfSurvivor.isWall(this.survivor.getCell(), (Location)l)) {
+            iterator.remove();
+        }
     }
+
     return newList;
 }
+
 /**
  * Checks if the survivor can perform the action
  * @return true if the survivor has an item in hand that can open a door, false otherwise.

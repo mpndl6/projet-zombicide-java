@@ -11,6 +11,7 @@ import zombicide.map.cell.*;
 import zombicide.map.util.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -115,12 +116,17 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
         newList.add(Location.WEST);
         newList.add(Location.EAST);
         newList.add(Location.SOUTH);
-        for(Callable l : newList){
-            if (mapOfSurvivor.isWall(this.actor.getCell(), (Location)l))
-                newList.remove(l);
+
+        Iterator<Callable> iterator = newList.iterator();
+        while (iterator.hasNext()) {
+            Callable l = iterator.next();
+            if (mapOfSurvivor.isWall(this.actor.getCell(), (Location) l)) {
+                iterator.remove();
+            }
         }
         return newList;
     }
+
 
     /**
      * Retrives the actor linked to this action

@@ -203,11 +203,21 @@ public class Game {
     /**
      * Remove all the dead ones
      */
-    public void removeDeadActors(){
-        for (Actor a : actors)
-            if (!a.isAlive())
-                this.removeActorGame(a);
+    public void removeDeadActors() {
+        Iterator<Actor> iterator = actors.iterator();
+        while (iterator.hasNext()) {
+            Actor actor = iterator.next();
+            if (!actor.isAlive()) {
+                iterator.remove(); // supp l'acteur mort
+                if (actor instanceof Survivor) {
+                    listSurvivors.remove(actor);
+                } else if (actor instanceof Zombie) {
+                    listZombies.remove(actor);
+                }
+            }
+        }
     }
+
 
     /**
      * Retrives the Global XP of the survivors
