@@ -47,6 +47,7 @@ public class GameInteractive extends Game{
         }
 
         while (!super.isFinished()) {
+            numberOfTurns++;
             System.out.println("TOUR N°"+i);
             System.out.println("___________________________ PHASE DES SURVIVANTS ________________________________ \n");
             Iterator<Survivor> iterator = listSurvivors.iterator();
@@ -108,11 +109,19 @@ public class GameInteractive extends Game{
                 }
             }
             System.out.println("END OF TOUR.\n");
-            this.spawnZombies(3);
             this.removeDeadActors();
             this.NoiseDown();
             this.SetActionPointSurvivor();
             i++;
+
+            if (super.isFinished()) {
+                System.out.println("Le jeu est terminé.");
+                break;
+            }
+
+            this.spawnZombies(3);
+
+
 
         } //fin du while
         System.out.println("Le jeu est terminé\n");

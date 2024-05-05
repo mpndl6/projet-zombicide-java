@@ -39,6 +39,7 @@ public class Game {
     protected List<Zombie> listZombies;
     protected List<Actor> actors;
     protected Grid grid;
+    protected int numberOfTurns = 0;
 
     /**
      * Construct a new game with  map at construction
@@ -246,14 +247,22 @@ public class Game {
                 break;
             }
         }
-        for (Zombie z : listZombies) {
-            if (z.isAlive()) {
-                allZombiesDead = false;
-                break;
+        if(numberOfTurns >1){
+            for (Zombie z : listZombies) {
+                if (z.isAlive()) {
+                    allZombiesDead = false;
+                    break;
+                }
             }
+
         }
+        else{
+            allZombiesDead=false;
+        }
+
+
         boolean globalXPReached = (getGlobalXP() == MAX_GLOBAL_XP);
-        return globalXPReached;
+        return allSurvivorsDead || allZombiesDead || globalXPReached;
     }
 
     /**
