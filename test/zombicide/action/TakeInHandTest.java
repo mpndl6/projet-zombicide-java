@@ -75,6 +75,6 @@ public class TakeInHandTest {
         Survivor survivor = new Survivor("Survivor1");
 
         TakeInHand takeInHand = new TakeInHand(survivor);
-        assertEquals(survivor,takeInHand.getSurvivor());
+        assertEquals(survivor,takeInHand.getActor());
     }
 }

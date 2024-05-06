@@ -78,6 +78,6 @@ public class SearchTest {
         Survivor survivor = new Survivor("Survivor1");
 
         Search search = new Search(survivor);
-        assertEquals(survivor,search.getSurvivor());
+        assertEquals(survivor,search.getActor());
     }
 }

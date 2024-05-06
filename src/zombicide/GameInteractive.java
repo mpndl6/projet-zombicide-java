@@ -115,7 +115,6 @@ public class GameInteractive extends Game{
             i++;
 
             if (super.isFinished()) {
-                System.out.println("Le jeu est terminé.");
                 break;
             }
 

@@ -34,6 +34,6 @@ public class LookAroundTest {
         Survivor survivor = new Survivor("Survivor1");
 
         LookAround lookAround = new LookAround(survivor);
-        assertEquals(survivor,lookAround.getSurvivor());
+        assertEquals(survivor,lookAround.getActor());
     }
 }

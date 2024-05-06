@@ -34,6 +34,6 @@ public class MakeNoiseTest {
         Survivor survivor = new Survivor("Survivor1");
 
         MakeNoise makeNoise = new MakeNoise(survivor);
-        assertEquals(survivor,makeNoise.getSurvivor());
+        assertEquals(survivor,makeNoise.getActor());
     }
 }
