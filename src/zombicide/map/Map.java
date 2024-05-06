@@ -5,6 +5,9 @@ import java.util.*;
 import exception.IsWallException;
 import zombicide.actor.Actor;
 import zombicide.callable.Callable;
+import zombicide.item.Item;
+import zombicide.item.weapon.*;
+import zombicide.item.utility.*;
 import zombicide.map.cell.*;
 import zombicide.map.util.*;
 import zombicide.map.cell.util.CellType;
@@ -20,6 +23,8 @@ Map implements Callable {
     protected int heigth;
     protected Position principalIntersection;
     protected Cell[][] cells;
+
+    protected List<Item> randomItems = new ArrayList<>();
 
     /**
      * It creates a Map with width and heigth
@@ -53,8 +58,11 @@ Map implements Callable {
         List<Cell> listCell2 = this.getListOfCells(CellType.STREET);
         List<Position> listPos2 = this.getPostionsForSpecialCells(listStreets.size(),listCell2);
         this.putSpecialCells(listStreets,listPos2);
+        populateRandomItems(width * heigth); // remplir la liste d'objets
+        generateRandomItems();
 
     }
+
 
     /**
      * Retrieves the noisier cell of the map
@@ -69,6 +77,63 @@ Map implements Callable {
             }
         }
         return noisier;
+    }
+
+    /**
+     * Populate the list of random items with a specified number of items.
+     *
+     * @param numberOfItems The number of random items to add to the list.
+     */
+    private void populateRandomItems(int numberOfItems) {
+        for (int i = 0; i < numberOfItems; i++) {
+            randomItems.add(generateRandomItem());
+        }
+    }
+
+    /**
+     * Distribute the random items to random cells on the map.
+     * Each random item is added to a random cell on the map.
+     */
+    private void generateRandomItems() {
+        Random random = new Random();
+        for (Item item : randomItems) {
+            int x = random.nextInt(width);
+            int y = random.nextInt(heigth);
+            cells[x][y].addItem(item); // Ajoute l'objet aléatoire à une cellule aléatoire de la carte
+        }
+    }
+    /**
+     * Generates a random item, either a weapon or a utility.
+     * @return A randomly generated item.
+     */
+    public Item generateRandomItem() {
+        Random random = new Random();
+        int randomIndex = random.nextInt(10); // 10 possibilities: 5 weapons, 5 utilities
+
+        switch (randomIndex) {
+            case 0:
+                return new Axe();
+            case 1:
+                return new Carabine();
+            case 2:
+                return new Chainsaw();
+            case 3:
+                return new Crowbar();
+            case 4:
+                return new Pistol();
+            case 5:
+                return new Vial();
+            case 6:
+                return new Plan(this);
+            case 7:
+                return new MasterKey(this);
+            case 8:
+                return new FirstAidKit();
+            case 9:
+                return new CoverUp(this);
+            default:
+                return null;
+        }
     }
 
     /**
