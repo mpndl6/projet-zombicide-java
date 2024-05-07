@@ -97,6 +97,14 @@ public class Game {
     }
 
     /**
+     * get list of zombies
+     * @return list of zombies
+     */
+    public List<Zombie> getListZombies() {
+        return this.listZombies;
+    }
+
+    /**
      * swapan Random zombies
      * @param random how many zombies can be spawn
      */
@@ -332,6 +340,7 @@ public class Game {
             map.getCell(new Position(randomX.nextInt(map.getWidth()), randomY.nextInt(map.getHeight()))).addItem(new FirstAidKit());
         }
     }
+
 
     /**
      * Return the nb of zombie needed
