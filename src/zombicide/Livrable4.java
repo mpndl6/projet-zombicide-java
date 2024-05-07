@@ -10,6 +10,7 @@ import zombicide.map.TrainingMap3;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.StreetWW;
 import zombicide.map.cell.room.Continental;
+import zombicide.map.cell.room.DrugStore;
 import zombicide.map.util.Position;
 
 import java.util.ArrayList;
@@ -20,8 +21,9 @@ public class Livrable4 {
         Zombie walker = new Abomination();
         List<Cell> listrooms = new ArrayList<Cell>();
         List<Cell> liststreets = new ArrayList<Cell>();
-        liststreets.add(new StreetWW());
+
         listrooms.add(new Continental());
+        listrooms.add(new DrugStore());
 
 
         Map trainningMap = new TrainingMap3(listrooms, liststreets);
