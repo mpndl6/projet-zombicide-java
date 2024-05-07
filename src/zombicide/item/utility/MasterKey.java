@@ -1,5 +1,6 @@
 package zombicide.item.utility;
 
+import zombicide.action.actionSurvivor.OpenDoor;
 import zombicide.callable.Callable;
 import exception.IsWallException;
 import zombicide.item.CanOpenDoor;
@@ -22,7 +23,7 @@ public class MasterKey extends Utility implements CanOpenDoor {
      */
     @Override
     public void use(Callable callable) throws Exception{
-        this.open((Location)callable);
+        System.out.println("Great! You have the correct item on hand to open a door. Now when you choose th action 'open' you will be able to open any openable door ;).");
     }
 
     /**
