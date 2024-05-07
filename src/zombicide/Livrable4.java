@@ -27,10 +27,21 @@ public class Livrable4 {
         List<Cell> listrooms = new ArrayList<Cell>();
         List<Cell> liststreets = new ArrayList<Cell>();
 
-        listrooms.add(new Continental());
-        listrooms.add(new DrugStore());
+
 
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("choisir le nombre de continantal:");
+        int nbC = scanner.nextInt();
+        for(int i = nbC ; i > 0 ; i--) {
+            listrooms.add(new Continental());
+        }
+        System.out.println("choisir le nombre de drugStore:");
+        int nbD = scanner.nextInt();
+        for(int i = nbD ; i > 0 ; i--) {
+            listrooms.add(new DrugStore());
+        }
+
         Map trainningMap = new TrainingMap3(listrooms, liststreets);
 
         System.out.println("Pour Jouer en mode interactif taper 1\nou 2 pour random");
