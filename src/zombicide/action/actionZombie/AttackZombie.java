@@ -4,6 +4,7 @@ import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
+import zombicide.map.cell.room.Continental;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,7 @@ public class AttackZombie implements ActionZombie {
             int size = listSurvivor.size();
             int n = (int)(Math.random() * size);
             Survivor target = listSurvivor.get(n);
-            if(target.isAlive()) {
+            if(target.isAlive() && target.getCell().canFight()) {
                 target.beingAttacked();
                 System.out.println(this.zombie.getNickName() + " has attacked " + target.getNickName() + ".");
                 if (!target.isAlive()){ //après l'attaque dcp
