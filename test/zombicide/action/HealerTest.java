@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import zombicide.action.actionSurvivor.Heal;
 import zombicide.actor.survivor.Survivor;
+import zombicide.actor.survivor.type.Healer;
 import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
 
@@ -10,7 +11,7 @@ public class HealerTest {
 
     @Test
     public void make_SuccessfullyHealed()  {
-        Survivor healer = new Survivor("Healer1");
+        Survivor healer = new Healer("Healer1");
         Survivor survivorToHeal = new Survivor("Survivor1");
         Cell cell = new Room();
         healer.setCell(cell);
