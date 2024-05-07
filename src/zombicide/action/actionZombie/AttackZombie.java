@@ -41,7 +41,7 @@ public class AttackZombie implements ActionZombie {
             int size = listSurvivor.size();
             int n = (int)(Math.random() * size);
             Survivor target = listSurvivor.get(n);
-            if(target.isAlive() && target.getCell().canFight()) {
+            if(target.isAlive() && this.zombie.getCell().canFight()) {
                 target.beingAttacked();
                 System.out.println(this.zombie.getNickName() + " has attacked " + target.getNickName() + ".");
                 if (!target.isAlive()){ //après l'attaque dcp
