@@ -3,6 +3,10 @@ package zombicide;
 import grid.Grid;
 import zombicide.action.actionZombie.ActionZombie;
 import zombicide.actor.survivor.Survivor;
+import zombicide.actor.survivor.type.Fighter;
+import zombicide.actor.survivor.type.Healer;
+import zombicide.actor.survivor.type.Lucky;
+import zombicide.actor.survivor.type.Nosy;
 import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.type.Abomination;
 import zombicide.map.Map;
@@ -48,10 +52,10 @@ public class Livrable4 {
 
         System.out.println(game.getMap());
         game.setMap(trainningMap);
-        Survivor gab = new Survivor("gab");
-        Survivor jul = new Survivor("jul");
-        Survivor youss = new Survivor("youss");
-        Survivor annie = new Survivor("annie");
+        Survivor gab = new Healer("gab");
+        Survivor jul = new Nosy("jul");
+        Survivor youss = new Fighter("youss");
+        Survivor annie = new Lucky("annie");
 
         game.addSurvivorGame(gab);
         game.addSurvivorGame(jul);
