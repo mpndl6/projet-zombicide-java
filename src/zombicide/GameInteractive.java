@@ -39,12 +39,7 @@ public class GameInteractive extends Game{
         ListChooser<Callable> choices = new InteractiveListChooser<>();
         int i = 1;
         System.out.println("Survivors present in the game :");
-        for(Survivor s : listSurvivors) {
-            System.out.println(s.getNickName());
-            Pistol p = (Pistol)s.getWhatINHand();
-            p.setMap(this.map); //on va changer cette partie plus tard c'était juste pour que ça fonctionne
 
-        }
 
         while (!super.isFinished()) {
             numberOfTurns++;
