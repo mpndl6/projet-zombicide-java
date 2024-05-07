@@ -72,7 +72,7 @@ public class Axe extends Weapon implements CanOpenDoor {
             e.printStackTrace();
         }
         System.out.println("The door it's broke. You can go.");
-        this.map.openDoorOfRoom(this.survivor.getCell(), location);
+        this.survivor.getGame().getMap().openDoorOfRoom(this.survivor.getCell(), location);
         this.survivor.getCell().makeNoise(); // quand une arme est utilisée pour ouvrir une porte, le niveau de bruit de la cellule augmente
     }
 }

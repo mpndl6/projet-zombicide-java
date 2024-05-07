@@ -73,7 +73,7 @@ public class Pistol extends Weapon implements CanOpenDoor {
             e.printStackTrace();
         }
         System.out.println("***BOOM!***\n");
-        this.map.openDoorOfRoom(this.survivor.getCell(), location);
+        this.survivor.getGame().getMap().openDoorOfRoom(this.survivor.getCell(), location);
         super.survivor.getCell().makeNoise();
         super.survivor.getCell().makeNoise(); //x2
         System.out.println("It's open. You can go.\n Don't burn your hand buddy!\n Remember this has made a lot of noise");
