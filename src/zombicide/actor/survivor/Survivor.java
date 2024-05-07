@@ -32,6 +32,8 @@ protected List<Item> backPack;
 protected int actionPoint;
 protected ActorType typeOfActor;
 private static Random randomNB = new Random( );
+private boolean canBeHealed;
+private boolean canLookAround;
 List<ActionSurvivor> actions;
 
 /**
@@ -53,6 +55,8 @@ public Survivor(String name){
     this.inHand = item;
     this.nickName=name;
     this.actions = new ArrayList<>();
+    this.canBeHealed=true;
+    this.canLookAround = true;
 }
 
 /**
@@ -178,6 +182,12 @@ public boolean hasItemOnHand(){
 return this.inHand!=null;
 }
 
+public void setCanLookAround(boolean canLookAround){
+    this.canLookAround=canLookAround;
+}
+public void setCanBeHealed(boolean canBeHealed) {
+    this.canBeHealed=canBeHealed;
+}
 /**
  * Put  the item i in the hand of the survivor
  * @param i the wanted item to put in hand
