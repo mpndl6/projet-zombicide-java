@@ -23,12 +23,7 @@ public class Fighter extends Survivor {
      * @return The total result of the dice throws.
      */
     public int diceThrows(int howMany) {
-
-        //if (super.isAttackingZombie()) {
-          //  return super.diceThrows(howMany) + 1;
-        //} else {
-            return super.diceThrows(howMany)+1;
-        //}
+        return super.diceThrows(howMany)+1;
         }
 }
 

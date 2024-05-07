@@ -10,6 +10,7 @@ import zombicide.action.actionZombie.ActionZombie;
 import zombicide.actor.Actor;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.survivor.SurvivorsLevel;
+import zombicide.actor.survivor.type.Healer;
 import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.ZombieType;
 import zombicide.callable.Callable;
@@ -162,6 +163,7 @@ public class Game {
             ActionSurvivor look = new LookAround(s);
             ActionSurvivor makeNoise = new MakeNoise(s);
             ActionSurvivor getStatus = new GetStatus(s);
+            ActionSurvivor heal = new Heal(s);
 
             s.addAction(move);
             s.addAction(open);
@@ -172,6 +174,8 @@ public class Game {
             s.addAction(look);
             s.addAction(makeNoise);
             s.addAction(getStatus);
+            if(s instanceof Healer)
+                s.addAction(heal);
         }
     }
 
@@ -375,7 +379,7 @@ public class Game {
             System.out.println(s.getNickName());
             Pistol p = (Pistol)s.getWhatINHand();
             p.setMap(this.map);
-        }
+        } //on va changer
         System.out.println();
 
         while (!isFinished()) {
@@ -424,8 +428,7 @@ public class Game {
                         ActionZombie actionMove = zombie.getAction(0);
                         boolean move = zombie.makeAction(actionMove, this.getRandomNoiseCell());
                         if (!move) {
-                            System.out.println(zombie.getNickName() + " tried to move but has an obstacle.\n");
-                            System.out.println(zombie.getNickName() + " at position : " + zombie.getCell().getPosition() + "\n");
+                            System.out.println(zombie.getNickName() + "couldn't move." );
                         }
                         grid.displayGrid();
                     }

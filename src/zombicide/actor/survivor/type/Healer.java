@@ -25,6 +25,6 @@ public class Healer extends Survivor {
     public void heal(Survivor survivor){
         this.increaseLifePoints();
         survivor.increaseLifePoints();
-    } // devra être convertit en action
+    }
 
 }
