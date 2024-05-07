@@ -48,7 +48,7 @@ public class AttackSurvivor implements ActionSurvivor {
     @Override
     public List<Callable> getChoices() {
         List<Callable> newList = new ArrayList<>();
-        for(Actor z : this.survivor.getCell().getActors()) {
+        for(Actor z : this.survivor.getGame().getListZombies()) {
             if (z instanceof Zombie)
                 newList.add(z);
         }
