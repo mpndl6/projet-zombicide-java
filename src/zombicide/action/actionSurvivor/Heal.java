@@ -88,6 +88,6 @@ public class Heal implements ActionSurvivor{
     }
 
     public String toString(){
-        return "look around";
+        return "heal";
     }
 }
