@@ -109,7 +109,7 @@ public class Game {
      * @param random how many zombies can be spawn
      */
     public void spawnZombies(int random){
-        int n = (int)(Math.random() * random);
+        int n = (int)(Math.random() * random)+1;
         for(int i=0;i<n;i++){
             ZombieType randomType = random();
             Zombie zombie = createZombie(randomType);
