@@ -31,7 +31,7 @@ public class Livrable4 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("choisir le nombre de continantal:");
+        System.out.println("choisir le nombre de continental:");
         int nbC = scanner.nextInt();
         for(int i = nbC ; i > 0 ; i--) {
             listrooms.add(new Continental());
