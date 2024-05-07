@@ -15,6 +15,7 @@ import zombicide.map.util.Position;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Livrable4 {
     public static void main(String[] args) {
@@ -25,47 +26,41 @@ public class Livrable4 {
         listrooms.add(new Continental());
         listrooms.add(new DrugStore());
 
-
+        Scanner scanner = new Scanner(System.in);
         Map trainningMap = new TrainingMap3(listrooms, liststreets);
-        Game game = new Game(trainningMap);
+
+        System.out.println("Pour Jouer en mode interactif taper 1\nou 2 pour random");
+        int choice = scanner.nextInt();
+
+        Game game;
+        if (choice == 1) {
+            game = new GameInteractive(trainningMap);; // Créez un objet GameInteractive
+        } else if (choice == 2) {
+            game = new Game(trainningMap); // Créez un objet Game
+        } else {
+            System.out.println("Choix invalide. Utilisation par défaut de GameInteractive.");
+            game = new GameInteractive(trainningMap); // Par défaut, utilisez GameInteractive
+        }
+
+
+
+
+
+        System.out.println(game.getMap());
         game.setMap(trainningMap);
-        walker.setGame(game);
-        walker.setGame(game);
-        game.addZombieGame(walker);
-
-
-      /*  Grid grid = new Grid(trainningMap, 15);
-        trainningMap.putActorONCell(walker, new Position(4, 2));
-
-        Cell cellJul = trainningMap.getCell(new Position(2, 4));
-        cellJul.welcomeActor(new Survivor("jul"));
-
-        Cell cellGab = trainningMap.getCell(new Position(1, 3));
-        cellGab.welcomeActor(new Survivor("gab"));
-
-
-        cellJul.makeNoise();
-        cellGab.makeNoise();
-
-        grid.displayGrid();
-        ActionZombie moveWalker = walker.getAction(0);
-        while (!walker.getCell().equals(cellGab) & walker.makeAction(moveWalker, cellGab)) {
-            grid.displayGrid();
-        } */// quand ça ne montre rien c'est parce que le zombie veut aller à droit (c'est aléatoire) sauf qu'il ne peut pas il faut re run
-
-        Game game2 = new GameInteractive(trainningMap);
-        System.out.println(game2.getMap());
-        game2.setMap(trainningMap);
         Survivor gab = new Survivor("gab");
         Survivor jul = new Survivor("jul");
         Survivor youss = new Survivor("youss");
+        Survivor annie = new Survivor("annie");
 
-        game2.addSurvivorGame(gab);
-        game2.addSurvivorGame(jul);
+        game.addSurvivorGame(gab);
+        game.addSurvivorGame(jul);
+        game.addSurvivorGame(youss);
+        game.addSurvivorGame(annie);
 
         System.out.println(gab.getGame().isFinished());
-        game2.run();
-        System.out.println(game2.getMap());
+        game.run();
+        System.out.println(game.getMap());
 
     }
 }
