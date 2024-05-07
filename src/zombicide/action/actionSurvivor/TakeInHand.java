@@ -36,7 +36,7 @@ public class TakeInHand implements ActionSurvivor {
             System.out.println("No more room for another object to be taken.");
             return false;
         }
-        if(this.survivor.getCell().getItems().size()==0 || this.survivor.getAllInBackpack().size()==0) {
+        if(this.survivor.getCell().getItems().size()==0 && this.survivor.getAllInBackpack().size()==0) {
             System.out.println("There is nothing in the cell and nothing in the backpack, sorry.");
             return false;
         }
