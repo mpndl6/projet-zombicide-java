@@ -59,8 +59,10 @@ public class TakeInHand implements ActionSurvivor {
     @Override
     public List<Callable> getChoices() {
         List<Callable> newList = new ArrayList<>();
+        System.out.println("item in backpack :\n");
         for(Item i : this.survivor.getAllInBackpack())
             newList.add(i);
+        System.out.println("item in cell :");
         for(Item i : this.survivor.getCell().getItems())
             newList.add(i);
         return newList;
@@ -87,8 +89,10 @@ public class TakeInHand implements ActionSurvivor {
     public boolean make(Callable callable){
         Item itemInHand = survivor.getWhatINHand();
 
-        if (!canMakeAction() || !(callable instanceof Item))
+        if (!canMakeAction() || !(callable instanceof Item)|| callable==null) {
+            System.out.println("Survivor choose not to take anything or cannot.\n");
             return false;
+        }
         Item newItem = (Item) callable;
         if (itemInHand != null) {
             try {

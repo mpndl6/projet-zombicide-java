@@ -74,6 +74,12 @@ public class AttackSurvivor implements ActionSurvivor {
      */
     @Override
     public boolean make(Callable callable){
+
+        if(callable==null) {
+            System.out.println("Survivor choose not to attack.\n");
+            return false;
+        }
+
         if(!canMakeAction() || !(callable instanceof Zombie) || !(this.survivor.getCell().canFight())){
             System.out.println("There's no weapon in their hand or no zombie around.");
             return false;
