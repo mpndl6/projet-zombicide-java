@@ -139,7 +139,7 @@ On doit effectué l'appartion des zombies quand on ouvre une porte.
 - Générer la doc à jour (rangée dans le dossier ``/doc``) (Si elle n'est pas générée il faut effectuer la commande `make doc`)
 - Compililer les classes et de créer les fichiers ```.class``` (rangés dans le dossier ``/classes``)
 
-Après l'exécution de cette commande les exécutables seront créés ainsi que celui qui nous intéresse, le livrable 3.
+Après l'exécution de cette commande les exécutables seront créés ainsi que celui qui nous intéresse, le livrable 4.
 >Pour exécuter le jar du livrable4, exécuter la commande : ```make```.\
 >Pour tester tous les tests à la fois, exécuter la commande ```make test```.
 
