@@ -157,8 +157,16 @@ Pour finir on a conceptualisé une méthode qui gère tout le déroulement du je
 
 Le jeu s'arrete avec une méthode IsFinished qui verifie si il n'y a plus de survivants,s'il n'y a plus de zombie ou si ils ont eu l'xp nécessaire pour gagner.
 
+Pour l'apparition des différents type de zombies nous avons choisi d'utiliser des taux d'apparitions différentes selon le type de zombie donc l'abominations aura un taux beaucoup plus bas que un zombie de type Walker.
+
 
 ### Difficultés restant à résoudre
+
+Améliorer le comportement des survivants quand le jeu se déroule de manière automatique(algorythme intelligent).
+
+Avoir un meilleur choix des zombies disponibles lors de l'action Attack.
+
+
 
 
 # Journal de bord
