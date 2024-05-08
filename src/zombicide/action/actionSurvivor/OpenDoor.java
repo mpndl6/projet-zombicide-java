@@ -58,8 +58,10 @@ public Map getMap(){
 @Override
 public boolean make(Callable callable) {
 
-    if(callable ==null)
+    if(callable ==null) {
         System.out.println("Survivor chose not to open a door");
+        return false;
+    }
 
     if (!canMakeAction()) {
         System.out.println("the survivor doesn't have the correct item in hand.");
