@@ -1,6 +1,7 @@
 package zombicide;
 
 import grid.Grid;
+import zombicide.action.MoveAside;
 import zombicide.action.actionSurvivor.*;
 import zombicide.action.actionZombie.ActionZombie;
 import zombicide.actor.survivor.Survivor;

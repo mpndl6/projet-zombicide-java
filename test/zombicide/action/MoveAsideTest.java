@@ -1,7 +1,6 @@
 package zombicide.action;
 
 import zombicide.Game;
-import zombicide.action.actionSurvivor.MoveAside;
 import zombicide.actor.survivor.Survivor;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Test;

@@ -1,10 +1,9 @@
 package zombicide;
 
 import grid.Grid;
-import listchooser.InteractiveListChooser;
 import listchooser.ListChooser;
 import listchooser.RandomListChooser;
-import zombicide.action.Action;
+import zombicide.action.MoveAside;
 import zombicide.action.actionSurvivor.*;
 import zombicide.action.actionZombie.ActionZombie;
 import zombicide.actor.Actor;
@@ -14,15 +13,11 @@ import zombicide.actor.survivor.type.Healer;
 import zombicide.actor.zombie.Zombie;
 import zombicide.actor.zombie.ZombieType;
 import zombicide.callable.Callable;
-import zombicide.item.Item;
-import zombicide.item.utility.*;
-import zombicide.item.weapon.Pistol;
 import zombicide.map.Map;
 import zombicide.map.cell.Cell;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
-import javax.rmi.ssl.SslRMIClientSocketFactory;
 import java.util.*;
 
 import static zombicide.actor.zombie.ZombieType.createZombie;
@@ -50,7 +45,7 @@ public class Game {
         this.listSurvivors = new ArrayList<>();
         this.listZombies = new ArrayList<>();
         this.actors = new ArrayList<>();
-        this.grid = new Grid(map, 7);
+        this.grid = new Grid(map, 10);
         this.map = map;
     }
 

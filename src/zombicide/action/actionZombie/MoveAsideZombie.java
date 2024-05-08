@@ -1,6 +1,6 @@
 package zombicide.action.actionZombie;
 
-import zombicide.action.actionSurvivor.MoveAside;
+import zombicide.action.MoveAside;
 import zombicide.actor.zombie.Zombie;
 import zombicide.callable.Callable;
 import zombicide.map.cell.Cell;
