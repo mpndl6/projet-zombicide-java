@@ -5,6 +5,7 @@ import org.junit.Test;
 import zombicide.actor.survivor.Survivor;
 import zombicide.actor.zombie.Zombie;
 import zombicide.map.Map;
+import zombicide.map.util.Position;
 
 public class GameTest {
 
@@ -86,6 +87,25 @@ public class GameTest {
 
         assertEquals(100, game.getGlobalXP());
     }
+
+    @Test
+    public void testNoiseDown() {
+        for (int w = 0; w < game.getMap().getWidth(); w++) {
+            for (int h = 0; h < game.getMap().getHeight(); h++) {
+                game.getMap().getCell(new Position(w,h)).makeNoise(2);
+            }
+        }
+
+        game.NoiseDown();
+
+        for (int w = 0; w < game.getMap().getWidth(); w++) {
+            for (int h = 0; h < game.getMap().getHeight(); h++) {
+                assertEquals(0, game.getMap().getCell(new Position(w,h)).getNoiseLevel());
+            }
+        }
+    }
+
+
 }
 
 
