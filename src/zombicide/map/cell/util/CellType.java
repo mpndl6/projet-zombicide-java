@@ -6,5 +6,5 @@ package zombicide.map.cell.util;
  * These types define the different kinds of cells that can exist in the game map.
  */
 public enum CellType {
-	   ROOM,SPECIALROOM,STREET,SPECIALSTREET;
+	   ROOM,SPECIALROOM,STREET,SPECIALSTREET, WALL;
 }

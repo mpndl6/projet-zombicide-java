@@ -80,6 +80,34 @@ Map implements Callable {
     }
 
     /**
+     *
+     */
+    public Object roomThere(Cell cell, Location l){
+        int xCell = cell.getPosition().getX();
+        int yCell = cell.getPosition().getY();
+        if (isWall(cell, l))
+            return CellType.WALL;
+        switch (l){
+            case NORTH:
+                Cell cellAbove = getCell(new Position(xCell-1,yCell));
+                    return cellAbove.getTypeOfCell();
+            case SOUTH:
+                Cell cellBellow = getCell(new Position(xCell+1,yCell));
+                return cellBellow.getTypeOfCell();
+            case WEST:
+                Cell cellToLeft = getCell(new Position(xCell,yCell-1));
+                return cellToLeft.getTypeOfCell();
+            case EAST:
+                Cell cellToRight = getCell(new Position(xCell,yCell+1));
+                return cellToRight.getTypeOfCell();
+
+            default:
+                return null;
+        }
+
+    }
+
+    /**
      * Populate the list of random items with a specified number of items.
      *
      * @param numberOfItems The number of random items to add to the list.

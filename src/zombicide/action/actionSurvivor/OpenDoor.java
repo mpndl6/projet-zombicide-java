@@ -8,6 +8,7 @@ import zombicide.callable.Callable;
 import zombicide.map.Map;
 import zombicide.item.*;
 import zombicide.map.cell.Room;
+import zombicide.map.cell.util.CellType;
 import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
@@ -137,7 +138,7 @@ public List<Callable> getChoices() {
     Iterator<Callable> iterator = newList.iterator();
     while (iterator.hasNext()) {
         Callable l = iterator.next();
-        if (mapOfSurvivor.isWall(this.survivor.getCell(), (Location)l)) {
+        if (mapOfSurvivor.isWall(this.survivor.getCell(), (Location)l) || mapOfSurvivor.roomThere(this.survivor.getCell(), (Location)l)!= CellType.ROOM) {
             iterator.remove();
         }
     }
