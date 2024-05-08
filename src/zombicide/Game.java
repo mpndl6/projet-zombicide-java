@@ -370,26 +370,26 @@ public class Game {
      */
     public void run() {
         initActionOfSurvivors();
-        spawnRandomItem(10);
         ListChooser<ActionSurvivor> actionSurvivorListChooser = new RandomListChooser<>();
         ListChooser<Callable> choices = new RandomListChooser<>();
         int i = 1;
         System.out.println("Survivors present in the game :");
-        for(Survivor s : listSurvivors) {
-            System.out.println(s.getNickName());
-            Pistol p = (Pistol)s.getWhatINHand();
-            p.setMap(this.map);
-        } //on va changer
-        System.out.println();
+
 
         while (!isFinished()) {
+            numberOfTurns++;
             System.out.println("TOUR N°"+i);
             System.out.println("___________________________ PHASE DES SURVIVANTS ________________________________ \n");
-            for (Survivor s : listSurvivors) {
-                if(!s.isAlive()){
-                    break;
+            Iterator<Survivor> iterator = listSurvivors.iterator();
+            while (iterator.hasNext()) {
+                Survivor s = iterator.next();
+                if (!s.isAlive()) {
+                    iterator.remove(); // Supprimez le survivant de la liste en toute sécurité
+                    continue; // Passez au prochain survivant
                 }
-                System.out.println(s);
+                while(s.getActionPoint()!=0){
+
+                    System.out.println("Current survivor : "+s.getNickName()+"\n");
 
                     this.grid.displayGrid();
 
@@ -406,41 +406,51 @@ public class Game {
 
                     boolean actionMade = s.makeAction(action, choice);
                     if (actionMade)
-                    System.out.println(s.getNickName() + " just made the action : " + action+"\n\n");
+                        System.out.println(s.getNickName() + " just made the action : " + action+"\n\n");
                     else{
                         System.out.println(s.getNickName()+" couldn't do the action : "+action);
                         System.out.println();
+                    }
+
                 }
-
-
-
+                System.out.println(s);
+                System.out.println();
             }
+
             System.out.println("_____________________________________________________________________________________");
-          if(!listZombies.isEmpty()){
-              System.out.println("_________________________________ PHASE DES ZOMBIES _________________________________ \n");
+            if(!listZombies.isEmpty()){
+                System.out.println("_________________________________ PHASE DES ZOMBIES _________________________________ \n");
                 for (Zombie zombie : listZombies) {
                     ActionZombie actionAttack = zombie.getAction(1);
-                    if (actionAttack.make(zombie.getCell())) {
+                    if (actionAttack.make(null)) {
                         System.out.println(zombie.getNickName()+" attacked\n");
                         grid.displayGrid();
                     }
                     else {
                         ActionZombie actionMove = zombie.getAction(0);
                         boolean move = zombie.makeAction(actionMove, this.getRandomNoiseCell());
-                        if (!move) {
-                            System.out.println(zombie.getNickName() + "couldn't move." );
+                        if(!move){
+                            System.out.println(zombie.getNickName() + " tried to move but had an obstacle.\n");
+                            move = zombie.makeAction(actionMove, this.getRandomNoiseCell()); //On bouge vers la même cellule
                         }
                         grid.displayGrid();
                     }
 
                 }
             }
-          System.out.println("END OF TOUR.\n");
+            System.out.println("END OF TOUR.\n");
             this.removeDeadActors();
             this.NoiseDown();
             this.SetActionPointSurvivor();
-            this.spawnZombies(3);
             i++;
+
+            if (isFinished()) {
+                break;
+            }
+
+            this.spawnZombies(3);
+
+
 
         } //fin du while
         System.out.println("Le jeu est terminé\n");

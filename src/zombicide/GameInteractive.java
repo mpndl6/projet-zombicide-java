@@ -93,7 +93,7 @@ public class GameInteractive extends Game{
                     }
                     else {
                         ActionZombie actionMove = zombie.getAction(0);
-                        boolean move = zombie.makeAction(actionMove, map.getCell(new Position(2,3)));
+                        boolean move = zombie.makeAction(actionMove, this.getRandomNoiseCell());
                         if(!move){
                             move = zombie.makeAction(actionMove, this.getRandomNoiseCell()); //On bouge vers la même cellule
                         }

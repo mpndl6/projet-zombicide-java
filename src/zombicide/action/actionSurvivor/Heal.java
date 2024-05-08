@@ -45,7 +45,7 @@ public class Heal implements ActionSurvivor{
      * @return true if the Survivor can perform the action, false otherwise.
      */
     public boolean canMakeAction(){
-        if (this.survivor instanceof Healer)
+        if (!(this.survivor instanceof Healer))
             return false;
         return true;
     }
