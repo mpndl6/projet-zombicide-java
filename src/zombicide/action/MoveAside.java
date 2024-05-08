@@ -120,7 +120,7 @@ public class MoveAside implements ActionSurvivor, ActionZombie {
         Iterator<Callable> iterator = newList.iterator();
         while (iterator.hasNext()) {
             Callable l = iterator.next();
-            if (mapOfSurvivor.isWall(this.actor.getCell(), (Location) l)) {
+            if (mapOfSurvivor.isWall(this.actor.getCell(), (Location) l) || !mapOfSurvivor.isOpenDoor(this.actor.getCell(), (Location) l)) {
                 iterator.remove();
             }
         }
