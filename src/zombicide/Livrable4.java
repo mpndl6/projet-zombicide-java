@@ -27,7 +27,7 @@ public class Livrable4 {
         List<Cell> liststreets = new ArrayList<>();
 
 
-        System.out.println("\n\nVoici le jeu terminé : \n\n");
+        System.out.println("\n\nBIENVENUE SUR LE JEU ZOMBICIDE !!!: \n\n");
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Choisir le nombre de continental:");
