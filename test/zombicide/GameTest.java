@@ -48,8 +48,30 @@ public class GameTest {
         assertEquals(game, zombie.getGame());
     }
 
+    @Test
+    public void testRemoveDeadActors() {
+        Survivor survivor1 = new Survivor();
+        Survivor survivor2 = new Survivor();
+        Zombie zombie1 = new Zombie();
+        Zombie zombie2 = new Zombie();
 
+        game.addSurvivorGame(survivor1);
+        game.addSurvivorGame(survivor2);
+        game.addZombieGame(zombie1);
+        game.addZombieGame(zombie2);
+
+        zombie1.beingAttacked();
+        survivor2.beingAttacked();
+
+        game.removeDeadActors();
+
+        assertNull(survivor2.getCell());
+        assertNull(zombie1.getCell());
+    }
 }
+
+
+
 
 
 
