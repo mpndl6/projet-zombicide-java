@@ -199,6 +199,8 @@ Avoir un meilleur choix des zombies disponibles lors de l'action Attack.
 Souhait d'ajouter au jeu un PNJ qui gérerait une armurerie mais n'a pas pu être réalisé à temps.
 Les `System.out.println` ne décrivent pas tous les comportements donc quand on joue au jeu on ne voit pas tout ce qui se passe derrière.
 
+Possibilité d'amélioration des positions dans Game, mais le jeu correctement tout de même.
+
 
 
 
