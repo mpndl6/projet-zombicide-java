@@ -129,7 +129,7 @@ public abstract class Weapon extends Item {
                 }
             }
         }
-        System.out.println("attaque impossible");
+        System.out.println("can't attack");
         return false;
     }
 }

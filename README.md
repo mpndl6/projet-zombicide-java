@@ -142,6 +142,7 @@ On doit effectué l'appartion des zombies quand on ouvre une porte.
 Après l'exécution de cette commande les exécutables seront créés ainsi que celui qui nous intéresse, le livrable 4.
 >Pour exécuter le jar du livrable4, exécuter la commande : ```make```.\
 >Pour tester tous les tests à la fois, exécuter la commande ```make test```.
+La commande ``make`` générera également la doc qui pourra être consultée
 
 **!!! POUR INFORMATION : Des tests peuvent etre faux car il y'a de la randomisation par exemple pour les test sur l'attaque!!!!**
 
@@ -155,7 +156,7 @@ Quand vous aurez executer le jeu :
 
 - vous avez le choix du nombre de celulle continental puis du nombre de celulle drugstore.
 
-- Choix de jouer de manière interactifs ou aléatoire.(Pour information si vous voulez tester bien les fonctionnalités prenez de manière interactifs car en aléatoire les zombies font des choix parfois non sensé).
+- Choix de jouer de manière interactifs ou aléatoire.(Pour information si vous voulez tester bien les fonctionnalités prenez de manière interactive car en aléatoire les zombies font des choix parfois non sensé).
 
 
 ### Atteinte des objectifs
@@ -188,12 +189,15 @@ Pour l'apparition des différents type de zombies nous avons choisi d'utiliser d
 - Nous avons bien modélisé les différents acteurs ainsi que les différents équipements.
 - Nous avons bien modélisé les différentes actions du jeu.
 - La manière que nous avons modélisé tout le projet est ouvert a l'extension c'est à dire que si nous voulous ajouté des actions, des acteurs ,équipements cela sera possible sans que le jeu ne puissent plus se lancer.
+- 
 
 ### Difficultés restant à résoudre
 
-Améliorer le comportement des survivants quand le jeu se déroule de manière automatique(algorythme intelligent).
+Améliorer le comportement des survivants quand le jeu se déroule de manière automatique(algorythme intelligent qui n'a pas pu être réalisé dans les délais).
 
 Avoir un meilleur choix des zombies disponibles lors de l'action Attack.
+Souhait d'ajouter au jeu un PNJ qui gérerait une armurerie mais n'a pas pu être réalisé à temps.
+Les `System.out.println` ne décrivent pas tous les comportements donc quand on joue au jeu on ne voit pas tout ce qui se passe derrière.
 
 
 

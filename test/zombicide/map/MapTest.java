@@ -10,6 +10,7 @@ import zombicide.map.cell.Cell;
 import zombicide.map.cell.Room;
 import zombicide.map.cell.StreetWW;
 import zombicide.map.cell.room.Continental;
+import zombicide.map.util.Location;
 import zombicide.map.util.Position;
 
 import java.util.ArrayList;
@@ -37,6 +38,13 @@ public class MapTest {
     @Test
     public void testGetHeight() {
         assertEquals(5, map.getHeight());
+    }
+
+    @Test
+    public void testCellThere(){
+        //Une map de 5/5 devrait ressemblait à celle juste en dessous donc
+        Cell cellBellowARoom = map.getCell(new Position(2,3));
+        assertEquals(map.roomThere(cellBellowARoom, Location.WEST), cellBellowARoom.getTypeOfCell()); // c'est une room au dessus normalement
     }
 
     @Test

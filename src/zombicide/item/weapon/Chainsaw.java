@@ -35,7 +35,7 @@ public class Chainsaw extends Weapon  {
      */
     @Override
     public void use(Callable callable){
-
+        System.out.println("You have to choose the action attack to use this weapon");
     }
 
     /**

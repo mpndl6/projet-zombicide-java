@@ -222,7 +222,7 @@ public class Game {
                 }
                 iterator.remove();
                 actor.setGame(null);
-                System.out.println(actor+" is retrieves of the game. They are dead.");
+                System.out.println(actor.getNickName()+" is retrieves of the game. They are dead.");
                 if (actor instanceof Survivor) {
                     listSurvivors.remove(actor);
                 } else if (actor instanceof Zombie) {

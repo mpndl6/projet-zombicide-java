@@ -75,7 +75,6 @@ public class Livrable4 {
 
         System.out.println(gab.getGame().isFinished());
         game.run();
-        System.out.println(game.getMap());
 
     }
 }

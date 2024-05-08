@@ -40,6 +40,10 @@ public class Axe extends Weapon implements CanOpenDoor {
         return "Axe";
     }
 
+    /**
+     * Set the map to the weapon that can open a door
+     * @param map the map wanted
+     */
     public void setMap(Map map){
         this.map = map;
     }
@@ -53,7 +57,7 @@ public class Axe extends Weapon implements CanOpenDoor {
      */
     @Override
     public void use(Callable callable){
-
+        System.out.println("You have to choose the action attack to use this weapon");
     }
 
     /**

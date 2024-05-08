@@ -27,7 +27,7 @@ public class Pistol extends Weapon implements CanOpenDoor {
     }
 
     /**
-     * Set a map to the master key
+     * Set a map to the pistol bc it can open a door
      * @param map the map wanted
      */
     public void setMap(Map map){
@@ -58,7 +58,7 @@ public class Pistol extends Weapon implements CanOpenDoor {
      */
     @Override
     public void use(Callable callable){
-
+        System.out.println("You have to choose the action attack to use this weapon");
     }
 
     /**
@@ -70,6 +70,7 @@ public class Pistol extends Weapon implements CanOpenDoor {
         System.out.println("Please step aside. It's gonna bomb \n");
         for (int i = 0; i < 3; i++)
             System.out.print(".");
+        System.out.println();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
