@@ -133,7 +133,28 @@ On doit effectué l'appartion des zombies quand on ouvre une porte.
 
 
 ## Livrable 4
-//Le texte pour dire comment executer
+
+>Ce dossier contient un ``Makefile`` qui contient les règles nécéssaires. L'exécution de la commande ```make``` dans le répectoire courent permet de :
+- Créer les trois exécutables des différents livrables (rangés dans le dossier ``/jar``)
+- Générer la doc à jour (rangée dans le dossier ``/doc``) (Si elle n'est pas générée il faut effectuer la commande `make doc`)
+- Compililer les classes et de créer les fichiers ```.class``` (rangés dans le dossier ``/classes``)
+
+Après l'exécution de cette commande les exécutables seront créés ainsi que celui qui nous intéresse, le livrable 3.
+>Pour exécuter le jar du livrable3, exécuter la commande : ```make test-deliverable4```.\
+>Pour tester tous les tests à la fois, exécuter la commande ```make test```.
+
+L'uml de ce livrable se trouve dans le dossier ``uml/`` 
+
+**Lancement du jeu**
+
+(Pour information la map est de taille 5x5 modifiable dans la classe trainingMap3 pour avoir une taille plus grande).
+
+Quand vous aurez executer le jeu :
+
+- vous avez le choix du nombre de celulle continental puis du nombre de celulle drugstore.
+
+- Choix de jouer de manière interactifs ou aléatoire.(Pour information si vous voulez tester bien les fonctionnalités prenez de manière interactifs car en aléatoire les zombies font des choix parfois non sensé).
+
 
 ### Atteinte des objectifs
 
