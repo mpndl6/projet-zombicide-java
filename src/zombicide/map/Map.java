@@ -102,7 +102,7 @@ Map implements Callable {
                 return cellToRight.getTypeOfCell();
 
             default:
-                return null;
+                return CellType.STREET;
         }
 
     }
