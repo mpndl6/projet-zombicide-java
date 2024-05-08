@@ -68,6 +68,24 @@ public class GameTest {
         assertNull(survivor2.getCell());
         assertNull(zombie1.getCell());
     }
+
+    @Test
+    public void testGetGlobalXP() {
+
+        Survivor survivor1 = new Survivor();
+        survivor1.getXP(50);
+        Survivor survivor2 = new Survivor();
+        survivor2.getXP(30);
+        Survivor survivor3 = new Survivor();
+        survivor3.getXP(20);
+
+
+        game.addSurvivorGame(survivor1);
+        game.addSurvivorGame(survivor2);
+        game.addSurvivorGame(survivor3);
+
+        assertEquals(100, game.getGlobalXP());
+    }
 }
 
 
