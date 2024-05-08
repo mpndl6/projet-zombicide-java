@@ -2,6 +2,7 @@ package zombicide;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+import zombicide.actor.survivor.Survivor;
 import zombicide.map.Map;
 
 public class GameTest {
@@ -24,6 +25,15 @@ public class GameTest {
         game.setMap(newMap);
 
         assertEquals(newMap, game.getMap());
+    }
+
+    @Test
+    public void testAddSurvivorGame() {
+        Survivor survivor = new Survivor();
+
+        game.addSurvivorGame(survivor);
+
+        assertEquals(map.getCrossRoad(), survivor.getCell());
     }
 }
 
