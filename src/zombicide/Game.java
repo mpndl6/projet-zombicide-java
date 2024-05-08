@@ -222,6 +222,7 @@ public class Game {
                 }
                 iterator.remove();
                 actor.setGame(null);
+                System.out.println(actor+" is retrieves of the game. They are dead.");
                 if (actor instanceof Survivor) {
                     listSurvivors.remove(actor);
                 } else if (actor instanceof Zombie) {
@@ -367,7 +368,7 @@ public class Game {
                 }
                 while(s.getActionPoint()!=0){
 
-                    System.out.println("Current survivor : "+s.getNickName()+"\n");
+                    System.out.println("Current survivor : "+s.getNickName()+"\nPosition : "+s.getCell().getPosition()+"\n");
 
                     this.grid.displayGrid();
 
