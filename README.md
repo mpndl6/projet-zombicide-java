@@ -159,6 +159,12 @@ Le jeu s'arrete avec une méthode IsFinished qui verifie si il n'y a plus de sur
 
 Pour l'apparition des différents type de zombies nous avons choisi d'utiliser des taux d'apparitions différentes selon le type de zombie donc l'abominations aura un taux beaucoup plus bas que un zombie de type Walker.
 
+**Pour Conclure**
+
+- Nous avons bien modélisé la ville ainsi que l'algorythme de création de celle-ci.
+- Nous avons bien modélisé les différents acteurs ainsi que les différents équipements.
+- Nous avons bien modélisé les différentes actions du jeu.
+- La manière que nous avons modélisé tout le projet est ouvert a l'extension c'est à dire que si nous voulous ajouté des actions, des acteurs ,équipements cela sera possible sans que le jeu ne puissent plus se lancer.
 
 ### Difficultés restant à résoudre
 
