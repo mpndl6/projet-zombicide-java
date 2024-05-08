@@ -392,7 +392,6 @@ public class Game {
                     }
 
                 }
-                System.out.println(s);
                 System.out.println();
             }
 

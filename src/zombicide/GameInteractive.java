@@ -52,7 +52,7 @@ public class GameInteractive extends Game{
                 }
                 while(s.getActionPoint()!=0){
 
-                    System.out.println("Current survivor : "+s.getNickName()+"\n");
+                    System.out.println("Current survivor : "+s.getNickName()+"\nPosition : "+s.getCell().getPosition()+"\n");
 
                     this.grid.displayGrid();
 
