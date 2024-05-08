@@ -28,15 +28,15 @@ public class Livrable4 {
         List<Cell> liststreets = new ArrayList<>();
 
 
-
+        System.out.println("\n\nVoici le jeu terminé : \n\n");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("choisir le nombre de continental:");
+        System.out.println("Choisir le nombre de continental:");
         int nbC = scanner.nextInt();
         for(int i = nbC ; i > 0 ; i--) {
             listrooms.add(new Continental());
         }
-        System.out.println("choisir le nombre de drugStore:");
+        System.out.println("Choisir le nombre de drugStore:");
         int nbD = scanner.nextInt();
         for(int i = nbD ; i > 0 ; i--) {
             listrooms.add(new DrugStore());
@@ -49,12 +49,12 @@ public class Livrable4 {
 
         Game game;
         if (choice == 1) {
-            game = new GameInteractive(trainningMap);; // Créez un objet GameInteractive
+            game = new GameInteractive(trainningMap);;
         } else if (choice == 2) {
-            game = new Game(trainningMap); // Créez un objet Game
+            game = new Game(trainningMap);
         } else {
             System.out.println("Choix invalide. Utilisation par défaut de GameInteractive.");
-            game = new GameInteractive(trainningMap); // Par défaut, utilisez GameInteractive
+            game = new GameInteractive(trainningMap);
         }
 
 
