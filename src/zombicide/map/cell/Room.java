@@ -44,7 +44,7 @@ public class Room extends Cell {
      */
     @Override
     public String description() {
-        return "Cell de type:" + this +"\n" + "nombre de survivants:" + this.howManySurvivors() +"\n" + "nombre de zombies:" + this.howManyZombies() + "\n"+"nombre d'objets:" + this.getNbItem() +"\n"+"porte Nord"+this.isOpen(Location.NORTH)+"porte Sud"+this.isOpen(Location.SOUTH)+"porte Est"+this.isOpen(Location.EAST)+"porte Ouest"+this.isOpen(Location.WEST);
+        return "Type of cell :" + this +"\n" + "number of survivors :" + this.howManySurvivors() + " \n " + " number of zombies:" + this.howManyZombies() + "\n"+" number of objects:" + this.getNbItem() +"\n"+" North door"+this.isOpen(Location.NORTH)+" South door"+this.isOpen(Location.SOUTH)+" East door"+this.isOpen(Location.EAST)+" West door"+this.isOpen(Location.WEST);
     }
 
     /**

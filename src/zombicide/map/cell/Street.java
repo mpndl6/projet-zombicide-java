@@ -31,7 +31,7 @@ public CellType getTypeOfCell() {
 
     @Override
     public String description() {
-        return "Cell de type:" + this +"\n" + "nombre de survivants:" + this.howManySurvivors() +"\n" + "nombre de zombies:" + this.howManyZombies() + "\n";
+        return "Type cell :" + this +"\n" + "number of survivors:" + this.howManySurvivors() +"\n" + " number of zombies:" + this.howManyZombies() + "\n";
     }
 
     /**
