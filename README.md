@@ -143,6 +143,8 @@ Après l'exécution de cette commande les exécutables seront créés ainsi que 
 >Pour exécuter le jar du livrable4, exécuter la commande : ```make```.\
 >Pour tester tous les tests à la fois, exécuter la commande ```make test```.
 
+**!!! POUR INFORMATION : Des tests peuvent etre faux car il y'a de la randomisation par exemple pour les test sur l'attaque!!!!**
+
 L'uml de ce livrable se trouve dans le dossier ``uml/`` 
 
 **Lancement du jeu**
