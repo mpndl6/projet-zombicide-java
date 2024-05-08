@@ -84,6 +84,11 @@ public class UseItem implements ActionSurvivor {
         return true;
         }
 
+    /**
+     * Returns a string representation of the Action use item.
+     *
+     * @return The string "use item".
+     */
     public String toString(){
         return "use item";
     }

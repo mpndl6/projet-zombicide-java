@@ -37,6 +37,7 @@ public class BIGgoogles extends Utility{
 
     /**
      *
+     * @return the string of the name of object "Big googles"
      */
     public String toString(){
         return "BIG googles";

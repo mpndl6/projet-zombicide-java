@@ -27,8 +27,12 @@ public class Carabine extends Weapon {
         return 2;
     }
 
+
     /**
+     * Performs the action of using the carabine.
+     * This method is called when a survivor uses the carabine as a utility item.
      *
+     * @param callable the callable object used for the action(Zombie).
      */
     @Override
     public void use(Callable callable){

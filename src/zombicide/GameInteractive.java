@@ -26,9 +26,7 @@ public class GameInteractive extends Game{
         super(map);
     }
 
-    /**
-     *
-     */
+
     /**
      * Run the game
      */

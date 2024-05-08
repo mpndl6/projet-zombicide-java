@@ -85,6 +85,11 @@ public class AttackSurvivor implements ActionSurvivor {
         return weapon.attack(zombie);
     }
 
+    /**
+     * Returns a string representation of the ActionSurvivor.
+     *
+     * @return The string "attack".
+     */
     public String toString(){
         return "attack";
     }

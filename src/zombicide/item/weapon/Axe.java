@@ -45,7 +45,11 @@ public class Axe extends Weapon implements CanOpenDoor {
     }
     
     /**
+     * Performs the action of using the axe.
+     * This method is called when a survivor uses the axe as a utility item.
+     * The axe can be used for various purposes, such as attacking zombies or breaking obstacles.
      *
+     * @param callable the callable object used for the action(Zombie).
      */
     @Override
     public void use(Callable callable){

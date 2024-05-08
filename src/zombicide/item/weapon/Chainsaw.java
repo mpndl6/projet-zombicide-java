@@ -28,7 +28,10 @@ public class Chainsaw extends Weapon  {
     }
 
     /**
+     * Performs the action of using the chainsaw.
+     * This method is called when a survivor uses the chainsaw as a utility item.
      *
+     * @param callable the callable object used for the action(Zombie).
      */
     @Override
     public void use(Callable callable){

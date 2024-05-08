@@ -51,7 +51,10 @@ public class Pistol extends Weapon implements CanOpenDoor {
     }
 
     /**
+     * Performs the action of using the Pistol.
+     * This method is called when a survivor uses the Pistol as a utility item.
      *
+     * @param callable the callable object used for the action(Zombie).
      */
     @Override
     public void use(Callable callable){

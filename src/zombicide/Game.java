@@ -327,25 +327,6 @@ public class Game {
         return map.NoisierCell();
     }
 
-    protected void spawnRandomItem(int howmany) {
-        Random randomX = new Random();
-        Random randomY = new Random();
-        for (int i = 0; i < 10; i++) {
-            map.getCell(new Position(randomX.nextInt(map.getWidth()), randomY.nextInt(map.getHeight()))).addItem(new Vial());
-        }
-        for (int i = 0; i < 10; i++) {
-            map.getCell(new Position(randomX.nextInt(map.getWidth()), randomY.nextInt(map.getHeight()))).addItem(new MasterKey(map));
-        }
-        for (int i = 0; i < 10; i++) {
-            map.getCell(new Position(randomX.nextInt(map.getHeight()), randomY.nextInt(map.getHeight()))).addItem(new IRGoogles(map));
-        }
-        for (int i = 0; i < 10; i++) {
-            map.getCell(new Position(randomX.nextInt(map.getWidth()), randomY.nextInt(map.getHeight()))).addItem(new Plan(map));
-        }
-        for (int i = 0; i < 10; i++) {
-            map.getCell(new Position(randomX.nextInt(map.getWidth()), randomY.nextInt(map.getHeight()))).addItem(new FirstAidKit());
-        }
-    }
 
 
     /**
