@@ -133,6 +133,7 @@ On doit effectué l'appartion des zombies quand on ouvre une porte.
 
 
 ## Livrable 4
+//Le texte pour dire comment executer
 
 ### Atteinte des objectifs
 
