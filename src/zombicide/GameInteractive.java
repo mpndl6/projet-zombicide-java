@@ -113,7 +113,7 @@ public class GameInteractive extends Game{
                 break;
             }
 
-            this.spawnZombies(3);
+            this.spawnZombies(howManyZombiesToGenerate());
 
 
 
