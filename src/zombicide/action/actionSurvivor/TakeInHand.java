@@ -104,6 +104,11 @@ public class TakeInHand implements ActionSurvivor {
         return true;
 }
 
+    /**
+     * Returns a string representation of the Action take in hand.
+     *
+     * @return The string "take in hand".
+     */
     public String toString(){
         return "take in hand";
     }

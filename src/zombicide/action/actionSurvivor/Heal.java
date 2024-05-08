@@ -87,6 +87,11 @@ public class Heal implements ActionSurvivor{
         return true;
     }
 
+    /**
+     * Returns a string representation of the Action Heal.
+     *
+     * @return The string "heal".
+     */
     public String toString(){
         return "heal";
     }

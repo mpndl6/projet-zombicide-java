@@ -75,6 +75,11 @@ public class MakeNoise implements ActionSurvivor {
         return false;
     }
 
+    /**
+     * Returns a string representation of the Action make noise.
+     *
+     * @return The string "make noise".
+     */
     public String toString(){
         return "make noise";
     }

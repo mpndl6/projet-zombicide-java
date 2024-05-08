@@ -131,6 +131,11 @@ protected Survivor survivor;
         return false;
     }
 
+    /**
+     * Returns a string representation of the Action Search.
+     *
+     * @return The string "search".
+     */
     public String toString(){
         return "search";
     }

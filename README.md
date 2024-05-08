@@ -133,10 +133,47 @@ On doit effectué l'appartion des zombies quand on ouvre une porte.
 
 
 ## Livrable 4
+//Le texte pour dire comment executer
 
 ### Atteinte des objectifs
 
+Nous avons modélisé une classe game afin de gérer le déroulement et la gestion du jeu.
+
+On a utilisé des interfaces telles que ListChooser et Callable afin de gérer les choix des actions et des élements interactifs dans le jeu. Cela permet une certaines flexibilité dans la gestion des choix des joueurs.
+
+On a choisi de faire une liste d'acteurs, de survivants et de zombie afin de facilité la gestion et la manipulation des entités pendant le déroulement du jeu 
+
+Les zombies se dirige vers les zones les plus bruyantes.
+
+Nos actors maintenant se déplace de manière à ne pas traverser les murs (Correction de l'action MoveAside)
+
+Quand un survivant ouvre une porte il y'a des zombies qui apparaissent.
+
+Dans le livrable4 on a le choix au début du nombre de rooms continentale,drugstore et aussi de lancer le jeu de manière interactifs ou que le jeu se joue de manière automatique.
+
+A l'inialisation du jeu on a décidé d'assigner a chaque survivant toutes les actions d'un survivant de base et après selon son rôle il aura des actions supplémentaires ou non.
+
+Pour finir on a conceptualisé une méthode qui gère tout le déroulement du jeu (run) avec une phase de survivant, une phase de zombie. A chaque fin de tour tous les acteurs mort sont supprimés du jeu, le niveau de bruit est remis a zero,les points d'actions sont remis  puis on fait apparaitre un nombre de zombie selon l'xp des survivants.
+
+Le jeu s'arrete avec une méthode IsFinished qui verifie si il n'y a plus de survivants,s'il n'y a plus de zombie ou si ils ont eu l'xp nécessaire pour gagner.
+
+Pour l'apparition des différents type de zombies nous avons choisi d'utiliser des taux d'apparitions différentes selon le type de zombie donc l'abominations aura un taux beaucoup plus bas que un zombie de type Walker.
+
+**Pour Conclure**
+
+- Nous avons bien modélisé la ville ainsi que l'algorythme de création de celle-ci.
+- Nous avons bien modélisé les différents acteurs ainsi que les différents équipements.
+- Nous avons bien modélisé les différentes actions du jeu.
+- La manière que nous avons modélisé tout le projet est ouvert a l'extension c'est à dire que si nous voulous ajouté des actions, des acteurs ,équipements cela sera possible sans que le jeu ne puissent plus se lancer.
+
 ### Difficultés restant à résoudre
+
+Améliorer le comportement des survivants quand le jeu se déroule de manière automatique(algorythme intelligent).
+
+Avoir un meilleur choix des zombies disponibles lors de l'action Attack.
+
+
+
 
 # Journal de bord
 

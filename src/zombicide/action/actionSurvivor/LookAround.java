@@ -89,6 +89,11 @@ public boolean make(Callable callable){
     return false;
 }
 
+/**
+ * Returns a string representation of the Action LookAround.
+ *
+ * @return The string "LookAround".
+ */
     public String toString(){
         return "look around";
     }

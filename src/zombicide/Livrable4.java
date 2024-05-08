@@ -23,7 +23,6 @@ import java.util.Scanner;
 
 public class Livrable4 {
     public static void main(String[] args) {
-        Zombie walker = new Abomination();
         List<Cell> listrooms = new ArrayList<>();
         List<Cell> liststreets = new ArrayList<>();
 

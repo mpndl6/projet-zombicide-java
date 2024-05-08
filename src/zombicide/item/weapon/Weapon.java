@@ -83,9 +83,14 @@ public abstract class Weapon extends Item {
     public abstract String toString();
 
     /**
+     * Attacks a zombie with the weapon.
+     * This method calculates if the attack is possible based on the position of the survivor,
+     * the position of the zombie, and the range of the weapon.
+     * If the attack is possible, the method rolls dice to determine the success of the attack,
+     * inflicts damage to the zombie if the attack is successful, and makes noise.
      *
-     * @param zombie
-     * @return
+     * @param zombie the zombie to be attacked.
+     * @return true if the attack is successful, false otherwise.
      */
     public boolean attack(Zombie zombie){
         Position posOfSuvivor = this.survivor.getCell().getPosition();
