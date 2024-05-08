@@ -221,10 +221,12 @@ public class Game {
         while (iterator.hasNext()) {
             Actor actor = iterator.next();
             if (!actor.isAlive()) {
+                Cell cell = actor.getCell();
+                if (cell != null) {
+                    cell.removeActor(actor);
+                }
                 iterator.remove();
-                actor.getCell().removeActor(actor);// supp l'acteur mort
                 actor.setGame(null);
-                actors.remove(actor);
                 if (actor instanceof Survivor) {
                     listSurvivors.remove(actor);
                 } else if (actor instanceof Zombie) {
@@ -448,7 +450,7 @@ public class Game {
                 break;
             }
 
-            this.spawnZombies(3);
+            this.spawnZombies(howManyZombiesToGenerate());
 
 
 
