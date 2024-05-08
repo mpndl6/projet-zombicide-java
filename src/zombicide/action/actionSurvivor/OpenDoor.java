@@ -140,7 +140,7 @@ public List<Callable> getChoices() {
     Iterator<Callable> iterator = newList.iterator();
     while (iterator.hasNext()) {
         Callable l = iterator.next();
-        if (mapOfSurvivor.isWall(this.survivor.getCell(), (Location)l) || mapOfSurvivor.roomThere(this.survivor.getCell(), (Location)l)!= CellType.ROOM) {
+        if (mapOfSurvivor.isWall(this.survivor.getCell(), (Location)l) || (mapOfSurvivor.roomThere(this.survivor.getCell(), (Location)l)!= CellType.ROOM && !(this.survivor.getCell() instanceof Room)) || mapOfSurvivor.isOpenDoor(this.survivor.getCell(), (Location)l)) {
             iterator.remove();
         }
     }
