@@ -58,7 +58,7 @@ public class GameTest {
 
         assertEquals(game, zombie.getGame());
     }
-/**
+
     @Test
     public void testRemoveDeadActors() {
         Survivor survivor1 = new Survivor("1");
@@ -82,7 +82,7 @@ public class GameTest {
         game.removeDeadActors();
 
         assertEquals(1,game.getListZombies().size());
-    }*/
+    }
 
     @Test
     public void testGetGlobalXP() {
