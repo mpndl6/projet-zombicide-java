@@ -24,8 +24,8 @@ import java.util.Scanner;
 public class Livrable4 {
     public static void main(String[] args) {
         Zombie walker = new Abomination();
-        List<Cell> listrooms = new ArrayList<Cell>();
-        List<Cell> liststreets = new ArrayList<Cell>();
+        List<Cell> listrooms = new ArrayList<>();
+        List<Cell> liststreets = new ArrayList<>();
 
 
 
@@ -63,6 +63,7 @@ public class Livrable4 {
 
         System.out.println(game.getMap());
         game.setMap(trainningMap);
+
         Survivor gab = new Healer("gab");
         Survivor jul = new Nosy("jul");
         Survivor youss = new Fighter("youss");

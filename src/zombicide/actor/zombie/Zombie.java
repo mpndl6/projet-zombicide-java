@@ -71,13 +71,13 @@ public ActorType getTypeOfActor() {
  * @return the description of the zombie
  */
 public String toString(){
-    String description=  "Zombie type : "+ super.nickName;
+    String description=  "Zombie type : "+ super.nickName+"\nPosition : "+super.getCell().getPosition();
     if (super.alive)
         description+="\nStatus : alive";
     else
         description+="\nStatus : dead...";
 
-    description+="\nDamage : "+this.howManyDamages()+
+    description+="\nLifePoints : "+super.lifePoint+"\nDamage : "+this.howManyDamages()+
             "\nKills : "+super.kills;
 
     return description+"";

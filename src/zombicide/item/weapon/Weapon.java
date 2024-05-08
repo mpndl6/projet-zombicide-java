@@ -103,6 +103,7 @@ public abstract class Weapon extends Item {
             if(this.rangeMax >= dY && dY >= this.rangeMin){
                 int resDice = this.survivor.diceThrows(this.howManyThrows());
                 if(resDice >= this.threshold){
+                    System.out.println("\nresult of dice throw "+resDice+" attack can be realised.\n");
                     for(int i = 0 ; i < this.damage ; i++){
                         zombie.beingAttacked();
                     }
