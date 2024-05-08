@@ -14,8 +14,8 @@ public class Heal implements ActionSurvivor{
     public static final int HEAL_ACTION_COST = 1;
 
     /**
-     * Constructs a new LookAround object with the specified Survivor.
-     * @param s the Survivor associated with this action.
+     * Constructs a new heal action associated with the specified Survivor.
+     * @param s the Survivor associated with this heal action.
      */
     public Heal(Survivor s) {
         this.survivor = s;
