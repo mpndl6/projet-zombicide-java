@@ -76,7 +76,6 @@ public class GameInteractive extends Game{
                     }
 
                 }
-                System.out.println(s);
                 System.out.println();
             }
 
