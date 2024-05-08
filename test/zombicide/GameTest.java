@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import zombicide.actor.survivor.Survivor;
+import zombicide.actor.zombie.Zombie;
 import zombicide.map.Map;
 
 public class GameTest {
@@ -35,6 +36,19 @@ public class GameTest {
 
         assertEquals(map.getCrossRoad(), survivor.getCell());
     }
+
+    @Test
+    public void testAddZombieGame() {
+        Zombie zombie = new Zombie();
+
+        game.addZombieGame(zombie);
+
+        assertTrue(game.getListZombies().contains(zombie));
+
+        assertEquals(game, zombie.getGame());
+    }
+
+
 }
 
 
